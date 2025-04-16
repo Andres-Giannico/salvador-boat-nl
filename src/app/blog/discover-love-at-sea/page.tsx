@@ -19,12 +19,12 @@ export default function BlogPostPage() {
       </figure>
 
       <p className="lead text-lg text-gray-600 mb-6">
-        Ibiza isn't just about legendary nightlife; it's also an island brimming with romance, especially when experienced from the gentle embrace of the Mediterranean Sea. Imagine sharing a magical sunset with your loved one, cocktail in hand, surrounded by crystal-clear waters and stunning coastal views. That's the reality aboard a Salvador Ibiza boat trip.
+        Ibiza isn&apos;t just about legendary nightlife; it&apos;s also an island brimming with romance, especially when experienced from the gentle embrace of the Mediterranean Sea. Imagine sharing a magical sunset with your loved one, cocktail in hand, surrounded by crystal-clear waters and stunning coastal views. That&apos;s the reality aboard a Salvador Ibiza boat trip.
       </p>
 
       <h2 className="text-2xl font-semibold mt-8 mb-3">Why Choose a Sunset Boat Trip for Romance?</h2>
       <p>
-        There's something inherently romantic about being on the water as the day transitions to night. The changing colours of the sky, the reflection on the calm sea, and the feeling of being away from the hustle and bustle create an intimate atmosphere perfect for couples. Our sunset trip (17:00–21:00) is specifically designed to capture this magic.
+        There&apos;s something inherently romantic about being on the water as the day transitions to night. The changing colours of the sky, the reflection on the calm sea, and the feeling of being away from the hustle and bustle create an intimate atmosphere perfect for couples. Our sunset trip (17:00–21:00) is specifically designed to capture this magic.
       </p>
       <ul className="list-disc list-inside my-4 space-y-1">
         <li><strong>Spectacular Views:</strong> Witness the world-famous Ibiza sunset from the best vantage point – the sea!</li>
@@ -34,11 +34,11 @@ export default function BlogPostPage() {
 
       <h2 className="text-2xl font-semibold mt-8 mb-3">Making it Extra Special</h2>
       <p>
-        Looking to elevate the romance? Consider booking a <a href="/private-charter" className="text-blue-600 hover:underline">Private Charter</a>. You'll have the entire 'Salvador' boat to yourselves, allowing for a completely personalized and intimate experience. Perfect for proposals, anniversaries, or simply celebrating your love in style.
+        Looking to elevate the romance? Consider booking a <a href="/private-charter" className="text-blue-600 hover:underline">Private Charter</a>. You&apos;ll have the entire &apos;Salvador&apos; boat to yourselves, allowing for a completely personalized and intimate experience. Perfect for proposals, anniversaries, or simply celebrating your love in style.
       </p>
 
       <blockquote className="border-l-4 border-blue-500 pl-4 italic text-gray-700 my-6">
-        "The sunset trip with Salvador Ibiza was the most romantic experience of our holiday. Absolutely unforgettable!" - Happy Couple (Placeholder Testimonial)
+        &quot;The sunset trip with Salvador Ibiza was the most romantic experience of our holiday. Absolutely unforgettable!&quot; - Happy Couple (Placeholder Testimonial)
       </blockquote>
 
       <p>

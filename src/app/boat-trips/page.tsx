@@ -3,7 +3,7 @@ export default function BoatTripsPage() {
     <div>
       <h1 className="text-3xl font-bold mb-4">All-Inclusive Boat Trips</h1>
       <p className="mb-4">
-        Join us for an unforgettable all-inclusive boat trip experience around Ibiza's stunning coastline.
+        Join us for an unforgettable all-inclusive boat trip experience around Ibiza&apos;s stunning coastline.
       </p>
       <h2 className="text-2xl font-semibold mb-2">Trip Options:</h2>
       <ul className="list-disc list-inside mb-4">

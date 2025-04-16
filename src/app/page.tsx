@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image'; // Opcional, para imagen de héroe
+// import Image from 'next/image'; // Opcional, para imagen de héroe - Comentado porque no se usa directamente aquí
 
 export default function HomePage() {
   return (
