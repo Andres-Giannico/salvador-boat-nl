@@ -38,12 +38,12 @@ const Navbar = () => {
   const currentFlag = locales.find(l => l.code === currentLocale)?.flag || '🇬🇧';
 
   const links = [
-    { href: '/', label: 'Home' },
-    { href: '/boat-trips', label: 'Boat Trips' },
-    { href: '/private-charter', label: 'Private Charter' },
-    { href: '/gallery', label: 'Gallery' },
+    { href: '/', label: 'HOME' },
+    { href: '/boat-trips', label: 'BOAT TRIPS' },
+    { href: '/private-charter', label: 'PRIVATE CHARTER' },
+    { href: '/gallery', label: 'GALLERY' },
     { href: '/faq', label: 'FAQ' },
-    { href: '/contact', label: 'Contact' },
+    { href: '/contact', label: 'CONTACT' },
   ];
 
   // Updated styles with more modern look
@@ -164,7 +164,7 @@ const Navbar = () => {
             >
               <Link href={currentLocale === 'en' ? '/contact' : `/${currentLocale}/contact`}>
                 <span className={ctaClass}>
-                  Book Now
+                  BOOK NOW
                 </span>
               </Link>
             </motion.div>
@@ -284,7 +284,7 @@ const Navbar = () => {
                     whileHover={{ scale: 1.02 }}
                     className="block text-center py-3 px-4 rounded-xl font-medium bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-lg hover:shadow-xl transition-all duration-300"
                   >
-                    Book Now
+                    BOOK NOW
                   </motion.span>
                 </Link>
               </div>
