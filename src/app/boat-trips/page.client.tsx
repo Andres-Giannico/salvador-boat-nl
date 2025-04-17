@@ -174,8 +174,8 @@ export default function BoatTripsClientPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 drop-shadow-lg">
-            Ibiza Boat Trips
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-4 drop-shadow-xl leading-tight">
+            Ibiza Boat <span className="text-cyan-400">Trips</span>
           </h1>
           <p className="text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto opacity-95 mb-8 drop-shadow-md">
             Unforgettable all-inclusive excursions: Day Trip adventures & magical Sunset cruises.
