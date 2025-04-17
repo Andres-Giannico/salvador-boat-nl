@@ -43,7 +43,6 @@ const Navbar = () => {
     { href: '/private-charter', label: 'PRIVATE CHARTER' },
     { href: '/gallery', label: 'GALLERY' },
     { href: '/faq', label: 'FAQ' },
-    { href: '/contact', label: 'CONTACT' },
   ];
 
   // Updated styles with more modern look
@@ -162,7 +161,7 @@ const Navbar = () => {
               transition={{ delay: 0.6, duration: 0.5 }}
               className="ml-4"
             >
-              <Link href={currentLocale === 'en' ? '/contact' : `/${currentLocale}/contact`}>
+              <Link href={currentLocale === 'en' ? '/book-now' : `/${currentLocale}/book-now`}>
                 <span className={ctaClass}>
                   BOOK NOW
                 </span>
@@ -277,7 +276,7 @@ const Navbar = () => {
               {/* CTA Button Mobile */}
               <div className="mt-6 px-4">
                 <Link 
-                  href={currentLocale === 'en' ? '/contact' : `/${currentLocale}/contact`} 
+                  href={currentLocale === 'en' ? '/book-now' : `/${currentLocale}/book-now`} 
                   onClick={() => setIsOpen(false)}
                 >
                   <motion.span

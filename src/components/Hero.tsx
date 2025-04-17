@@ -18,7 +18,7 @@ const fadeIn = (delay = 0) => ({
   }
 });
 
-const Hero = () => {
+export default function Hero() {
   // Stars for ratings
   const stars = Array(5).fill("⭐");
 
@@ -103,7 +103,7 @@ const Hero = () => {
             whileTap={{ scale: 0.95 }}
             className="shadow-lg"
           >
-            <Link href="/contact">
+            <Link href="/book-now" passHref legacyBehavior>
               <span className="bg-white text-blue-600 hover:bg-gray-100 rounded-full text-base sm:text-lg py-3 px-8 inline-flex items-center justify-center transition-all duration-300 font-semibold">
                 BOOK NOW
               </span>
@@ -138,6 +138,4 @@ const Hero = () => {
       </div>
     </div>
   );
-};
-
-export default Hero; 
+} 

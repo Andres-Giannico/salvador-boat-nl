@@ -128,6 +128,27 @@ export default function PrivateCharterClientPage() {
     y.set(scrollY);
   }, [scrollY, y]);
 
+  // --- NEW: Handler function for booking buttons ---
+  const handleBookButtonClick = () => {
+    setShowDirectWidget(true);
+    // Ensure the element exists and scroll to it
+    // Use requestAnimationFrame or setTimeout to wait for potential DOM update
+    requestAnimationFrame(() => {
+       const widgetSection = document.getElementById('direct-booking-section');
+        if (widgetSection) {
+          widgetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          // Fallback if element not found immediately (e.g., first click)
+          setTimeout(() => {
+            const widgetSectionRetry = document.getElementById('direct-booking-section');
+            if (widgetSectionRetry) {
+               widgetSectionRetry.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }, 150); // Slightly longer delay for fallback
+        }
+    });
+  };
+
   const closeBookingModal = () => {
     setIsBookingModalOpen(false);
   };
@@ -191,9 +212,8 @@ export default function PrivateCharterClientPage() {
       }
     };
 
-    // Let the script load first, then initialize
-    // The Script component below handles loading
-    const scriptLoadTimeout = setTimeout(initializeWidget, 1000);
+    // Initialize widget after a short delay (maybe link it to script load?)
+    const scriptLoadTimeout = setTimeout(initializeWidget, 500); // Adjusted delay
     
     return () => clearTimeout(scriptLoadTimeout);
     
@@ -403,7 +423,7 @@ export default function PrivateCharterClientPage() {
               </motion.div>
             </motion.div>
             
-            {/* Botones */}
+            {/* Botones - Hero */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -411,7 +431,8 @@ export default function PrivateCharterClientPage() {
               className="flex flex-wrap justify-center gap-4"
             >
               <motion.button
-                onClick={() => setShowDirectWidget(true)}
+                id="hero-book-button"
+                onClick={handleBookButtonClick}
                 className="inline-block bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold py-4 px-8 rounded-lg shadow-[0_10px_25px_-5px_rgba(59,130,246,0.5)] transition duration-300 text-lg"
                 whileHover={{ 
                   scale: 1.05, 
@@ -432,9 +453,10 @@ export default function PrivateCharterClientPage() {
           </div>
         </section>
 
-        {/* Direct Booking Widget Section */}
+        {/* Direct Booking Widget Section - ADD ID HERE */}
         {showDirectWidget && (
           <motion.section
+            id="direct-booking-section"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -615,8 +637,10 @@ export default function PrivateCharterClientPage() {
                       </div>
                     </div>
 
+                    {/* ADD ID HERE */}
                     <button
-                      onClick={() => setShowDirectWidget(true)}
+                      id="sidebar-book-button"
+                      onClick={handleBookButtonClick}
                       className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
                     >
                       Book Your Charter Now
@@ -642,7 +666,7 @@ export default function PrivateCharterClientPage() {
           </div>
         </div>
         
-        {/* Final call to action */}
+        {/* Final call to action - ADD ID HERE */}
         <motion.section 
           className="relative py-20 bg-gradient-to-r from-blue-600 to-cyan-500 mt-16 overflow-hidden"
           initial={{ opacity: 0 }}
@@ -667,7 +691,8 @@ export default function PrivateCharterClientPage() {
                 Charter the elegant Salvador boat and create unforgettable memories with your group
               </p>
               <motion.button
-                onClick={() => setShowDirectWidget(true)}
+                id="cta-book-button"
+                onClick={handleBookButtonClick}
                 className="inline-block bg-white text-blue-600 font-bold py-4 px-10 rounded-lg shadow-xl transition duration-300 text-lg hover:bg-opacity-95"
                 whileHover={{ scale: 1.05, boxShadow: "0 20px 40px -12px rgba(0, 0, 0, 0.2)" }}
                 whileTap={{ scale: 0.98 }}
