@@ -19,7 +19,6 @@ export default function TurbookingsPage() {
           Turbookings provides our partners with a powerful platform to manage sales, track commissions, and access promotional materials.
           Learn more about earning potential on our <a href="/partners/earnings" className="text-blue-600 hover:underline">Earnings page</a>.
         </p>
-        {/* You might add a link to Turbookings or a specific partner portal if available */}
       </section>
     </div>
   );
