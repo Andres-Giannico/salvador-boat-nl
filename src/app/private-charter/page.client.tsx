@@ -19,7 +19,7 @@ import WhyChooseUsCard from '@/components/trips/WhyChooseUsCard';
 // --- Datos Específicos del Charter Privado ---
 
 const galleryImages = [
-  { src: "/images/salvador_yacht.jpg", alt: "Luxury private boat charter sailing in Ibiza" },
+  { src: "/images/barco1.png", alt: "Luxury private boat charter sailing in Ibiza" },
   { src: "/images/barco1.png", alt: "Group relaxing on Salvador Ibiza deck" },
   { src: "/images/barco2.png", alt: "View from Salvador Ibiza boat" },
   { src: "/images/barco dron .jpg", alt: "Aerial view of Salvador Ibiza boat" },
@@ -321,7 +321,7 @@ export default function PrivateCharterClientPage() {
             }}
           >
             <Image
-              src="/images/salvador_yacht.jpg"
+              src="/images/barco1.png"
               alt="Luxury private boat charter sailing in Ibiza"
               fill
               priority
