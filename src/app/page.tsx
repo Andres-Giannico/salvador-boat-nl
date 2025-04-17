@@ -1,11 +1,77 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
+// Removed unused Image import
 import Hero from '@/components/Hero';
+import TripCard from '@/components/ui/TripCard';
 import { motion } from 'framer-motion';
 
-// Animación para elementos que aparecen al hacer scroll
+// --- Trip Data (Consider moving to a central file/API later) ---
+const middayTrip = {
+  imageUrl: "/images/barcosalvadorsmall.jpg",
+  imageAlt: "Salvador Ibiza Midday Trip",
+  title: "Day Trip",
+  badgeText: "14:00 - 17:00",
+  badgeBgColor: "bg-blue-500",
+  features: [
+    "Visit Cala Gració, Cala Salada & Punta Galera",
+    "Swimming & snorkeling in crystal clear waters",
+    "Unlimited drinks (beer, wine, cava, sangria, soft drinks)",
+    "Fresh fruit & snacks included",
+    "Paddleboarding, kayaking & snorkeling gear"
+  ],
+  price: "€80 / person",
+  priceColor: "text-blue-600",
+  ctaHref: "/contact", 
+  ctaBgColor: "bg-blue-600",
+  ctaHoverBgColor: "hover:bg-blue-700",
+  detailsHref: "/boat-trips/day-trip"
+};
+
+const sunsetTrip = {
+  imageUrl: "/images/barco dron .jpg",
+  imageAlt: "Salvador Ibiza Sunset Trip",
+  title: "Sunset Trip",
+  badgeText: "18:00 - 21:00",
+  badgeBgColor: "bg-orange-500",
+  features: [
+    "Iconic sunset views near Es Vedrà",
+    "Swimming in beautiful coves",
+    "Unlimited drinks (beer, wine, cava, sangria, soft drinks)",
+    "Light dinner / snacks included",
+    "Paddleboarding, kayaking & snorkeling gear"
+  ],
+  price: "€80 / person",
+  priceColor: "text-orange-600",
+  ctaHref: "/contact",
+  ctaBgColor: "bg-orange-500",
+  ctaHoverBgColor: "hover:bg-orange-600",
+  detailsHref: "/boat-trips/sunset-trip"
+};
+
+const privateCharter = {
+  imageUrl: "/images/salvador_yacht.jpg",
+  imageAlt: "Salvador Ibiza Private Charter",
+  title: "Private Charter",
+  badgeText: "CUSTOM",
+  badgeBgColor: "bg-teal-500",
+  features: [
+    "Exclusive boat use for your group",
+    "Customizable route & schedule (4h / 8h)",
+    "Skipper & watersports included",
+    "Perfect for celebrations, families, corporate events"
+  ],
+  price: "From €1350",
+  priceColor: "text-teal-600",
+  ctaHref: "/contact",
+  ctaBgColor: "bg-teal-500",
+  ctaHoverBgColor: "hover:bg-teal-600",
+  detailsHref: "/private-charter",
+  detailsText: "Inquire Now"
+};
+// --- End Trip Data ---
+
+// Animation variants
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
   visible: { 
@@ -14,14 +80,12 @@ const fadeInUp = {
     transition: { duration: 0.5 }
   }
 };
-
-// Animación para contenedores con elementos hijos
 const staggerContainer = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2
+      staggerChildren: 0.15 // Slightly faster stagger
     }
   }
 };
@@ -48,12 +112,12 @@ export default function HomePage() {
             Our all-inclusive boat trips offer the perfect way to explore this magical island.
           </p>
           <div className="flex justify-center">
-            <div className="w-24 h-1 bg-[#1E88E5] rounded-full"></div>
+            <div className="w-24 h-1 bg-blue-500 rounded-full"></div>
           </div>
         </div>
       </motion.section>
 
-      {/* Featured Trips Section */}
+      {/* Featured Trips Section - Using TripCard */}
       <section className="py-20 bg-gray-50">
         <motion.div 
           className="container mx-auto px-4 sm:px-6 lg:px-8"
@@ -64,106 +128,18 @@ export default function HomePage() {
         >
           <motion.div variants={fadeInUp} className="text-center mb-16">
             <h2 className="text-4xl font-display font-bold mb-6 text-gray-900">
-              Our Popular Excursions
+              OUR MOST POPULAR EXPERIENCES
             </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Choose from our carefully designed trips to experience the best of Ibiza from the sea
+            <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+              Choose from our highly-rated shared excursions or book the boat just for your group.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Midday Trip Card */}
-            <motion.div 
-              variants={fadeInUp}
-              className="bg-white rounded-xl shadow-soft overflow-hidden group"
-            >
-              <div className="relative h-64 overflow-hidden">
-                <Image
-                  src="/images/barcosalvadorsmall.jpg"
-                  alt="Midday Trip - Salvador Ibiza"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                <div className="absolute bottom-4 left-4 bg-[#1E88E5] text-white px-4 py-1 rounded-full text-sm font-medium">
-                  12:00 - 16:00
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-semibold mb-3 text-gray-900">Midday All-Inclusive Trip</h3>
-                <p className="text-gray-700 mb-5">
-                  Sunbathe, swim, snorkel, and enjoy drinks & snacks under the midday Ibiza sun.
-                </p>
-                <Link href="/boat-trips" className="text-[#1E88E5] font-medium hover:text-[#1976D2] inline-flex items-center">
-                  Learn More
-                  <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </Link>
-              </div>
-            </motion.div>
-
-            {/* Sunset Trip Card */}
-            <motion.div 
-              variants={fadeInUp}
-              className="bg-white rounded-xl shadow-soft overflow-hidden group"
-            >
-              <div className="relative h-64 overflow-hidden">
-                <Image
-                  src="/images/barcodesdedron.jpg"
-                  alt="Sunset Trip - Salvador Ibiza"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                <div className="absolute bottom-4 left-4 bg-[#FFA000] text-white px-4 py-1 rounded-full text-sm font-medium">
-                  17:00 - 21:00
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-semibold mb-3 text-gray-900">Sunset All-Inclusive Trip</h3>
-                <p className="text-gray-700 mb-5">
-                  Experience the breathtaking Ibiza sunset from the sea with music, drinks, and good vibes.
-                </p>
-                <Link href="/boat-trips" className="text-[#1E88E5] font-medium hover:text-[#1976D2] inline-flex items-center">
-                  Learn More
-                  <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </Link>
-              </div>
-            </motion.div>
-
-            {/* Private Charter Card */}
-            <motion.div 
-              variants={fadeInUp}
-              className="bg-white rounded-xl shadow-soft overflow-hidden group"
-            >
-              <div className="relative h-64 overflow-hidden">
-                <Image
-                  src="/images/barco dron .jpg"
-                  alt="Private Charter - Salvador Ibiza"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                <div className="absolute bottom-4 left-4 bg-[#26A69A] text-white px-4 py-1 rounded-full text-sm font-medium">
-                  Custom Hours
-                </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-semibold mb-3 text-gray-900">Private Charter</h3>
-                <p className="text-gray-700 mb-5">
-                  Charter the Salvador boat exclusively for your group, tailored to your preferences.
-                </p>
-                <Link href="/private-charter" className="text-[#1E88E5] font-medium hover:text-[#1976D2] inline-flex items-center">
-                  Learn More
-                  <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </Link>
-              </div>
-            </motion.div>
+          {/* Use TripCard component for trips */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 max-w-6xl mx-auto">
+             <TripCard {...middayTrip} delay={0.1} />
+             <TripCard {...sunsetTrip} delay={0.25} />
+             <TripCard {...privateCharter} delay={0.4} />
           </div>
         </motion.div>
       </section>
@@ -176,7 +152,7 @@ export default function HomePage() {
         viewport={{ once: true, amount: 0.1 }}
         variants={staggerContainer}
       >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div variants={fadeInUp} className="text-center mb-16">
             <h2 className="text-4xl font-display font-bold mb-6 text-gray-900">
               Why Choose Salvador Ibiza
@@ -189,46 +165,46 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Feature 1 */}
             <motion.div variants={fadeInUp} className="text-center p-6">
-              <div className="bg-[#1E88E5]/10 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-[#1E88E5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
+              <div className="bg-blue-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" /></svg>
               </div>
               <h3 className="text-xl font-semibold mb-3 text-gray-900">All-Inclusive</h3>
-              <p className="text-gray-700">All drinks, snacks, and equipment included in our trips.</p>
+              <p className="text-gray-700 text-sm">
+                Drinks, snacks, paddleboards, snorkeling gear - all included.
+              </p>
             </motion.div>
 
             {/* Feature 2 */}
             <motion.div variants={fadeInUp} className="text-center p-6">
-              <div className="bg-[#1E88E5]/10 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-[#1E88E5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+              <div className="bg-blue-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-gray-900">Small Groups</h3>
-              <p className="text-gray-700">Limited capacity ensures personal attention and comfort.</p>
+              <h3 className="text-xl font-semibold mb-3 text-gray-900">Perfect Timing</h3>
+              <p className="text-gray-700 text-sm">
+                Midday sun or magical sunset trips designed for the best experience.
+              </p>
             </motion.div>
 
             {/* Feature 3 */}
             <motion.div variants={fadeInUp} className="text-center p-6">
-              <div className="bg-[#1E88E5]/10 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-[#1E88E5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                </svg>
+              <div className="bg-blue-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
               </div>
               <h3 className="text-xl font-semibold mb-3 text-gray-900">Expert Crew</h3>
-              <p className="text-gray-700">Professional and friendly staff to ensure your safety and enjoyment.</p>
+              <p className="text-gray-700 text-sm">
+                Professional, friendly, and multilingual staff to ensure your enjoyment.
+              </p>
             </motion.div>
 
             {/* Feature 4 */}
             <motion.div variants={fadeInUp} className="text-center p-6">
-              <div className="bg-[#1E88E5]/10 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-[#1E88E5]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+              <div className="bg-blue-100 p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
+                 <svg className="w-8 h-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 16.382V5.618a1 1 0 00-1.447-.894L15 7m-6 3l6-3m0 0l6 3m-6-3V10" /></svg>
               </div>
               <h3 className="text-xl font-semibold mb-3 text-gray-900">Secret Spots</h3>
-              <p className="text-gray-700">Visit hidden coves and exclusive locations only accessible by boat.</p>
+              <p className="text-gray-700 text-sm">
+                Visit hidden coves and exclusive locations away from the crowds.
+              </p>
             </motion.div>
           </div>
         </div>
@@ -240,17 +216,17 @@ export default function HomePage() {
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeInUp}
-        className="py-20 bg-gradient-to-r from-[#1E88E5] to-[#26A69A] text-white"
+        className="py-20 bg-gradient-to-r from-blue-600 to-cyan-500 text-white"
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-display font-bold mb-8">Ready for an Unforgettable Experience?</h2>
           <p className="text-xl max-w-3xl mx-auto mb-10 text-white/90">
             Book your Salvador Ibiza boat trip today and create memories that will last a lifetime.
           </p>
-          <Link href="/contact">
-            <span className="bg-white text-[#1E88E5] hover:bg-white/90 rounded-full py-4 px-10 text-lg font-medium shadow-xl inline-flex items-center justify-center">
-              Book Now
-            </span>
+          <Link href="/contact"
+             className="bg-white text-blue-600 hover:bg-gray-100 shadow-xl py-3 px-8 rounded-full font-semibold text-lg inline-flex items-center transition-all duration-300 transform hover:scale-105"
+          >
+            Reserve Your Spot Now
           </Link>
         </div>
       </motion.section>
