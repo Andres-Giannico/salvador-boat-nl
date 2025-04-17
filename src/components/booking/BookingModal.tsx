@@ -11,14 +11,29 @@ interface BookingModalProps {
   productId: number;
   companyId?: number;
   channelId?: number;
-  customProperties?: Record<string, any>;
+  customProperties?: Record<string, unknown>;
   widgetContainerId?: string; // Optional ID for the container
 }
 
-// Reinstating the global declaration
+// Define TurboBooking interface
+interface TurboBookingInstance {
+  run: (
+    container: HTMLElement, 
+    config: {
+      companyId: number;
+      productId: number;
+      channelId: number;
+      customProperties: Record<string, unknown>;
+    }
+  ) => void;
+}
+
+// Extend Window interface
 declare global {
   interface Window {
-    TurboBooking: any; // eslint-disable-line @typescript-eslint/no-explicit-any
+    TurboBooking: {
+      new (): TurboBookingInstance;
+    };
   }
 }
 
@@ -49,23 +64,25 @@ const BookingModal: React.FC<BookingModalProps> = ({
     if (scriptLoaded && isOpen && widgetContainerRef.current && !widgetInitialized.current) {
       try {
         console.log(`Attempting to initialize TurboBooking for productId: ${productId} in container: #${widgetContainerId}`);
-        // Usamos window.TurboBooking directamente, confiando en la declaración global
+        
         if (typeof window.TurboBooking === 'undefined') {
           console.warn("TurboBooking class not found on window. Retrying initialization shortly...");
           setTimeout(initializeWidget, 300);
           return;
         }
-        // Usamos window.TurboBooking directamente
+        
         const turboInstance = new window.TurboBooking();
-        widgetContainerRef.current.innerHTML = ''; 
-        turboInstance.run(widgetContainerRef.current, {
-          companyId,
-          productId,
-          channelId,
-          customProperties,
-        });
-        widgetInitialized.current = true;
-        console.log(`TurboBooking initialized successfully for productId: ${productId}`);
+        if (widgetContainerRef.current) {
+          widgetContainerRef.current.innerHTML = ''; 
+          turboInstance.run(widgetContainerRef.current, {
+            companyId,
+            productId,
+            channelId,
+            customProperties,
+          });
+          widgetInitialized.current = true;
+          console.log(`TurboBooking initialized successfully for productId: ${productId}`);
+        }
       } catch (error) {
         console.error(`Failed to initialize TurboBooking for productId: ${productId}`, error);
       }
