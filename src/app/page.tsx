@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import Hero from '@/components/Hero';
 import TripCard from '@/components/ui/TripCard';
 import { motion } from 'framer-motion';
