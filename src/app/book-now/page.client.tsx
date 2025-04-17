@@ -28,12 +28,12 @@ export default function BookNowClientPage() {
             className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 overflow-hidden flex flex-col"
           >
             <div className="border-t-4 border-cyan-500"></div>
-            <div className="p-6 md:p-8 flex-grow flex flex-col">
+            <div className="p-6 md:p-8 flex flex-col">
               <div className="flex items-center gap-4 mb-5">
                 <GiSailboat className="w-9 h-9 text-cyan-600 flex-shrink-0" />
                 <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Shared Boat Trips</h2>
               </div>
-              <div className="prose prose-sm sm:prose-base text-gray-600 mb-4 flex-grow">
+              <div className="prose prose-sm sm:prose-base text-gray-600 mb-4">
                 <p>
                   Join our popular shared trips! Choose between the <strong><FiSun className='inline mb-1 text-orange-500'/> Day Trip</strong> (approx. 14:00-17:00) or the magical <strong><FiMoon className='inline mb-1 text-indigo-500'/> Sunset Trip</strong> (approx. 18:00-21:00). Both include drinks, snacks, swim stops, and good vibes.
                 </p>
@@ -43,14 +43,14 @@ export default function BookNowClientPage() {
               </div>
               <Link 
                 href="/boat-trips" 
-                className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors mb-6 mt-auto self-start"
+                className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors mb-6"
               >
                 <FiInfo className="w-4 h-4" />
                 <span>More Info about Shared Trips</span>
               </Link>
 
               {/* Shared Trips Widget Wrapper */}
-              <div className="mt-4 border-t pt-6">
+              <div className="mt-6">
                  <TurbnbWidget
                   id="turbnb-booking-shared"
                   companyId={2}
@@ -71,26 +71,26 @@ export default function BookNowClientPage() {
             className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100 overflow-hidden flex flex-col"
           >
              <div className="border-t-4 border-purple-500"></div>
-            <div className="p-6 md:p-8 flex-grow flex flex-col">
+            <div className="p-6 md:p-8 flex flex-col">
               <div className="flex items-center gap-4 mb-5">
                 <FiUsers className="w-9 h-9 text-purple-600 flex-shrink-0" />
                 <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Private Charter</h2>
               </div>
-               <div className="prose prose-sm sm:prose-base text-gray-600 mb-4 flex-grow">
+               <div className="prose prose-sm sm:prose-base text-gray-600 mb-4">
                 <p>
                   Book the entire Salvador boat for your group (up to 35 guests). Enjoy total privacy, a curated route, and all-inclusive service for an unforgettable exclusive experience.
                 </p>
               </div>
               <Link 
                 href="/private-charter" 
-                className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors mb-6 mt-auto self-start"
+                className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors mb-6"
               >
                 <FiInfo className="w-4 h-4" />
                 <span>More Details about Private Charters</span>
               </Link>
               
               {/* Private Charter Widget Wrapper */}
-              <div className="mt-4 border-t pt-6">
+              <div className="mt-6">
                 <TurbnbWidget
                   id="turbnb-booking-private"
                   companyId={2}

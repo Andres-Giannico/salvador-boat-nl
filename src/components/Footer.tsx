@@ -104,7 +104,7 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Legal column */}
+            {/* Legal/Company column - ADD Contact Link Here */}
             <div>
               <h3 className="text-lg font-bold mb-4 text-gray-800">Company</h3>
               <ul className="space-y-3">
@@ -116,6 +116,12 @@ const Footer = () => {
                 <li>
                   <Link href="/partners" className="text-gray-600 hover:text-blue-600 transition duration-300">
                     ⟡ Partners
+                  </Link>
+                </li>
+                {/* Add Contact Us Link */}
+                <li>
+                  <Link href="/contact" className="text-gray-600 hover:text-blue-600 transition duration-300">
+                    ⟡ Contact Us
                   </Link>
                 </li>
                 <li>
@@ -184,7 +190,7 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom bar */}
+      {/* Bottom bar - REMOVE Contact Link from Here */}
       <div className="py-4 bg-white border-t border-gray-100">
         <div className="container mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-gray-500 mb-4 md:mb-0">
@@ -194,9 +200,10 @@ const Footer = () => {
             <a href="#top" className="text-sm text-gray-500 hover:text-blue-600 transition duration-300">
               Back to top
             </a>
-            <a href="/contact" className="text-sm text-gray-500 hover:text-blue-600 transition duration-300">
+            {/* Remove this link */}
+            {/* <a href="/contact" className="text-sm text-gray-500 hover:text-blue-600 transition duration-300">
               Contact Us
-            </a>
+            </a> */}
           </div>
         </div>
       </div>
