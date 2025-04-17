@@ -21,7 +21,7 @@ const middayTrip = {
   ],
   price: "€80 / person",
   priceColor: "text-blue-600",
-  ctaHref: "/contact", 
+  ctaHref: "/boat-trips/day-trip#booking-widget", 
   ctaBgColor: "bg-blue-600",
   ctaHoverBgColor: "hover:bg-blue-700",
   detailsHref: "/boat-trips/day-trip"
@@ -42,7 +42,7 @@ const sunsetTrip = {
   ],
   price: "€80 / person",
   priceColor: "text-orange-600",
-  ctaHref: "/contact",
+  ctaHref: "/boat-trips/sunset-trip#booking-widget",
   ctaBgColor: "bg-orange-500",
   ctaHoverBgColor: "hover:bg-orange-600",
   detailsHref: "/boat-trips/sunset-trip"
@@ -62,7 +62,7 @@ const privateCharter = {
   ],
   price: "From €1350",
   priceColor: "text-teal-600",
-  ctaHref: "/contact",
+  ctaHref: "/private-charter#turbnb-booking-3",
   ctaBgColor: "bg-teal-500",
   ctaHoverBgColor: "hover:bg-teal-600",
   detailsHref: "/private-charter",
@@ -290,7 +290,7 @@ export default function HomePage() {
               </div>
               
               <Link 
-                href="/contact"
+                href="/boat-trips"
                 className="bg-white text-blue-600 hover:bg-blue-50 font-bold py-3 px-8 rounded-lg shadow-lg transition-transform hover:scale-105 hover:shadow-xl flex items-center justify-center"
               >
                 Reserve Your Spot Now

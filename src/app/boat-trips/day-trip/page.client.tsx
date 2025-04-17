@@ -1,16 +1,19 @@
 "use client";
 
+import { useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FiClock, FiUsers, FiMapPin, FiDollarSign, FiMusic, FiCompass } from 'react-icons/fi';
 import { GiWaterSplash, GiPartyPopper } from 'react-icons/gi';
 import { motion } from 'framer-motion';
+import Script from 'next/script';
 
 // Importamos nuestros componentes reutilizables
 import TripGallery from '@/components/trips/TripGallery';
 import TripHighlights from '@/components/trips/TripHighlights';
 import TestimonialSlider from '@/components/trips/TestimonialSlider';
 import FAQ from '@/components/trips/FAQ';
+import TurbnbWidget from '@/components/booking/TurbnbWidget';
 
 // Galería de imágenes para el viaje
 const dayTripImages = [
@@ -95,6 +98,54 @@ const tripFAQs = [
 ];
 
 export default function DayTripClientPage() {
+  
+  // Initialize the booking widget when the component mounts
+  useEffect(() => {
+    // Function to initialize the widget
+    const initializeWidget = () => {
+      if (typeof window !== 'undefined' && typeof window.TurboBooking !== 'undefined') {
+        const element = document.getElementById('turbnb-booking-3');
+        if (element) {
+          try {
+            // Type is now globally available
+            const turbo3 = new window.TurboBooking();
+            // Remove type assertion
+            turbo3.run(element, {
+              companyId: 2,
+              productId: 2,
+              billingTermIds: [20],
+              channelId: 11,
+              customProperties: {
+                displayBillingTerm: true,
+                showQuantity: true,
+                quantity: "Quantity",
+                titleVariant: "Modern",
+                bookNow: "RESERVE NOW ",
+                confirmReservationAndPay: "CLICK TO PAY",
+                selectTimeLabel: "Time Selection",
+                selectExperienceLabel: "Experience Type",
+                addonsLabel: "Adicionales",
+                depositObservation: "Deposit and payment instructions\n\n\n"
+              }
+            });
+          } catch (error) {
+            console.error("Error initializing booking widget:", error);
+          }
+        }
+      }
+    };
+
+    // Check if TurboBooking is already loaded
+    if (typeof window !== 'undefined' && typeof window.TurboBooking !== 'undefined') {
+      initializeWidget();
+    } else if (typeof window !== 'undefined') {
+      // If not loaded yet, set up event listener for when script loads
+      window.addEventListener('turbnbLoaded', initializeWidget);
+      // Cleanup
+      return () => window.removeEventListener('turbnbLoaded', initializeWidget);
+    }
+  }, []);
+
   return (
     <div className="bg-gray-50">
       {/* Hero Section - Full height with parallax effect */}
@@ -136,7 +187,7 @@ export default function DayTripClientPage() {
               <span>All-Inclusive</span>
             </div>
           </div>
-          <Link href="/contact">
+          <Link href="#booking-widget">
             <motion.span 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -236,7 +287,7 @@ export default function DayTripClientPage() {
                       <span className="text-xl font-semibold text-gray-700">€45</span>
                     </div>
                   </div>
-                  <Link href="/contact" className="block w-full">
+                  <Link href="#booking-widget" className="block w-full">
                     <span className="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg shadow transition duration-300">
                       Book This Trip
                     </span>
@@ -265,6 +316,38 @@ export default function DayTripClientPage() {
           <FAQ items={tripFAQs} title="Day Trip FAQs" />
         </div>
 
+        {/* Direct Booking Section */}
+        <div className="my-20" id="booking-widget">
+          <div className="max-w-5xl mx-auto">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-8"
+            >
+              Reserve Your <span className="text-blue-600">Day Trip</span> Now
+            </motion.h2>
+            
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="bg-white rounded-xl shadow-lg p-6 md:p-8 border border-gray-100"
+            >
+              {/* Turbnb Booking Widget */}
+              <TurbnbWidget 
+                id="turbnb-booking-3"
+                companyId={2}
+                productId={2}
+                billingTermIds={[21]}
+                channelId={11}
+              />
+            </motion.div>
+          </div>
+        </div>
+
         {/* CTA Banner */}
         <div className="bg-gradient-to-r from-blue-600 to-cyan-500 rounded-2xl overflow-hidden shadow-xl my-12">
           <div className="relative px-6 py-16 md:p-12 text-white text-center md:text-left md:flex items-center justify-between">
@@ -274,7 +357,7 @@ export default function DayTripClientPage() {
                 Book your spot now and experience the magic of Ibiza from the sea.
               </p>
             </div>
-            <Link href="/contact">
+            <Link href="#booking-widget">
               <span className="inline-block bg-white text-blue-600 hover:bg-blue-50 font-bold py-3 px-8 rounded-lg shadow-md transition duration-300 transform hover:scale-105">
                 Book Your Adventure
               </span>
@@ -282,6 +365,19 @@ export default function DayTripClientPage() {
           </div>
         </div>
       </div>
+      
+      {/* Load Turbnb Scripts */}
+      <Script
+        src="https://widgets.turbnb.com/turbnb.booking.1.0.31.min.js"
+        strategy="afterInteractive"
+        onLoad={() => {
+          // Dispatch custom event when script is loaded
+          if (typeof window !== 'undefined') {
+            window.dispatchEvent(new Event('turbnbLoaded'));
+          }
+        }}
+      />
+      <link href="https://widgets.turbnb.com/turbnb.booking.1.0.31.min.css" rel="stylesheet" />
     </div>
   );
 } 

@@ -23,7 +23,7 @@ const middayTrip = {
   ],
   price: "€80 / person",
   priceColor: "text-blue-600",
-  ctaHref: "/boat-trips/day-trip",
+  ctaHref: "/boat-trips/day-trip#booking-widget",
   ctaBgColor: "bg-blue-600",
   ctaHoverBgColor: "hover:bg-blue-700",
   detailsHref: "/boat-trips/day-trip"
@@ -44,7 +44,7 @@ const sunsetTrip = {
   ],
   price: "€80 / person",
   priceColor: "text-orange-600",
-  ctaHref: "/boat-trips/sunset-trip",
+  ctaHref: "/boat-trips/sunset-trip#booking-widget",
   ctaBgColor: "bg-orange-500",
   ctaHoverBgColor: "hover:bg-orange-600",
   detailsHref: "/boat-trips/sunset-trip"
@@ -345,7 +345,7 @@ export default function BoatTripsClientPage() {
               whileTap={{ scale: 0.95 }}
             >
               <Link 
-                href="/contact"
+                href="/boat-trips/day-trip#booking-widget"
                 className="inline-block bg-white text-blue-600 font-bold py-4 px-10 rounded-lg shadow-xl transition duration-300 text-lg hover:bg-opacity-95"
               >
                 Book Your Trip Now

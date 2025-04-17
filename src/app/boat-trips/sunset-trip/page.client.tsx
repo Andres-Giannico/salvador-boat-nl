@@ -11,6 +11,7 @@ import TripGallery from '@/components/trips/TripGallery';
 import TripHighlights from '@/components/trips/TripHighlights';
 import TestimonialSlider from '@/components/trips/TestimonialSlider';
 import FAQ from '@/components/trips/FAQ';
+import TurbnbWidget from '@/components/booking/TurbnbWidget';
 
 // Galería de imágenes para el viaje
 const sunsetTripImages = [
@@ -134,7 +135,7 @@ export default function SunsetTripClientPage() {
               <span>All-Inclusive</span>
             </div>
           </div>
-          <Link href="/contact">
+          <Link href="#booking-widget">
             <motion.span 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -235,7 +236,7 @@ export default function SunsetTripClientPage() {
                       <span className="text-xl font-semibold text-gray-700">€45</span>
                     </div>
                   </div>
-                  <Link href="/contact" className="block w-full">
+                  <Link href="#booking-widget" className="block w-full">
                     <span className="block w-full text-center bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-4 rounded-lg shadow transition duration-300">
                       Book This Trip
                     </span>
@@ -264,6 +265,38 @@ export default function SunsetTripClientPage() {
           <FAQ items={tripFAQs} title="Sunset Trip FAQs" />
         </div>
 
+        {/* Direct Booking Section */}
+        <div className="my-20" id="booking-widget">
+          <div className="max-w-5xl mx-auto">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-8"
+            >
+              Reserve Your <span className="text-orange-600">Sunset Trip</span> Now
+            </motion.h2>
+            
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="bg-white rounded-xl shadow-lg p-6 md:p-8 border border-gray-100"
+            >
+              {/* Turbnb Booking Widget */}
+              <TurbnbWidget 
+                id="turbnb-booking-3"
+                companyId={2}
+                productId={2}
+                billingTermIds={[21]}
+                channelId={11}
+              />
+            </motion.div>
+          </div>
+        </div>
+
         {/* CTA Banner */}
         <div className="bg-gradient-to-r from-orange-600 to-pink-500 rounded-2xl overflow-hidden shadow-xl my-12">
           <div className="relative px-6 py-16 md:p-12 text-white text-center md:text-left md:flex items-center justify-between">
@@ -273,7 +306,7 @@ export default function SunsetTripClientPage() {
                 Don&apos;t miss Ibiza&apos;s most spectacular sunset. Book your spot now!
               </p>
             </div>
-            <Link href="/contact">
+            <Link href="#booking-widget">
               <span className="inline-block bg-white text-orange-600 hover:bg-orange-50 font-bold py-3 px-8 rounded-lg shadow-md transition duration-300 transform hover:scale-105">
                 Book Your Sunset Trip
               </span>

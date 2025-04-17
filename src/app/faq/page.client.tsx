@@ -124,7 +124,7 @@ const activityFaqs = [
   },
 ];
 
-// Componente de categoría con icono
+// Refined Category Icon component
 function CategoryIcon({ 
   icon, 
   title, 
@@ -135,128 +135,186 @@ function CategoryIcon({
   className?: string; 
 }) {
   return (
-    <div className={`flex flex-col items-center ${className}`}>
-      <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mb-2">
-        {icon}
+    // Added group for hover effects, refined styling
+    <div className={`group flex flex-col items-center text-center p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200 ${className}`}>
+      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center mb-3 shadow-sm group-hover:shadow-md transition-shadow duration-200">
+        {icon} 
       </div>
-      <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
+      <h3 className="text-base md:text-lg font-semibold text-gray-800 group-hover:text-blue-700 transition-colors duration-200">{title}</h3>
     </div>
   );
 }
 
 export default function FAQClientPage() {
+  // Animation for Hero section
+  const heroAnimation = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } }
+  };
+  
+  // Animation for Category Icons wrapper
+  const categoriesAnimation = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.2 } }
+  };
+
+  // Animation for individual Category Icons
+  const iconAnimation = {
+    initial: { opacity: 0, scale: 0.9 },
+    animate: { opacity: 1, scale: 1, transition: { duration: 0.4, ease: "easeOut" } }
+  };
+
+  // Animation for FAQ sections
+  const sectionAnimation = {
+    initial: { opacity: 0, y: 30 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  };
+
   return (
-    <div className="bg-gradient-to-b from-sky-50 to-white">
-      {/* Hero Section */}
-      <section className="relative py-20 md:py-28">
-        <div className="absolute inset-0 overflow-hidden z-0">
-          <div className="absolute w-full h-full bg-blue-500/10"></div>
-          <div className="absolute w-96 h-96 rounded-full bg-cyan-400/20 -top-12 -left-20 blur-3xl"></div>
-          <div className="absolute w-96 h-96 rounded-full bg-blue-300/20 bottom-0 right-0 blur-3xl"></div>
+    <div className="bg-gradient-to-b from-white via-sky-50 to-blue-50">
+      {/* Hero Section - Refined styling */}
+      <section className="relative py-24 md:py-32 text-center overflow-hidden">
+        {/* Soft background gradient elements */}
+        <div className="absolute inset-0 overflow-hidden z-0 pointer-events-none">
+          <div className="absolute w-full h-full bg-gradient-to-b from-white via-sky-50/50 to-transparent"></div>
+          <div className="absolute w-[50vw] h-[50vh] rounded-full bg-cyan-200/20 -top-1/4 -left-1/4 blur-3xl opacity-70"></div>
+          <div className="absolute w-[40vw] h-[40vh] rounded-full bg-blue-200/20 -bottom-1/4 -right-1/4 blur-3xl opacity-70"></div>
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center max-w-3xl mx-auto"
+            variants={heroAnimation}
+            initial="initial"
+            animate="animate"
+            className="max-w-3xl mx-auto"
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900">
-              Frequently Asked Questions
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-5">
+              <span className="text-gray-900">Frequently Asked</span>{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Questions</span>
             </h1>
-            <p className="text-lg md:text-xl text-gray-700 mb-8">
-              Find the answers to your questions about our boat trips, bookings, and services.
+            <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+              Find answers to your questions about our boat trips, bookings, and services.
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Main Content Section */}
-      <section className="py-12 md:py-20">
+      <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
-          {/* Category Navigation */}
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-6 mb-16">
-            <CategoryIcon 
-              icon={<GiSailboat className="w-8 h-8 text-blue-500" />} 
-              title="General" 
-            />
-            <CategoryIcon 
-              icon={<FiDollarSign className="w-7 h-7 text-green-500" />} 
-              title="Pricing" 
-            />
-            <CategoryIcon 
-              icon={<FiAnchor className="w-7 h-7 text-cyan-500" />} 
-              title="On Board" 
-            />
-            <CategoryIcon 
-              icon={<FiHelpCircle className="w-7 h-7 text-orange-500" />} 
-              title="Safety" 
-            />
-            <CategoryIcon 
-              icon={<GiWaveSurfer className="w-8 h-8 text-purple-500" />} 
-              title="Activities" 
-            />
-          </div>
+          {/* Category Navigation - Added animation */}
+          <motion.div 
+            variants={categoriesAnimation}
+            initial="initial"
+            animate="animate"
+            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:gap-6 mb-16 md:mb-20 max-w-5xl mx-auto"
+          >
+            <motion.div variants={iconAnimation}>
+              <CategoryIcon 
+                icon={<GiSailboat className="w-8 h-8 text-blue-600" />} 
+                title="General" 
+              />
+            </motion.div>
+            <motion.div variants={iconAnimation}>
+              <CategoryIcon 
+                icon={<FiDollarSign className="w-7 h-7 text-green-600" />} 
+                title="Pricing" 
+              />
+             </motion.div>
+             <motion.div variants={iconAnimation}>
+              <CategoryIcon 
+                icon={<FiAnchor className="w-7 h-7 text-cyan-600" />} 
+                title="On Board" 
+              />
+            </motion.div>
+            <motion.div variants={iconAnimation}>
+              <CategoryIcon 
+                icon={<FiHelpCircle className="w-7 h-7 text-orange-600" />} 
+                title="Safety" 
+              />
+            </motion.div>
+             <motion.div variants={iconAnimation}>
+              <CategoryIcon 
+                icon={<GiWaveSurfer className="w-8 h-8 text-purple-600" />} 
+                title="Activities" 
+              />
+            </motion.div>
+          </motion.div>
 
-          {/* FAQs by Category */}
+          {/* FAQs by Category - Refined section headers */}
           <div className="space-y-16 max-w-4xl mx-auto">
-            <section>
-              <div className="flex items-center mb-6">
-                <GiSailboat className="w-7 h-7 text-blue-500 mr-3" />
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-800">General Questions</h2>
+            <motion.section variants={sectionAnimation} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.2 }}>
+              <div className="flex items-center mb-6 pb-2 border-b border-gray-200">
+                <GiSailboat className="w-6 h-6 text-blue-600 mr-3 flex-shrink-0" />
+                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">General Questions</h2>
               </div>
               <FAQ items={generalFaqs} />
-            </section>
+            </motion.section>
 
-            <section>
-              <div className="flex items-center mb-6">
-                <FiDollarSign className="w-6 h-6 text-green-500 mr-3" />
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-800">Pricing & Booking</h2>
+            <motion.section variants={sectionAnimation} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.2 }}>
+              <div className="flex items-center mb-6 pb-2 border-b border-gray-200">
+                <FiDollarSign className="w-5 h-5 text-green-600 mr-3 flex-shrink-0" />
+                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Pricing & Booking</h2>
               </div>
               <FAQ items={pricingFaqs} />
-            </section>
+            </motion.section>
 
-            <section>
-              <div className="flex items-center mb-6">
-                <FiAnchor className="w-6 h-6 text-cyan-500 mr-3" />
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-800">On Board Experience</h2>
+             <motion.section variants={sectionAnimation} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.2 }}>
+              <div className="flex items-center mb-6 pb-2 border-b border-gray-200">
+                <FiAnchor className="w-5 h-5 text-cyan-600 mr-3 flex-shrink-0" />
+                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">On Board Experience</h2>
               </div>
               <FAQ items={onboardFaqs} />
-            </section>
+            </motion.section>
 
-            <section>
-              <div className="flex items-center mb-6">
-                <FiHelpCircle className="w-6 h-6 text-orange-500 mr-3" />
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-800">Safety & Preparation</h2>
+            <motion.section variants={sectionAnimation} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.2 }}>
+              <div className="flex items-center mb-6 pb-2 border-b border-gray-200">
+                <FiHelpCircle className="w-5 h-5 text-orange-600 mr-3 flex-shrink-0" />
+                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Safety & Preparation</h2>
               </div>
               <FAQ items={safetyFaqs} />
-            </section>
+            </motion.section>
 
-            <section>
-              <div className="flex items-center mb-6">
-                <GiWaveSurfer className="w-7 h-7 text-purple-500 mr-3" />
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-800">Activities & More</h2>
+             <motion.section variants={sectionAnimation} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.2 }}>
+              <div className="flex items-center mb-6 pb-2 border-b border-gray-200">
+                <GiWaveSurfer className="w-6 h-6 text-purple-600 mr-3 flex-shrink-0" />
+                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Activities & More</h2>
               </div>
               <FAQ items={activityFaqs} />
-            </section>
+            </motion.section>
           </div>
-
-          {/* CTA Section */}
-          <div className="mt-20 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-2xl overflow-hidden shadow-xl">
-            <div className="px-6 py-12 md:p-12 text-white text-center md:text-left md:flex items-center justify-between">
-              <div className="md:max-w-xl mb-8 md:mb-0">
-                <h2 className="text-3xl md:text-4xl font-bold mb-4">Still have questions?</h2>
-                <p className="text-blue-100 text-lg">
-                  We&apos;re here to help! Contact us directly for personalized assistance.
-                </p>
+          
+          {/* CTA Section - Refined design */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+            className="mt-20 md:mt-28 max-w-4xl mx-auto"
+          >
+            <div className="relative bg-gradient-to-r from-blue-600 to-cyan-500 rounded-xl overflow-hidden shadow-lg p-8 md:p-12">
+               {/* Subtle background pattern */}
+               <div 
+                 className="absolute inset-0 opacity-10 pointer-events-none" 
+                 style={{
+                   backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath fill='%23ffffff' fill-opacity='0.4' d='M0 0h10v10H0V0zm10 10h10v10H10V10z'/%3E%3C/svg%3E")`
+                 }}
+               ></div>
+              <div className="relative z-10 text-center md:flex items-center justify-between">
+                <div className="md:max-w-lg mb-6 md:mb-0 md:text-left">
+                  <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">Still have questions?</h2>
+                  <p className="text-blue-100 text-base md:text-lg leading-relaxed">
+                    We&apos;re here to help! Contact us directly for personalized assistance.
+                  </p>
+                </div>
+                <Link href="/contact">
+                  <span className="inline-flex items-center justify-center bg-white text-blue-700 hover:bg-blue-50 font-semibold py-3 px-6 rounded-lg shadow hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5">
+                    Contact Us
+                    <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                  </span>
+                </Link>
               </div>
-              <Link href="/contact">
-                <span className="inline-block bg-white text-blue-600 hover:bg-blue-50 font-bold py-3 px-8 rounded-lg shadow-md transition duration-300 transform hover:scale-105">
-                  Contact Us
-                </span>
-              </Link>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
     </div>
