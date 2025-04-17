@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { FiUsers, FiMap, FiCamera, FiAnchor, FiGift, FiCoffee, FiCheckCircle, FiShield } from 'react-icons/fi';
+import { FiUsers, FiMap, FiCamera, FiAnchor, FiGift, FiCoffee, FiCheckCircle, FiShield, FiClock, FiDollarSign } from 'react-icons/fi';
 import { motion, useTransform, AnimatePresence, useMotionValue } from 'framer-motion';
 import Script from 'next/script';
 
@@ -29,13 +29,13 @@ const galleryImages = [
 const charterHighlights = [
   {
     icon: <FiUsers className="w-6 h-6 text-blue-600" />,
-    title: "Exclusive Use (Up to 38)",
+    title: "Exclusive Use (Up to 35)",
     description: "The spacious Salvador boat, entirely for your group's enjoyment."
   },
   {
     icon: <FiMap className="w-6 h-6 text-purple-600" />,
-    title: "100% Customizable Route",
-    description: "Explore Ibiza's coast exactly where you desire, guided by our expertise."
+    title: "Curated Routes",
+    description: "Experience the best spots of Ibiza with our expert-planned routes."
   },
   {
     icon: <FiAnchor className="w-6 h-6 text-red-600" />,
@@ -72,11 +72,11 @@ const charterHighlights = [
 const faqs = [
   {
     question: "What is the maximum capacity?",
-    answer: "The Salvador is licensed for up to 38 guests plus crew, offering ample space."
+    answer: "The Salvador is licensed for up to 35 guests plus crew, offering ample space for your group."
   },
   {
-    question: "How flexible is the route?",
-    answer: "Completely! We tailor the trip to your wishes, suggesting the best spots based on weather and your interests (e.g., Cala Comte, Cala Bassa, sunset spots)."
+    question: "How do the routes work?",
+    answer: "We offer carefully planned routes to Ibiza's most beautiful spots like Cala Comte, Cala Bassa, and Es Vedrà. While we can adjust the route based on weather conditions and your preferences, we focus on these prime locations to ensure the best experience."
   },
   {
     question: "What exactly is included?",
@@ -382,7 +382,7 @@ export default function PrivateCharterClientPage() {
                 transition={{ duration: 0.2 }}
               >
                 <FiUsers className="mr-2 text-cyan-300" />
-                <span>Up to 38 Guests</span>
+                <span>Up to 35 Guests</span>
               </motion.div>
               <motion.div 
                 className="flex items-center bg-black/40 backdrop-blur-sm px-5 py-2.5 rounded-full text-sm md:text-base border border-white/10 shadow-lg"
@@ -390,7 +390,7 @@ export default function PrivateCharterClientPage() {
                 transition={{ duration: 0.2 }}
               >
                 <FiMap className="mr-2 text-cyan-300" />
-                <span>Custom Routes</span>
+                <span>Curated Routes</span>
               </motion.div>
               <motion.div 
                 className="flex items-center bg-black/40 backdrop-blur-sm px-5 py-2.5 rounded-full text-sm md:text-base border border-white/10 shadow-lg"
@@ -544,8 +544,71 @@ export default function PrivateCharterClientPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.2 }}
               >
-                {/* Componente Charter Details Card */}
-                <CharterDetailsCard onBookNowClick={() => setShowDirectWidget(true)} />
+                {/* Charter Details Card */}
+                <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                  <div className="p-6 space-y-6">
+                    <h3 className="text-2xl font-bold text-gray-800">Charter Details & Booking</h3>
+                    
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between py-2">
+                        <div className="flex items-center gap-3">
+                          <div className="w-8 h-8 flex items-center justify-center rounded-full bg-blue-100">
+                            <FiClock className="w-4 h-4 text-blue-600" />
+                          </div>
+                          <span className="text-gray-700 font-medium">Duration:</span>
+                        </div>
+                        <span className="text-gray-900">4 Hours (+ Extra Available)</span>
+                      </div>
+                      
+                      <div className="flex items-center justify-between py-2">
+                        <div className="flex items-center gap-3">
+                          <div className="w-8 h-8 flex items-center justify-center rounded-full bg-purple-100">
+                            <FiUsers className="w-4 h-4 text-purple-600" />
+                          </div>
+                          <span className="text-gray-700 font-medium">Capacity:</span>
+                        </div>
+                        <span className="text-gray-900">Up to 35 Guests</span>
+                      </div>
+
+                      <div className="pt-4">
+                        <div className="flex items-center gap-3 mb-3">
+                          <div className="w-8 h-8 flex items-center justify-center rounded-full bg-green-100">
+                            <FiDollarSign className="w-4 h-4 text-green-600" />
+                          </div>
+                          <span className="text-gray-700 font-medium">Pricing (4 Hours):</span>
+                        </div>
+                        <ul className="space-y-2 ml-11">
+                          <li className="flex justify-between text-gray-600">
+                            <span>Low Season:</span>
+                            <span className="font-medium">€1350 + €30/person</span>
+                          </li>
+                          <li className="flex justify-between text-gray-600">
+                            <span>High Season:</span>
+                            <span className="font-medium">€1650 + €30/person</span>
+                          </li>
+                          <li className="flex justify-between text-gray-600">
+                            <span>Extra Hour:</span>
+                            <span className="font-medium">€500</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <button
+                      onClick={() => setShowDirectWidget(true)}
+                      className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
+                    >
+                      Book Your Charter Now
+                    </button>
+
+                    <p className="text-sm text-gray-500 text-center">
+                      Excludes 21% VAT. Full day & custom quotes available.{' '}
+                      <a href="/contact" className="text-blue-600 hover:text-blue-700 font-medium">
+                        Contact for questions
+                      </a>
+                    </p>
+                  </div>
+                </div>
 
                 {/* Componente Why Choose Us Card */}
                 <WhyChooseUsCard />
