@@ -46,14 +46,14 @@ const Navbar = () => {
     { href: '/contact', label: 'Contact' },
   ];
 
-  // Clases Fijas para Navbar blanco (slightly adjusted padding)
-  const navClass = `fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 bg-white shadow-lg py-2`;
+  // Updated styles with more modern look
+  const navClass = `fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 bg-white/90 backdrop-blur-md shadow-lg py-2`;
   const linkColor = "text-gray-700";
-  const activeBgColor = "bg-blue-100";
-  const activeTextColor = "text-blue-600";
-  const hoverBgColor = "hover:bg-blue-50";
-  const hoverTextColor = "hover:text-blue-700";
-  const ctaClass = `py-2 px-5 rounded-full text-sm font-semibold shadow-md bg-blue-600 text-white hover:bg-blue-700 transition-all duration-300 transform hover:scale-105`;
+  const activeBgColor = "bg-gradient-to-r from-blue-500/20 to-cyan-500/20";
+  const activeTextColor = "text-blue-600 font-semibold";
+  const hoverBgColor = "hover:bg-gradient-to-r hover:from-blue-500/10 hover:to-cyan-500/10";
+  const hoverTextColor = "hover:text-blue-600";
+  const ctaClass = `py-2.5 px-6 rounded-full text-sm font-semibold shadow-lg bg-gradient-to-r from-blue-600 to-cyan-500 text-white hover:from-blue-700 hover:to-cyan-600 transition-all duration-300 transform hover:scale-105 hover:shadow-xl`;
   const navHeight = "h-20 md:h-24";
   const logoHeight = "h-16 md:h-20";
 
@@ -61,11 +61,11 @@ const Navbar = () => {
     <nav className={`${navClass} ${navHeight}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className={`flex items-center justify-between ${navHeight}`}> 
-          {/* Logo */}
+          {/* Logo with enhanced animation */}
           <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
             className="flex-shrink-0"
           >
             <Link href={currentLocale === 'en' ? '/' : `/${currentLocale}`}> 
@@ -74,14 +74,14 @@ const Navbar = () => {
                 alt="Salvador Ibiza Logo"
                 width={200}
                 height={90}
-                className={`object-contain ${logoHeight} w-auto`}
+                className={`object-contain ${logoHeight} w-auto hover:scale-105 transition-transform duration-300`}
                 priority
               />
             </Link>
           </motion.div>
 
-          {/* Links Desktop & Language Switcher */}
-          <div className="hidden md:flex md:items-center md:space-x-1 lg:space-x-2">
+          {/* Desktop Links & Language Switcher with enhanced styling */}
+          <div className="hidden md:flex md:items-center md:space-x-2 lg:space-x-3">
             {links.map((link, i) => {
               const localizedHref = currentLocale === 'en' 
                 ? link.href 
@@ -96,7 +96,7 @@ const Navbar = () => {
                 >
                   <Link href={localizedHref}>
                     <span
-                      className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 ${linkColor}
+                      className={`px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${linkColor}
                         ${isActive
                           ? `${activeBgColor} ${activeTextColor}`
                           : `${hoverBgColor} ${hoverTextColor}`
@@ -110,22 +110,32 @@ const Navbar = () => {
               );
             })}
             
-            {/* Language Switcher Dropdown */}
-            <div className="relative ml-4 border-l pl-4">
+            {/* Language Switcher with enhanced styling */}
+            <div className="relative ml-4 border-l border-gray-200 pl-4">
               <button 
                 onClick={() => setIsLangOpen(!isLangOpen)} 
-                className="flex items-center focus:outline-none"
+                className="flex items-center space-x-1 px-3 py-2 rounded-full hover:bg-gray-50 transition-colors duration-300 focus:outline-none"
               >
-                <span className="cursor-pointer text-xl mr-1">{currentFlag}</span>
-                <svg className={`w-4 h-4 text-gray-600 transition-transform duration-200 ${isLangOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                <span className="cursor-pointer text-xl">{currentFlag}</span>
+                <motion.svg 
+                  animate={{ rotate: isLangOpen ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="w-4 h-4 text-gray-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                </motion.svg>
               </button>
               <AnimatePresence>
                 {isLangOpen && (
                   <motion.div 
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    className="absolute right-0 mt-2 w-auto bg-white rounded-md shadow-lg py-1 z-50"
+                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute right-0 mt-2 w-auto bg-white rounded-xl shadow-xl py-2 z-50 border border-gray-100"
                     onMouseLeave={() => setIsLangOpen(false)}
                   >
                     {locales.map((locale) => (
@@ -134,10 +144,10 @@ const Navbar = () => {
                         href={changeLocale(pathname, locale.code)} 
                         locale={locale.code}
                         onClick={() => setIsLangOpen(false)}
-                        className={`block px-4 py-2 text-sm ${linkColor} ${hoverBgColor} ${hoverTextColor} flex items-center space-x-2`}
+                        className="block px-4 py-2 text-sm hover:bg-gradient-to-r hover:from-blue-50 hover:to-cyan-50 transition-colors duration-300 flex items-center space-x-3"
                       >
-                        <span>{locale.flag}</span> 
-                        <span>{locale.code.toUpperCase()}</span>
+                        <span className="text-lg">{locale.flag}</span> 
+                        <span className="font-medium">{locale.code.toUpperCase()}</span>
                       </Link>
                     ))}
                   </motion.div>
@@ -145,12 +155,12 @@ const Navbar = () => {
               </AnimatePresence>
             </div>
 
-            {/* CTA Button */}
+            {/* Enhanced CTA Button */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.6, duration: 0.5 }}
-              className="ml-3"
+              className="ml-4"
             >
               <Link href={currentLocale === 'en' ? '/contact' : `/${currentLocale}/contact`}>
                 <span className={ctaClass}>
@@ -160,39 +170,49 @@ const Navbar = () => {
             </motion.div>
           </div>
 
-          {/* Mobile Menu Trigger */}
-          <div className="flex md:hidden items-center">
-             {/* Mobile Language Switcher (kept simple - shows current) */}
-             <div className="mr-2">
-                <span className="text-xl">{currentFlag}</span>
-             </div>
-             {/* Hamburger Button */}
-             <button
+          {/* Mobile Menu Trigger with enhanced styling */}
+          <div className="flex md:hidden items-center space-x-3">
+            <button 
+              className="px-3 py-2 rounded-full hover:bg-gray-50 transition-colors duration-300"
+              onClick={() => setIsLangOpen(!isLangOpen)}
+            >
+              <span className="text-xl">{currentFlag}</span>
+            </button>
+            <button
               onClick={() => setIsOpen(!isOpen)}
               type="button"
-              className={`inline-flex items-center justify-center p-2 rounded-md focus:outline-none transition duration-300 text-gray-600 hover:bg-gray-100`}
+              className="p-2 rounded-full hover:bg-gray-50 transition-colors duration-300 focus:outline-none"
               aria-controls="mobile-menu"
               aria-expanded={isOpen}
             >
               <span className="sr-only">Open main menu</span>
-              <svg 
-                className="h-6 w-6" 
-                fill="none" 
-                viewBox="0 0 24 24" 
-                stroke="currentColor"
+              <motion.div
+                animate={isOpen ? "open" : "closed"}
+                variants={{
+                  open: { rotate: 90 },
+                  closed: { rotate: 0 }
+                }}
+                transition={{ duration: 0.3 }}
               >
-                {isOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-                )}
-              </svg>
+                <svg 
+                  className="h-6 w-6 text-gray-700" 
+                  fill="none" 
+                  viewBox="0 0 24 24" 
+                  stroke="currentColor"
+                >
+                  {isOpen ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+                  )}
+                </svg>
+              </motion.div>
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu (includes language links now) */}
+      {/* Enhanced Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -200,54 +220,72 @@ const Navbar = () => {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="md:hidden bg-white shadow-lg overflow-hidden"
+            className="md:hidden bg-white/95 backdrop-blur-md shadow-lg overflow-hidden"
             id="mobile-menu"
           >
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-              {/* Main Links */}
+            <div className="px-4 pt-3 pb-4 space-y-2">
               {links.map((link) => {
-                 const localizedHref = currentLocale === 'en' 
-                 ? link.href 
-                 : `/${currentLocale}${link.href === '/' ? '' : link.href}`; 
+                const localizedHref = currentLocale === 'en' 
+                  ? link.href 
+                  : `/${currentLocale}${link.href === '/' ? '' : link.href}`; 
                 const isActive = pathname === localizedHref;
                 return (
                   <Link key={link.href} href={localizedHref} onClick={() => setIsOpen(false)}>
-                    <span
-                      className={`block px-3 py-2 rounded-md text-base font-medium
-                                ${isActive
-                                  ? `${activeBgColor} ${activeTextColor}` 
-                                  : `${linkColor} ${hoverBgColor} ${hoverTextColor}`
-                                }`}
+                    <motion.span
+                      whileHover={{ x: 5 }}
+                      transition={{ duration: 0.2 }}
+                      className={`block px-4 py-2.5 rounded-xl text-base font-medium
+                        ${isActive
+                          ? `${activeBgColor} ${activeTextColor}` 
+                          : `${linkColor} ${hoverBgColor} ${hoverTextColor}`
+                        }`}
                     >
                       {link.label}
-                    </span>
+                    </motion.span>
                   </Link>
                 );
               })}
               
               {/* Language Links in Mobile Menu */}
-              <div className="border-t mt-3 pt-3 space-y-1">
-                 <p className="px-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Language</p>
-                 {locales.map(locale => (
-                   <Link 
-                     key={locale.code}
-                     href={changeLocale(pathname, locale.code)} 
-                     locale={locale.code}
-                     onClick={() => setIsOpen(false)}
-                     className={`block px-3 py-2 rounded-md text-base font-medium ${linkColor} ${hoverBgColor} ${hoverTextColor} flex items-center space-x-2 ${currentLocale === locale.code ? 'font-bold' : ''}`}
-                   >
-                    <span>{locale.flag}</span> 
-                    <span>{locale.code.toUpperCase()}</span>
-                   </Link>
-                 ))}
+              <div className="border-t border-gray-100 mt-4 pt-4 space-y-2">
+                <p className="px-4 text-xs font-semibold text-gray-500 uppercase tracking-wider">Language</p>
+                {locales.map(locale => (
+                  <Link 
+                    key={locale.code}
+                    href={changeLocale(pathname, locale.code)} 
+                    locale={locale.code}
+                    onClick={() => setIsOpen(false)}
+                    className={`block px-4 py-2.5 rounded-xl text-base transition-colors duration-300
+                      ${currentLocale === locale.code 
+                        ? 'bg-gradient-to-r from-blue-50 to-cyan-50 font-medium' 
+                        : 'hover:bg-gradient-to-r hover:from-blue-50/50 hover:to-cyan-50/50'
+                      }
+                    `}
+                  >
+                    <motion.div
+                      whileHover={{ x: 5 }}
+                      transition={{ duration: 0.2 }}
+                      className="flex items-center space-x-3"
+                    >
+                      <span className="text-lg">{locale.flag}</span>
+                      <span>{locale.code.toUpperCase()}</span>
+                    </motion.div>
+                  </Link>
+                ))}
               </div>
 
               {/* CTA Button Mobile */}
-              <div className="mt-4 px-3">
-                 <Link href={currentLocale === 'en' ? '/contact' : `/${currentLocale}/contact`} onClick={() => setIsOpen(false)}>
-                  <span className="bg-blue-600 w-full block text-center py-3 px-4 rounded-md text-white font-medium hover:bg-blue-700">
+              <div className="mt-6 px-4">
+                <Link 
+                  href={currentLocale === 'en' ? '/contact' : `/${currentLocale}/contact`} 
+                  onClick={() => setIsOpen(false)}
+                >
+                  <motion.span
+                    whileHover={{ scale: 1.02 }}
+                    className="block text-center py-3 px-4 rounded-xl font-medium bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-lg hover:shadow-xl transition-all duration-300"
+                  >
                     Book Now
-                  </span>
+                  </motion.span>
                 </Link>
               </div>
             </div>

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { FiAnchor, FiSun, FiSunset, FiCoffee, FiMusic, FiCamera } from 'react-icons/fi';
 import TripCard from '@/components/ui/TripCard';
+import ImageGallery from '@/components/gallery/ImageGallery';
 
 // Define trip data
 const middayTrip = {
@@ -69,6 +70,41 @@ const includedFeatures = [
     icon: <FiCamera className="w-6 h-6 text-blue-600" />,
     title: "Photo Opportunities",
     description: "Capture stunning moments against Ibiza's backdrop"
+  }
+];
+
+const galleryImages = [
+  {
+    src: "/images/barco1.png",
+    alt: "Salvador yacht sailing in crystal clear waters of Ibiza"
+  },
+  {
+    src: "/images/barco2.png",
+    alt: "Group enjoying their time on Salvador boat deck"
+  },
+  {
+    src: "/images/barco3.png",
+    alt: "Beautiful view of Ibiza's coastline from Salvador"
+  },
+  {
+    src: "/images/barco4.png",
+    alt: "Relaxing atmosphere on Salvador's deck"
+  },
+  {
+    src: "/images/barco5.png",
+    alt: "Salvador boat anchored in a beautiful cove"
+  },
+  {
+    src: "/images/barco6.png",
+    alt: "Magical sunset near Es Vedrà with Salvador"
+  },
+  {
+    src: "/images/barcodesdedron.jpg",
+    alt: "Drone shot of Salvador navigating Ibiza's waters"
+  },
+  {
+    src: "/images/barco dron .jpg",
+    alt: "Aerial view of Salvador boat in turquoise waters"
   }
 ];
 
@@ -217,8 +253,30 @@ export default function BoatTripsClientPage() {
         </div>
       </section>
 
-      {/* What's Included Section */}
+      {/* Gallery Section */}
       <section className="py-20 bg-gradient-to-b from-white to-blue-50">
+        <div className="container mx-auto px-4">
+          <motion.div 
+            className="max-w-3xl mx-auto text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
+              Capture the Magic
+            </h2>
+            <p className="text-lg text-gray-700">
+              Take a glimpse into the unforgettable experiences that await you aboard Salvador
+            </p>
+          </motion.div>
+
+          <ImageGallery images={galleryImages} className="max-w-6xl mx-auto" />
+        </div>
+      </section>
+
+      {/* What's Included Section */}
+      <section className="py-20 bg-gradient-to-b from-blue-50 to-white">
         <div className="container mx-auto px-4">
           <motion.div 
             className="max-w-3xl mx-auto text-center mb-16"

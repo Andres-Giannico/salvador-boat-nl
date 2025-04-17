@@ -11,7 +11,7 @@ import BookingModal from '@/components/booking/BookingModal';
 import TripGallery from '@/components/trips/TripGallery';
 import FAQ from '@/components/trips/FAQ';
 import WhatsIncluded from '@/components/trips/WhatsIncluded';
-import CharterDetailsCard from '@/components/trips/CharterDetailsCard';
+// import CharterDetailsCard from '@/components/trips/CharterDetailsCard'; // Removed unused import
 import PerfectForCard from '@/components/trips/PerfectForCard';
 import WhyChooseUsCard from '@/components/trips/WhyChooseUsCard';
 

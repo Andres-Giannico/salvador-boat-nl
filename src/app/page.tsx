@@ -50,7 +50,7 @@ const sunsetTrip = {
 };
 
 const privateCharter = {
-  imageUrl: "/images/salvador_yacht.jpg",
+  imageUrl: "/images/barcoprivate.png",
   imageAlt: "Salvador Ibiza Private Charter",
   title: "Private Charter",
   badgeText: "CUSTOM",
