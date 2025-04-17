@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaInstagram, FaFacebookF, FaWhatsapp } from 'react-icons/fa';
+import { FaInstagram, FaFacebookF, FaWhatsapp, FaTripadvisor, FaYoutube } from 'react-icons/fa';
 import { FiMail, FiMapPin, FiPhone, FiArrowRight } from 'react-icons/fi';
 
 const Footer = () => {
@@ -14,7 +14,9 @@ const Footer = () => {
 
   const socialLinks = [
     { name: 'Instagram', href: 'https://instagram.com/salvador_ibiza', icon: FaInstagram },
-    { name: 'Facebook', href: 'https://facebook.com/salvadoribiza', icon: FaFacebookF },
+    { name: 'Facebook', href: 'https://www.facebook.com/SalvadoIbizaBoat', icon: FaFacebookF },
+    { name: 'TripAdvisor', href: 'https://www.tripadvisor.com/Attraction_Review-g652116-d6835309-Reviews-Salvador_Ibiza-Sant_Antoni_de_Portmany_Ibiza_Balearic_Islands.html', icon: FaTripadvisor },
+    { name: 'YouTube', href: 'https://www.youtube.com/watch?v=0SN3YMMwUEk', icon: FaYoutube },
   ];
 
   return (

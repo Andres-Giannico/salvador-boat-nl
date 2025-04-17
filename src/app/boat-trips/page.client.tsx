@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { FiAnchor, FiSun, FiSunset, FiCoffee, FiMusic, FiCamera } from 'react-icons/fi';
+import { FiAnchor, FiSun, FiCoffee, FiMusic, FiCamera, FiMoon } from 'react-icons/fi';
 import TripCard from '@/components/ui/TripCard';
 import ImageGallery from '@/components/gallery/ImageGallery';
 
@@ -109,6 +109,14 @@ const galleryImages = [
 ];
 
 export default function BoatTripsClientPage() {
+  // --- NEW: Scroll handler functions ---
+  const scrollToTrip = (tripId: string) => {
+    const element = document.getElementById(tripId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'center' }); // Scroll to center
+    }
+  };
+
   return (
     <div className="bg-gradient-to-b from-blue-50 via-white to-cyan-50 relative">
       {/* Decorative Elements */}
@@ -143,7 +151,7 @@ export default function BoatTripsClientPage() {
       </div>
 
       {/* Hero Section */}
-      <section className="relative h-[90vh] min-h-[600px] flex items-center justify-center text-white overflow-hidden">
+      <section className="relative h-[70vh] min-h-[500px] md:h-[80vh] md:min-h-[600px] flex items-center justify-center text-white overflow-hidden">
         <motion.div
           className="absolute inset-0 z-0"
           initial={{ scale: 1.1 }}
@@ -161,65 +169,38 @@ export default function BoatTripsClientPage() {
         </motion.div>
         
         <motion.div
-          className="relative z-10 container mx-auto px-4 text-center pt-16"
-          initial={{ opacity: 0, y: 50 }}
+          className="relative z-10 container mx-auto px-4 text-center"
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <motion.span 
-            className="inline-block text-cyan-300 uppercase tracking-widest font-medium text-sm md:text-base border border-cyan-300/30 bg-cyan-900/20 backdrop-blur-sm px-3 py-1 rounded-full mb-6"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-          >
-            All-Inclusive Experience
-          </motion.span>
-          
-          <motion.h1 
-            className="text-4xl md:text-5xl lg:text-7xl font-bold mb-5 drop-shadow-xl"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            Choose Your Perfect<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-300">
-              Ibiza Adventure
-            </span>
-          </motion.h1>
-          
-          <motion.p 
-            className="text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto opacity-95 drop-shadow-lg font-light"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.6 }}
-          >
-            Experience the magic of Ibiza from the sea with our carefully designed excursions
-          </motion.p>
-          
-          {/* Badges */}
-          <motion.div 
-            className="flex flex-wrap justify-center gap-3 md:gap-5 mt-10"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.9 }}
-          >
-            <motion.div 
-              className="flex items-center bg-black/40 backdrop-blur-sm px-5 py-2.5 rounded-full text-sm md:text-base border border-white/10 shadow-lg"
-              whileHover={{ scale: 1.05, backgroundColor: "rgba(0,0,0,0.5)" }}
-              transition={{ duration: 0.2 }}
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 drop-shadow-lg">
+            Ibiza Boat Trips
+          </h1>
+          <p className="text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto opacity-95 mb-8 drop-shadow-md">
+            Unforgettable all-inclusive excursions: Day Trip adventures & magical Sunset cruises.
+          </p>
+          {/* Hero Action Buttons - ADD onClick */}
+          <div className="flex flex-wrap justify-center gap-4">
+            <motion.button
+              onClick={() => scrollToTrip('day-trip-card')} // Scroll to Day Trip card
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+              className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 hover:bg-black/50 transition"
             >
-              <FiSun className="mr-2 text-cyan-300" />
+              <FiSun className="text-orange-300" />
               <span>Day Trip</span>
-            </motion.div>
-            <motion.div 
-              className="flex items-center bg-black/40 backdrop-blur-sm px-5 py-2.5 rounded-full text-sm md:text-base border border-white/10 shadow-lg"
-              whileHover={{ scale: 1.05, backgroundColor: "rgba(0,0,0,0.5)" }}
-              transition={{ duration: 0.2 }}
+            </motion.button>
+            <motion.button
+              onClick={() => scrollToTrip('sunset-trip-card')} // Scroll to Sunset Trip card
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+              className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 hover:bg-black/50 transition"
             >
-              <FiSunset className="mr-2 text-cyan-300" />
+              <FiMoon className="text-indigo-300" />
               <span>Sunset Trip</span>
-            </motion.div>
-          </motion.div>
+            </motion.button>
+          </div>
         </motion.div>
         
         {/* Wave divider */}
@@ -231,25 +212,46 @@ export default function BoatTripsClientPage() {
       </section>
 
       {/* Trip Options Section */}
-      <section className="container mx-auto px-4 py-20 relative z-10">
-        <motion.div 
-          className="max-w-3xl mx-auto text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
-            Choose Your Perfect Adventure
-          </h2>
-          <p className="text-lg text-gray-700">
-            Our all-inclusive boat trips offer everything you need for a perfect day on the water
-          </p>
-        </motion.div>
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <motion.div 
+            className="text-center mb-12 md:mb-16 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+              Choose Your Perfect Adventure
+            </h2>
+            <p className="text-lg text-gray-600">
+              Our all-inclusive boat trips offer everything you need for a perfect day on the water
+            </p>
+          </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
-          <TripCard {...middayTrip} delay={0.1} />
-          <TripCard {...sunsetTrip} delay={0.2} />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16">
+            {/* Day Trip Card - ADD ID */}
+            <motion.div
+              id="day-trip-card" // Added ID
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              <TripCard {...middayTrip} />
+            </motion.div>
+
+            {/* Sunset Trip Card - ADD ID */}
+            <motion.div
+              id="sunset-trip-card" // Added ID
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              <TripCard {...sunsetTrip} />
+            </motion.div>
+          </div>
         </div>
       </section>
 

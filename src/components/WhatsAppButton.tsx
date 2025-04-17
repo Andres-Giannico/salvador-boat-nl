@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 
 const WhatsAppButton = () => {
-  const phoneNumber = '+34612345678'; // Reemplazar con el número real
+  const phoneNumber = '34871181393'; // Número actualizado
 
   return (
     <motion.a
