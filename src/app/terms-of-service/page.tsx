@@ -35,7 +35,7 @@ export default function TermsOfServicePage() {
         
         <div className="prose prose-lg max-w-none bg-white p-8 rounded-xl shadow-lg border border-gray-100 space-y-6">
           <p>
-            Welcome to the website www.salvadoribiza.com (hereinafter, "SALVADOR IBIZA"). We trust that the website will be useful to you and that you enjoy your visit. In this regard, and to provide maximum security to our page and visitors, we must establish the following conditions of use:
+            Welcome to the website www.salvadoribiza.com (hereinafter, &quot;SALVADOR IBIZA&quot;). We trust that the website will be useful to you and that you enjoy your visit. In this regard, and to provide maximum security to our page and visitors, we must establish the following conditions of use:
           </p>
 
           <section>
@@ -102,7 +102,7 @@ export default function TermsOfServicePage() {
           
           <section>
             <h2 className="font-bold text-gray-800 mt-6 mb-3">12. Inbound Links (Links to SALVADOR IBIZA)</h2>
-            <p>SALVADOR IBIZA informs that for Links to be made from other pages to ours, the interested Company or Person must request it from SALVADOR IBIZA in writing or via E-mail. This type of link will be made through a Link within the Interesting Links section of the external page and it will never be allowed that calling an Internet page automatically links to ours as this would be a violation of commercial property rights, proceeding legally against the entity that performs such connection, since by using the domain name, it intentionally tries to attract, for commercial benefit, Internet users to its website or any other online location, favoring a possibility of confusion with the plaintiff's brand regarding origin, sponsorship, affiliation or promotion of its website or a product or service on its website.</p>
+            <p>SALVADOR IBIZA informs that for Links to be made from other pages to ours, the interested Company or Person must request it from SALVADOR IBIZA in writing or via E-mail. This type of link will be made through a Link within the Interesting Links section of the external page and it will never be allowed that calling an Internet page automatically links to ours as this would be a violation of commercial property rights, proceeding legally against the entity that performs such connection, since by using the domain name, it intentionally tries to attract, for commercial benefit, Internet users to its website or any other online location, favoring a possibility of confusion with the plaintiff&apos;s brand regarding origin, sponsorship, affiliation or promotion of its website or a product or service on its website.</p>
           </section>
           
           <section>
