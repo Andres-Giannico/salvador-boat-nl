@@ -32,6 +32,8 @@ interface TripData {
   imageUrl: string;
   imageAlt: string;
   title: string;
+  description: string;
+  isPopular: boolean;
   badgeText: string;
   badgeBgColor: string;
   features: string[];
@@ -49,87 +51,104 @@ interface TripData {
 const tripData = {
   middayTrip: {
     imageUrl: "/images/barco1.png",
-    imageAlt: "Salvador Ibiza Day Trip - Crystal Clear Waters",
-    title: "Day Trip",
-    badgeText: "13:00 - 16:30",
+    imageAlt: "Salvador Ibiza Day Trip - Premium Sea Adventure",
+    title: "Daytime Experience",
+    description: "Sun, sea, and adventure await.",
+    isPopular: true,
+    badgeText: "2:00 PM - 5:00 PM",
     badgeBgColor: "bg-blue-500",
     features: [
-      "Explore Cala Gració & Cala Salada",
-      "Premium open bar & fresh sangria",
-      "15 paddle boards & 2 kayaks",
-      "Complete snorkeling equipment",
-      "Fresh fruit & snacks included",
-      "Optional Onboard Photographer (purchase photos afterwards)"
+      "15 Premium Paddle Boards & 2 Kayaks",
+      "Snorkeling Equipment",
+      "Swimming in Crystal Clear Waters",
+      "Premium Open Bar & Fresh Sangria",
+      "Spanish Tapas & Fresh Fruit",
+      "Premium Sound System"
     ],
-    price: "€80 adults",
-    priceSubtext: "€45 children (4-12 years)",
+    price: "€80 per adult",
+    priceSubtext: "Children 6-12: €45 | Under 6: Complimentary",
     priceColor: "text-blue-600",
     ctaHref: "/boat-trips/day-trip#booking-widget",
     ctaBgColor: "bg-blue-600",
     ctaHoverBgColor: "hover:bg-blue-700",
     detailsHref: "/boat-trips/day-trip",
-    detailsText: "Learn More"
+    detailsText: "Explore Details"
   },
   sunsetTrip: {
     imageUrl: "/images/sunset.png",
-    imageAlt: "Salvador Ibiza Sunset Trip",
-    title: "Sunset Trip",
-    badgeText: "18:30 - 21:30",
+    imageAlt: "Salvador Ibiza Sunset Trip - Sunset & Sea Adventure",
+    title: "Sunset Voyage",
+    description: "Experience Ibiza's iconic sunset from the sea.",
+    badgeText: "6:30 PM - 9:30 PM",
     badgeBgColor: "bg-orange-500",
     features: [
-      "Sunset trip to best coves",
-      "15 paddle boards & 2 kayaks",
-      "Premium open bar included",
-      "Light dinner & snacks served",
-      "Complete snorkeling equipment",
-      "Optional Onboard Photographer (purchase photos afterwards)"
+      "Sunset Swimming at Hidden Coves",
+      "15 Paddle Boards & 2 Kayaks",
+      "Snorkeling Equipment",
+      "Premium Bar & Unlimited Cava",
+      "Spanish Tapas Selection",
+      "Sunset at Café Mambo"
     ],
-    price: "€80 adults",
-    priceSubtext: "€45 children (4-12 years)",
+    price: "€80 per adult",
+    priceSubtext: "Children 6-12: €45 | Under 6: Complimentary",
     priceColor: "text-orange-600",
     ctaHref: "/boat-trips/sunset-trip#booking-widget",
     ctaBgColor: "bg-orange-500",
     ctaHoverBgColor: "hover:bg-orange-600",
     detailsHref: "/boat-trips/sunset-trip",
-    detailsText: "Learn More"
+    detailsText: "Explore Details"
   },
   privateCharter: {
     imageUrl: "/images/barcoprivate.png",
-    imageAlt: "Salvador Ibiza Private Charter",
-    title: "Private Charter",
-    badgeText: "4 HOURS",
+    imageAlt: "Salvador Ibiza Private Charter - Exclusive Sea Experience",
+    title: "Private Experience",
+    description: "Your personalized maritime adventure.",
+    badgeText: "4 Hours",
     badgeBgColor: "bg-teal-500",
     features: [
-      "Exclusive boat for your group",
-      "15 paddle boards & 2 kayaks",
-      "Premium drinks included",
-      "Snorkeling equipment for all",
-      "Capacity up to 35 people"
+      "Full Water Sports Equipment",
+      "Private Swimming Spots",
+      "Customized Route & Activities",
+      "Premium Open Bar",
+      "Personalized Catering Options",
+      "Up to 35 Guests"
     ],
-    price: "From €1350",
-    priceSubtext: "+€30 per extra person",
+    price: "Starting at €1350",
+    priceSubtext: "Additional guests: €30 per person",
     priceColor: "text-teal-600",
     ctaHref: "/private-charter#turbnb-booking-3",
     ctaBgColor: "bg-teal-500",
     ctaHoverBgColor: "hover:bg-teal-600",
     detailsHref: "/private-charter",
-    detailsText: "Inquire Now"
+    detailsText: "Request Information"
   }
 };
 
 export default function FeaturedTripsSection() {
   return (
-    <section className="py-4 bg-gradient-to-b from-white to-blue-50 relative z-10">
+    <section className="py-8 bg-gradient-to-b from-white via-blue-50/10 to-transparent relative z-10">
       <motion.div 
         className="container mx-auto px-4 sm:px-6 lg:px-8"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+        initial="hidden"
+        animate="visible"
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 max-w-6xl mx-auto">
-          <TripCard {...tripData.middayTrip} delay={0.1} />
-          <TripCard {...tripData.sunsetTrip} delay={0.2} />
-          <TripCard {...tripData.privateCharter} delay={0.3} />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 max-w-7xl mx-auto">
+          <TripCard 
+            {...tripData.middayTrip} 
+            delay={0.1} 
+            isPopular={tripData.middayTrip.isPopular} 
+            description={tripData.middayTrip.description}
+          />
+          <TripCard 
+            {...tripData.sunsetTrip} 
+            delay={0.2} 
+            description={tripData.sunsetTrip.description}
+          />
+          <TripCard 
+            {...tripData.privateCharter} 
+            delay={0.3} 
+            description={tripData.privateCharter.description}
+          />
         </div>
       </motion.div>
     </section>
