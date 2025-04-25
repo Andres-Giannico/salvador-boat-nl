@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { FiUsers, FiMap, FiCamera, FiAnchor, FiGift, FiCoffee, FiCheckCircle, FiShield, FiClock, FiDollarSign } from 'react-icons/fi';
+import { FiUsers, FiMap, FiCamera, FiAnchor, FiGift, FiCoffee, FiCheckCircle, FiShield, FiClock, FiDollarSign, FiDroplet, FiZap, FiWind, FiLifeBuoy, FiMusic as FiMusicAlt, FiEdit, FiStar, FiCalendar, FiNavigation, FiVolume2 } from 'react-icons/fi';
+import { GiWaterDrop } from 'react-icons/gi';
 import { motion, useTransform, AnimatePresence, useMotionValue } from 'framer-motion';
 import Script from 'next/script';
 import Link from 'next/link';
@@ -15,6 +16,19 @@ import WhatsIncluded from '@/components/trips/WhatsIncluded';
 // import CharterDetailsCard from '@/components/trips/CharterDetailsCard'; // Removed unused import
 import PerfectForCard from '@/components/trips/PerfectForCard';
 import WhyChooseUsCard from '@/components/trips/WhyChooseUsCard';
+
+// --- Define Type for PerfectFor Items ---
+type PerfectForItem = {
+  icon: string; // Icon name as string
+  title: string;
+  description: string;
+  color: string;
+};
+
+// --- Define Props Interface for the Client Page ---
+interface PrivateCharterClientPageProps {
+  perfectFor: PerfectForItem[]; // Expecting the array passed from page.tsx
+}
 
 // --- Datos Específicos del Charter Privado ---
 
@@ -35,18 +49,18 @@ const charterHighlights = [
   },
   {
     icon: <FiMap className="w-6 h-6 text-purple-600" />,
-    title: "Curated Routes",
-    description: "Experience the best spots of Ibiza with our expert-planned routes."
+    title: "Customizable Routes",
+    description: "Choose your desired destinations, weather permitting. Captain advises best options."
   },
   {
     icon: <FiAnchor className="w-6 h-6 text-red-600" />,
     title: "Expert Captain & Crew",
-    description: "Professional service ensuring safety, comfort, and local insights."
+    description: "Professional, friendly service ensuring safety, comfort, and local knowledge."
   },
   {
     icon: <FiCoffee className="w-6 h-6 text-yellow-600" />,
-    title: "All-Inclusive Refreshments",
-    description: "Unlimited drinks (alcoholic & non-alcoholic), snacks, and fresh fruit provided."
+    title: "Standard Open Bar",
+    description: "Incl. soft drinks, beer, wine, cava, sangria & light tapas."
   },
   {
     icon: <FiGift className="w-6 h-6 text-indigo-500" />,
@@ -77,25 +91,44 @@ const faqs = [
   },
   {
     question: "How do the routes work?",
-    answer: "We offer carefully planned routes to Ibiza's most beautiful spots like Cala Comte, Cala Bassa, and Es Vedrà. While we can adjust the route based on weather conditions and your preferences, we focus on these prime locations to ensure the best experience."
+    answer: "Your route is customizable! We typically cruise the beautiful West Coast (e.g., Cala Bassa, Cala Conta) or the North (e.g., Cala Salada, Punta Galera). You can suggest preferences, but the final route depends on weather/sea conditions. The captain will always choose the safest and most enjoyable option for your group."
   },
   {
     question: "What exactly is included?",
     answer: "Exclusive boat use, captain/crew, standard fuel, unlimited drinks (beer, wine, cava, sangria, soft drinks, water), snacks, fruit, paddleboards, kayaks, snorkeling gear."
   },
   {
+    question: "What is the duration and price structure?",
+    answer: "Our standard private charter is 4 hours (Half-Day). Base price starts at €1,350 (May/Oct) or €1,650 (Jun-Sep), plus €30 per person. You can add up to 2 extra hours at €500 per hour directly during the booking process (subject to availability). 21% IVA (VAT) is not included."
+  },
+  {
     question: "What are the time slots?",
-    answer: "Typically 4-hour slots (e.g., 12:00-16:00 or 17:00-21:00 for sunset) or full-day (8 hours). We can adjust timings to suit your group."
+    answer: "The standard 4-hour charter is available for midday or sunset slots, which you can select when booking. Extra hours can also be added during booking. For specific morning departures, please contact us directly as these require custom arrangements."
   },
   {
     question: "Can we bring extra food/drinks or arrange catering?",
-    answer: "Yes, you are welcome to bring your own provisions. We can also arrange premium catering options upon request at an additional cost."
+    answer: "You are welcome to bring your own food onboard! However, outside drinks are not permitted as we provide a standard open bar. For an enhanced experience, you can upgrade to our premium tapas menu for €35 per person (plus VAT), or discuss other catering options with us."
   },
 ];
 
-// --- Componente Principal de la Página Cliente ---
+// Data for WhatsIncluded, using simple IncludedItem format
+const includedItems = [
+  { name: "Exclusive Boat Use (4 Hrs)", description: "Salvador Ibiza just for your group" },
+  { name: "Captain & Crew", description: "Professional and friendly service" },
+  { name: "Standard Open Bar", description: "Beer, wine, cava, sangria, soft drinks, water" },
+  { name: "Light Tapas & Fruit", description: "Spanish snacks and fresh fruit included" },
+  { name: "Water Sports Gear", description: "Paddleboards, kayaks, snorkeling equipment" },
+  { name: "Premium Sound System", description: "Bluetooth connection available" },
+  { name: "Fuel Included", description: "Standard routes covered" },
+  { name: "Safety & Insurance", description: "Full equipment and insurance for all" },
+  {
+    name: "Optional Onboard Photographer",
+    description: "Capture memories! Photos available for optional purchase afterwards."
+  }
+];
 
-export default function PrivateCharterClientPage() {
+// --- Componente Principal de la Página Cliente ---
+export default function PrivateCharterClientPage({ perfectFor }: PrivateCharterClientPageProps) {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [showDirectWidget, setShowDirectWidget] = useState(false);
@@ -172,17 +205,14 @@ export default function PrivateCharterClientPage() {
     }
   };
 
-  // Initialize the widget directly in the page
+  // Update widget initialization
   useEffect(() => {
-    // Skip widget initialization during SSR
     if (typeof window === 'undefined' || !showDirectWidget) return;
     
-    // We'll wait for the DOM to be fully loaded and script ready
     const initializeWidget = () => {
-      const widgetElement = document.getElementById('turbnb-booking-3');
+      const widgetElement = document.getElementById('turbnb-booking-3'); 
       if (typeof window.TurboBooking !== 'undefined' && widgetElement) {
         try {
-          // Clear previous content if any
           widgetElement.innerHTML = ''; 
           const turbo3 = new window.TurboBooking();
           turbo3.run(widgetElement, {
@@ -190,25 +220,22 @@ export default function PrivateCharterClientPage() {
             productId: 3,
             channelId: 11,
             customProperties: {
-              "displayBillingTerm": true,
-              "showQuantity": false,
+              "displayBillingTerm": true, 
+              "showQuantity": false, 
               "titleVariant": "Modern",
-              "bookNow": "RESERVE NOW",
-              "confirmReservationAndPay": "CONFIRM & PAY",
-              "selectTimeLabel": "Select Time",
-              "selectExperienceLabel": "Select Experience",
-              "addonsLabel": "Add-ons",
-              "depositObservation": "Deposit and payment instructions\n\n\n"
+              "bookNow": "INQUIRE NOW",
+              "confirmReservationAndPay": "PAY CONFIRMATION DEPOSIT OF ",
+              "selectTimeLabel": "Select Preferred Time",
+              "selectExperienceLabel": "Select Charter Option",
+              "addonsLabel": "Optional Upgrades (e.g., Extra Hours)", // Updated label, ensure 'Extra Hour' is an add-on in Turbnb backend
+              "depositObservation": "After the reservation you will get the voucher with all the info as location and booking details"
+
             }
           });
-          console.log('TurboBooking widget initialized directly in page');
+          console.log('Direct Charter Widget Initialized');
         } catch (error) {
-          console.error('Error initializing TurboBooking widget:', error);
+          console.error("Error initializing direct charter widget:", error);
         }
-      } else {
-        console.warn('TurboBooking not available yet or container not found. Retrying...');
-        // Retry in 500ms
-        setTimeout(initializeWidget, 500);
       }
     };
 
@@ -548,15 +575,33 @@ export default function PrivateCharterClientPage() {
                 </div>
               </motion.section>
 
-              {/* Nueva sección WhatsIncluded */}
+              {/* What's Included Section - Use simplified format */}
               <motion.section
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.8 }}
               >
-                <WhatsIncluded items={charterHighlights} gridCols="sm:grid-cols-2 lg:grid-cols-3"/>
+                <WhatsIncluded 
+                  items={includedItems} // Use the simplified data format
+                  title="What Your Private Charter Includes"
+                  // Pass specific styling props if needed, otherwise defaults will be used
+                  bgColor="bg-teal-50"
+                  textColor="text-teal-900"
+                  borderColor="border-teal-200"
+                  iconColor="text-teal-600"
+                  gridCols="sm:grid-cols-2" // Adjusted grid cols
+                />
               </motion.section>
+
+              {/* Premium Upgrade Note */}
+              <motion.div
+                className="mt-8 mb-16 md:mb-24 p-4 bg-blue-50 border-l-4 border-blue-400 rounded-r-lg max-w-4xl mx-auto text-center"
+              >
+                <p className="text-sm text-blue-800">
+                  <strong>Upgrade Options:</strong> Enhance your experience with our premium tapas menu (€35pp + VAT) or add bottles of spirits (€55/bottle + VAT, includes mixers). Ask for details!
+                </p>
+              </motion.div>
 
               {/* Galería */}
               <motion.section
@@ -600,7 +645,7 @@ export default function PrivateCharterClientPage() {
                           </div>
                           <span className="text-gray-700 font-medium">Duration:</span>
                         </div>
-                        <span className="text-gray-900">4 Hours (+ Extra Available)</span>
+                        <span className="text-gray-900">4 Hours (+ up to 2 Extra)</span>
                       </div>
                       
                       <div className="flex items-center justify-between py-2">
@@ -659,7 +704,7 @@ export default function PrivateCharterClientPage() {
                 <WhyChooseUsCard />
                 
                 {/* Componente Perfect For Card */}
-                <PerfectForCard />
+                <PerfectForCard title="Ideal For..." items={perfectFor} />
 
               </motion.div>
             </aside>

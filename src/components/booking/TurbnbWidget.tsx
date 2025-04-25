@@ -10,6 +10,18 @@ interface TurbnbWidgetProps {
   billingTermIds: number[];
   channelId: number;
   className?: string;
+  customProperties?: {
+    displayBillingTerm?: boolean;
+    showQuantity?: boolean;
+    quantity?: string;
+    titleVariant?: string;
+    bookNow?: string;
+    confirmReservationAndPay?: string;
+    selectTimeLabel?: string;
+    selectExperienceLabel?: string;
+    addonsLabel?: string;
+    depositObservation?: string;
+  };
 }
 
 export default function TurbnbWidget({
@@ -18,7 +30,19 @@ export default function TurbnbWidget({
   productId,
   billingTermIds,
   channelId,
-  className = ''
+  className = '',
+  customProperties = {
+    displayBillingTerm: true,
+    showQuantity: true,
+    quantity: "Quantity",
+    titleVariant: "Modern",
+    bookNow: "RESERVE NOW",
+    confirmReservationAndPay: "CLICK TO PAY",
+    selectTimeLabel: "Time Selection",
+    selectExperienceLabel: "Experience Type",
+    addonsLabel: "Add-ons",
+    depositObservation: "Deposit and payment instructions\n\n\n"
+  }
 }: TurbnbWidgetProps) {
   useEffect(() => {
     const initializeWidget = () => {
@@ -32,18 +56,7 @@ export default function TurbnbWidget({
               productId,
               billingTermIds,
               channelId,
-              customProperties: {
-                displayBillingTerm: true,
-                showQuantity: true,
-                quantity: "Quantity",
-                titleVariant: "Modern",
-                bookNow: "RESERVE NOW",
-                confirmReservationAndPay: "CLICK TO PAY",
-                selectTimeLabel: "Time Selection",
-                selectExperienceLabel: "Experience Type",
-                addonsLabel: "Adicionales",
-                depositObservation: "Deposit and payment instructions\n\n\n"
-              }
+              customProperties
             });
           } catch (error) {
             console.error("Error initializing booking widget:", error);
@@ -60,7 +73,7 @@ export default function TurbnbWidget({
       window.addEventListener('turbnbLoaded', initializeWidget);
       return () => window.removeEventListener('turbnbLoaded', initializeWidget);
     }
-  }, [id, companyId, productId, billingTermIds, channelId]);
+  }, [id, companyId, productId, billingTermIds, channelId, customProperties]);
 
   return (
     <>

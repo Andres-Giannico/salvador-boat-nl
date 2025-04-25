@@ -3,113 +3,117 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { FiCheckCircle, FiInfo } from 'react-icons/fi'; // Using react-icons
+import { FiInfo } from 'react-icons/fi';
 
 interface TripCardProps {
   imageUrl: string;
   imageAlt: string;
   title: string;
-  badgeText?: string;
-  badgeBgColor?: string; // e.g., 'bg-blue-500'
+  badgeText: string;
+  badgeBgColor: string;
   features: string[];
   price: string;
-  priceColor?: string; // e.g., 'text-blue-500'
-  ctaText?: string;
+  priceSubtext?: string;
+  priceColor: string;
   ctaHref: string;
-  ctaBgColor?: string; // e.g., 'bg-blue-500'
-  ctaHoverBgColor?: string; // e.g., 'hover:bg-blue-600'
-  detailsHref?: string; // New prop for details link
-  detailsText?: string; // New prop for details button text
-  className?: string;
-  delay?: number; // For staggered animation
+  ctaBgColor: string;
+  ctaHoverBgColor: string;
+  detailsHref: string;
+  detailsText?: string;
+  delay?: number;
 }
 
-const TripCard: React.FC<TripCardProps> = ({
+export default function TripCard({
   imageUrl,
   imageAlt,
   title,
   badgeText,
-  badgeBgColor = 'bg-gray-500',
+  badgeBgColor,
   features,
   price,
-  priceColor = 'text-gray-800',
-  ctaText = 'Book Now',
+  priceSubtext,
+  priceColor,
   ctaHref,
-  ctaBgColor = 'bg-gray-700',
-  ctaHoverBgColor = 'hover:bg-gray-800',
-  detailsHref, // Destructure new prop
-  detailsText = 'More Details', // Default text for details button
-  className = '',
-  delay = 0,
-}) => {
+  ctaBgColor,
+  ctaHoverBgColor,
+  detailsHref,
+  detailsText = "View Details",
+  delay = 0
+}: TripCardProps) {
   return (
-    <motion.div 
-      className={`bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 flex flex-col ${className}`}
+    <motion.div
       initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: delay, duration: 0.6, ease: 'easeOut' }}
-      whileHover={{ y: -5, boxShadow: '0 15px 30px -10px rgba(0, 0, 0, 0.1)' }} // Subtle lift and shadow increase
+      whileInView={{ 
+        opacity: 1, 
+        y: 0,
+        transition: {
+          duration: 0.5,
+          delay: delay,
+          ease: [0.16, 1, 0.3, 1]
+        }
+      }}
+      viewport={{ once: true, amount: 0.1 }}
+      className="bg-white rounded-2xl shadow-lg shadow-blue-100/20 overflow-hidden border border-gray-100"
     >
-      {/* Image Section */}
-      <div className="relative h-60 overflow-hidden">
-        <Image
-          src={imageUrl}
-          alt={imageAlt}
-          fill
-          className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105" // Zoom effect on hover (needs group class on parent link if wrapped)
-        />
-        {badgeText && (
-          <div className={`absolute top-4 left-4 ${badgeBgColor} text-white px-3 py-1 rounded-full text-xs font-bold shadow-md`}>
-            {badgeText}
-          </div>
-        )}
-        {/* Optional Gradient Overlay */}
-        {/* <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div> */}
+      {/* Image Container */}
+      <div className="relative h-64 overflow-hidden group">
+        <Link href={detailsHref} className="block w-full h-full">
+          <Image
+            src={imageUrl}
+            alt={imageAlt}
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-110"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        </Link>
+        <div className={`absolute top-4 right-4 ${badgeBgColor} text-white text-sm font-semibold px-3 py-1 rounded-full z-10`}>
+          {badgeText}
+        </div>
       </div>
 
-      {/* Content Section */}
-      <div className="p-6 flex flex-col flex-grow">
-        <h3 className="text-2xl font-display font-bold mb-4 text-gray-900">{title}</h3>
+      {/* Content */}
+      <div className="p-6">
+        <h3 className="text-2xl font-bold text-gray-900 mb-4">{title}</h3>
         
-        {/* Features List */}
-        <ul className="space-y-2 mb-5 text-gray-600 text-sm flex-grow">
+        <ul className="space-y-3 mb-6">
           {features.map((feature, index) => (
-            <li key={index} className="flex items-start">
-              <FiCheckCircle className="h-4 w-4 mr-2 text-green-500 mt-0.5 flex-shrink-0" />
+            <li key={index} className="flex items-start text-gray-600">
+              <svg className="w-5 h-5 text-green-500 mr-2 mt-1 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+              </svg>
               <span>{feature}</span>
             </li>
           ))}
         </ul>
 
-        {/* Price, Details & CTA */}
-        <div className="mt-auto pt-4 border-t border-gray-100 flex flex-wrap justify-between items-center gap-3">
-          <p className={`text-2xl font-bold ${priceColor} whitespace-nowrap`}>{price}</p>
-          <div className="flex items-center gap-2">
-            {/* Details Button (Optional) */}
-            {detailsHref && (
-              <Link href={detailsHref}>
-                <span 
-                  className={`py-2 px-4 rounded-full text-xs font-semibold shadow-sm border border-gray-300 text-gray-600 bg-white hover:bg-gray-50 transition-all duration-300 inline-flex items-center`}
-                >
-                  <FiInfo className="w-3 h-3 mr-1.5" /> 
-                  {detailsText}
-                </span>
-              </Link>
-            )}
-            {/* Main CTA Button */}
-            <Link href={ctaHref}>
-              <span 
-                className={`py-2 px-5 rounded-full text-sm font-semibold shadow-md text-white ${ctaBgColor} ${ctaHoverBgColor} transition-all duration-300 transform hover:scale-105 inline-flex items-center`}
-              >
-                {ctaText}
-                <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-              </span>
-            </Link>
-          </div>
+        {/* Price Section */}
+        <div className="mb-6 text-center">
+          <div className={`text-2xl font-bold ${priceColor}`}>{price}</div>
+          {priceSubtext && (
+            <div className="text-sm text-gray-600 mt-1">{priceSubtext}</div>
+          )}
+        </div>
+
+        {/* Buttons */}
+        <div className="space-y-3">
+          <Link
+            href={ctaHref}
+            className={`block w-full ${ctaBgColor} ${ctaHoverBgColor} text-white text-center py-3 px-4 rounded-lg font-semibold transition-all duration-200 hover:shadow-lg`}
+          >
+            Book Now
+          </Link>
+          
+          <Link
+            href={detailsHref}
+            className="block w-full text-center py-2 px-4 text-gray-600 hover:text-gray-900 font-medium transition-colors duration-200"
+          >
+            <span className="flex items-center justify-center">
+              <FiInfo className="w-4 h-4 mr-2" />
+              {detailsText}
+            </span>
+          </Link>
         </div>
       </div>
     </motion.div>
   );
-};
-
-export default TripCard; 
+} 

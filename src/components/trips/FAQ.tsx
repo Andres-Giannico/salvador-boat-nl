@@ -3,10 +3,11 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiPlus, FiMinus } from 'react-icons/fi';
+import React from 'react';
 
 export type FAQItem = {
   question: string;
-  answer: string;
+  answer: React.ReactNode;
 };
 
 interface FAQProps {
@@ -24,20 +25,11 @@ const FAQ = ({ items, title = "Frequently Asked Questions", compact = false, cla
   };
 
   return (
-    <div className={`w-full ${className}`}>
-      {title && (
-        <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-3xl sm:text-4xl font-bold mb-8 text-center bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent"
-        >
-          {title}
-        </motion.h2>
-      )}
-
-      <div className="space-y-4 max-w-3xl mx-auto">
+    <div className="min-h-[600px]">
+      <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-12 text-center">
+        {title}
+      </h2>
+      <div className="max-w-3xl mx-auto space-y-6">
         {items.map((item, index) => (
           <motion.div 
             key={index}
@@ -94,15 +86,15 @@ const FAQ = ({ items, title = "Frequently Asked Questions", compact = false, cla
                   className="overflow-hidden"
                 >
                   <motion.div 
-                    initial={{ y: 20, opacity: 0 }}
+                    initial={{ y: 10, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: 20, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.3, delay: 0.1 }}
                     className={`px-6 pb-5 ${
                       compact ? 'text-sm' : 'text-base'
-                    } prose prose-blue max-w-none`}
-                    dangerouslySetInnerHTML={{ __html: item.answer }}
-                  />
+                    } prose prose-blue max-w-none text-gray-700`}
+                  >
+                    {item.answer}
+                  </motion.div>
                 </motion.div>
               )}
             </AnimatePresence>

@@ -2,18 +2,19 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { FiClock, FiUsers, FiMapPin, FiSunset, FiDollarSign, FiAnchor } from 'react-icons/fi';
-import { GiWaterSplash, GiSparklingSabre, GiSunset } from 'react-icons/gi';
+import { FiClock, FiUsers, FiMapPin, FiSunset, FiDollarSign, FiAnchor, FiCompass, FiInfo, FiCamera } from 'react-icons/fi';
+import { GiWaterSplash, GiSparklingSabre } from 'react-icons/gi';
 import { motion } from 'framer-motion';
+import { GoogleReview } from '@/services/googlePlaces';
 
-// Importamos nuestros componentes reutilizables
+// Import our reusable components
 import TripGallery from '@/components/trips/TripGallery';
 import TripHighlights from '@/components/trips/TripHighlights';
-import TestimonialSlider from '@/components/trips/TestimonialSlider';
+import ReviewsSection from '@/components/trips/ReviewsSection';
 import FAQ from '@/components/trips/FAQ';
 import TurbnbWidget from '@/components/booking/TurbnbWidget';
 
-// Galería de imágenes para el viaje
+// Trip image gallery
 const sunsetTripImages = [
   { src: "/images/barco dron .jpg", alt: "Salvador Ibiza boat sailing during sunset" },
   { src: "/images/esvedraback.png", alt: "Magical Es Vedrà view at sunset" },
@@ -22,87 +23,74 @@ const sunsetTripImages = [
   { src: "/images/barcodesdedron.jpg", alt: "Aerial view of Salvador Ibiza boat during golden hour" },
 ];
 
-// Aspectos destacados del viaje
+// Trip highlights
 const tripHighlights = [
   {
-    icon: <GiSunset className="w-6 h-6 text-orange-600" />,
-    title: "Iconic Sunset",
-    description: "Experience Ibiza's world-famous sunset from the best possible viewpoint - the Mediterranean Sea."
+    icon: <FiSunset className="w-6 h-6 text-orange-600" />,
+    title: "Iconic Sunset Cruise",
+    description: "Witness Ibiza's legendary sunset from the prime position - in front of Café Mambo & Café del Mar."
   },
   {
-    icon: <FiAnchor className="w-6 h-6 text-blue-600" />,
-    title: "Perfect Spots",
-    description: "We navigate to the most magical locations, often near the mystical Es Vedrà, for unmatched sunset views."
+    icon: <FiCompass className="w-6 h-6 text-blue-600" />,
+    title: "Flexible Routes",
+    description: "Captain chooses the best route (North or West) based on weather for optimal sunset views."
   },
   {
     icon: <GiSparklingSabre className="w-6 h-6 text-yellow-600" />,
-    title: "Evening Delights",
-    description: "Enjoy unlimited drinks including cava for toasting, along with a light dinner as the sun sets."
+    title: "Premium Service",
+    description: "Unlimited drinks (cava included!), Spanish tapas, fresh fruit, and great music."
   },
   {
     icon: <GiWaterSplash className="w-6 h-6 text-cyan-600" />,
-    title: "Twilight Swim",
-    description: "Take a refreshing dip in the Mediterranean as the sky turns golden and purple."
+    title: "Optional Swim Stop",
+    description: "Depending on time and conditions, enjoy a swim, snorkel, or paddleboard session."
+  },
+  {
+    icon: <FiCamera className="w-6 h-6 text-teal-600" />,
+    title: "Optional Photographer",
+    description: "Capture your memories! Photos available for optional purchase afterwards."
   },
 ];
 
-// Testimonios de clientes
-const testimonials = [
-  {
-    id: 1,
-    name: "Michelle & David",
-    location: "New York, USA",
-    comment: "The sunset views were absolutely breathtaking. Seeing Es Vedrà silhouetted against the golden sky was a magical moment we'll never forget.",
-    rating: 5,
-    trip: "Sunset Trip"
-  },
-  {
-    id: 2,
-    name: "Anna & Jens",
-    location: "Stockholm, Sweden",
-    comment: "We got engaged during this sunset trip! The crew was so helpful and made it extra special. The views, drinks, and atmosphere were perfect.",
-    rating: 5,
-    trip: "Sunset Trip"
-  },
-  {
-    id: 3,
-    name: "Carlos & Maria",
-    location: "Madrid, Spain",
-    comment: "What an incredible evening! Swimming at sunset with a glass of cava in hand after was just perfect. Highly recommend this experience.",
-    rating: 5,
-    trip: "Sunset Trip"
-  },
-];
-
-// Preguntas frecuentes específicas para este viaje
+// Trip-specific FAQs
 const tripFAQs = [
   {
     question: "What time does the Sunset Trip depart?",
-    answer: "The Sunset Trip typically departs at 18:00 (6:00 PM), but this can vary slightly depending on the season to ensure we catch the perfect sunset. The exact time will be confirmed when you book."
+    answer: "Departure is typically between 5:00 PM and 6:30 PM, varying by month to catch the best sunset. The exact time will be confirmed upon booking. Please arrive 30 minutes prior."
   },
   {
-    question: "Will we see Es Vedrà during the trip?",
-    answer: "We often position ourselves with a view of the mystical Es Vedrà for sunset, but this depends on weather conditions and sea state. Our captain will always find the most spectacular location for viewing the sunset."
+    question: "What's the route?",
+    answer: "The captain selects the best route based on weather, heading either north (Cala Salada, Punta Galera) or west (Cala Bassa, Cala Conta). We always position ourselves in front of Café Mambo and Café del Mar for the sunset."
   },
   {
     question: "What food and drinks are included?",
-    answer: "The trip includes unlimited drinks (beer, wine, cava, sangria, soft drinks, water) and a light dinner with various snacks, tapas-style bites, and fresh fruit."
+    answer: "Unlimited drinks (beer, wine, cava, sangria, soft drinks, water) and Spanish-style tapas with fresh fruit are included."
   },
   {
-    question: "Is this trip suitable for couples?",
-    answer: "Absolutely! The Sunset Trip is especially popular with couples due to its romantic atmosphere. It's perfect for anniversaries, proposals, or simply creating beautiful memories together."
+    question: "Are there water activities?",
+    answer: "Yes, if sea conditions and time permit, we offer a stop for swimming, snorkeling, paddleboarding, and kayaking before the sunset moment."
   },
+  {
+    question: "What should I bring?",
+    answer: "Comfortable clothing, swimwear (optional), a towel, sunglasses, and a light jacket as it can get breezy after sunset. No outside food or drinks are allowed."
+  }
 ];
 
-export default function SunsetTripClientPage() {
+// Interface for props received from the server component
+interface SunsetTripClientPageProps {
+  initialReviews: GoogleReview[];
+  error: string | null;
+}
+
+export default function SunsetTripClientPage({ initialReviews, error }: SunsetTripClientPageProps) {
   return (
     <div className="bg-gray-50">
       {/* Hero Section - Full height with parallax effect */}
       <section className="relative h-[80vh] min-h-[600px] flex items-center justify-center">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/esvedraback.png"
-            alt="Magical Ibiza Sunset with Es Vedrà"
+            src="/images/barco6.png"
+            alt="Salvador Ibiza Sunset Boat Tour Experience"
             fill
             priority
             className="object-cover object-center"
@@ -116,23 +104,23 @@ export default function SunsetTripClientPage() {
           className="relative z-10 container mx-auto px-4 text-white text-center pt-20"
         >
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 drop-shadow-md">
-            Ibiza <span className="text-orange-400">Sunset</span> Cruise
+            Mixed Sunset <span className="text-orange-400">Boat Tour</span>
           </h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-8 drop-shadow-sm">
-            Experience the magic of Ibiza&apos;s legendary sunset from the best seat - the Mediterranean Sea.
+            Experience the magic of Ibiza's sunset from the sea aboard our traditional wooden boat.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-8">
             <div className="flex items-center bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full">
               <FiSunset className="mr-2 text-orange-400" />
-              <span>Sunset Views</span>
+              <span>Iconic Sunset Views</span>
             </div>
             <div className="flex items-center bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full">
               <FiMapPin className="mr-2 text-orange-400" />
-              <span>Es Vedrà</span>
+              <span>Café Mambo Viewpoint</span>
             </div>
             <div className="flex items-center bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full">
               <FiDollarSign className="mr-2 text-orange-400" />
-              <span>All-Inclusive</span>
+              <span>Drinks & Tapas Included</span>
             </div>
           </div>
           <Link href="#booking-widget">
@@ -141,7 +129,7 @@ export default function SunsetTripClientPage() {
               whileTap={{ scale: 0.95 }}
               className="inline-block bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition duration-300"
             >
-              Book Your Sunset Trip
+              Book Your Sunset Experience
             </motion.span>
           </Link>
         </motion.div>
@@ -159,16 +147,16 @@ export default function SunsetTripClientPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Experience the Magic Hour</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Celebrate the Ibiza Lifestyle</h2>
               <div className="prose prose-lg text-gray-600 mb-8 max-w-none">
                 <p>
-                  There&apos;s nothing quite like an Ibiza sunset, and our 3-hour evening cruise offers the perfect vantage point to witness this daily spectacle of nature.
+                  Join us aboard Salvador Ibiza for a magical evening at sea. Our Mixed Sunset Boat Tour offers a unique way to experience the iconic Ibizan sunset from the water, blending chilled-out vibes, beautiful views, great music, and a complementary open bar.
                 </p>
                 <p>
-                  Departing from San Antonio port in the early evening, we navigate towards the perfect spot to watch the sun sink below the horizon, often near the mystical island of Es Vedrà. The changing colors of the sky - from golden yellow to deep orange, pink and purple - create a magical backdrop for an unforgettable evening.
+                  Depending on conditions, our captain will choose the best route (North or West) before positioning the boat perfectly in front of Café Mambo and Café del Mar. Toast with cava as the sun dips below the horizon, creating unforgettable memories.
                 </p>
                 <p>
-                  Before sunset, we&apos;ll stop for a refreshing swim in a beautiful bay. Then toast with a glass of cava as the sun makes its dramatic exit, accompanied by ambient music that perfectly complements the moment. All while enjoying our selection of drinks and light dinner.
+                  This isn't just a boat tour; it's a celebration of the Ibiza lifestyle, perfect for couples, friends, and solo travelers looking to connect and enjoy the real magic of the island.
                 </p>
               </div>
             </motion.div>
@@ -192,16 +180,16 @@ export default function SunsetTripClientPage() {
           <div className="lg:col-span-1">
             <div className="sticky top-28 bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
               <div className="bg-gradient-to-r from-orange-600 to-red-500 text-white p-6">
-                <h3 className="text-2xl font-bold mb-2">Sunset Trip Details</h3>
-                <p className="opacity-90">All-inclusive sunset experience</p>
+                <h3 className="text-2xl font-bold mb-2">Trip Details</h3>
+                <p className="opacity-90">Authentic sunset experience</p>
               </div>
               <div className="p-6 space-y-4">
                 <div className="flex items-start">
                   <FiClock className="mt-1 mr-3 text-orange-600 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-800">Schedule</h4>
-                    <p className="text-gray-600">18:00 - 21:00 (3 hours)*</p>
-                    <p className="text-xs text-gray-500">*Varies by season to match sunset</p>
+                    <p className="text-gray-600">Approx. 3 hours (Evening)</p>
+                    <p className="text-xs text-gray-500">Departs 5:00-6:30 PM (seasonal)</p>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -214,15 +202,16 @@ export default function SunsetTripClientPage() {
                 <div className="flex items-start">
                   <FiUsers className="mt-1 mr-3 text-orange-600 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-800">Group Size</h4>
-                    <p className="text-gray-600">Intimate groups for better experience</p>
+                    <h4 className="font-semibold text-gray-800">Capacity</h4>
+                    <p className="text-gray-600">Up to 35 passengers</p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <GiSparklingSabre className="mt-1 mr-3 text-orange-600 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-800">Included</h4>
-                    <p className="text-gray-600">Drinks, light dinner, equipment & more</p>
+                    <p className="text-gray-600">Drinks, Tapas, Music, Activities*</p>
+                     <p className="text-xs text-gray-500">*Water activities weather permitting</p>
                   </div>
                 </div>
                 <div className="border-t border-gray-100 pt-4 mt-6">
@@ -231,18 +220,14 @@ export default function SunsetTripClientPage() {
                       <span className="block text-sm text-gray-500">Price per person</span>
                       <span className="text-3xl font-bold text-gray-900">€80</span>
                     </div>
-                    <div className="text-right">
-                      <span className="block text-sm text-gray-500">Children (4-12)</span>
-                      <span className="text-xl font-semibold text-gray-700">€45</span>
-                    </div>
                   </div>
                   <Link href="#booking-widget" className="block w-full">
                     <span className="block w-full text-center bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-4 rounded-lg shadow transition duration-300">
-                      Book This Trip
+                      Book This Experience
                     </span>
                   </Link>
                   <p className="text-center text-sm text-gray-500 mt-3">
-                    Our most popular trip - book early!
+                    Feel the real magic of Ibiza!
                   </p>
                 </div>
               </div>
@@ -252,17 +237,17 @@ export default function SunsetTripClientPage() {
 
         {/* Highlights Section */}
         <div className="mb-20">
-          <TripHighlights items={tripHighlights} title="What Makes This Sunset Special" />
+          <TripHighlights items={tripHighlights} title="What Makes This Evening Special" />
         </div>
 
-        {/* Testimonials Section */}
-        <div className="mb-20">
-          <TestimonialSlider testimonials={testimonials} />
+        {/* Reviews Section */}
+        <div className="my-16">
+          <ReviewsSection reviews={initialReviews} error={error} />
         </div>
 
         {/* FAQs Section */}
         <div className="mb-20">
-          <FAQ items={tripFAQs} title="Sunset Trip FAQs" />
+          <FAQ items={tripFAQs} title="Sunset Tour FAQs" />
         </div>
 
         {/* Direct Booking Section */}
@@ -275,9 +260,31 @@ export default function SunsetTripClientPage() {
               transition={{ duration: 0.5 }}
               className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-8"
             >
-              Reserve Your <span className="text-orange-600">Sunset Trip</span> Now
+              Reserve Your <span className="text-orange-600">Sunset Tour</span> Now
             </motion.h2>
             
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+              className="mb-6 p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded-r-lg"
+            >
+              <div className="flex">
+                <div className="flex-shrink-0">
+                  <FiInfo className="h-5 w-5 text-yellow-600" aria-hidden="true" />
+                </div>
+                <div className="ml-3">
+                  <p className="text-sm text-yellow-800">
+                    Prefer a daytime adventure? Check out our{' '}
+                    <Link href="/boat-trips/day-trip" className="font-medium underline text-yellow-900 hover:text-yellow-700">
+                      Mixed Daytime Tour
+                    </Link> departing at 2:00 PM.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -292,6 +299,18 @@ export default function SunsetTripClientPage() {
                 productId={2}
                 billingTermIds={[21]}
                 channelId={11}
+                customProperties={{
+                  displayBillingTerm: true,
+                  showQuantity: true,
+                  quantity: "Quantity",
+                  titleVariant: "Modern",
+                  bookNow: "RESERVE NOW",
+                  confirmReservationAndPay: "CLICK TO PAY",
+                  selectTimeLabel: "Time Selection",
+                  selectExperienceLabel: "Experience Type",
+                  addonsLabel: "Add-ons",
+                  depositObservation: "Deposit and payment instructions\n\n\n"
+                }}
               />
             </motion.div>
           </div>
@@ -308,7 +327,7 @@ export default function SunsetTripClientPage() {
             </div>
             <Link href="#booking-widget">
               <span className="inline-block bg-white text-orange-600 hover:bg-orange-50 font-bold py-3 px-8 rounded-lg shadow-md transition duration-300 transform hover:scale-105">
-                Book Your Sunset Trip
+                Book Your Sunset Experience
               </span>
             </Link>
           </div>

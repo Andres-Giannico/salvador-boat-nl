@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FiClock, FiUsers, FiMapPin, FiDollarSign, FiMusic, FiCompass } from 'react-icons/fi';
+import { FiClock, FiUsers, FiMapPin, FiDollarSign, FiMusic, FiCompass, FiInfo, FiCamera } from 'react-icons/fi';
 import { GiWaterSplash, GiPartyPopper } from 'react-icons/gi';
 import { motion } from 'framer-motion';
 import Script from 'next/script';
@@ -11,9 +11,10 @@ import Script from 'next/script';
 // Importamos nuestros componentes reutilizables
 import TripGallery from '@/components/trips/TripGallery';
 import TripHighlights from '@/components/trips/TripHighlights';
-import TestimonialSlider from '@/components/trips/TestimonialSlider';
+import ReviewsSection from '@/components/trips/ReviewsSection';
 import FAQ from '@/components/trips/FAQ';
 import TurbnbWidget from '@/components/booking/TurbnbWidget';
+import { GoogleReview } from '@/services/googlePlaces'; // Import type
 
 // Galería de imágenes para el viaje
 const dayTripImages = [
@@ -29,75 +30,71 @@ const dayTripImages = [
 const tripHighlights = [
   {
     icon: <FiCompass className="w-6 h-6 text-blue-600" />,
-    title: "Scenic Route",
-    description: "Explore the stunning west coast of Ibiza, including Cala Gració, Cala Salada and more pristine spots."
+    title: "Flexible Routes",
+    description: "Our captain chooses the best route based on weather conditions, ensuring an optimal experience every time."
   },
   {
     icon: <GiWaterSplash className="w-6 h-6 text-cyan-600" />,
-    title: "Swim & Snorkel",
-    description: "Take refreshing dips in turquoise waters, with all snorkeling gear provided free of charge."
+    title: "Water Activities",
+    description: "Enjoy paddle surfing, kayaking, snorkeling, and swimming in crystal-clear waters."
   },
   {
     icon: <GiPartyPopper className="w-6 h-6 text-orange-500" />,
-    title: "All-Inclusive",
-    description: "Unlimited drinks, snacks and fresh fruit served throughout the trip."
+    title: "Premium Service",
+    description: "Spanish tapas, fresh fruit, and unlimited drinks including sangria, beer, wine, and cava."
   },
   {
     icon: <FiMusic className="w-6 h-6 text-purple-600" />,
-    title: "Good Vibes",
-    description: "Great music, good company, and a relaxed atmosphere perfect for making memories."
-  },
-];
-
-// Testimonios de clientes
-const testimonials = [
-  {
-    id: 1,
-    name: "Emma & Tom",
-    location: "London, UK",
-    comment: "Highlight of our Ibiza trip! The crew was fantastic, the boat was perfect, and swimming in the crystal clear waters was unforgettable.",
-    rating: 5,
-    trip: "Day Trip"
+    title: "Ultimate Comfort",
+    description: "Lounge beds, shaded areas, wet bar, clean facilities, and premium MB Quart sound system."
   },
   {
-    id: 2,
-    name: "Sophia Martinez",
-    location: "Barcelona, Spain",
-    comment: "Such a great day out! Loved the unlimited drinks and the spots we visited were breathtaking. Worth every penny!",
-    rating: 5,
-    trip: "Day Trip"
-  },
-  {
-    id: 3,
-    name: "Lukas Schmidt",
-    location: "Berlin, Germany",
-    comment: "We had an amazing time on the day trip. The staff was super friendly and the snorkeling was great. Would definitely recommend!",
-    rating: 4,
-    trip: "Day Trip"
-  },
+    icon: <FiCamera className="w-6 h-6 text-teal-600" />,
+    title: "Optional Photographer",
+    description: "Capture your memories! Photos available for optional purchase afterwards."
+  }
 ];
 
 // Preguntas frecuentes específicas para este viaje
 const tripFAQs = [
   {
-    question: "What time does the Day Trip depart?",
-    answer: "Our Day Trip departs from San Antonio Port at 14:00 (2:00 PM) and returns at approximately 17:00 (5:00 PM). Please arrive 15 minutes before departure time."
+    question: "What time does the tour depart?",
+    answer: "The Mixed Daytime Tour departs at 14:00 (2:00 PM) from San Antonio Port. Please arrive at least 30 minutes before departure time. Note that departure times may vary depending on the month."
   },
   {
     question: "What's included in the price?",
-    answer: "The day trip is all-inclusive! Your ticket includes: unlimited drinks (beer, wine, cava, sangria, soft drinks, water), snacks and fresh fruit, use of snorkeling equipment, paddleboards and kayaks, music, and insurance."
+    answer: "Your experience includes unlimited drinks (sangria, beer, wine, cava, soft drinks, water), Spanish tapas and fresh fruit, use of paddle boards, kayaks, snorkeling gear, access to lounge beds, shaded areas, and premium MB Quart sound system."
   },
   {
-    question: "Can children join the Day Trip?",
-    answer: "Yes, children are welcome! We offer a reduced price of €45 for children aged 4-12. Children under 4 may join for free, but please let us know when booking. Life jackets in all sizes are available."
+    question: "What are the prices and age policies?",
+    answer: "Adults: €80, Children (6-12 years): €45, Children under 6: Free. The tour is perfect for all ages, and we provide life vests in all sizes for your safety."
   },
   {
     question: "What should I bring?",
-    answer: "We recommend bringing swimwear, a towel, sunscreen, sunglasses, a hat, and a camera to capture the beautiful moments. Everything else is provided on board!"
+    answer: "Please bring swimwear, a towel, sunscreen, sunglasses, and a hat. We recommend bringing a camera or waterproof phone case to capture the moments. Note that outside food and drinks are not allowed onboard."
   },
+  {
+    question: "How is the route decided?",
+    answer: "Our experienced captain chooses the best route based on weather and sea conditions. We may head north (Cala Gració, Cala Salada, Punta Galera) or west (Cala Bassa, Torre d'en Rovira, Cala Conta) to ensure the best possible experience."
+  }
 ];
 
-export default function DayTripClientPage() {
+// Assuming a list/section displaying features exists
+const featuresList = [
+  // ... existing features ...
+  "Complete snorkeling equipment",
+  "Fresh fruit & snacks included",
+  // Add photographer info
+  "Optional Onboard Photographer (purchase photos afterwards)"
+];
+
+// Interface for props received from the server component
+interface DayTripClientPageProps {
+  initialReviews: GoogleReview[];
+  error: string | null;
+}
+
+export default function DayTripClientPage({ initialReviews, error }: DayTripClientPageProps) {
   
   // Initialize the booking widget when the component mounts
   useEffect(() => {
@@ -168,10 +165,10 @@ export default function DayTripClientPage() {
           className="relative z-10 container mx-auto px-4 text-white text-center pt-20"
         >
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 drop-shadow-md">
-            Ibiza Day <span className="text-blue-400">Boat Trip</span>
+            Mixed Daytime <span className="text-blue-400">Boat Tour</span>
           </h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-8 drop-shadow-sm">
-            3 hours of sun, sea and unforgettable moments along Ibiza&apos;s stunning coastline.
+            Experience the authentic Mediterranean vibes aboard our traditional Balearic wooden boat
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-8">
             <div className="flex items-center bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full">
@@ -211,16 +208,16 @@ export default function DayTripClientPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Your Perfect Day at Sea</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Your Perfect Mediterranean Adventure</h2>
               <div className="prose prose-lg text-gray-600 mb-8 max-w-none">
                 <p>
-                  Escape the crowds and experience Ibiza from a different perspective. Our 3-hour all-inclusive day trip takes you along the stunning west coast of the island, with stops at crystal-clear bays perfect for swimming and snorkeling.
+                  Welcome aboard Salvador Ibiza, a traditional Balearic wooden boat offering the most authentic and vibrant boat tours along the coast of Ibiza. Our Mixed Daytime Tour is designed for travelers of all ages who want to experience the best of Ibiza from the water.
                 </p>
                 <p>
-                  Departing from San Antonio port, we&apos;ll cruise to beautiful spots like Cala Gració and Cala Salada, where you can jump into the turquoise Mediterranean waters. Try paddleboarding, snorkeling, or simply relax on deck with a drink in hand.
+                  Depending on the weather and sea conditions, our experienced captain will choose the perfect route - either heading north toward Cala Gració, Cala Salada, and Punta Galera, or west toward Cala Bassa, Torre d'en Rovira, and Cala Conta. Each journey is unique, ensuring the best possible experience based on the day's conditions.
                 </p>
                 <p>
-                  With unlimited drinks, snacks, and fresh fruit included, all you need to do is bring yourself, your swimwear, and a sense of adventure!
+                  Whether you're a solo traveler, couple, group of friends, or family, our warm and professional crew creates the perfect environment for you to relax and enjoy the Mediterranean experience to the fullest. With a perfect blend of fun, relaxation, and exploration, this 3-hour trip showcases the island's crystal-clear waters, stunning landscapes, and chill Mediterranean vibes.
                 </p>
               </div>
             </motion.div>
@@ -251,8 +248,8 @@ export default function DayTripClientPage() {
                 <div className="flex items-start">
                   <FiClock className="mt-1 mr-3 text-blue-600 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-800">Schedule</h4>
-                    <p className="text-gray-600">14:00 - 17:00 (3 hours)</p>
+                    <h4 className="font-semibold text-gray-800">Duration</h4>
+                    <p className="text-gray-600">3 hours (14:00 - 17:00)</p>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -265,15 +262,15 @@ export default function DayTripClientPage() {
                 <div className="flex items-start">
                   <FiUsers className="mt-1 mr-3 text-blue-600 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-800">Group Size</h4>
-                    <p className="text-gray-600">Small groups for better experience</p>
+                    <h4 className="font-semibold text-gray-800">Capacity</h4>
+                    <p className="text-gray-600">Up to 35 passengers</p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <GiPartyPopper className="mt-1 mr-3 text-blue-600 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-800">Included</h4>
-                    <p className="text-gray-600">Drinks, snacks, equipment & more</p>
+                    <h4 className="font-semibold text-gray-800">Season</h4>
+                    <p className="text-gray-600">May to October</p>
                   </div>
                 </div>
                 <div className="border-t border-gray-100 pt-4 mt-6">
@@ -306,9 +303,9 @@ export default function DayTripClientPage() {
           <TripHighlights items={tripHighlights} title="What Makes This Trip Special" />
         </div>
 
-        {/* Testimonials Section */}
+        {/* Reviews Section - Pass props down */}
         <div className="mb-20">
-          <TestimonialSlider testimonials={testimonials} />
+          <ReviewsSection reviews={initialReviews} error={error} />
         </div>
 
         {/* FAQs Section */}
@@ -329,6 +326,28 @@ export default function DayTripClientPage() {
               Reserve Your <span className="text-blue-600">Day Trip</span> Now
             </motion.h2>
             
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+              className="mb-6 p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded-r-lg"
+            >
+              <div className="flex">
+                <div className="flex-shrink-0">
+                  <FiInfo className="h-5 w-5 text-yellow-600" aria-hidden="true" />
+                </div>
+                <div className="ml-3">
+                  <p className="text-sm text-yellow-800">
+                    Looking for an evening experience? Check out our popular{' '}
+                    <Link href="/boat-trips/sunset-trip" className="font-medium underline text-yellow-900 hover:text-yellow-700">
+                      Sunset Trip
+                    </Link> departing later in the day.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}

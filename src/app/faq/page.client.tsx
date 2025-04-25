@@ -12,8 +12,11 @@ import FAQ from "@/components/trips/FAQ";
 const generalFaqs = [
   {
     question: "What kind of boat trips do you offer?",
-    answer:
-      "We offer a variety of experiences, including thrilling <Link href='/boat-trips/day-trip' className='text-cyan-600 hover:underline font-medium'>Day Trips</Link>, magical <Link href='/boat-trips/sunset-trip' className='text-orange-600 hover:underline font-medium'>Sunset Trips</Link>, and fully customizable <Link href='/private-charter' className='text-purple-600 hover:underline font-medium'>Private Charters</Link> to explore Ibiza's stunning coastline.",
+    answer: (
+      <>
+        We offer vibrant shared trips like our <Link href='/boat-trips/day-trip' className='text-cyan-600 hover:underline font-medium'>Mixed Daytime Tour</Link> and the magical <Link href='/boat-trips/sunset-trip' className='text-orange-600 hover:underline font-medium'>Mixed Sunset Tour</Link>. We also specialize in fully customizable <Link href='/private-charter' className='text-purple-600 hover:underline font-medium'>Private Charters</Link>.
+      </>
+    ),
   },
   {
     question: "How long do the trips last?",
@@ -22,8 +25,11 @@ const generalFaqs = [
   },
   {
     question: "What routes do you usually take?",
-    answer:
-      "We have popular suggested routes showcasing the best coves and beaches like Cala Gració, Cala Salada, Punta Galera, and views of Es Vedrà for sunset. On <Link href='/private-charter' className='text-purple-600 hover:underline font-medium'>Private Charters</Link>, the route is completely flexible and designed with you.",
+    answer: (
+      <>
+        Our shared tours explore the stunning West Coast (towards Cala Conta) or North Coast (towards Sa Foradada), showcasing beautiful coves and beaches like Cala Gració and Cala Salada. The captain chooses the best route daily based on conditions. See our <Link href='/routes' className='text-blue-600 hover:underline font-medium'>Routes Page</Link> for details. On <Link href='/private-charter' className='text-purple-600 hover:underline font-medium'>Private Charters</Link>, the route is fully customizable within our operational range.
+      </>
+    ),
   },
   {
     question: "Where is the meeting point?",
@@ -35,18 +41,27 @@ const generalFaqs = [
 const pricingFaqs = [
   {
     question: "What's included in the price?",
-    answer:
-      "Generally, the price for shared trips (Day/Sunset) includes the captain, fuel, unlimited drinks (water, soft drinks, beer, wine, cava, sangria), light meals/snacks, fruit, and snorkel gear. For <Link href='/private-charter' className='text-purple-600 hover:underline font-medium'>Private Charters</Link>, inclusions can be customized. Check the specific trip page for full details!",
+    answer: (
+      <>
+        Shared trips (Day/Sunset) typically include the captain, crew, fuel, unlimited standard open bar (soft drinks, beer, wine, cava, sangria, water), Spanish tapas & fresh fruit, and use of paddleboards, kayaks & snorkel gear. <Link href='/private-charter' className='text-purple-600 hover:underline font-medium'>Private Charters</Link> have similar base inclusions but offer upgrade options (premium tapas, spirits). Always check the specific trip page!
+      </>
+    ),
   },
   {
     question: "Can we bring our own food and drinks?",
-    answer:
-      "Yes! You're welcome to bring additional food and drinks if you wish, especially on private charters. However, we already provide a great selection on board.",
+    answer: (
+      <>
+        You are welcome to bring your own food onboard, especially on <Link href='/private-charter' className='text-purple-600 hover:underline font-medium'>Private Charters</Link>. However, <strong>outside drinks are strictly not permitted on any trip</strong>, as we provide a generous complimentary open bar (soft drinks, beer, wine, cava, sangria, water). Specific requests like birthday cakes for charters can be discussed when booking.
+      </>
+    ),
   },
   {
     question: "How can I book a trip?",
-    answer:
-      "You can easily book through our website by selecting your desired <Link href='/boat-trips' className='text-cyan-600 hover:underline font-medium'>Trip</Link> or contacting us directly for a <Link href='/private-charter' className='text-purple-600 hover:underline font-medium'>Private Charter</Link>. You can also reach us via our <Link href='/contact' className='text-blue-600 hover:underline font-medium'>Contact Page</Link>.",
+    answer: (
+      <>
+        <Link href='/book-now' className='text-blue-600 hover:underline font-medium'>Booking online through our website</Link> is highly recommended! Use the secure booking widgets with live availability on the <Link href='/boat-trips/day-trip' className='text-cyan-600 hover:underline font-medium'>Day Trip</Link>, <Link href='/boat-trips/sunset-trip' className='text-orange-600 hover:underline font-medium'>Sunset Trip</Link>, and <Link href='/private-charter' className='text-purple-600 hover:underline font-medium'>Private Charter</Link> pages. After completing your booking, you will receive a confirmation voucher with all the details, including the exact meeting point and time.
+      </>
+    ),
   },
   {
     question: "What's the cancellation policy?",
@@ -104,13 +119,19 @@ const safetyFaqs = [
 const activityFaqs = [
   {
     question: "Can we do watersports?",
-    answer:
-      "We offer free snorkeling gear. Other watersports equipment like paddleboards and kayaks are included in our Day and Sunset trips. For <Link href='/private-charter' className='text-purple-600 hover:underline font-medium'>Private Charters</Link>, additional equipment like Seabobs might be available upon request at an extra cost.",
+    answer: (
+      <>
+        Yes! All our trips include the use of paddleboards (we have 15!), kayaks (2 available), and complete snorkeling equipment for everyone to enjoy during our swim stops.
+      </>
+    ),
   },
   {
     question: "Are pets allowed on board?",
-    answer:
-      "Generally, pets are not allowed on shared trips for the comfort of all passengers. On <Link href='/private-charter' className='text-purple-600 hover:underline font-medium'>Private Charters</Link>, we might consider it on a case-by-case basis. Please ask us beforehand.",
+    answer: (
+      <>
+        For the comfort of all guests, pets are not permitted on our shared Day or Sunset trips. On <Link href='/private-charter' className='text-purple-600 hover:underline font-medium'>Private Charters</Link>, well-behaved pets may be considered upon prior request – please discuss this with us when booking.
+      </>
+    ),
   },
   {
     question: "Do you speak languages other than English?",
@@ -119,8 +140,11 @@ const activityFaqs = [
   },
   {
     question: "What makes Salvador Ibiza so special?",
-    answer:
-      "We are passionate about the sea and Ibiza! We offer high-quality boats, exceptional personalized service, and deep local knowledge to ensure you have an unforgettable experience. Read more <Link href='/about' className='text-blue-600 hover:underline font-medium'>About Us</Link>!",
+    answer: (
+      <>
+        It's the combination of our beautiful, traditional wooden boat, the stunning routes, the generous inclusions (drinks, food, activities), and most importantly, our friendly, professional crew dedicated to providing an authentic and unforgettable Ibiza experience. Read more <Link href='/about' className='text-blue-600 hover:underline font-medium'>About Us</Link>!
+      </>
+    ),
   },
 ];
 

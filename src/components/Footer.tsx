@@ -38,11 +38,11 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center mb-12 pb-8 border-b border-gray-200">
             <Link href={currentLocale === 'en' ? '/' : `/${currentLocale}`} className="mb-6 md:mb-0">
               <Image
-                src="/images/logo-salvador.png"
-                alt="Salvador Ibiza"
-                width={180}
-                height={70}
-                className="h-14 w-auto"
+                src="/images/logofooter.png"
+                alt="Salvador Ibiza Footer Logo"
+                width={60}
+                height={18}
+                priority
               />
             </Link>
             <div className="flex items-center space-x-5">

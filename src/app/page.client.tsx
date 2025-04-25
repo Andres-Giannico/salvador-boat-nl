@@ -58,7 +58,7 @@ export default function HomeClientPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[100vh] flex items-center justify-center overflow-hidden -mt-[80px] pt-[80px]">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <Image

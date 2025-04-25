@@ -2,11 +2,12 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiChevronLeft, FiChevronRight, FiStar } from 'react-icons/fi';
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import Image from 'next/image';
+import { FaStar } from 'react-icons/fa';
 
 export type Testimonial = {
-  id: number;
+  id: string | number;
   name: string;
   location: string;
   comment: string;
@@ -32,25 +33,16 @@ const TestimonialSlider: React.FC<TestimonialSliderProps> = ({
 
   const testimonialCount = testimonials.length;
 
-  const nextSlide = useCallback(() => {
-    setDirection(1);
-    setCurrent((current + 1) % testimonialCount);
-  }, [current, testimonialCount]);
-
-  const prevSlide = useCallback(() => {
-    setDirection(-1);
-    setCurrent((current - 1 + testimonialCount) % testimonialCount);
-  }, [current, testimonialCount]);
-
   useEffect(() => {
     if (!autoplay || isPaused) return;
     
     const interval = setInterval(() => {
-      nextSlide();
+      setDirection(1);
+      setCurrent((current + 1) % testimonialCount);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [autoplay, current, isPaused, nextSlide, testimonialCount]);
+  }, [autoplay, current, isPaused, testimonialCount]);
 
   const variants = {
     enter: (direction: number) => ({
@@ -69,26 +61,21 @@ const TestimonialSlider: React.FC<TestimonialSliderProps> = ({
 
   const renderStars = (rating: number) => {
     return Array.from({ length: 5 }, (_, i) => (
-      <FiStar
+      <FaStar
         key={i}
-        className={`w-4 h-4 ${
-          i < rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'
-        }`}
+        className="w-5 h-5 text-yellow-400"
       />
     ));
   };
 
-  return (
-    <div 
-      className="w-full relative py-12 px-4 md:px-12 rounded-xl bg-gradient-to-br from-blue-50 to-white"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
-      {title && (
-        <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-10 text-center">{title}</h2>
-      )}
+  const paginate = (newDirection: number) => {
+    setDirection(newDirection);
+    setCurrent((prevIndex) => (prevIndex + newDirection + testimonialCount) % testimonialCount);
+  };
 
-      <div className="relative overflow-hidden">
+  return (
+    <div className="relative w-full max-w-4xl mx-auto px-4">
+      <div className="relative min-h-[300px] flex items-center justify-center">
         <AnimatePresence initial={false} custom={direction}>
           <motion.div
             key={current}
@@ -97,61 +84,72 @@ const TestimonialSlider: React.FC<TestimonialSliderProps> = ({
             initial="enter"
             animate="center"
             exit="exit"
-            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            className="w-full"
+            transition={{
+              x: { type: "spring", stiffness: 300, damping: 30 },
+              opacity: { duration: 0.2 }
+            }}
+            className="absolute w-full"
           >
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10 p-6 md:p-10 bg-white rounded-xl shadow-lg border border-gray-100">
-                <div className="flex-shrink-0 w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden shadow-md">
-                  {testimonials[current].image && (
-                    <Image 
-                      src={testimonials[current].image!}
+            <div className="bg-white rounded-xl shadow-lg p-8">
+              <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
+                {/* Avatar */}
+                <div className="flex-shrink-0 w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-white shadow-lg">
+                  {testimonials[current]?.image ? (
+                    <Image
+                      src={testimonials[current].image}
                       alt={`Photo of ${testimonials[current].name}`}
-                      width={128} 
+                      width={128}
                       height={128}
                       className="object-cover w-full h-full"
-                      priority={current === 0}
                     />
+                  ) : (
+                    <div className="w-full h-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
+                      <span className="text-2xl font-bold text-blue-500">
+                        {testimonials[current]?.name?.charAt(0) || '?'}
+                      </span>
+                    </div>
                   )}
                 </div>
-                <div className="text-center md:text-left">
-                  <div className="flex space-x-1 mb-4">
+
+                {/* Content */}
+                <div className="flex-1 text-center md:text-left">
+                  <div className="flex justify-center md:justify-start mb-4">
                     {renderStars(testimonials[current].rating)}
                   </div>
-                  <p className="text-lg italic text-gray-700 my-4">
+                  <p className="text-gray-700 text-lg mb-4 italic">
                     &ldquo;{testimonials[current].comment}&rdquo;
                   </p>
-                  <p className="font-semibold text-gray-800">{testimonials[current].name}</p>
-                  <p className="text-sm text-gray-500">{testimonials[current].location}</p>
-                  {testimonials[current].trip && (
-                    <p className="text-xs text-blue-600 mt-1">Trip: {testimonials[current].trip}</p>
-                  )}
+                  <div>
+                    <p className="font-semibold text-gray-900">{testimonials[current].name}</p>
+                    <p className="text-gray-500">{testimonials[current].location}</p>
+                    {testimonials[current].trip && (
+                      <p className="text-blue-600 text-sm mt-1">{testimonials[current].trip}</p>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
           </motion.div>
         </AnimatePresence>
-      </div>
 
-      <div className="absolute inset-0 flex items-center justify-between pointer-events-none px-4">
+        {/* Navigation Buttons */}
         <button
-          onClick={prevSlide}
-          className="bg-white/80 backdrop-blur-sm text-gray-800 hover:bg-white p-2 rounded-full shadow-sm pointer-events-auto transition-all"
-          aria-label="Previous testimonial"
+          className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white hover:bg-gray-50 text-gray-800 p-2 rounded-full shadow-lg z-10"
+          onClick={() => paginate(-1)}
         >
-          <FiChevronLeft className="w-5 h-5" />
+          <FiChevronLeft className="w-6 h-6" />
         </button>
+
         <button
-          onClick={nextSlide}
-          className="bg-white/80 backdrop-blur-sm text-gray-800 hover:bg-white p-2 rounded-full shadow-sm pointer-events-auto transition-all"
-          aria-label="Next testimonial"
+          className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white hover:bg-gray-50 text-gray-800 p-2 rounded-full shadow-lg z-10"
+          onClick={() => paginate(1)}
         >
-          <FiChevronRight className="w-5 h-5" />
+          <FiChevronRight className="w-6 h-6" />
         </button>
       </div>
 
       {/* Pagination dots */}
-      <div className="flex justify-center mt-8 space-x-2">
+      <div className="flex justify-center mt-6 space-x-2">
         {testimonials.map((_, index) => (
           <button
             key={index}
@@ -159,9 +157,9 @@ const TestimonialSlider: React.FC<TestimonialSliderProps> = ({
               setDirection(index > current ? 1 : -1);
               setCurrent(index);
             }}
-            className={`w-2.5 h-2.5 rounded-full ${
+            className={`w-2 h-2 rounded-full transition-colors duration-300 ${
               index === current ? 'bg-blue-600' : 'bg-gray-300'
-            } transition-colors duration-300`}
+            }`}
             aria-label={`Go to testimonial ${index + 1}`}
           />
         ))}
