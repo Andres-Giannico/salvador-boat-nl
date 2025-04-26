@@ -19,6 +19,11 @@ const nextConfig = {
         destination: '/boat-trips',
         permanent: false,
       },
+      {
+        source: 'book-now/sunset-mix-.html',
+        destination: '/boat-trips/sunset-trip',
+        permanent: false,
+      },
       // Boat Trips redirects
       {
         source: '/book-now/3-hours-all-inclusive-boat-trip.html',
