@@ -75,7 +75,7 @@ export default function AboutClientPage() {
             >
               <div className="bg-gradient-to-r from-blue-100 to-cyan-100 rounded-2xl p-1">
                 <Image
-                  src="/images/boat-1.jpeg"
+                  src="/images/barco5.png"
                   alt="Salvador Ibiza Journey"
                   width={600}
                   height={400}
@@ -115,7 +115,7 @@ export default function AboutClientPage() {
             >
               <div className="bg-gradient-to-r from-blue-100 to-cyan-100 rounded-2xl p-1">
                 <Image
-                  src="/images/boat-2.jpeg"
+                  src="/images/barco1.png"
                   alt="Salvador Boat"
                   width={600}
                   height={400}
@@ -164,11 +164,11 @@ export default function AboutClientPage() {
               </p>
               <div className="mt-8">
                 <Image
-                  src="/images/boat-3.jpeg"
+                  src="/images/crew-boat.jpeg"
                   alt="Salvador Ibiza Crew"
-                  width={800}
+                  width={500}
                   height={400}
-                  className="rounded-2xl shadow-xl object-cover"
+                  className="rounded-2xl shadow-xl object-cover  mx-auto"
                 />
               </div>
             </motion.div>
