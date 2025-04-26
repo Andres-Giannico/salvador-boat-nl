@@ -22,11 +22,6 @@ const montserrat = Montserrat({
   weight: ["400", "500", "600", "700", "800"],
 });
 
-const display = localFont({
-  src: '../fonts/InstrumentSerif-Regular.ttf',
-  variable: '--font-display',
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL('https://salvadoribiza.com'),
   title: {
@@ -73,7 +68,7 @@ export default function RootLayout({
   const gaMeasurementId = 'G-SP4LMTQT3E'; // ID Hardcoded
 
   return (
-    <html lang="en" className={`${inter.variable} ${montserrat.variable} ${display.variable}`}>
+    <html lang="en" className={`${inter.variable} ${montserrat.variable}`}>
       <head>
         {/* Google Analytics Scripts con ID Hardcoded */}
         <Script
