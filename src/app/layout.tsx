@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import Script from 'next/script';
+import { Toaster } from 'sonner';
 
 // Configuración de fuentes
 const inter = Inter({
@@ -92,6 +93,7 @@ export default function RootLayout({
       <body className={`${inter.className} bg-white text-gray-800`}>
         <div className="flex flex-col min-h-screen">
           <Navbar />
+          <Toaster position="top-center" richColors />
           <main className="flex-grow pt-20 md:pt-24 sm:pt-16">
             {children}
           </main>

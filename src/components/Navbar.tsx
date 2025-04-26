@@ -2,9 +2,10 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
+import { toast } from 'sonner';
 
 // Helper function to change locale in path
 const changeLocale = (pathname: string, locale: string) => {
@@ -55,6 +56,28 @@ const Navbar = () => {
   const ctaClass = `py-2.5 px-6 rounded-full text-sm font-semibold shadow-lg bg-gradient-to-r from-blue-600 to-cyan-500 text-white hover:from-blue-700 hover:to-cyan-600 transition-all duration-300 transform hover:scale-105 hover:shadow-xl`;
   const navHeight = "h-20 md:h-24";
   const logoHeight = "h-16 md:h-20";
+
+  const handleLanguageClick = (e: React.MouseEvent, lang: string) => {
+    e.preventDefault();
+    toast.info(
+      lang === 'es' 
+        ? "Lo sentimos, estamos trabajando en la versión en español." 
+        : "Sorry, we are working on other language versions.",
+      {
+        duration: 3000,
+      }
+    );
+    
+    // Redirect to English version after 3 seconds
+    setTimeout(() => {
+      window.location.href = '/';
+    }, 3000);
+  };
+
+  // Close menu when route changes
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
 
   return (
     <nav className={`${navClass} ${navHeight}`}>
@@ -112,7 +135,7 @@ const Navbar = () => {
             {/* Language Switcher with enhanced styling */}
             <div className="relative ml-4 border-l border-gray-200 pl-4">
               <button 
-                onClick={() => setIsLangOpen(!isLangOpen)} 
+                onClick={(e) => handleLanguageClick(e, currentLocale)} 
                 className="flex items-center space-x-1 px-3 py-2 rounded-full hover:bg-gray-50 transition-colors duration-300 focus:outline-none"
               >
                 <span className="cursor-pointer text-xl">{currentFlag}</span>
@@ -142,7 +165,7 @@ const Navbar = () => {
                         key={locale.code}
                         href={changeLocale(pathname, locale.code)} 
                         locale={locale.code}
-                        onClick={() => setIsLangOpen(false)}
+                        onClick={(e) => handleLanguageClick(e, locale.code)}
                         className="block px-4 py-2 text-sm hover:bg-gradient-to-r hover:from-blue-50 hover:to-cyan-50 transition-colors duration-300 flex items-center space-x-3"
                       >
                         <span className="text-lg">{locale.flag}</span> 
@@ -173,7 +196,7 @@ const Navbar = () => {
           <div className="flex md:hidden items-center space-x-3">
             <button 
               className="px-3 py-2 rounded-full hover:bg-gray-50 transition-colors duration-300"
-              onClick={() => setIsLangOpen(!isLangOpen)}
+              onClick={(e) => handleLanguageClick(e, currentLocale)}
             >
               <span className="text-xl">{currentFlag}</span>
             </button>
@@ -253,7 +276,7 @@ const Navbar = () => {
                     key={locale.code}
                     href={changeLocale(pathname, locale.code)} 
                     locale={locale.code}
-                    onClick={() => setIsOpen(false)}
+                    onClick={(e) => handleLanguageClick(e, locale.code)}
                     className={`block px-4 py-2.5 rounded-xl text-base transition-colors duration-300
                       ${currentLocale === locale.code 
                         ? 'bg-gradient-to-r from-blue-50 to-cyan-50 font-medium' 
