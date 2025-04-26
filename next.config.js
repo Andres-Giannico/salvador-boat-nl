@@ -20,7 +20,7 @@ const nextConfig = {
         permanent: false,
       },
       {
-        source: 'book-now/sunset-mix-.html',
+        source: '/book-now/sunset-mix-.html',
         destination: '/boat-trips/sunset-trip',
         permanent: false,
       },
