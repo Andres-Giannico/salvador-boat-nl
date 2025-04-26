@@ -13,7 +13,7 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      // Google redirect with 303 status code (See Other)
+      // Redirección permanente para la antigua página AI
       {
         source: '/salvador-ibiza/salvadorai.html',
         destination: '/boat-trips',
@@ -32,11 +32,6 @@ const nextConfig = {
       },
       {
         source: '/interna/salvador-ibiza-style-boat-trip.html',
-        destination: '/boat-trips',
-        permanent: true,
-      },
-      {
-        source: '/book-now/sunset-mix-.html',
         destination: '/boat-trips',
         permanent: true,
       },
