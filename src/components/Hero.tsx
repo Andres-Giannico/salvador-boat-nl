@@ -19,7 +19,7 @@ const fadeIn = (delay = 0) => ({
 
 export default function Hero() {
   return (
-    <div className="relative h-[90vh] md:h-screen flex items-center justify-center text-center overflow-hidden pt-24 md:pt-26">
+    <div className="relative h-[90vh] md:h-screen flex items-center justify-center text-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
