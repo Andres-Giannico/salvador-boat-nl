@@ -51,7 +51,7 @@ export default function ReviewsSection({
         return null; // Skip reviews that cause errors during mapping
       }
     })
-    .filter((review): review is Testimonial => review !== null); // Filter out any nulls from errors
+    .filter((review): review is Testimonial => review !== null);
 
   const renderContent = () => {
     if (isLoading) {
@@ -59,7 +59,18 @@ export default function ReviewsSection({
     }
     if (error) {
       console.error("Reviews Section Error:", error);
-      return <p className="text-center text-red-500">Error loading reviews. Please try again later.</p>;
+      // Show more specific messages based on error type
+      if (error.includes('Missing API Key')) {
+        return <p className="text-center text-red-500">Configuration Error: API Key not found. Please contact the administrator.</p>;
+      }
+      if (error.includes('Missing Place ID')) {
+        return <p className="text-center text-red-500">Configuration Error: Place ID not found. Please contact the administrator.</p>;
+      }
+      if (error.includes('Google API error')) {
+        return <p className="text-center text-red-500">Error connecting to Google Reviews. Please try again later.</p>;
+      }
+      // Generic error message
+      return <p className="text-center text-red-500">Error loading reviews: {error}</p>;
     }
     if (mappedReviews.length === 0) {
       return (
