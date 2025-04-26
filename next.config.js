@@ -17,12 +17,12 @@ const nextConfig = {
       {
         source: '/salvador-ibiza/salvadorai.html',
         destination: '/boat-trips',
-        permanent: false,
+        permanent: true,
       },
       {
         source: '/book-now/sunset-mix-.html',
         destination: '/boat-trips/sunset-trip',
-        permanent: false,
+        permanent: true,
       },
       // Boat Trips redirects
       {
