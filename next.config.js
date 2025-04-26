@@ -13,6 +13,12 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // Google redirect with 303 status code (See Other)
+      {
+        source: '/salvador-ibiza/salvadorai.html',
+        destination: '/boat-trips',
+        permanent: false,
+      },
       // Boat Trips redirects
       {
         source: '/book-now/3-hours-all-inclusive-boat-trip.html',
@@ -53,7 +59,7 @@ const nextConfig = {
       // TODO: Blog section needs to be implemented
       {
         source: '/blog/location/findes',
-        destination: '/blog',
+        destination: '/contact',
         permanent: true,
       },
       {
