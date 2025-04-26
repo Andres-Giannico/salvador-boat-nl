@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import Script from 'next/script';
 import { Toaster } from 'sonner';
+import localFont from 'next/font/local';
 
 // Configuración de fuentes
 const inter = Inter({
@@ -19,6 +20,11 @@ const montserrat = Montserrat({
   display: "swap",
   variable: "--font-montserrat",
   weight: ["400", "500", "600", "700", "800"],
+});
+
+const display = localFont({
+  src: '../fonts/InstrumentSerif-Regular.ttf',
+  variable: '--font-display',
 });
 
 export const metadata: Metadata = {
@@ -64,23 +70,25 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const gaMeasurementId = 'G-SP4LMTQT3E'; // ID Hardcoded
+
   return (
-    <html lang="en" className={`${inter.variable} ${montserrat.variable}`}>
+    <html lang="en" className={`${inter.variable} ${montserrat.variable} ${display.variable}`}>
       <head>
-        {/* Placeholder para Google Analytics (gtag.js) */}
+        {/* Google Analytics Scripts con ID Hardcoded */}
         <Script
           strategy="afterInteractive"
-          src={`https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX`}
+          src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
         />
         <Script
-          id="gtag-init"
+          id="google-analytics"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-XXXXXXXXXX', {
+              gtag('config', '${gaMeasurementId}', {
                 page_path: window.location.pathname,
               });
             `,
