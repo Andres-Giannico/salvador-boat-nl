@@ -7,6 +7,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import Script from 'next/script';
 import { Toaster } from 'sonner';
 import localFont from 'next/font/local';
+import CookieConsentBanner from "@/components/CookieConsentBanner";
 
 // Configuración de fuentes
 const inter = Inter({
@@ -65,23 +66,34 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const gaMeasurementId = 'G-SP4LMTQT3E'; // ID Hardcoded
+  const gaMeasurementId = 'G-SP4LMTQT3E';
 
   return (
     <html lang="en" className={`${inter.variable} ${montserrat.variable}`}>
       <head>
-        {/* Google Analytics Scripts con ID Hardcoded */}
+        {/* Google Analytics Scripts */}
         <Script
-          strategy="afterInteractive"
-          src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
-        />
-        <Script
-          id="google-analytics"
-          strategy="afterInteractive"
+          id="google-analytics-setup"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
+              
+              // Establecer consentimiento predeterminado ANTES de cargar gtag.js y configurar GA
+              gtag('consent', 'default', {
+                'analytics_storage': 'denied',
+                'ad_storage': 'denied',
+                'wait_for_update': 500
+              });
+              
+              // Cargar gtag.js dinámicamente después de definir el default
+              var gtagScript = document.createElement('script');
+              gtagScript.async = true;
+              gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}';
+              document.head.appendChild(gtagScript);
+              
+              // Configurar GA después de definir defaults y empezar a cargar gtag.js
               gtag('js', new Date());
               gtag('config', '${gaMeasurementId}', {
                 page_path: window.location.pathname,
@@ -103,6 +115,7 @@ export default function RootLayout({
           <Footer />
         </div>
         <WhatsAppButton />
+        <CookieConsentBanner />
       </body>
     </html>
   );
