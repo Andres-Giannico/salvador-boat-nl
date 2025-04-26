@@ -82,8 +82,15 @@ const tripFAQs = [
     answer: "Please bring swimwear, a towel, sunscreen, sunglasses, and a hat. We recommend bringing a camera or waterproof phone case to capture the moments. Note that outside food and drinks are not allowed onboard."
   },
   {
-    question: "How is the route decided?",
-    answer: "Our experienced captain chooses the best route based on weather and sea conditions. We may head north (Cala Gració, Cala Salada, Punta Galera) or west (Cala Bassa, Torre d'en Rovira, Cala Conta) to ensure the best possible experience."
+    question: "What is the route?",
+    answer: (
+      <>
+        Our standard Day Trip route explores the stunning west coast of Ibiza, including stops at Cala Bassa and Cala Conta, known for their crystal-clear waters. However, the captain may adjust the route based on weather conditions for optimal safety and enjoyment. 
+        <Link href="/routes" className="text-blue-600 hover:underline font-medium ml-1">
+          Learn more about our routes.
+        </Link>
+      </>
+    )
   }
 ];
 
