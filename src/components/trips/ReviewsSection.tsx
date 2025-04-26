@@ -6,6 +6,7 @@ import { GoogleReview } from '@/services/googlePlaces';
 import Link from 'next/link';
 import { FiExternalLink } from 'react-icons/fi';
 import { FcGoogle } from 'react-icons/fc';
+import { getStaticReviews } from './StaticReviews';
 
 // Google Place ID - required for links
 const PLACE_ID = 'ChIJCek3no5JmRIRQc4VSbT3qiY'; 
@@ -53,50 +54,25 @@ export default function ReviewsSection({
     })
     .filter((review): review is Testimonial => review !== null);
 
+  // Determinar si estamos en producción (Vercel)
+  const isProduction = process.env.NEXT_PUBLIC_VERCEL_ENV === 'production' || 
+                       (typeof window !== 'undefined' && 
+                       (window.location.hostname.includes('vercel.app') || 
+                        window.location.hostname.includes('salvadoribiza.com')));
+
   const renderContent = () => {
     if (isLoading) {
       return <p className="text-center text-gray-500">Loading reviews...</p>;
     }
-    if (error) {
-      console.error("Reviews Section Error:", error);
-      // Show more specific messages based on error type
-      if (error.includes('Missing API Key')) {
-        return <p className="text-center text-red-500">Configuration Error: API Key not found. Please contact the administrator.</p>;
-      }
-      if (error.includes('Missing Place ID')) {
-        return <p className="text-center text-red-500">Configuration Error: Place ID not found. Please contact the administrator.</p>;
-      }
-      if (error.includes('Google API error')) {
-        return <p className="text-center text-red-500">Error connecting to Google Reviews. Please try again later.</p>;
-      }
-      // Generic error message
-      return <p className="text-center text-red-500">Error loading reviews: {error}</p>;
+    
+    // Si estamos en producción o hay un error, usamos los reviews estáticos
+    if (isProduction || error || mappedReviews.length === 0) {
+      console.log("Using static reviews");
+      const staticTestimonials = getStaticReviews();
+      return <TestimonialSlider testimonials={staticTestimonials} />;
     }
-    if (mappedReviews.length === 0) {
-      return (
-        <div className="text-center text-gray-500">
-          <p>No reviews available at this moment.</p>
-          <div className="mt-8 flex flex-col sm:flex-row justify-center items-center gap-4">
-            <Link 
-              href={`https://search.google.com/local/reviews?placeid=${PLACE_ID}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-6 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors shadow-sm"
-            >
-              See all reviews on Google <FiExternalLink className="ml-2" />
-            </Link>
-            <Link 
-              href={`https://search.google.com/local/writereview?placeid=${PLACE_ID}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-6 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 transition-colors"
-            >
-              Leave a review on Google
-            </Link>
-          </div>
-        </div>
-      );
-    }
+    
+    // Si llegamos aquí, tenemos reviews de la API y no estamos en producción
     return <TestimonialSlider testimonials={mappedReviews} />;
   };
 
@@ -117,38 +93,36 @@ export default function ReviewsSection({
             </h2>
           </div>
           <p className="text-lg text-gray-600">
-            See what our guests are saying on Google about their Salvador Ibiza experience.
+            See what our guests are saying about their Salvador Ibiza experience.
           </p>
         </motion.div>
 
         {renderContent()}
 
-        {mappedReviews.length > 0 && !isLoading && !error && (
-           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="mt-12 flex flex-col sm:flex-row justify-center items-center gap-4"
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="mt-12 flex flex-col sm:flex-row justify-center items-center gap-4"
+        >
+          <Link 
+            href={`https://search.google.com/local/reviews?placeid=${PLACE_ID}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-6 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors shadow-sm"
           >
-            <Link 
-              href={`https://search.google.com/local/reviews?placeid=${PLACE_ID}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-6 py-2 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 transition-colors shadow-sm"
-            >
-              See all reviews on Google <FiExternalLink className="ml-2" />
-            </Link>
-            <Link 
-              href={`https://search.google.com/local/writereview?placeid=${PLACE_ID}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-6 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 transition-colors"
-            >
-              Leave a review on Google
-            </Link>
-          </motion.div>
-        )}
+            See all reviews on Google <FiExternalLink className="ml-2" />
+          </Link>
+          <Link 
+            href={`https://search.google.com/local/writereview?placeid=${PLACE_ID}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-6 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 transition-colors"
+          >
+            Leave a review on Google
+          </Link>
+        </motion.div>
       </div>
     </section>
   );
