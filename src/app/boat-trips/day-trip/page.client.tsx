@@ -16,14 +16,22 @@ import FAQ from '@/components/trips/FAQ';
 import TurbnbWidget from '@/components/booking/TurbnbWidget';
 import { GoogleReview } from '@/services/googlePlaces'; // Import type
 
-// Galería de imágenes para el viaje
-const dayTripImages = [
-  { src: "/images/barco1.png", alt: "Relaxing on Salvador Ibiza boat deck" },
-  { src: "/images/barco2.png", alt: "Crystal clear waters view from Salvador Ibiza" },
-  { src: "/images/barcosalvadorsmall.jpg", alt: "Swimming off Salvador Ibiza boat" },
-  { src: "/images/barcosalvadorsmall2.jpg", alt: "Salvador Ibiza boat anchored in a beautiful cove" },
-  { src: "/images/barcodesdedron.jpg", alt: "Aerial view of Salvador Ibiza boat" },
-  { src: "/images/barco dron .jpg", alt: "Salvador Ibiza boat from above" },
+// Galería de imágenes para el viaje - Ampliada con fotos aéreas
+const images = [
+  { src: "/images/boat/chicaspasandolomuybien.webp", alt: "Friends having fun on Salvador Ibiza boat deck" },
+  { src: "/images/boat/parejaensup.webp", alt: "Couple paddleboarding near Salvador Ibiza" },
+  { src: "/images/boat/aereabarco1.webp", alt: "Aerial view of Salvador Ibiza boat" },
+  { src: "/images/boat/chicasensupencueva.webp", alt: "Exploring caves on paddleboards" },
+  { src: "/images/boat/gente-en-suo.webp", alt: "Group paddleboarding in clear water" },
+  { src: "/images/boat/familiaensup.webp", alt: "Family enjoying paddleboarding together" },
+  { src: "/images/boat/aereabarco2.webp", alt: "Another aerial view of Salvador Ibiza boat" },
+  { src: "/images/boat/parejasnorkeling.webp", alt: "Couple snorkeling in the turquoise sea" },
+  { src: "/images/boat/chicasenproamuyfelicdes.webp", alt: "Happy friends on the bow of the boat" },
+  { src: "/images/boat/doschicasfelicesenproa.webp", alt: "Two friends enjoying the sun on the boat" },
+  { src: "/images/boat/chicosdisfrutandoenproa.webp", alt: "Group enjoying the views from the front of the boat" },
+  { src: "/images/boat/chicaensupparada.webp", alt: "Woman standing on a paddleboard" },
+  { src: "/images/boat/4chicasparadasentablaxxl.webp", alt: "Four friends posing on a large paddleboard" },
+  { src: "/images/boat/dos-chica-disfrutand.webp", alt: "Friends laughing and enjoying the boat trip" },
 ];
 
 // Aspectos destacados del viaje
@@ -231,8 +239,8 @@ export default function DayTripClientPage({ initialReviews, error }: DayTripClie
               className="mb-16"
             >
               <TripGallery 
-                images={dayTripImages} 
-                title="Trip Highlights Gallery" 
+                images={images}
+                title="Day Trip Highlights Gallery" 
               />
             </motion.div>
           </div>

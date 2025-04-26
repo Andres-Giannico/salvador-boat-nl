@@ -19,7 +19,7 @@ export default function DiscoverLoveAtSeaPage() {
       
       <div className="relative mb-8 h-[50vh] min-h-[400px] w-full overflow-hidden rounded-2xl">
         <Image
-          src="/images/blog/discover-love-at-sea.jpg"
+          src="/images/blog/discover-love-at-sea.webp"
           alt="Discover Love at Sea"
           fill
           className="object-cover"

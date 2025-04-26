@@ -32,13 +32,22 @@ interface PrivateCharterClientPageProps {
 
 // --- Datos Específicos del Charter Privado ---
 
+// Combinar imágenes originales y nuevas de la carpeta /images/boat/
 const galleryImages = [
-  { src: "/images/barco1.png", alt: "Luxury private boat charter sailing in Ibiza" },
-  { src: "/images/barco1.png", alt: "Group relaxing on Salvador Ibiza deck" },
+  // Original images (unique src)
+  { src: "/images/barco1.png", alt: "Luxury private boat charter / Group relaxing" }, 
   { src: "/images/barco2.png", alt: "View from Salvador Ibiza boat" },
-  { src: "/images/barco dron .jpg", alt: "Aerial view of Salvador Ibiza boat" },
+  { src: "/images/barcodron.jpg", alt: "Aerial view of Salvador Ibiza boat" }, // Usando nombre sin espacio
   { src: "/images/esvedraback.png", alt: "Sunset view near Es Vedra" },
   { src: "/images/barco4.png", alt: "Drinks served on Salvador Ibiza charter" },
+  // New images from /images/boat/
+  { src: "/images/boat/proabarcocueva.png", alt: "View from inside a sea cave on Salvador Ibiza" },
+  { src: "/images/boat/chicas-sunset.png", alt: "Group enjoying the sunset on Salvador Ibiza" },
+  { src: "/images/boat/chicasentablasup.png", alt: "Paddleboarding near the cliffs from Salvador Ibiza" },
+  { src: "/images/boat/copacavesunset.png", alt: "Glass of cava during sunset cruise on Salvador Ibiza" },
+  { src: "/images/boat/chichasfelicesenpopa.png", alt: "Happy group posing on the back of Salvador Ibiza" },
+  { src: "/images/boat/tapastop.png", alt: "Close-up of tapas served on Salvador Ibiza" },
+  { src: "/images/boat/chicasbrindandoenbarra.png", alt: "Group toasting drinks at the bar on Salvador Ibiza" },
 ];
 
 const charterHighlights = [
@@ -228,7 +237,7 @@ export default function PrivateCharterClientPage({ perfectFor }: PrivateCharterC
               "selectTimeLabel": "Select Preferred Time",
               "selectExperienceLabel": "Select Charter Option",
               "addonsLabel": "Optional Upgrades (e.g., Extra Hours)", // Updated label, ensure 'Extra Hour' is an add-on in Turbnb backend
-              "depositObservation": "After the reservation you will get the voucher with all the info as location and booking details"
+              "depositObservation": "Make sure you selected the amount of guests you will have on the boat as the price is calculated per person. After the reservation you will get the voucher with all the info as location and booking details"
 
             }
           });
@@ -395,7 +404,7 @@ export default function PrivateCharterClientPage({ perfectFor }: PrivateCharterC
                 </svg>
               </motion.div>
               
-              <span className="relative z-10"> {/* Span to ensure text is above background */}
+              <span className="relative z-10"> 
                 Your Exclusive Ibiza<br className="hidden md:block" /> 
                 <motion.span 
                   className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-300"

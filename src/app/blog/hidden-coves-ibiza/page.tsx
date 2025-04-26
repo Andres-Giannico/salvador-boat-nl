@@ -19,7 +19,7 @@ export default function HiddenCovesPage() {
       
       <div className="relative mb-8 h-[50vh] min-h-[400px] w-full overflow-hidden rounded-2xl">
         <Image
-          src="/images/blog/hidden-coves-ibiza.jpg"
+          src="/images/blog/hidden-cove.webp"
           alt="Hidden Coves of Ibiza"
           fill
           className="object-cover"

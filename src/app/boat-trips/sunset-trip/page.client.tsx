@@ -14,13 +14,20 @@ import ReviewsSection from '@/components/trips/ReviewsSection';
 import FAQ from '@/components/trips/FAQ';
 import TurbnbWidget from '@/components/booking/TurbnbWidget';
 
-// Trip image gallery
-const sunsetTripImages = [
-  { src: "/images/barco dron .jpg", alt: "Salvador Ibiza boat sailing during sunset" },
-  { src: "/images/esvedraback.png", alt: "Magical Es Vedrà view at sunset" },
-  { src: "/images/barco5.png", alt: "Enjoying sunset drinks on Salvador Ibiza boat" },
-  { src: "/images/barco6.png", alt: "Group watching the sunset from Salvador Ibiza boat" },
-  { src: "/images/barcodesdedron.jpg", alt: "Aerial view of Salvador Ibiza boat during golden hour" },
+// Trip image gallery - Extended
+const images = [
+  { src: "/images/boat/sunset.png", alt: "Iconic Ibiza sunset view from Salvador boat" },
+  { src: "/images/boat/doschicassupsunset.webp", alt: "Two friends paddleboarding during sunset" },
+  { src: "/images/boat/parejafeliz.webp", alt: "Happy couple enjoying the sunset cruise" },
+  { src: "/images/boat/aereabarco2.webp", alt: "Aerial view of Salvador boat at golden hour" },
+  { src: "/images/boat/chicasmuyfelices.webp", alt: "Group of friends celebrating sunset on the boat" },
+  { src: "/images/boat/chicassentadasdisfrutando.webp", alt: "Relaxing and watching the sunset from the deck" },
+  { src: "/images/boat/luigienproconchcas.webp", alt: "Captain Luigi with guests enjoying the sunset" },
+  { src: "/images/boat/chicassentadassup.webp", alt: "Sitting on paddleboards watching the sunset" },
+  { src: "/images/boat/barcointerior.webp", alt: "Cozy interior of Salvador boat during sunset" },
+  { src: "/images/boat/consolabarco.webp", alt: "View from the boat's console at sunset" },
+  { src: "/images/boat/copacavesunset.png", alt: "Enjoying drinks near a cave at sunset" },
+  { src: "/images/boat/chicas-sunset.png", alt: "Silhouettes against the beautiful sunset sky" },
 ];
 
 // Trip highlights
@@ -76,6 +83,23 @@ const tripFAQs = [
   }
 ];
 
+// Animation variants for staggering badges
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1, // Delay between each badge appearing
+      delayChildren: 0.5 // Wait a bit after title/subtitle before starting badges
+    }
+  }
+};
+
+const fadeInItem = {
+  hidden: { opacity: 0, y: 10 },
+  visible: { opacity: 1, y: 0 }
+};
+
 // Interface for props received from the server component
 interface SunsetTripClientPageProps {
   initialReviews: GoogleReview[];
@@ -85,12 +109,12 @@ interface SunsetTripClientPageProps {
 export default function SunsetTripClientPage({ initialReviews, error }: SunsetTripClientPageProps) {
   return (
     <div className="bg-gray-50">
-      {/* Hero Section - Full height with parallax effect */}
-      <section className="relative h-[80vh] min-h-[600px] flex items-center justify-center">
+      {/* Hero Section - Revised */}
+      <section className="relative h-[85vh] min-h-[650px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/barco6.png"
-            alt="Salvador Ibiza Sunset Boat Tour Experience"
+            src="/images/boat/sunset.png" 
+            alt="Spectacular Ibiza sunset from Salvador boat"
             fill
             priority
             className="object-cover object-center"
@@ -103,33 +127,49 @@ export default function SunsetTripClientPage({ initialReviews, error }: SunsetTr
           transition={{ duration: 0.8, delay: 0.2 }}
           className="relative z-10 container mx-auto px-4 text-white text-center pt-20"
         >
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 drop-shadow-md">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-4 text-shadow-[0_3px_5px_rgba(0,0,0,0.6)]"
+          >
             Mixed Sunset <span className="text-orange-400">Boat Tour</span>
-          </h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-8 drop-shadow-sm">
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-xl md:text-2xl lg:text-3xl max-w-3xl mx-auto mb-8 drop-shadow-md"
+          >
             Experience the magic of Ibiza's sunset from the sea aboard our traditional wooden boat.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
-            <div className="flex items-center bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full">
+          </motion.p>
+          {/* Feature Badges with Stagger Animation */}
+          <motion.div 
+            className="flex flex-wrap justify-center gap-4 mb-10" // Increased bottom margin
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+          >
+            <motion.div variants={fadeInItem} className="flex items-center bg-black/40 backdrop-blur-sm px-4 py-2 rounded-full shadow-md">
               <FiSunset className="mr-2 text-orange-400" />
               <span>Iconic Sunset Views</span>
-            </div>
-            <div className="flex items-center bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full">
+            </motion.div>
+            <motion.div variants={fadeInItem} className="flex items-center bg-black/40 backdrop-blur-sm px-4 py-2 rounded-full shadow-md">
               <FiMapPin className="mr-2 text-orange-400" />
               <span>Café Mambo Viewpoint</span>
-            </div>
-            <div className="flex items-center bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full">
+            </motion.div>
+            <motion.div variants={fadeInItem} className="flex items-center bg-black/40 backdrop-blur-sm px-4 py-2 rounded-full shadow-md">
               <FiDollarSign className="mr-2 text-orange-400" />
               <span>Drinks & Tapas Included</span>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
           <Link href="#booking-widget">
             <motion.span 
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, boxShadow: "0px 10px 20px rgba(234, 88, 12, 0.4)" }} // Enhanced hover
               whileTap={{ scale: 0.95 }}
-              className="inline-block bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition duration-300"
+              // Larger button with icon
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white font-bold py-4 px-10 rounded-lg shadow-xl transition duration-300 transform hover:-translate-y-1"
             >
-              Book Your Sunset Experience
+              Book Your Sunset Experience <FiAnchor className="ml-1 w-5 h-5"/>
             </motion.span>
           </Link>
         </motion.div>
@@ -170,7 +210,7 @@ export default function SunsetTripClientPage({ initialReviews, error }: SunsetTr
               className="mb-16"
             >
               <TripGallery 
-                images={sunsetTripImages} 
+                images={images} 
                 title="Sunset Moments Gallery" 
               />
             </motion.div>

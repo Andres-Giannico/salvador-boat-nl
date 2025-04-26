@@ -50,7 +50,7 @@ interface TripData {
 
 const tripData = {
   middayTrip: {
-    imageUrl: "/images/barco1.png",
+    imageUrl: "/images/boat/aereabarco1.webp",
     imageAlt: "Salvador Ibiza Day Trip - Premium Sea Adventure",
     title: "Daytime Experience",
     description: "Sun, sea, and adventure await.",
@@ -99,7 +99,7 @@ const tripData = {
     detailsText: "Explore Details"
   },
   privateCharter: {
-    imageUrl: "/images/barcoprivate.png",
+    imageUrl: "/images/boat/aereabarco2.webp",
     imageAlt: "Salvador Ibiza Private Charter - Exclusive Sea Experience",
     title: "Private Experience",
     description: "Your personalized maritime adventure.",

@@ -28,29 +28,75 @@ const values = [
 ];
 
 export default function AboutClientPage() {
+  // Animation variants for title stagger
+  const sentence = {
+    hidden: { opacity: 1 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delay: 0.3,
+        staggerChildren: 0.08,
+      },
+    },
+  }
+  
+  const letter = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+    },
+  }
+
+  const titleText = "The Salvador Ibiza Story";
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-blue-50">
-      {/* Hero Section */}
-      <section className="relative pt-32 md:pt-40 pb-20 overflow-hidden">
-        <div className="container mx-auto px-4">
-          <motion.div 
-            className="text-center max-w-4xl mx-auto"
+    <div className="min-h-screen bg-white">
+      {/* Hero Section - Full Screen Image Background */}
+      <section className="relative h-[80vh] min-h-[600px] flex items-center justify-center text-white overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/boat/aereabarco.png"
+            alt="Salvador Ibiza boat aerial view for about us page"
+            fill
+            priority
+            className="object-cover object-center"
+          />
+          {/* Overlay for text readability */}
+          <div className="absolute inset-0 bg-black/60"></div>
+        </div>
+        
+        {/* Content */}
+        <div className="relative z-10 container mx-auto px-4 text-center">
+          <motion.h1 
+            className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 text-shadow-lg"
+            variants={sentence}
+            initial="hidden"
+            animate="visible"
+          >
+            {/* Staggered title animation */}
+            {titleText.split("").map((char, index) => {
+              return (
+                <motion.span key={char + "-" + index} variants={letter}>
+                  {char}
+                </motion.span>
+              )
+            })}
+          </motion.h1>
+          <motion.p 
+            className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, delay: 1.5 }}
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
-              The Salvador Ibiza Story
-            </h1>
-            <p className="text-xl text-gray-700 mb-8">
-              Creating unforgettable maritime experiences in the heart of the Mediterranean
-            </p>
-          </motion.div>
+            Creating unforgettable maritime experiences in the heart of the Mediterranean
+          </motion.p>
         </div>
       </section>
 
       {/* Main Content */}
-      <section className="py-20 bg-white">
+      <section className="py-20 lg:py-28 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
             <motion.div

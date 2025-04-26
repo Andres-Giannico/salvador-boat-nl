@@ -2,11 +2,12 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { FiPhone, FiMail, FiMapPin, FiClock } from 'react-icons/fi';
+import Link from 'next/link';
+import { FiPhone, FiMail, FiMapPin, FiClock, FiArrowRight } from 'react-icons/fi';
 
 export default function ContactClientPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-blue-50">
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-white">
       {/* Hero Section */}
       <section className="relative pt-32 md:pt-40 pb-20 overflow-hidden">
         <div className="container mx-auto px-4">
@@ -27,79 +28,87 @@ export default function ContactClientPage() {
       </section>
 
       {/* Contact Info & Map Section */}
-      <section className="py-10">
+      <section className="py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              {/* Contact Info */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+              {/* Contact Info - Enhanced */}
               <motion.div 
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100"
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="bg-white rounded-2xl shadow-xl p-8 md:p-10 border border-gray-100"
               >
-                <h2 className="text-2xl font-bold mb-6 text-gray-900">Contact Information</h2>
+                <h2 className="text-3xl font-bold mb-8 text-gray-900">Contact Information</h2>
                 
-                <div className="space-y-6">
-                  <div className="flex items-center space-x-4">
-                    <div className="bg-gradient-to-r from-blue-500/10 to-cyan-500/10 p-3 rounded-full">
-                      <FiPhone className="w-6 h-6 text-blue-600" />
+                {/* Increased spacing */}
+                <div className="space-y-8">
+                  {/* Phone */}
+                  <motion.div 
+                    className="flex items-start space-x-5" // Start alignment for potentially long text
+                    // Optional hover effect:
+                    // whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+                  >
+                    {/* Larger icon background */}
+                    <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-4 rounded-full shadow-sm flex-shrink-0 mt-1">
+                      <FiPhone className="w-7 h-7 text-blue-600" />
                     </div>
                     <div>
-                      <p className="text-sm text-gray-500">Phone Numbers</p>
-                      <p className="text-lg font-medium text-gray-900">+34 871 181 393</p>
-                      <p className="text-lg font-medium text-gray-900">+34 681 611 598</p>
+                      <p className="text-sm font-medium text-gray-500 mb-1">Phone</p>
+                      <p className="text-lg font-semibold text-gray-900">+34 871 181 393</p>
+                      <p className="text-lg font-semibold text-gray-900">+34 681 611 598</p>
                     </div>
-                  </div>
+                  </motion.div>
 
-                  <div className="flex items-center space-x-4">
-                    <div className="bg-gradient-to-r from-blue-500/10 to-cyan-500/10 p-3 rounded-full">
-                      <FiMail className="w-6 h-6 text-blue-600" />
+                  {/* Email */}
+                  <motion.div className="flex items-start space-x-5">
+                    <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-4 rounded-full shadow-sm flex-shrink-0 mt-1">
+                      <FiMail className="w-7 h-7 text-blue-600" />
                     </div>
                     <div>
-                      <p className="text-sm text-gray-500">Email</p>
-                      <a href="mailto:info@salvadoribiza.com" className="text-lg font-medium text-blue-600 hover:text-blue-700">
+                      <p className="text-sm font-medium text-gray-500 mb-1">Email</p>
+                      <a href="mailto:info@salvadoribiza.com" className="text-lg font-semibold text-blue-600 hover:text-blue-700 hover:underline break-all">
                         info@salvadoribiza.com
                       </a>
                     </div>
-                  </div>
+                  </motion.div>
 
-                  <div className="flex items-center space-x-4">
-                    <div className="bg-gradient-to-r from-blue-500/10 to-cyan-500/10 p-3 rounded-full">
-                      <FiMapPin className="w-6 h-6 text-blue-600" />
+                  {/* Location */}
+                  <motion.div className="flex items-start space-x-5">
+                    <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-4 rounded-full shadow-sm flex-shrink-0 mt-1">
+                      <FiMapPin className="w-7 h-7 text-blue-600" />
                     </div>
                     <div>
-                      <p className="text-sm text-gray-500">Location</p>
-                      <p className="text-lg font-medium text-gray-900">San Antonio Port, Ibiza</p>
+                      <p className="text-sm font-medium text-gray-500 mb-1">Location</p>
+                      <p className="text-lg font-semibold text-gray-900">San Antonio Port, Ibiza</p>
                       <a 
                         href="https://www.google.com/maps/dir//Boat+Trip+Salvador+Ibiza,+Avinguda+del+Doctor+Fleming,+07820+Sant+Antoni+de+Portmany,+Balearic+Islands/@38.9792996,1.3059022,17z"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-blue-600 hover:text-blue-700 text-sm font-medium inline-flex items-center mt-1"
+                        className="text-blue-600 hover:text-blue-700 text-sm font-semibold inline-flex items-center mt-2 group"
                       >
                         Get Directions
-                        <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                        </svg>
+                        <FiArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                       </a>
                     </div>
-                  </div>
+                  </motion.div>
 
-                  <div className="flex items-center space-x-4">
-                    <div className="bg-gradient-to-r from-blue-500/10 to-cyan-500/10 p-3 rounded-full">
-                      <FiClock className="w-6 h-6 text-blue-600" />
+                  {/* Hours */}
+                  <motion.div className="flex items-start space-x-5">
+                    <div className="bg-gradient-to-br from-blue-50 to-cyan-50 p-4 rounded-full shadow-sm flex-shrink-0 mt-1">
+                      <FiClock className="w-7 h-7 text-blue-600" />
                     </div>
                     <div>
-                      <p className="text-sm text-gray-500">Opening Hours</p>
-                      <p className="text-lg font-medium text-gray-900">Late Morning - Early Evening</p>
-                      <p className="text-sm text-gray-500">Daily during season</p>
+                      <p className="text-sm font-medium text-gray-500 mb-1">Opening Hours</p>
+                      <p className="text-lg font-semibold text-gray-900">Late Morning - Early Evening</p>
+                      <p className="text-sm font-medium text-gray-500">Daily during season</p>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
 
                 {/* Meeting Point Image */}
-                <div className="mt-8 relative rounded-xl overflow-hidden shadow-lg">
+                <div className="mt-10 relative rounded-xl overflow-hidden shadow-lg">
                   <Image
                     src="/images/caseta.png"
                     alt="Salvador Ibiza Meeting Point"
@@ -113,13 +122,13 @@ export default function ContactClientPage() {
                 </div>
               </motion.div>
 
-              {/* Map */}
+              {/* Map - Added slightly more prominent shadow */}
               <motion.div 
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="rounded-2xl overflow-hidden shadow-xl h-[600px]"
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="rounded-2xl overflow-hidden shadow-2xl h-[600px] border border-gray-200"
               >
                 <iframe
                   src="https://maps.google.com/maps?q=salvador%20boat%20ibiza&t=&z=13&ie=UTF8&iwloc=&output=embed"
@@ -136,7 +145,7 @@ export default function ContactClientPage() {
         </div>
       </section>
 
-      {/* Call to Action */}
+      {/* Call to Action - Enhanced Button */}
       <section className="py-20">
         <div className="container mx-auto px-4">
           <motion.div 
@@ -146,15 +155,19 @@ export default function ContactClientPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl font-bold mb-6 text-gray-900">
+            <h2 className="text-3xl font-bold mb-8 text-gray-900">
               Ready to Book Your Trip?
             </h2>
-            <a 
-              href="/boat-trips" 
-              className="inline-block px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-full font-semibold hover:from-blue-700 hover:to-cyan-600 transition-all duration-300 shadow-lg hover:shadow-xl"
-            >
-              View Available Trips
-            </a>
+            {/* Enhanced Button Style */}
+            <Link href="/boat-trips">
+              <motion.span 
+                whileHover={{ scale: 1.05, boxShadow: "0px 8px 25px rgba(52, 152, 219, 0.4)" }} // Adjusted shadow color to match gradient
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg transition duration-300 transform hover:-translate-y-0.5"
+              >
+                View Available Trips <FiArrowRight className="ml-1 w-5 h-5"/>
+              </motion.span>
+            </Link>
           </motion.div>
         </div>
       </section>
