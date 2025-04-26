@@ -19,7 +19,7 @@ const fadeIn = (delay = 0) => ({
 
 export default function Hero() {
   return (
-    <div className="relative h-[90vh] md:h-screen flex items-center justify-center text-center overflow-hidden">
+    <div className="relative h-[100vh] md:h-screen flex items-center justify-center text-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -42,7 +42,7 @@ export default function Hero() {
           variants={fadeIn(0.2)}
           initial="hidden"
           animate="visible"
-          className="mb-16"
+          className="mb-12 md:mb-16"
         >
           <span className="px-6 py-2 rounded-full bg-white/10 backdrop-blur-sm text-white text-sm tracking-widest font-light border border-white/10">
             SALVADOR BOAT EXPERIENCE
@@ -54,16 +54,16 @@ export default function Hero() {
           variants={fadeIn(0.4)}
           initial="hidden"
           animate="visible"
-          className="max-w-5xl mb-8"
+          className="max-w-5xl mb-6 md:mb-8"
         >
-          <h1 className="text-6xl sm:text-7xl md:text-8xl font-display font-bold text-white mb-8 leading-[1.1] tracking-tight">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold text-white mb-6 md:mb-8 leading-[1.1] tracking-tight">
             DISCOVER
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/80">
               IBIZA BY SEA
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-white/80 font-light max-w-3xl mx-auto tracking-wide">
+          <p className="text-lg md:text-xl lg:text-2xl text-white/80 font-light max-w-3xl mx-auto tracking-wide">
             Experience the Mediterranean&apos;s finest waters aboard the iconic Salvador boat
           </p>
         </motion.div>
@@ -73,19 +73,19 @@ export default function Hero() {
           variants={fadeIn(0.5)}
           initial="hidden"
           animate="visible"
-          className="flex flex-col items-center gap-6 mb-12"
+          className="flex flex-col items-center gap-4 md:gap-6 mb-8 md:mb-12"
         >
-          <div className="flex flex-wrap justify-center items-center gap-8">
+          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8">
             {/* Google Reviews */}
             <div className="flex items-center gap-2">
               <div className="flex">
                 {Array(5).fill('★').map((star, i) => (
-                  <span key={i} className="text-yellow-400 text-xl">
+                  <span key={i} className="text-yellow-400 text-lg md:text-xl">
                     {star}
                   </span>
                 ))}
               </div>
-              <div className="text-white/90 font-light">
+              <div className="text-white/90 font-light text-sm md:text-base">
                 <span className="font-medium">4.9</span> on Google
               </div>
             </div>
@@ -96,12 +96,12 @@ export default function Hero() {
             <div className="flex items-center gap-2">
               <div className="flex">
                 {Array(5).fill('★').map((star, i) => (
-                  <span key={i} className="text-[#00AA6C] text-xl">
+                  <span key={i} className="text-[#00AA6C] text-lg md:text-xl">
                     {star}
                   </span>
                 ))}
               </div>
-              <div className="text-white/90 font-light">
+              <div className="text-white/90 font-light text-sm md:text-base">
                 <span className="font-medium">4.9</span> on Tripadvisor
               </div>
             </div>
@@ -110,14 +110,14 @@ export default function Hero() {
           {/* Traveler's Choice Badge 2024 */}
           <motion.div 
             whileHover={{ scale: 1.05 }}
-            className="bg-white/10 backdrop-blur-sm rounded-lg p-3 hover:bg-white/15 transition-all duration-300"
+            className="bg-white/10 backdrop-blur-sm rounded-lg p-2 md:p-3 hover:bg-white/15 transition-all duration-300"
           >
             <Image
               src="/images/tripavidor2024.png"
               alt="Tripadvisor Traveller's Choice 2024"
-              width={120}
-              height={120}
-              className="object-contain"
+              width={100}
+              height={100}
+              className="object-contain md:w-[120px] md:h-[120px]"
             />
           </motion.div>
         </motion.div>
@@ -127,13 +127,13 @@ export default function Hero() {
           variants={fadeIn(0.6)}
           initial="hidden"
           animate="visible"
-          className="flex flex-wrap justify-center gap-x-8 gap-y-3 mb-12 text-white/90"
+          className="flex flex-col md:flex-row justify-center gap-2 md:gap-x-8 mb-8 md:mb-12 text-white/90"
         >
-          <span className="font-light tracking-wider">LUXURY BOAT TRIPS</span>
+          <span className="font-light tracking-wider text-sm md:text-base">LUXURY BOAT TRIPS</span>
           <span className="hidden md:block text-white/40">|</span>
-          <span className="font-light tracking-wider">CRYSTAL CLEAR WATERS</span>
+          <span className="font-light tracking-wider text-sm md:text-base">CRYSTAL CLEAR WATERS</span>
           <span className="hidden md:block text-white/40">|</span>
-          <span className="font-light tracking-wider">UNFORGETTABLE MOMENTS</span>
+          <span className="font-light tracking-wider text-sm md:text-base">UNFORGETTABLE MOMENTS</span>
         </motion.div>
 
         {/* Scroll Indicator */}
@@ -141,15 +141,15 @@ export default function Hero() {
           variants={fadeIn(1.2)}
           initial="hidden"
           animate="visible"
-          className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
+          className="absolute bottom-8 md:bottom-12 left-1/2 transform -translate-x-1/2"
         >
           <motion.div 
             animate={{ y: [0, 12, 0] }}
             transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut" }}
             className="flex flex-col items-center"
           >
-            <span className="text-white/40 text-sm tracking-widest font-light mb-3">SCROLL</span>
-            <div className="w-px h-8 bg-gradient-to-b from-white/40 to-transparent"></div>
+            <span className="text-white/40 text-xs md:text-sm tracking-widest font-light mb-2 md:mb-3">SCROLL</span>
+            <div className="w-px h-6 md:h-8 bg-gradient-to-b from-white/40 to-transparent"></div>
           </motion.div>
         </motion.div>
       </div>
