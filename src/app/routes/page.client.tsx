@@ -196,7 +196,7 @@ export default function RoutesClientPage({
             {/* Replaced Map Placeholder with Image */}
             <div className="relative w-full aspect-video">
               <Image 
-                src="/images/boat/aereabarco1.webp" // Representative image for North Route
+                src="/images/saforadada.png" // Representative image for North Route
                 alt="Aerial view of Salvador Ibiza near cliffs, North Ibiza Route"
                 fill
                 className="object-cover"
