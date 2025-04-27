@@ -1,91 +1,28 @@
 import { Metadata } from 'next';
 import DayTripClientPage from './page.client';
-import { GoogleReview } from '@/services/googlePlaces';
-import Script from 'next/script';
-import { AggregateRating, Review } from 'schema-dts'; // Import schema types
-import { JsonLd } from 'react-schemaorg'; // Helper component
+// Remove imports related to review fetching
+// import { GoogleReview } from '@/services/googlePlaces';
+// import { getReviews } from '@/services/getReviews'; // Assuming a function like this existed
 
 export const metadata: Metadata = {
-  title: 'Day Trip - Salvador Ibiza All-Inclusive Boat Experience',
-  description: 'Experience the ultimate day on Ibiza\'s waters. 3-hour all-inclusive boat trip with swimming, snorkeling, drinks, snacks and unforgettable views.',
+  title: 'Ibiza Day Boat Trip (All-Inclusive) | Salvador Ibiza',
+  description: 'Enjoy the best all-inclusive day boat trip in Ibiza. Explore stunning coves, enjoy drinks, tapas, paddle surf & more. Book your 3-hour adventure from San Antonio!',
 };
 
-// Function to fetch reviews server-side
-async function fetchReviews(): Promise<{ reviews: GoogleReview[]; error: string | null }> {
-  try {
-    // Fetch from the API route within the server
-    // Use absolute URL for server-side fetch or configure base URL
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'; // Ensure this env var is set
-    const res = await fetch(`${baseUrl}/api/reviews`, {
-      next: { revalidate: 3600 }, // Revalidate every hour
-    });
-
-    if (!res.ok) {
-      return { reviews: [], error: `API Error: ${res.status}` };
-    }
-    const data = await res.json();
-    return { reviews: data.reviews || [], error: data.error || null };
-  } catch (error) {
-    const message = error instanceof Error ? error.message : 'Failed to fetch reviews';
-    console.error("Fetch Reviews Error (SSR):", message);
-    return { reviews: [], error: message };
-  }
-}
+// Remove data fetching logic
+// async function getData() {
+//   try {
+//     const reviewsData = await getReviews(); // Or fetch('/api/reviews')
+//     return { initialReviews: reviewsData.reviews || [], error: null };
+//   } catch (error) {
+//     console.error("Error fetching reviews for Day Trip build:", error);
+//     return { initialReviews: [], error: "Failed to load reviews data." };
+//   }
+// }
 
 export default async function DayTripPage() {
-  const { reviews, error } = await fetchReviews();
+  // const { initialReviews, error } = await getData(); // Remove data fetching call
 
-  // --- Structured Data --- 
-  let aggregateRatingSchema: AggregateRating | null = null;
-  let reviewSchema: Review[] = [];
-
-  if (reviews.length > 0) {
-    const totalRating = reviews.reduce((sum, review) => sum + (review.rating || 0), 0);
-    const averageRating = (totalRating / reviews.length).toFixed(1);
-
-    aggregateRatingSchema = {
-      '@type': 'AggregateRating',
-      ratingValue: averageRating,
-      reviewCount: reviews.length,
-      bestRating: '5',
-      worstRating: '1',
-    };
-
-    reviewSchema = reviews.map((review) => ({
-      '@type': 'Review',
-      author: {
-        '@type': 'Person',
-        name: review.authorAttribution?.displayName || 'Anonymous',
-      },
-      reviewRating: {
-        '@type': 'Rating',
-        ratingValue: review.rating.toString(),
-        bestRating: '5',
-        worstRating: '1',
-      },
-      reviewBody: review.text?.text || '',
-      datePublished: review.relativePublishTimeDescription, // Google provides relative time, actual date might need more work
-    }));
-  }
-
-  return (
-    <>
-      {/* Inject JSON-LD Structured Data */}
-      {aggregateRatingSchema && (
-        <JsonLd
-          item={{
-            '@context': 'https://schema.org',
-            '@type': 'Product', // Or 'Service' or 'LocalBusiness' depending on context
-            name: 'Salvador Ibiza Day Trip',
-            description: metadata.description || '',
-            aggregateRating: aggregateRatingSchema,
-            review: reviewSchema, // Embed individual reviews
-          }}
-        />
-      )}
-      
-      {/* Render the client page, passing reviews and error state */}
-      <DayTripClientPage initialReviews={reviews} error={error} />
-    </>
-  );
+  // Render client page without review props
+  return <DayTripClientPage /* initialReviews={initialReviews} error={error} */ />;
 } 

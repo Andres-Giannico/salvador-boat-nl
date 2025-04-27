@@ -103,13 +103,13 @@ const featuresList = [
   "Optional Onboard Photographer (purchase photos afterwards)"
 ];
 
-// Interface for props received from the server component
+// Interface for props received from the server component - REMOVED props
 interface DayTripClientPageProps {
-  initialReviews: GoogleReview[];
-  error: string | null;
+  // initialReviews: GoogleReview[]; // Removed
+  // error: string | null; // Removed
 }
 
-export default function DayTripClientPage({ initialReviews, error }: DayTripClientPageProps) {
+export default function DayTripClientPage({}: DayTripClientPageProps) {
   
   // Initialize the booking widget when the component mounts
   useEffect(() => {
@@ -318,11 +318,7 @@ export default function DayTripClientPage({ initialReviews, error }: DayTripClie
           <TripHighlights items={tripHighlights} title="What Makes This Trip Special" />
         </div>
 
-        {/* Reviews Section - Pass props down */}
-        <div className="mb-20">
-          <ReviewsSection reviews={initialReviews} error={error} />
-        </div>
-
+       
         {/* FAQs Section */}
         <div className="mb-20">
           <FAQ items={tripFAQs} title="Day Trip FAQs" />
@@ -380,6 +376,10 @@ export default function DayTripClientPage({ initialReviews, error }: DayTripClie
               />
             </motion.div>
           </div>
+        </div>
+   {/* Reviews Section */}
+   <div className="mb-20">
+          <ReviewsSection />
         </div>
 
         {/* CTA Banner */}

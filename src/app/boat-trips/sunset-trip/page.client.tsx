@@ -30,7 +30,7 @@ const images = [
   { src: "/images/boat/chicas-sunset.png", alt: "Silhouettes against the beautiful sunset sky" },
 ];
 
-// Trip highlights
+// Trip highlights - Removed Optional Photographer
 const tripHighlights = [
   {
     icon: <FiSunset className="w-6 h-6 text-orange-600" />,
@@ -51,11 +51,6 @@ const tripHighlights = [
     icon: <GiWaterSplash className="w-6 h-6 text-cyan-600" />,
     title: "Optional Swim Stop",
     description: "Depending on time and conditions, enjoy a swim, snorkel, or paddleboard session."
-  },
-  {
-    icon: <FiCamera className="w-6 h-6 text-teal-600" />,
-    title: "Optional Photographer",
-    description: "Capture your memories! Photos available for optional purchase afterwards."
   },
 ];
 
@@ -107,13 +102,13 @@ const fadeInItem = {
   visible: { opacity: 1, y: 0 }
 };
 
-// Interface for props received from the server component
+// Interface for props received from the server component - REMOVED props
 interface SunsetTripClientPageProps {
-  initialReviews: GoogleReview[];
-  error: string | null;
+  // initialReviews: GoogleReview[]; // Removed
+  // error: string | null; // Removed
 }
 
-export default function SunsetTripClientPage({ initialReviews, error }: SunsetTripClientPageProps) {
+export default function SunsetTripClientPage({}: SunsetTripClientPageProps) {
   return (
     <div className="bg-gray-50">
       {/* Hero Section - Revised */}
@@ -287,11 +282,6 @@ export default function SunsetTripClientPage({ initialReviews, error }: SunsetTr
           <TripHighlights items={tripHighlights} title="What Makes This Evening Special" />
         </div>
 
-        {/* Reviews Section */}
-        <div className="my-16">
-          <ReviewsSection reviews={initialReviews} error={error} />
-        </div>
-
         {/* FAQs Section */}
         <div className="mb-20">
           <FAQ items={tripFAQs} title="Sunset Tour FAQs" />
@@ -361,6 +351,10 @@ export default function SunsetTripClientPage({ initialReviews, error }: SunsetTr
               />
             </motion.div>
           </div>
+        </div>
+          {/* Reviews Section */}
+          <div className="my-16">
+          <ReviewsSection />
         </div>
 
         {/* CTA Banner */}
