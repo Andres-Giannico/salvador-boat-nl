@@ -86,38 +86,14 @@ const includedFeatures = [
 ];
 
 const galleryImages = [
-  {
-    src: "/images/barco1.png",
-    alt: "Salvador yacht sailing in crystal clear waters of Ibiza"
-  },
-  {
-    src: "/images/barco2.png",
-    alt: "Group enjoying their time on Salvador boat deck"
-  },
-  {
-    src: "/images/barco3.png",
-    alt: "Beautiful view of Ibiza's coastline from Salvador"
-  },
-  {
-    src: "/images/barco4.png",
-    alt: "Relaxing atmosphere on Salvador's deck"
-  },
-  {
-    src: "/images/barco5.png",
-    alt: "Salvador boat anchored in a beautiful cove"
-  },
-  {
-    src: "/images/barco6.png",
-    alt: "Magical sunset near Es Vedrà with Salvador"
-  },
-  {
-    src: "/images/barcodesdedron.jpg",
-    alt: "Drone shot of Salvador navigating Ibiza's waters"
-  },
-  {
-    src: "/images/barco dron .jpg",
-    alt: "Aerial view of Salvador boat in turquoise waters"
-  }
+  { src: "/images/boat/chicaspasandolomuybien.webp", alt: "Friends enjoying drinks and laughing on the boat" },
+  { src: "/images/boat/chicosdisfrutandoenproa.webp", alt: "Group of friends having fun at the bow" },
+  { src: "/images/boat/chicasensupencueva.webp", alt: "Girls exploring caves on paddleboards" },
+  { src: "/images/boat/doschicasfelicesenproa.webp", alt: "Two friends enjoying the sun at the bow" },
+  { src: "/images/boat/parejasnorkeling.webp", alt: "Couple snorkeling in crystal clear waters" },
+  { src: "/images/boat/chicasbrindandoenbarra.png", alt: "Friends toasting at the boat's bar" },
+  { src: "/images/barco1.png", alt: "Salvador yacht in beautiful turquoise waters" },
+  { src: "/images/boat/4chicasparadasentablaxxl.webp", alt: "Group of friends on a large paddleboard" }
 ];
 
 export default function BoatTripsClientPage() {

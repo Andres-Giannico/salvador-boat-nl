@@ -55,11 +55,6 @@ const tripHighlights = [
     icon: <FiMusic className="w-6 h-6 text-purple-600" />,
     title: "Ultimate Comfort",
     description: "Lounge beds, shaded areas, wet bar, clean facilities, and premium MB Quart sound system."
-  },
-  {
-    icon: <FiCamera className="w-6 h-6 text-teal-600" />,
-    title: "Optional Photographer",
-    description: "Capture your memories! Photos available for optional purchase afterwards."
   }
 ];
 
@@ -96,11 +91,8 @@ const tripFAQs = [
 
 // Assuming a list/section displaying features exists
 const featuresList = [
-  // ... existing features ...
   "Complete snorkeling equipment",
-  "Fresh fruit & snacks included",
-  // Add photographer info
-  "Optional Onboard Photographer (purchase photos afterwards)"
+  "Fresh fruit & snacks included"
 ];
 
 // Interface for props received from the server component - REMOVED props
@@ -337,24 +329,46 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
               Reserve Your <span className="text-blue-600">Day Trip</span> Now
             </motion.h2>
             
+            {/* Booking Trust Badges */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4 }}
-              className="mb-6 p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded-r-lg"
+              transition={{ duration: 0.4, delay: 0.1 }}
+              className="mb-8 bg-white rounded-xl shadow-sm p-6 border border-gray-100"
             >
-              <div className="flex">
-                <div className="flex-shrink-0">
-                  <FiInfo className="h-5 w-5 text-yellow-600" aria-hidden="true" />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-4">Booking Guarantees</h3>
+                  <ul className="space-y-3">
+                    <li className="flex items-start">
+                      <span className="flex-shrink-0 h-5 w-5 text-green-500 mr-2">✓</span>
+                      <span className="text-gray-700">Quick and easy reservation</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="flex-shrink-0 h-5 w-5 text-green-500 mr-2">✓</span>
+                      <span className="text-gray-700">Instant confirmation</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="flex-shrink-0 h-5 w-5 text-green-500 mr-2">✓</span>
+                      <span className="text-gray-700">Flexible cancellation policy</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="flex-shrink-0 h-5 w-5 text-green-500 mr-2">✓</span>
+                      <span className="text-gray-700">All-inclusive experiences</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="flex-shrink-0 h-5 w-5 text-green-500 mr-2">✓</span>
+                      <span className="text-gray-700">Expert guides and personalized attention</span>
+                    </li>
+                  </ul>
                 </div>
-                <div className="ml-3">
-                  <p className="text-sm text-yellow-800">
-                    Looking for an evening experience? Check out our popular{' '}
-                    <Link href="/boat-trips/sunset-trip" className="font-medium underline text-yellow-900 hover:text-yellow-700">
-                      Sunset Trip
-                    </Link> departing later in the day.
-                  </p>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-4">Payment Methods</h3>
+                  <div className="bg-gray-50 p-4 rounded-lg border border-gray-100">
+                    <p className="text-sm text-gray-600 mb-3">Secure payment through major credit cards and digital wallets</p>
+                    <p className="text-xs text-gray-500 mt-3">All transactions are securely processed</p>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -374,6 +388,28 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
                 billingTermIds={[21]}
                 channelId={11}
               />
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+              className="mt-6 p-5 bg-gradient-to-r from-yellow-50 to-orange-50 border-l-4 border-yellow-500 rounded-lg shadow-sm"
+            >
+              <div className="flex">
+                <div className="flex-shrink-0">
+                  <FiInfo className="h-6 w-6 text-yellow-600" aria-hidden="true" />
+                </div>
+                <div className="ml-3">
+                  <p className="text-sm md:text-base text-yellow-800">
+                    <span className="font-medium">Looking for a magical evening experience?</span> Don't miss our popular{' '}
+                    <Link href="/boat-trips/sunset-trip" className="font-bold underline text-yellow-900 hover:text-yellow-600 transition-colors">
+                      Sunset Boat Trip
+                    </Link> — experience Ibiza's legendary sunset from the sea with unlimited drinks and Spanish tapas!
+                  </p>
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>

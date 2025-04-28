@@ -67,6 +67,12 @@ const nextConfig = {
         destination: '/blog',
         permanent: true,
       },
+      // Redirect for old general excursions page (using 303)
+      {
+        source: '/book-now/salvador-ibiza-excursiones-en-barco-inolvidables-en-ibiza.html',
+        destination: '/boat-trips/',
+        statusCode: 303, 
+      },
     ]
   },
 }

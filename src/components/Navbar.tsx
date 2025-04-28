@@ -131,51 +131,6 @@ const Navbar = () => {
                 </motion.div>
               );
             })}
-            
-            {/* Language Switcher with enhanced styling */}
-            <div className="relative ml-4 border-l border-gray-200 pl-4">
-              <button 
-                onClick={(e) => handleLanguageClick(e, currentLocale)} 
-                className="flex items-center space-x-1 px-3 py-2 rounded-full hover:bg-gray-50 transition-colors duration-300 focus:outline-none"
-              >
-                <span className="cursor-pointer text-xl">{currentFlag}</span>
-                <motion.svg 
-                  animate={{ rotate: isLangOpen ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="w-4 h-4 text-gray-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                </motion.svg>
-              </button>
-              <AnimatePresence>
-                {isLangOpen && (
-                  <motion.div 
-                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute right-0 mt-2 w-auto bg-white rounded-xl shadow-xl py-2 z-50 border border-gray-100"
-                    onMouseLeave={() => setIsLangOpen(false)}
-                  >
-                    {locales.map((locale) => (
-                      <Link 
-                        key={locale.code}
-                        href={changeLocale(pathname, locale.code)} 
-                        locale={locale.code}
-                        onClick={(e) => handleLanguageClick(e, locale.code)}
-                        className="block px-4 py-2 text-sm hover:bg-gradient-to-r hover:from-blue-50 hover:to-cyan-50 transition-colors duration-300 flex items-center space-x-3"
-                      >
-                        <span className="text-lg">{locale.flag}</span> 
-                        <span className="font-medium">{locale.code.toUpperCase()}</span>
-                      </Link>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
 
             {/* Enhanced CTA Button */}
             <motion.div
@@ -194,12 +149,6 @@ const Navbar = () => {
 
           {/* Mobile Menu Trigger with enhanced styling */}
           <div className="flex md:hidden items-center space-x-3">
-            <button 
-              className="px-3 py-2 rounded-full hover:bg-gray-50 transition-colors duration-300"
-              onClick={(e) => handleLanguageClick(e, currentLocale)}
-            >
-              <span className="text-xl">{currentFlag}</span>
-            </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
               type="button"

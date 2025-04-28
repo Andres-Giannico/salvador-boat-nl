@@ -300,24 +300,61 @@ export default function SunsetTripClientPage({}: SunsetTripClientPageProps) {
               Reserve Your <span className="text-orange-600">Sunset Tour</span> Now
             </motion.h2>
             
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
+            <motion.div 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4 }}
-              className="mb-6 p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded-r-lg"
+              transition={{ duration: 0.6 }}
+              className="mb-8 bg-white rounded-xl p-6 border border-gray-100 shadow-md"
             >
-              <div className="flex">
-                <div className="flex-shrink-0">
-                  <FiInfo className="h-5 w-5 text-yellow-600" aria-hidden="true" />
+              <div className="flex flex-col lg:flex-row justify-between items-center gap-6">
+                <div className="w-full lg:w-3/4">
+                  <ul className="space-y-3">
+                    <li className="flex items-start">
+                      <div className="flex-shrink-0 w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
+                        <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                      </div>
+                      <span className="ml-3 text-gray-700">Quick and easy reservation.</span>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="flex-shrink-0 w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
+                        <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                      </div>
+                      <span className="ml-3 text-gray-700">Instant confirmation.</span>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="flex-shrink-0 w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
+                        <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                      </div>
+                      <span className="ml-3 text-gray-700">Flexible cancellation policy.</span>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="flex-shrink-0 w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
+                        <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                      </div>
+                      <span className="ml-3 text-gray-700">All-inclusive experiences.</span>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="flex-shrink-0 w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
+                        <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                      </div>
+                      <span className="ml-3 text-gray-700">Expert guides and personalized attention.</span>
+                    </li>
+                  </ul>
                 </div>
-                <div className="ml-3">
-                  <p className="text-sm text-yellow-800">
-                    Prefer a daytime adventure? Check out our{' '}
-                    <Link href="/boat-trips/day-trip" className="font-medium underline text-yellow-900 hover:text-yellow-700">
-                      Mixed Daytime Tour
-                    </Link> departing at 2:00 PM.
-                  </p>
+                <div className="bg-gray-50 p-4 rounded-lg border border-gray-100 w-full lg:w-1/4">
+                  <p className="text-sm text-gray-600 mb-2">Secure payment through major credit cards and digital wallets</p>
+                  <p className="text-xs text-gray-500">All transactions are securely processed</p>
                 </div>
               </div>
             </motion.div>
@@ -349,6 +386,28 @@ export default function SunsetTripClientPage({}: SunsetTripClientPageProps) {
                   depositObservation: "Deposit and payment instructions\n\n\n"
                 }}
               />
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+              className="mt-6 p-5 bg-gradient-to-r from-blue-50 to-cyan-50 border-l-4 border-blue-500 rounded-lg shadow-sm"
+            >
+              <div className="flex">
+                <div className="flex-shrink-0">
+                  <FiInfo className="h-6 w-6 text-blue-600" aria-hidden="true" />
+                </div>
+                <div className="ml-3">
+                  <p className="text-sm md:text-base text-blue-800">
+                    <span className="font-medium">Looking for a daytime adventure?</span> Check out our popular{' '}
+                    <Link href="/boat-trips/day-trip" className="font-bold underline text-blue-900 hover:text-blue-600 transition-colors">
+                      Mixed Daytime Tour
+                    </Link> — explore beautiful beaches and enjoy water activities with unlimited drinks and tapas!
+                  </p>
+                </div>
+              </div>
             </motion.div>
           </div>
         </div>
