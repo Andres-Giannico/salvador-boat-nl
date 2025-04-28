@@ -36,7 +36,7 @@ export default function BookTripsQrPage() {
           <div className="border border-orange-200 bg-orange-50/30 rounded-lg p-4">
              <h2 className="text-lg font-semibold text-orange-700 mb-2 flex items-center"><FiMoon className="mr-2"/> Sunset Voyage</h2>
              <div className="space-y-1.5 text-sm">
-              <p className="flex items-center"><FiClock className="w-4 h-4 mr-1.5 text-orange-600"/> 6:30 PM - 9:30 PM (3h)</p>
+              <p className="flex items-start"><FiClock className="w-4 h-4 mr-1.5 text-orange-600 mt-0.5 flex-shrink-0"/> <span>Approx. 6:30 PM - 9:30 PM (3h)<br/><span className="text-xs text-orange-800/80">(Times vary slightly by month for sunset)</span></span></p>
               <p className="flex items-center"><FiMapPin className="w-4 h-4 mr-1.5 text-orange-600"/> San Antonio Port</p>
               <p className="flex items-center"><FiDollarSign className="w-4 h-4 mr-1.5 text-orange-600"/> €80 Adult / €45 Child</p>
               <p className="flex items-center text-xs text-gray-600 mt-1"><FiCheckCircle className="w-3 h-3 text-green-500 mr-1"/> Drinks (Cava!), Tapas, Paddle, Kayak, Sunset</p>
