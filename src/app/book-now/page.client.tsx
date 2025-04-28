@@ -28,7 +28,7 @@ export default function BookNowClientPage() {
             className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300 border border-gray-100 overflow-hidden flex flex-col"
           >
             <div className="border-t-4 border-cyan-500"></div>
-            <div className="p-6 md:p-8 flex flex-col flex-grow">
+            <div className="p-6 md:p-8 flex flex-col">
               <div className="flex items-center gap-4 mb-5">
                 <span className="bg-cyan-100 p-2 rounded-full inline-block"><GiSailboat className="w-7 h-7 text-cyan-600" /></span>
                 <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Shared Boat Trips</h2>
@@ -71,7 +71,7 @@ export default function BookNowClientPage() {
             className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300 border border-gray-100 overflow-hidden flex flex-col"
           >
              <div className="border-t-4 border-purple-500"></div>
-            <div className="p-6 md:p-8 flex flex-col flex-grow">
+            <div className="p-6 md:p-8 flex flex-col">
               <div className="flex items-center gap-4 mb-5">
                 <span className="bg-purple-100 p-2 rounded-full inline-block"><FiUsers className="w-7 h-7 text-purple-600" /></span>
                 <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Private Charter</h2>
