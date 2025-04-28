@@ -73,6 +73,12 @@ const nextConfig = {
         destination: '/boat-trips/',
         statusCode: 303, 
       },
+      // Redirect for old ads page (using 303)
+      {
+        source: '/interna/ads.html',
+        destination: '/partners',
+        statusCode: 303, 
+      },
     ]
   },
 }
