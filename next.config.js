@@ -79,6 +79,12 @@ const nextConfig = {
         destination: '/partners',
         statusCode: 303, 
       },
+      // Redirect old blog booking page to main booking page (using 303)
+      {
+        source: '/blog/booknow/book.htm',
+        destination: '/book-now',
+        statusCode: 303,
+      },
     ]
   },
 }
