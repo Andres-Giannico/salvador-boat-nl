@@ -71,7 +71,23 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${montserrat.variable}`}>
       <head>
-        {/* Google Analytics Scripts */}
+        {/* Google Tag Manager */}
+        <Script
+          id="google-tag-manager-head"
+          strategy="beforeInteractive" // Cargar GTM lo antes posible
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-MZR67SFF');
+            `,
+          }}
+        />
+        {/* Fin Google Tag Manager */}
+
+        {/* Google Analytics Scripts - COMENTADO PORQUE SE GESTIONARÁ DESDE GTM
         <Script
           id="google-analytics-setup"
           strategy="beforeInteractive"
@@ -101,11 +117,16 @@ export default function RootLayout({
             `,
           }}
         />
+        */}
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
         <link rel="canonical" href="https://www.salvadoribiza.com" />
         <link rel="icon" href="/images/favicon.ico" sizes="any" />
       </head>
       <body className={`${inter.className} bg-white text-gray-800`}>
+        {/* Google Tag Manager (noscript) */}
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MZR67SFF"
+        height="0" width="0" style={{display:'none',visibility:'hidden'}}></iframe></noscript>
+        {/* Fin Google Tag Manager (noscript) */}
         <div className="flex flex-col min-h-screen">
           <Navbar />
           <Toaster position="top-center" richColors />
