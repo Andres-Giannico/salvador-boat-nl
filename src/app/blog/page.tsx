@@ -50,6 +50,15 @@ const blogPosts: BlogPost[] = [
     imageUrl: "/images/blog/sunset-sailing-ibiza.jpg",
     category: "Experiences"
   },
+  {
+    slug: 'ibiza-midday-magic-boat-trip',
+    title: "Ibiza's Midday Magic: Why a Day Trip is an Unforgettable Experience",
+    excerpt: "Discover the unique charm of a daytime boat adventure in Ibiza. Sunshine, crystal clear waters, and vibrant energy await you with Salvador Ibiza.",
+    date: "May 28, 2024",
+    author: "Salvador Team",
+    imageUrl: "/images/blog/midday-magic-placeholder.webp",
+    category: "Experiences"
+  },
 ];
 
 // Generate JSON-LD structured data

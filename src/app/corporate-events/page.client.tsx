@@ -50,14 +50,28 @@ interface CorporateClientPageProps {
   included: IncludedFeature[];
 }
 
-// Placeholder gallery images (replace later)
+// Placeholder gallery images
 const galleryImages = [
+  // Original images from Corporate Events
   { src: "/images/barco4.png", alt: "Corporate group enjoying drinks on Salvador Ibiza" },
-  { src: "/images/barco dron .jpg", alt: "Aerial view of Salvador Ibiza, perfect for corporate events" },
+  { src: "/images/barco dron .jpg", alt: "Aerial view of Salvador Ibiza, perfect for corporate events" }, // Manteniendo el espacio si así estaba originalmente
   { src: "/images/barco1.png", alt: "Spacious deck area for corporate gatherings" },
   { src: "/images/barco2.png", alt: "Team building activities in crystal clear waters" },
   { src: "/images/barco5.png", alt: "Relaxed corporate networking atmosphere" },
   { src: "/images/esvedraback.png", alt: "Stunning backdrop for corporate photos" },
+  // Nuevas imágenes de la carpeta /images/boat/private-new/
+  { src: "/images/boat/private-new/tapasycavapopabarco_1.webp", alt: "Tapas and cava served on the boat stern" },
+  { src: "/images/boat/private-new/tapasenbarco_1.webp", alt: "Selection of tapas on the boat" },
+  { src: "/images/boat/private-new/sushiycavapopa_1.webp", alt: "Sushi and cava on the boat stern" },
+  { src: "/images/boat/private-new/interiorbarcosalvador_1.webp", alt: "Interior view of the Salvador boat" },
+  { src: "/images/boat/private-new/Frutasenbarra_1.webp", alt: "Fresh fruits platter at the boat bar" },
+  { src: "/images/boat/private-new/retretebarcoomg_1.webp", alt: "Modern toilet facilities on the boat (OMG view)" },
+  { src: "/images/boat/private-new/tapasyfrutasenbarco_1.webp", alt: "Tapas and fruits platter on the boat" },
+  { src: "/images/boat/private-new/retretebarco_1.webp", alt: "Clean and modern boat bathroom" },
+  { src: "/images/boat/private-new/popabarcosalvador_1.webp", alt: "Stern view of the Salvador boat with lifebuoy" },
+  { src: "/images/boat/private-new/barcosalvadorinterior_1.webp", alt: "Another interior view of the Salvador boat seating" },
+  { src: "/images/boat/private-new/cavaenbarco_1.webp", alt: "Cava bottle and glasses on the boat" },
+  { src: "/images/boat/private-new/interiorbarcocubierta_1.webp", alt: "View of the covered deck area of the boat" }
 ];
 
 // --- NEW: FAQ Data ---

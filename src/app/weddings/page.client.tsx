@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FiHeart, FiAnchor, FiCamera, FiUsers, FiMail, FiArrowRight, FiMusic, FiMap } from 'react-icons/fi';
 import { GiWineBottle } from 'react-icons/gi';
+import TripGallery from '@/components/trips/TripGallery';
 
 // Placeholder for wedding features
 const weddingFeatures = [
@@ -12,6 +13,21 @@ const weddingFeatures = [
   { icon: FiCamera, text: 'Spectacular Photo Opportunities' },
   { icon: FiAnchor, text: 'Unique Ceremony Backdrop' },
   { icon: FiUsers, text: 'Personalized Service & Planning' },
+];
+
+// Imágenes para la galería de Bodas
+const galleryImages = [
+  // Nuevas imágenes de la carpeta /images/boat/private-new/ (enfocadas en ambiente y detalles)
+  { src: "/images/boat/private-new/tapasycavapopabarco_1.webp", alt: "Elegant tapas and cava setting for a wedding celebration" },
+  { src: "/images/boat/private-new/sushiycavapopa_1.webp", alt: "Premium sushi and cava, perfect for a luxury wedding at sea" },
+  { src: "/images/boat/private-new/Frutasenbarra_1.webp", alt: "Beautiful fruit platter at the bar, ideal for wedding guests" },
+  { src: "/images/boat/private-new/cavaenbarco_1.webp", alt: "Chilled cava ready for a wedding toast on Salvador Ibiza" },
+  { src: "/images/boat/private-new/interiorbarcosalvador_1.webp", alt: "Elegant interior of Salvador boat, suitable for intimate wedding gatherings" },
+  { src: "/images/boat/private-new/interiorbarcocubierta_1.webp", alt: "Covered deck area, offering a charming space for wedding ceremonies or receptions" },
+  { src: "/images/boat/private-new/popabarcosalvador_1.webp", alt: "Stern of Salvador Ibiza, a picturesque backdrop for wedding photos" },
+  // Puedes añadir más imágenes relevantes para bodas de otras carpetas si es necesario
+  // Ejemplo de imagen de ambiente general (si aplica)
+  // { src: "/images/boat/sunset.png", alt: "Romantic sunset view, perfect for a wedding cruise" }
 ];
 
 export default function WeddingsClientPage() {
@@ -158,10 +174,13 @@ export default function WeddingsClientPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
             >
-              Wedding Moments Gallery (Coming Soon)
+              Cherished Wedding Moments at Sea
             </motion.h2>
-            {/* Add Gallery Component here later */}
-            <p className="text-gray-600 max-w-2xl mx-auto">We are preparing a collection of beautiful moments captured during weddings on Salvador Ibiza. Check back soon!</p>
+            {/* Integrar TripGallery aquí */}
+            <TripGallery images={galleryImages} title="" /> 
+            <p className="text-gray-600 max-w-2xl mx-auto mt-8">
+              Imagine your special day set against the stunning backdrop of Ibiza's coastline. These moments showcase the unique and intimate atmosphere Salvador Ibiza offers for your wedding celebration.
+            </p>
         </div>
       </section>
 

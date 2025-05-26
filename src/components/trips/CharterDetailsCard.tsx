@@ -36,8 +36,8 @@ const CharterDetailsCard = ({ onBookNowClick }: CharterDetailsCardProps) => {
             <span>Pricing (4 Hours):</span>
           </p>
           <ul className="text-xs pl-6 space-y-1 text-gray-600 list-disc list-inside">
-            <li>Low Season: €1350 + €30/Bar Service</li>
-            <li>High Season: €1650 + €30/Bar Service</li>
+            <li>Low Season: €1350 + €30/PP Bar </li>
+            <li>High Season: €1650 + €30/PP Bar </li>
             <li>Extra Hour: €500</li>
           </ul>
         </div>

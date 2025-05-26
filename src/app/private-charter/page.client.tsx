@@ -32,15 +32,15 @@ interface PrivateCharterClientPageProps {
 
 // --- Datos Específicos del Charter Privado ---
 
-// Combinar imágenes originales y nuevas de la carpeta /images/boat/
+// Combinar imágenes originales y nuevas de la carpeta /images/boat/ y /images/boat/private-new/
 const galleryImages = [
   // Original images (unique src)
   { src: "/images/barco1.png", alt: "Luxury private boat charter / Group relaxing" }, 
   { src: "/images/barco2.png", alt: "View from Salvador Ibiza boat" },
-  { src: "/images/barcodron.jpg", alt: "Aerial view of Salvador Ibiza boat" }, // Usando nombre sin espacio
+  { src: "/images/barcodron.jpg", alt: "Aerial view of Salvador Ibiza boat" },
   { src: "/images/esvedraback.png", alt: "Sunset view near Es Vedra" },
   { src: "/images/barco4.png", alt: "Drinks served on Salvador Ibiza charter" },
-  // New images from /images/boat/
+  // Original images from /images/boat/
   { src: "/images/boat/proabarcocueva.png", alt: "View from inside a sea cave on Salvador Ibiza" },
   { src: "/images/boat/chicas-sunset.png", alt: "Group enjoying the sunset on Salvador Ibiza" },
   { src: "/images/boat/chicasentablasup.png", alt: "Paddleboarding near the cliffs from Salvador Ibiza" },
@@ -48,6 +48,19 @@ const galleryImages = [
   { src: "/images/boat/chichasfelicesenpopa.png", alt: "Happy group posing on the back of Salvador Ibiza" },
   { src: "/images/boat/tapastop.png", alt: "Close-up of tapas served on Salvador Ibiza" },
   { src: "/images/boat/chicasbrindandoenbarra.png", alt: "Group toasting drinks at the bar on Salvador Ibiza" },
+  // Nuevas imágenes de la carpeta /images/boat/private-new/
+  { src: "/images/boat/private-new/tapasycavapopabarco_1.webp", alt: "Tapas and cava served on the boat stern" },
+  { src: "/images/boat/private-new/tapasenbarco_1.webp", alt: "Selection of tapas on the boat" },
+  { src: "/images/boat/private-new/sushiycavapopa_1.webp", alt: "Sushi and cava on the boat stern" },
+  { src: "/images/boat/private-new/interiorbarcosalvador_1.webp", alt: "Interior view of the Salvador boat" },
+  { src: "/images/boat/private-new/Frutasenbarra_1.webp", alt: "Fresh fruits platter at the boat bar" },
+  { src: "/images/boat/private-new/retretebarcoomg_1.webp", alt: "Modern toilet facilities on the boat (OMG view)" },
+  { src: "/images/boat/private-new/tapasyfrutasenbarco_1.webp", alt: "Tapas and fruits platter on the boat" },
+  { src: "/images/boat/private-new/retretebarco_1.webp", alt: "Clean and modern boat bathroom" },
+  { src: "/images/boat/private-new/popabarcosalvador_1.webp", alt: "Stern view of the Salvador boat with lifebuoy" },
+  { src: "/images/boat/private-new/barcosalvadorinterior_1.webp", alt: "Another interior view of the Salvador boat seating" },
+  { src: "/images/boat/private-new/cavaenbarco_1.webp", alt: "Cava bottle and glasses on the boat" },
+  { src: "/images/boat/private-new/interiorbarcocubierta_1.webp", alt: "View of the covered deck area of the boat" }
 ];
 
 const charterHighlights = [
@@ -677,11 +690,11 @@ export default function PrivateCharterClientPage({ perfectFor }: PrivateCharterC
                         <ul className="space-y-2 ml-11">
                           <li className="flex justify-between text-gray-600">
                             <span>Low Season:</span>
-                            <span className="font-medium">€1350 + €30/person</span>
+                            <span className="font-medium">€1350 + €30/PP Bar </span>
                           </li>
                           <li className="flex justify-between text-gray-600">
                             <span>High Season:</span>
-                            <span className="font-medium">€1650 + €30/person</span>
+                            <span className="font-medium">€1650 + €30/PP Bar </span>
                           </li>
                           <li className="flex justify-between text-gray-600">
                             <span>Extra Hour:</span>
