@@ -119,8 +119,28 @@ export default function RootLayout({
         />
         */}
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-        <link rel="canonical" href="https://www.salvadoribiza.com" />
+        {/* <link rel="canonical" href="https://www.salvadoribiza.com" /> */}
         <link rel="icon" href="/images/favicon.ico" sizes="any" />
+        <Script
+          id="website-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              'name': 'Salvador Ibiza',
+              'url': 'https://www.salvadoribiza.com',
+              'potentialAction': {
+                '@type': 'SearchAction',
+                'target': {
+                  '@type': 'EntryPoint',
+                  'urlTemplate': 'https://www.salvadoribiza.com/search?q={search_term_string}',
+                },
+                'query-input': 'required name=search_term_string',
+              },
+            }),
+          }}
+        />
       </head>
       <body className={`${inter.className} bg-white text-gray-800`}>
         {/* Google Tag Manager (noscript) */}

@@ -49,9 +49,9 @@ export default function PrivacyPolicyPage() {
           <ul>
             <li><strong>Entity:</strong> Ibicruiser, S.L.</li>
             <li><strong>NIF:</strong> B57527392</li>
-            <li><strong>Registered Address:</strong> (Full address if known, otherwise keep general) Ibiza, Balearic Islands, Spain.</li>
+            <li><strong>Registered Address:</strong> San Antonio Port, Balearic Islands, Spain.</li>
             <li><strong>Mercantile Registry:</strong> Sheet IB-9135 Volume 215 Folio:59 – Ibiza</li>
-            <li><strong>Phone:</strong> +34 606 993 823</li>
+            <li><strong>Phone:</strong> +34 645 87 15 90</li>
             <li><strong>E-mail:</strong> <a href="mailto:info@salvadoribiza.com">info@salvadoribiza.com</a></li>
           </ul>
 
@@ -61,7 +61,7 @@ export default function PrivacyPolicyPage() {
           </p>
           
           <p className="text-sm text-gray-500 mt-6">
-            Last updated: [Insert Current Date or Creation Date]
+            Last updated: 25/05/2025
           </p>
         </div>
       </div>

@@ -18,6 +18,12 @@ export const metadata: Metadata = {
       }
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ibiza's Midday Magic: The Unforgettable Day Trip | Salvador Ibiza",
+    description: "Discover why a midday boat trip in Ibiza offers a unique and magical experience. Sunshine, crystal clear waters, and vibrant energy await you.",
+    images: ['/images/blog/midday-magic-placeholder.webp'], // Asegúrate que esta imagen también sea atractiva para Twitter
+  },
 }
 
 export default function MiddayMagicBoatTripPage() {

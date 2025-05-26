@@ -121,7 +121,7 @@ export default function TermsOfServicePage() {
           </section>
           
           <p className="text-sm text-gray-500 mt-6">
-             Last updated: [Insert Current Date or Creation Date]
+             Last updated: 25/05/2025
           </p>
         </div>
       </div>

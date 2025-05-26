@@ -69,10 +69,10 @@ const generateBlogSchema = (posts: BlogPost[]) => {
     'url': `https://salvador-boat.vercel.app/blog/${post.slug}`, // Use absolute URL
     'image': `https://salvador-boat.vercel.app${post.imageUrl}`, // Use absolute URL
     'datePublished': new Date(post.date).toISOString(),
-    // 'author': {
-    //   '@type': 'Person',
-    //   'name': post.author
-    // }, // Author can be added if consistent
+    'author': {
+      '@type': 'Person',
+      'name': post.author
+    },
     'description': post.excerpt
   }));
 
