@@ -25,6 +25,9 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://salvadoribiza.com'),
+  alternates: {
+    canonical: '/',
+  },
   title: {
     default: "Salvador Ibiza - Boat Trips & Private Charter",
     template: "%s | Salvador Ibiza",

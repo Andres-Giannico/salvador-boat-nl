@@ -7,6 +7,9 @@ import DayTripClientPage from './page.client';
 export const metadata: Metadata = {
   title: 'Ibiza Day Boat Trip (All-Inclusive) | Salvador Ibiza',
   description: 'Enjoy the best all-inclusive day boat trip in Ibiza. Explore stunning coves, enjoy drinks, tapas, paddle surf & more. Book your 3-hour adventure from San Antonio!',
+  alternates: {
+    canonical: '/boat-trips/day-trip',
+  },
 };
 
 // Remove data fetching logic

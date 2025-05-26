@@ -19,6 +19,9 @@ interface BlogPost {
 export const metadata: Metadata = {
   title: 'Salvador Ibiza Blog | Luxury Boat Experiences & Island Tips',
   description: 'Explore our latest stories about luxury boat experiences, hidden coves, sunset sailing, and life in Ibiza. Discover insider tips and inspiration for your next adventure.',
+  alternates: {
+    canonical: '/blog',
+  },
 }
 
 // Definir los datos aquí, en el componente servidor

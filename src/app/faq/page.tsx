@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Frequently Asked Questions | Salvador Ibiza",
   description:
     "Find answers to common questions about our boat trips, services, and more. Plan your perfect Mediterranean adventure with Salvador Ibiza.",
+  alternates: {
+    canonical: '/faq',
+  },
 };
 
 export default function FAQPage() {

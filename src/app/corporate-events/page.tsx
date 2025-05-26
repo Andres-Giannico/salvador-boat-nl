@@ -7,6 +7,9 @@ import { GiPartyPopper, GiTeamIdea } from 'react-icons/gi';
 export const metadata: Metadata = {
   title: 'Corporate Events & Boat Charters in Ibiza | Salvador Ibiza',
   description: 'Host unforgettable corporate events, team building activities, client entertainment, or incentive trips aboard Salvador Ibiza, a stunning traditional boat in San Antonio.',
+  alternates: {
+    canonical: '/corporate-events',
+  },
 };
 
 // --- Data Definitions (to be passed to client) --- 

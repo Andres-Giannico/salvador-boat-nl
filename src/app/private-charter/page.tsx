@@ -5,6 +5,9 @@ import { FiUsers, FiGift, FiStar, FiCamera, FiCalendar, FiHelpCircle, FiBriefcas
 export const metadata: Metadata = {
   title: 'Private Boat Charter Ibiza - Your Exclusive Salvador Experience',
   description: 'Charter the Salvador Ibiza boat exclusively for your group (up to 35 guests). Experience our curated routes around Ibiza\'s best spots, with drinks, snacks, skipper & watersports included. Perfect for celebrations, families, corporate events.',
+  alternates: {
+    canonical: '/private-charter',
+  },
 };
 
 // --- Data Definitions (to be passed to client) --- 

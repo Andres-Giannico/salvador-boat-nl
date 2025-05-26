@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Ibiza's Midday Magic: The Unforgettable Day Trip | Salvador Ibiza",
   description: "Discover why a midday boat trip in Ibiza offers a unique and magical experience. Sunshine, crystal clear waters, and vibrant energy await you.",
   keywords: "Ibiza day boat trip, midday boat tour Ibiza, best daytime excursions Ibiza, Salvador Ibiza blog, Ibiza boat activities",
+  alternates: {
+    canonical: '/blog/ibiza-midday-magic-boat-trip',
+  },
   openGraph: {
     title: "Ibiza's Midday Magic: The Unforgettable Day Trip",
     description: "Explore the unique charm of a daytime boat adventure in Ibiza with Salvador.",
