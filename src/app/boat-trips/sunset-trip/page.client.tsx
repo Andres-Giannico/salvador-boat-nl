@@ -350,11 +350,25 @@ export default function SunsetTripClientPage({}: SunsetTripClientPageProps) {
                       </div>
                       <span className="ml-3 text-gray-700">Expert guides and personalized attention.</span>
                     </li>
+                    <li className="flex items-start">
+                      <div className="flex-shrink-0 w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
+                        <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                      </div>
+                      <span className="ml-3 text-gray-700">
+                        <strong className="font-semibold">Partial online payment</strong>
+                        <span className="text-sm text-gray-500 ml-1">(20€ per person to reserve), the rest is paid onboard on the day of the trip.</span>
+                      </span>
+                    </li>
                   </ul>
                 </div>
-                <div className="bg-gray-50 p-4 rounded-lg border border-gray-100 w-full lg:w-1/4">
-                  <p className="text-sm text-gray-600 mb-2">Secure payment through major credit cards and digital wallets</p>
-                  <p className="text-xs text-gray-500">All transactions are securely processed</p>
+                <div className="bg-gray-100 p-4 rounded-lg text-sm text-gray-700 w-full lg:w-1/4">
+                  <p className="font-medium mb-1">Secure payment through major credit cards, Apple Pay, and Google Pay.</p>
+                  <p>All transactions are securely processed by Stripe.</p>
+                  <div className="mt-3 flex justify-center">
+                    <Image src="/images/cards.webp" alt="Payment methods accepted" width={280} height={40} className="object-contain" />
+                  </div>
                 </div>
               </div>
             </motion.div>

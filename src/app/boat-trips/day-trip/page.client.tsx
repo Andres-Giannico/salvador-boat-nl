@@ -338,36 +338,45 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
               className="mb-8 bg-white rounded-xl shadow-sm p-6 border border-gray-100"
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
+                <div className="p-6">
                   <h3 className="text-xl font-semibold text-gray-800 mb-4">Booking Guarantees</h3>
-                  <ul className="space-y-3">
-                    <li className="flex items-start">
-                      <span className="flex-shrink-0 h-5 w-5 text-green-500 mr-2">✓</span>
-                      <span className="text-gray-700">Quick and easy reservation</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="flex-shrink-0 h-5 w-5 text-green-500 mr-2">✓</span>
-                      <span className="text-gray-700">Instant confirmation</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="flex-shrink-0 h-5 w-5 text-green-500 mr-2">✓</span>
-                      <span className="text-gray-700">Flexible cancellation policy</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="flex-shrink-0 h-5 w-5 text-green-500 mr-2">✓</span>
-                      <span className="text-gray-700">All-inclusive experiences</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="flex-shrink-0 h-5 w-5 text-green-500 mr-2">✓</span>
-                      <span className="text-gray-700">Expert guides and personalized attention</span>
-                    </li>
+                  <ul className="space-y-3 text-gray-600">
+                    {[
+                      "Quick and easy reservation",
+                      "Instant confirmation",
+                      "Flexible cancellation policy",
+                      "All-inclusive experiences",
+                      "Expert guides and personalized attention",
+                      "Partial online payment (20€ per person to reserve), the rest is paid onboard on the day of the trip."
+                    ].map((item, index) => {
+                      const isPartialPayment = item.startsWith("Partial online payment");
+                      return (
+                        <motion.li
+                          key={index}
+                          className="flex items-start"
+                        >
+                          <span className="flex-shrink-0 h-5 w-5 text-green-500 mr-2">✓</span>
+                          {isPartialPayment ? (
+                            <span className="text-gray-700">
+                              <strong className="font-semibold">Partial online payment</strong>
+                              <span className="text-sm text-gray-500 ml-1">(20€ per person to reserve), the rest is paid onboard on the day of the trip.</span>
+                            </span>
+                          ) : (
+                            <span className="text-gray-700">{item}</span>
+                          )}
+                        </motion.li>
+                      );
+                    })}
                   </ul>
                 </div>
-                <div>
+                <div className="p-6 border-t border-gray-200 md:border-t-0 md:border-l">
                   <h3 className="text-xl font-semibold text-gray-800 mb-4">Payment Methods</h3>
-                  <div className="bg-gray-50 p-4 rounded-lg border border-gray-100">
-                    <p className="text-sm text-gray-600 mb-3">Secure payment through major credit cards and digital wallets</p>
-                    <p className="text-xs text-gray-500 mt-3">All transactions are securely processed</p>
+                  <div className="bg-gray-100 p-4 rounded-lg text-sm text-gray-700">
+                    <p className="font-medium mb-1">Secure payment through major credit cards, Apple Pay, and Google Pay.</p>
+                    <p>All transactions are securely processed by Stripe.</p>
+                    <div className="mt-3 flex justify-center">
+                      <Image src="/images/cards.webp" alt="Payment methods accepted" width={280} height={40} className="object-contain" />
+                    </div>
                   </div>
                 </div>
               </div>
