@@ -549,6 +549,19 @@ export default function PrivateCharterClientPage({ perfectFor }: PrivateCharterC
                 
                 {/* This is the widget container */}
                 <div id="turbnb-booking-3" className="min-h-[400px] w-full bg-white rounded-lg shadow-xl overflow-hidden border border-gray-200"></div>
+
+                {/* Premium Upgrade Note - NUEVA UBICACIÓN */}
+                <motion.div
+                  className="mt-8 p-4 bg-blue-50 border-l-4 border-blue-400 rounded-r-lg max-w-4xl mx-auto text-center"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }} // Pequeño delay para que aparezca después del widget
+                >
+                  <p className="text-sm text-blue-800">
+                    <strong>Upgrade Options:</strong> Enhance your experience with our premium tapas menu (€35pp + VAT) or add bottles of spirits (€55/bottle + VAT, includes mixers). Ask for details!
+                  </p>
+                </motion.div>
+
               </div>
             </div>
           </motion.section>
@@ -615,15 +628,6 @@ export default function PrivateCharterClientPage({ perfectFor }: PrivateCharterC
                   gridCols="sm:grid-cols-2" // Adjusted grid cols
                 />
               </motion.section>
-
-              {/* Premium Upgrade Note */}
-              <motion.div
-                className="mt-8 mb-16 md:mb-24 p-4 bg-blue-50 border-l-4 border-blue-400 rounded-r-lg max-w-4xl mx-auto text-center"
-              >
-                <p className="text-sm text-blue-800">
-                  <strong>Upgrade Options:</strong> Enhance your experience with our premium tapas menu (€35pp + VAT) or add bottles of spirits (€55/bottle + VAT, includes mixers). Ask for details!
-                </p>
-              </motion.div>
 
               {/* Galería */}
               <motion.section
