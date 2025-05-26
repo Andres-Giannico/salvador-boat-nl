@@ -576,7 +576,7 @@ export default function PrivateCharterClientPage({ perfectFor }: PrivateCharterC
                 </h2>
                 <div className="prose prose-lg text-gray-600 max-w-none">
                   <p className="leading-relaxed">
-                    Escape the ordinary and elevate your Ibiza holiday with unparalleled freedom and luxury. A private charter aboard the historic Salvador offers an exclusive gateway to the island&apos;s hidden gems. Imagine cruising turquoise waters, discovering secluded coves inaccessible by land, and creating lasting memories – all tailored to your desires, shared only with your chosen company.
+                    Escape the ordinary and elevate your Ibiza holiday with unparalleled freedom and luxury. A private charter aboard the historic Salvador offers an exclusive gateway to the island&apos;s hidden gems. Imagine cruising turquoise waters, discovering secluded coves inaccessible by land, and creating lasting memories – all tailored to your desires, shared only with your chosen ones.
                   </p>
                   <p className="leading-relaxed">
                     Whether celebrating a milestone, seeking quality family time, impressing clients, or simply indulging in a perfect day at sea, our private charter is the definitive way to experience the magic of Ibiza. We handle the details; you soak in the Mediterranean bliss.

@@ -22,7 +22,7 @@ const idealForItems = [
   { icon: FiUsers, title: "Team Building Days", description: "Activities and relaxation to strengthen bonds.", color: "text-blue-500" },
   { icon: FiBriefcase, title: "Client Entertainment", description: "Host meetings or thank clients in style.", color: "text-purple-500" },
   { icon: FiAward, title: "Incentive Trips", description: "Motivate and reward achievements.", color: "text-yellow-500" },
-  { icon: GiPartyPopper, title: "Company Celebrations", description: "Milestones, successes, or end-of-year parties.", color: "text-pink-500" },
+  { icon: GiPartyPopper, title: "Company Celebrations", description: "Milestones, successes, or corporate parties.", color: "text-pink-500" },
   { icon: FiSun, title: "Executive Retreats", description: "Combine business with pleasure in a private setting.", color: "text-orange-500" },
 ];
 

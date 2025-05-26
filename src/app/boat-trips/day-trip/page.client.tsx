@@ -54,7 +54,7 @@ const tripHighlights = [
   {
     icon: <FiMusic className="w-6 h-6 text-purple-600" />,
     title: "Ultimate Comfort",
-    description: "Lounge beds, shaded areas, wet bar, clean facilities, and premium MB Quart sound system."
+    description: "Lounge beds, shaded areas, wet bar, clean facilities, and premium Fusion sound system."
   }
 ];
 
