@@ -50,13 +50,13 @@ interface TripData {
 
 const tripData = {
   middayTrip: {
-    imageUrl: "/images/boat/aereabarco1.webp",
+    imageUrl: "/images/boat/aereabarco1.jpg",
     imageAlt: "Salvador Ibiza Day Trip - Premium Sea Adventure",
     title: "Daytime Experience",
     description: "Sun, sea, and adventure await.",
     isPopular: true,
     badgeText: "2:00 PM - 5:00 PM",
-    badgeBgColor: "bg-blue-500",
+    badgeBgColor: "bg-blue-700",
     features: [
       "15 Premium Paddle Boards & 2 Kayaks",
       "Snorkeling Equipment",
@@ -80,7 +80,7 @@ const tripData = {
     title: "Sunset Voyage",
     description: "Experience Ibiza's iconic sunset from the sea.",
     badgeText: "6:30 PM - 9:30 PM",
-    badgeBgColor: "bg-orange-500",
+    badgeBgColor: "bg-orange-700",
     features: [
       "Sunset Swimming at Hidden Coves",
       "15 Paddle Boards & 2 Kayaks",
@@ -91,10 +91,10 @@ const tripData = {
     ],
     price: "€80 per adult",
     priceSubtext: "Children 6-12: €45 | Under 6: Complimentary",
-    priceColor: "text-orange-600",
+    priceColor: "text-orange-700",
     ctaHref: "/boat-trips/sunset-trip#booking-widget",
-    ctaBgColor: "bg-orange-500",
-    ctaHoverBgColor: "hover:bg-orange-600",
+    ctaBgColor: "bg-orange-700",
+    ctaHoverBgColor: "hover:bg-orange-800",
     detailsHref: "/boat-trips/sunset-trip",
     detailsText: "Explore Details"
   },
@@ -104,7 +104,7 @@ const tripData = {
     title: "Private Experience",
     description: "Your personalized maritime adventure.",
     badgeText: "4 Hours",
-    badgeBgColor: "bg-teal-500",
+    badgeBgColor: "bg-teal-700",
     features: [
       "Full Water Sports Equipment",
       "Private Swimming Spots",
@@ -117,8 +117,8 @@ const tripData = {
     priceSubtext: "Additional guests: €30 per person",
     priceColor: "text-teal-600",
     ctaHref: "/private-charter#turbnb-booking-3",
-    ctaBgColor: "bg-teal-500",
-    ctaHoverBgColor: "hover:bg-teal-600",
+    ctaBgColor: "bg-teal-700",
+    ctaHoverBgColor: "hover:bg-teal-800",
     detailsHref: "/private-charter",
     detailsText: "Request Information"
   }

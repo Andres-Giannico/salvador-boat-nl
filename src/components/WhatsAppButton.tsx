@@ -10,6 +10,7 @@ const WhatsAppButton = () => {
       href={`https://wa.me/${phoneNumber}?text=Hello, I'm interested in booking a trip with Salvador Ibiza`}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label="Chat with us on WhatsApp"
       className="fixed bottom-6 right-6 z-50"
       initial={{ scale: 0.8, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}

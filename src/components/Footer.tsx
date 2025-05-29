@@ -70,7 +70,7 @@ const Footer = () => {
                 Experience Ibiza from a different perspective with our premium boat trips. Unforgettable moments, crystal-clear waters, and the magic of the Mediterranean.
               </p>
               <Link href="/about" className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium group">
-                Learn more <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                Learn more about us <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
 
