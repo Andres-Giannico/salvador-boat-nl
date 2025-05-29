@@ -115,7 +115,7 @@ const tripData = {
     ],
     price: "Starting at €1350",
     priceSubtext: "Additional guests: €30 per person",
-    priceColor: "text-teal-600",
+    priceColor: "text-teal-700",
     ctaHref: "/private-charter#turbnb-booking-3",
     ctaBgColor: "bg-teal-700",
     ctaHoverBgColor: "hover:bg-teal-800",

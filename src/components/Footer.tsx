@@ -43,6 +43,7 @@ const Footer = () => {
                 width={60}
                 height={18}
                 priority
+                loading="lazy"
               />
             </Link>
             <div className="flex items-center space-x-5">
