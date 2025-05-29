@@ -28,7 +28,7 @@ export default function Hero() {
           fill
           priority
           className="object-cover object-center brightness-[0.65] z-0"
-          quality={100}
+          quality={80}
           placeholder="blur"
           blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkcGqsBwACSgCoMcABJgAAAABJRU5ErkJggg=="
         />
