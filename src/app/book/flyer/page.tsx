@@ -8,7 +8,7 @@ import Link from 'next/link';
 
 export default function BookTripsQrFlyerPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-100 via-white to-orange-100/50 py-10 md:py-16 px-4">
+    <div className="min-h-screen bg-gradient-to-b from-blue-100 via-white to-orange-100/50 py-6 md:py-16 px-2 md:px-4">
       <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
 
         {/* Simple Banner Image */}
@@ -67,7 +67,7 @@ export default function BookTripsQrFlyerPage() {
           <hr className="my-8 border-gray-200"/>
 
           {/* Booking Widget Section - Enhanced Styling */}
-          <div className="bg-gradient-to-br from-gray-100 to-cyan-50/50 rounded-lg p-4 md:p-6 border border-gray-200 shadow-inner">
+          <div className="bg-gradient-to-br from-gray-100 to-cyan-50/50 rounded-lg p-2 md:p-6 border border-gray-200 shadow-inner">
             <h2 className="text-xl md:text-2xl font-semibold text-center text-gray-800 mb-5">Book Online Now</h2>
             <TurbnbWidget
               id="turbnb-booking-trips-flyer" // Unique ID for flyer
