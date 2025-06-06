@@ -42,7 +42,6 @@ const Footer = () => {
                 alt="Salvador Ibiza Footer Logo"
                 width={60}
                 height={18}
-                priority
                 loading="lazy"
               />
             </Link>
