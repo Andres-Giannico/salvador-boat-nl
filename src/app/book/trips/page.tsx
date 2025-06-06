@@ -74,13 +74,13 @@ export default function BookTripsQrPage() {
               companyId={2}
               productId={2}          // Same Product ID for both
               billingTermIds={[20, 21]} // Show both Day (20) and Sunset (21)
-              channelId={11}         // Web channel
+              channelId={176}         // Web channel QR Caseta
               customProperties={{
                 displayBillingTerm: true, // Important to show the selector
                 showQuantity: true,
                 quantity: "Guests", 
                 titleVariant: "Modern",
-                bookNow: "BOOK NOW",
+                bookNow: "RESERVE NOW",
                 confirmReservationAndPay: "CONFIRM & PAY",
                 selectTimeLabel: "Select Date", 
               }}
