@@ -68,7 +68,36 @@ export default function BookTripsQrFlyerPage() {
 
           {/* Booking Widget Section - Enhanced Styling */}
           <div className="bg-gradient-to-br from-gray-100 to-cyan-50/50 rounded-lg p-2 md:p-6 border border-gray-200 shadow-inner">
-            <h2 className="text-xl md:text-2xl font-semibold text-center text-gray-800 mb-5">Book Online Now</h2>
+            <h2 className="text-xl md:text-2xl font-semibold text-center text-gray-800 mb-3">Book Online Now</h2>
+            
+            {/* Benefits List */}
+            <div className="mb-6 space-y-2 px-2">
+              <div className="flex items-center text-sm text-gray-700">
+                <FiCheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0"/>
+                <span>Quick and easy reservation</span>
+              </div>
+              <div className="flex items-center text-sm text-gray-700">
+                <FiCheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0"/>
+                <span>Instant confirmation</span>
+              </div>
+              <div className="flex items-center text-sm text-gray-700">
+                <FiCheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0"/>
+                <span>Flexible cancellation policy</span>
+              </div>
+              <div className="flex items-center text-sm text-gray-700">
+                <FiCheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0"/>
+                <span>All-inclusive experiences</span>
+              </div>
+              <div className="flex items-center text-sm text-gray-700">
+                <FiCheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0"/>
+                <span>Expert guides and personalized attention</span>
+              </div>
+              <div className="flex items-center text-sm text-gray-700">
+                <FiCheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0"/>
+                <span>Partial online payment (20€ per person to reserve)</span>
+              </div>
+            </div>
+
             <TurbnbWidget
               id="turbnb-booking-trips-flyer" // Unique ID for flyer
               companyId={2}
