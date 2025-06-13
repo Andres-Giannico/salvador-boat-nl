@@ -20,7 +20,7 @@ import { GoogleReview } from '@/services/googlePlaces'; // Import type
 const images = [
   { src: "/images/boat/chicaspasandolomuybien.webp", alt: "Friends having fun on Salvador Ibiza boat deck" },
   { src: "/images/boat/parejaensup.webp", alt: "Couple paddleboarding near Salvador Ibiza" },
-  { src: "/images/boat/aereabarco1.webp", alt: "Aerial view of Salvador Ibiza boat" },
+  { src: "/images/barco1.png", alt: "Aerial view of Salvador Ibiza boat" },
   { src: "/images/boat/chicasensupencueva.webp", alt: "Exploring caves on paddleboards" },
   { src: "/images/boat/gente-en-suo.webp", alt: "Group paddleboarding in clear water" },
   { src: "/images/boat/familiaensup.webp", alt: "Family enjoying paddleboarding together" },

@@ -28,7 +28,7 @@ const allImages: GalleryImage[] = [
   { src: "/images/boat/chicasenproamuyfelicdes.webp", alt: "Very happy friends enjoying the views from the bow" },
   { src: "/images/boat/chicassentadasdisfrutando.webp", alt: "Group sitting on the deck, enjoying the seascape" },
   { src: "/images/boat/aereabarco2.webp", alt: "Aerial drone shot of Salvador Ibiza at sea" },
-  { src: "/images/boat/aereobarco1.webp", alt: "Impressive aerial view of Salvador Ibiza sailing" },
+  { src: "/images/barcodesdedron.jpg", alt: "Impressive aerial drone view of Salvador Ibiza" },
   { src: "/images/boat/vistaprobarcodesdealagua.webp", alt: "Water-level perspective of the Salvador Ibiza bow" },
   { src: "/images/boat/vistabarcoaereochicaspopa.webp", alt: "Aerial view of the boat with friends relaxing on the stern" },
   { src: "/images/boat/barcointerior.webp", alt: "Cozy wooden interior of Salvador Ibiza" },
