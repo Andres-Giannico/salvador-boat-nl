@@ -217,14 +217,16 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
             >
               <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Your Perfect Mediterranean Adventure</h2>
               <div className="prose prose-lg text-gray-600 mb-8 max-w-none">
-                <p>
-                  Welcome aboard Salvador Ibiza, a traditional Balearic wooden boat offering the most authentic and vibrant boat tours along the coast of Ibiza. Our Mixed Daytime Tour is designed for travelers of all ages who want to experience the best of Ibiza from the water.
+                 <p>
+                  Welcome aboard Salvador Ibiza, your gateway to the <strong>most authentic boat tour in Ibiza</strong>. Our traditional wooden boat provides the perfect setting for our Mixed Daytime Tour, designed for travelers of all ages ready to experience the island's beauty from the sea.
                 </p>
+                <h3 className="text-2xl font-bold text-gray-800 mt-8 mb-4">Explore Ibiza's Stunning Coastline</h3>
                 <p>
-                  Depending on the weather and sea conditions, our experienced captain will choose the perfect route - either heading north toward Cala Gració, Cala Salada, and Punta Galera, or west toward Cala Bassa, Torre d'en Rovira, and Cala Conta. Each journey is unique, ensuring the best possible experience based on the day's conditions.
+                  Every day is a new adventure. Our <strong>expert local captain</strong> assesses the weather and sea conditions to select the ideal route. We'll either navigate north towards the beautiful coves of <strong>Cala Salada and Punta Galera</strong>, or head west to explore the famous beaches of <strong>Cala Bassa and Cala Conta</strong>. This ensures you always get the best possible journey on the day of your trip.
                 </p>
+                <h3 className="text-2xl font-bold text-gray-800 mt-8 mb-4">All-Inclusive Fun for Everyone</h3>
                 <p>
-                  Whether you're a solo traveler, couple, group of friends, or family, our warm and professional crew creates the perfect environment for you to relax and enjoy the Mediterranean experience to the fullest. With a perfect blend of fun, relaxation, and exploration, this 3-hour trip showcases the island's crystal-clear waters, stunning landscapes, and chill Mediterranean vibes.
+                  This is more than just a boat trip; it's a complete <strong>3-hour Mediterranean experience</strong>. Perfect for solo travelers, couples, families, and friends, our tour includes everything you need. Dive into crystal-clear waters for a swim, try <strong>paddle boarding and snorkeling</strong>, or simply relax on deck. All while enjoying our <strong>all-inclusive open bar</strong>, delicious Spanish tapas, and a fantastic soundtrack.
                 </p>
               </div>
             </motion.div>

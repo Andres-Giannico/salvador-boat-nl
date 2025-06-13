@@ -192,13 +192,15 @@ export default function SunsetTripClientPage({}: SunsetTripClientPageProps) {
               <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Celebrate the Ibiza Lifestyle</h2>
               <div className="prose prose-lg text-gray-600 mb-8 max-w-none">
                 <p>
-                  Join us aboard Salvador Ibiza for a magical evening at sea. Our Mixed Sunset Boat Tour offers a unique way to experience the iconic Ibizan sunset from the water, blending chilled-out vibes, beautiful views, great music, and a complementary open bar.
+                  Join us aboard Salvador Ibiza for a <strong>magical evening at sea</strong>. Our Mixed Sunset Boat Tour offers the ultimate way to experience the iconic Ibizan sunset from the water, blending chilled-out vibes with stunning scenery.
                 </p>
+                <h3 className="text-2xl font-bold text-gray-800 mt-8 mb-4">Your Unforgettable Sunset Experience</h3>
                 <p>
-                  Depending on conditions, our captain will choose the best route (North or West) before positioning the boat perfectly in front of Café Mambo and Café del Mar. Toast with cava as the sun dips below the horizon, creating unforgettable memories.
+                  Depending on the day's conditions, our expert captain will chart the perfect course along Ibiza's famed coastline. We position our boat flawlessly in front of the legendary <strong>Café Mambo and Café del Mar</strong> for the grand finale. Toast with a glass of cava as the sun dips below the horizon, painting the sky in breathtaking colours.
                 </p>
+                <h3 className="text-2xl font-bold text-gray-800 mt-8 mb-4">More Than a Tour, It's an Experience</h3>
                 <p>
-                  This isn't just a boat tour; it's a celebration of the Ibiza lifestyle, perfect for couples, friends, and solo travelers looking to connect and enjoy the real magic of the island.
+                  This isn't just a boat trip; it's a <strong>celebration of the authentic Ibiza lifestyle</strong>. Perfect for couples, friends, and solo travelers, our tour is designed for those looking to connect, relax, and witness the true magic of the White Isle. Enjoy great music, a fantastic atmosphere, and our renowned <strong>all-inclusive open bar</strong>.
                 </p>
               </div>
             </motion.div>

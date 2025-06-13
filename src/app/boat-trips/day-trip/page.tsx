@@ -1,15 +1,33 @@
 import { Metadata } from 'next';
 import DayTripClientPage from './page.client';
+import Script from 'next/script';
 // Remove imports related to review fetching
 // import { GoogleReview } from '@/services/googlePlaces';
 // import { getReviews } from '@/services/getReviews'; // Assuming a function like this existed
 
-export const metadata: Metadata = {
-  title: 'Ibiza Day Boat Trip (All-Inclusive) | Salvador Ibiza',
-  description: 'Enjoy the best all-inclusive day boat trip in Ibiza. Explore stunning coves, enjoy drinks, tapas, paddle surf & more. Book your 3-hour adventure from San Antonio!',
-  alternates: {
-    canonical: '/boat-trips/day-trip',
+const dayTripJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Salvador Ibiza - All-Inclusive Day Boat Trip",
+  "description": "Join our 3-hour all-inclusive daytime boat tour from San Antonio, Ibiza. Enjoy paddle boarding, kayaking, snorkeling, an open bar, Spanish tapas, and incredible music. The perfect day trip on the water.",
+  "image": "https://salvadoribiza.com/images/barco1.png",
+  "brand": {
+    "@type": "Brand",
+    "name": "Salvador Ibiza"
   },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://salvadoribiza.com/boat-trips/day-trip",
+    "priceCurrency": "EUR",
+    "price": "80",
+    "availability": "https://schema.org/InStock",
+    "validFrom": "2024-05-01"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "reviewCount": "188" 
+  }
 };
 
 // Remove data fetching logic
@@ -23,9 +41,25 @@ export const metadata: Metadata = {
 //   }
 // }
 
-export default async function DayTripPage() {
+export const metadata: Metadata = {
+  title: 'All-Inclusive Day Boat Trip Ibiza | Salvador',
+  description: 'Book the best all-inclusive day boat trip in Ibiza. A 3-hour tour with paddle boards, snorkeling, open bar, tapas, and more. The ultimate Ibiza day boat tour.',
+  alternates: {
+    canonical: 'https://salvadoribiza.com/boat-trips/day-trip',
+  },
+};
+
+export default function DayTripPage() {
   // const { initialReviews, error } = await getData(); // Remove data fetching call
 
-  // Render client page without review props
-  return <DayTripClientPage /* initialReviews={initialReviews} error={error} */ />;
+  return (
+    <>
+      <Script
+        id="day-trip-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(dayTripJsonLd) }}
+      />
+      <DayTripClientPage /* initialReviews={initialReviews} error={error} */ />
+    </>
+  );
 } 
