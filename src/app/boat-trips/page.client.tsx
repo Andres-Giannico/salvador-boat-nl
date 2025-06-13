@@ -205,10 +205,13 @@ export default function BoatTripsClientPage() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Our Signature Excursions
+              Our Signature Boat Trips: Day or Sunset
             </h2>
-            <p className="text-lg text-gray-600">
-              Both trips offer our renowned all-inclusive service and access to stunning locations.
+            <p className="text-lg text-gray-700 leading-relaxed mb-6">
+              Embark on the ultimate <strong>Ibiza boat trip</strong> with Salvador. We offer two distinct, unforgettable <strong>boat tours</strong> for you to choose your perfect sea adventure. Whether you prefer basking in the daytime sun or witnessing a magical sunset, every trip is a premium, all-inclusive experience.
+            </p>
+            <p className="text-md text-gray-600">
+              Our <strong>boat trips</strong> are expertly crafted to showcase the stunning Ibiza coastline. Discover hidden coves, swim in turquoise waters, and enjoy thrilling activities like paddle boarding, kayaking, and snorkeling. All this while you unwind with great music, a premium open bar, and freshly prepared Spanish tapas.
             </p>
           </motion.div>
 
