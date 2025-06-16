@@ -67,22 +67,22 @@ export default function CookieConsentBanner() {
     <div className="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 z-[100] shadow-lg">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
         <p className="text-sm text-gray-300">
-          Utilizamos cookies para mejorar tu experiencia. Al continuar navegando, aceptas nuestro uso de cookies.{ ' ' }
-          {/* Puedes añadir un enlace a tu política de cookies/privacidad aquí */}
-          {/* <a href="/privacy-policy" className="underline hover:text-white">Más información</a> */}
+          We use cookies to enhance your experience. By continuing to browse, you accept our use of cookies.{' '}
+          {/* You can add a link to your privacy/cookie policy here */}
+          <a href="/privacy-policy" className="underline hover:text-white">Learn more</a>
         </p>
         <div className="flex items-center gap-3 flex-shrink-0">
           <button 
             onClick={() => handleConsent(false)} 
             className="px-4 py-2 rounded bg-gray-700 hover:bg-gray-600 text-xs font-medium transition-colors"
           >
-            Rechazar
+            Decline
           </button>
           <button 
             onClick={() => handleConsent(true)} 
             className="px-4 py-2 rounded bg-blue-600 hover:bg-blue-700 text-xs font-medium transition-colors"
           >
-            Aceptar
+            Accept
           </button>
         </div>
       </div>

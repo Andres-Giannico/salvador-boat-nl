@@ -90,29 +90,23 @@ export default function RootLayout({
         />
         {/* Fin Google Tag Manager */}
 
-        {/* Google Analytics Scripts - COMENTADO PORQUE SE GESTIONARÁ DESDE GTM
         <Script
-          id="google-analytics-setup"
+          id="google-analytics-consent"
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               
-              // Establecer consentimiento predeterminado ANTES de cargar gtag.js y configurar GA
+              // Establecer consentimiento predeterminado ANTES de cualquier otra cosa
               gtag('consent', 'default', {
                 'analytics_storage': 'denied',
                 'ad_storage': 'denied',
                 'wait_for_update': 500
               });
               
-              // Cargar gtag.js dinámicamente después de definir el default
-              var gtagScript = document.createElement('script');
-              gtagScript.async = true;
-              gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}';
-              document.head.appendChild(gtagScript);
-              
-              // Configurar GA después de definir defaults y empezar a cargar gtag.js
+              // Cargar GTM ya gestiona la carga de gtag.js, así que solo definimos lo necesario.
+              // La configuración de GA ('config') se debe hacer desde GTM.
               gtag('js', new Date());
               gtag('config', '${gaMeasurementId}', {
                 page_path: window.location.pathname,
@@ -120,7 +114,7 @@ export default function RootLayout({
             `,
           }}
         />
-        */}
+        
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
         {/* <link rel="canonical" href="https://www.salvadoribiza.com" /> */}
         <link rel="icon" href="/images/favicon.ico" sizes="any" />
