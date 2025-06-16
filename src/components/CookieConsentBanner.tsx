@@ -19,8 +19,9 @@ const updateGoogleConsent = (analyticsStatus: ConsentStatus, adStatus: ConsentSt
   if (typeof window.gtag === 'function') {
     window.gtag('consent', 'update', {
       'analytics_storage': analyticsStatus,
-      'ad_storage': adStatus, // Puedes ajustarlo si no usas cookies de publicidad
-      // Agrega aquí otros tipos si son necesarios (ad_user_data, ad_personalization)
+      'ad_storage': adStatus,
+      'ad_user_data': adStatus,
+      'ad_personalization': adStatus
     });
     console.log(`Google Consent updated: analytics=${analyticsStatus}, ad=${adStatus}`);
   } else {
