@@ -11,6 +11,7 @@ const dayTripJsonLd = {
   "name": "Salvador Ibiza - All-Inclusive Day Boat Trip",
   "description": "Join our 3-hour all-inclusive daytime boat tour from San Antonio, Ibiza. Enjoy paddle boarding, kayaking, snorkeling, an open bar, Spanish tapas, and incredible music. The perfect day trip on the water.",
   "image": "https://salvadoribiza.com/images/barco1.png",
+  "sku": "SALVADOR-DAY-TRIP",
   "brand": {
     "@type": "Brand",
     "name": "Salvador Ibiza"
@@ -19,14 +20,16 @@ const dayTripJsonLd = {
     "@type": "Offer",
     "url": "https://salvadoribiza.com/boat-trips/day-trip",
     "priceCurrency": "EUR",
-    "price": "80",
+    "price": 80,
     "availability": "https://schema.org/InStock",
-    "validFrom": "2024-05-01"
+    "validFrom": "2024-05-01",
+    "priceValidUntil": "2025-10-31",
+    "itemCondition": "https://schema.org/NewCondition"
   },
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "5",
-    "reviewCount": "188" 
+    "ratingValue": 5,
+    "reviewCount": 188
   }
 };
 
