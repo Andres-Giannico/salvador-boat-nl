@@ -20,7 +20,7 @@ export default function BookNowClientPage() {
         </motion.h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-10 lg:gap-12">
-          {/* Shared Trips Section */}
+          {/* Day Trip Section */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -30,79 +30,99 @@ export default function BookNowClientPage() {
             <div className="border-t-4 border-cyan-500"></div>
             <div className="p-6 md:p-8 flex flex-col">
               <div className="flex items-center gap-4 mb-5">
-                <span className="bg-cyan-100 p-2 rounded-full inline-block"><GiSailboat className="w-7 h-7 text-cyan-600" /></span>
-                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Shared Boat Trips</h2>
+                <span className="bg-cyan-100 p-2 rounded-full inline-block"><FiSun className="w-7 h-7 text-cyan-600" /></span>
+                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Day Trip</h2>
               </div>
               <div className="prose prose-sm sm:prose-base text-gray-600 mb-4">
                 <p>
-                  Join our popular shared trips! Choose between the <strong><FiSun className='inline mb-1 text-orange-500'/> Day Trip</strong> (approx. 14:00-17:00) or the magical <strong><FiMoon className='inline mb-1 text-indigo-500'/> Sunset Trip</strong> (approx. 18:00-21:00). Both include drinks, snacks, swim stops, and good vibes.
-                </p>
-                <p className="text-xs italic text-gray-500">
-                  *Please note: Trip times, especially for the Sunset Trip, may vary slightly depending on the month to ensure the best experience.*
+                  Join our popular day trip! Experience the beautiful waters of Ibiza from <strong>14:00-17:00</strong>. Includes drinks, snacks, swim stops, and good vibes.
                 </p>
               </div>
               <Link 
-                href="/boat-trips" 
+                href="/boat-trips/day-trip" 
                 className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors mb-6 mt-4 self-start"
               >
                 <FiInfo className="w-4 h-4" />
-                <span>More Info about Shared Trips</span>
+                <span>More Info about Day Trip</span>
               </Link>
 
               <div className="mt-auto bg-gradient-to-br from-gray-100 to-cyan-50/50 rounded-lg p-4 border border-gray-200 shadow-inner">
-                <h3 className="text-lg font-semibold text-center text-gray-700 mb-3">Book Shared Trip</h3>
-                 <TurbnbWidget
-                  id="turbnb-booking-shared"
+                <h3 className="text-lg font-semibold text-center text-gray-700 mb-3">Book Day Trip</h3>
+                <TurbnbWidget
+                  id="turbnb-booking-day"
                   companyId={2}
                   productId={2}
-                  billingTermIds={[20, 21]}
+                  billingTermIds={[20]}
                   channelId={11}
                   className="min-h-[400px]"
+                  customProperties={{
+                    displayBillingTerm: true,
+                    showQuantity: true,
+                    quantity: "Guests",
+                    titleVariant: "Modern",
+                    bookNow: "RESERVE NOW",
+                    confirmReservationAndPay: "CONFIRM & PAY",
+                    selectTimeLabel: "Select Time",
+                    selectExperienceLabel: "Experience Type",
+                    addonsLabel: "Add-ons",
+                    depositObservation: "After completing your booking, you will receive a confirmation voucher with all the details including meeting point and time. Please ensure your contact information (phone and email) is correct as we may need to reach you regarding your booking. A deposit of €20 per person is required to secure your reservation, with the remaining balance paid onboard."
+                  }}
                 />
               </div>
             </div>
           </motion.div>
 
-           {/* Private Charter Section */}
-           <motion.div 
+          {/* Sunset Trip Section */}
+          <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300 border border-gray-100 overflow-hidden flex flex-col"
           >
-             <div className="border-t-4 border-purple-500"></div>
+            <div className="border-t-4 border-orange-500"></div>
             <div className="p-6 md:p-8 flex flex-col">
               <div className="flex items-center gap-4 mb-5">
-                <span className="bg-purple-100 p-2 rounded-full inline-block"><FiUsers className="w-7 h-7 text-purple-600" /></span>
-                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Private Charter</h2>
+                <span className="bg-orange-100 p-2 rounded-full inline-block"><FiMoon className="w-7 h-7 text-orange-600" /></span>
+                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Sunset Trip</h2>
               </div>
-               <div className="prose prose-sm sm:prose-base text-gray-600 mb-4">
+              <div className="prose prose-sm sm:prose-base text-gray-600 mb-4">
                 <p>
-                  Book the entire Salvador boat for your group (up to 35 guests). Enjoy total privacy, a curated route, and all-inclusive service for an unforgettable exclusive experience.
+                  Experience the magical sunset! Join us from <strong>18:30-21:30</strong> (times vary by season) for an unforgettable evening on the Mediterranean.
                 </p>
               </div>
               <Link 
-                href="/private-charter" 
-                className="inline-flex items-center gap-2 text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors mb-6 mt-4 self-start"
+                href="/boat-trips/sunset-trip" 
+                className="inline-flex items-center gap-2 text-sm font-medium text-orange-600 hover:text-orange-800 transition-colors mb-6 mt-4 self-start"
               >
                 <FiInfo className="w-4 h-4" />
-                <span>More Details about Private Charters</span>
+                <span>More Info about Sunset Trip</span>
               </Link>
-              
-              <div className="mt-auto bg-gradient-to-br from-gray-100 to-purple-50/30 rounded-lg p-4 border border-gray-200 shadow-inner">
-                <h3 className="text-lg font-semibold text-center text-gray-700 mb-3">Book Private Charter</h3>
+
+              <div className="mt-auto bg-gradient-to-br from-gray-100 to-orange-50/50 rounded-lg p-4 border border-gray-200 shadow-inner">
+                <h3 className="text-lg font-semibold text-center text-gray-700 mb-3">Book Sunset Trip</h3>
                 <TurbnbWidget
-                  id="turbnb-booking-private"
+                  id="turbnb-booking-sunset"
                   companyId={2}
-                  productId={3}
-                  billingTermIds={[]}
+                  productId={2}
+                  billingTermIds={[21]}
                   channelId={11}
                   className="min-h-[400px]"
+                  customProperties={{
+                    displayBillingTerm: true,
+                    showQuantity: true,
+                    quantity: "Guests",
+                    titleVariant: "Modern",
+                    bookNow: "RESERVE NOW",
+                    confirmReservationAndPay: "CONFIRM & PAY",
+                    selectTimeLabel: "Select Time",
+                    selectExperienceLabel: "Experience Type",
+                    addonsLabel: "Add-ons",
+                    depositObservation: "After completing your booking, you will receive a confirmation voucher with all the details including meeting point and time. Please ensure your contact information (phone and email) is correct as we may need to reach you regarding your booking. A deposit of €20 per person is required to secure your reservation, with the remaining balance paid onboard."
+                  }}
                 />
               </div>
             </div>
           </motion.div>
-
         </div>
       </div>
     </div>

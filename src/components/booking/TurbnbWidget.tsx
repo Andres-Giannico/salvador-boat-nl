@@ -41,7 +41,7 @@ export default function TurbnbWidget({
     selectTimeLabel: "Time Selection",
     selectExperienceLabel: "Experience Type",
     addonsLabel: "Add-ons",
-    depositObservation: "Deposit and payment instructions\n\n\n"
+    depositObservation: "After completing your booking, you will receive a confirmation voucher with all the details including meeting point and time. Please ensure your contact information (phone and email) is correct as we may need to reach you regarding your booking. A deposit of €20 per person is required to secure your reservation, with the remaining balance paid onboard."
   }
 }: TurbnbWidgetProps) {
   useEffect(() => {
