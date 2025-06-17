@@ -212,10 +212,9 @@ const Footer = () => {
             <a href="#top" className="text-sm text-gray-500 hover:text-blue-600 transition duration-300">
               Back to top
             </a>
-            {/* Remove this link */}
-            {/* <a href="/contact" className="text-sm text-gray-500 hover:text-blue-600 transition duration-300">
-              Contact Us
-            </a> */}
+            <span className="text-sm text-gray-500">
+              Made with ❤️ from MDQ & IBZ 
+            </span>
           </div>
         </div>
       </div>
