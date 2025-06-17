@@ -85,6 +85,12 @@ const nextConfig = {
         destination: '/book-now',
         statusCode: 303,
       },
+      // Redirect for mix-check page (using 303)
+      {
+        source: '/interna/mix-check',
+        destination: '/boat-trips',
+        statusCode: 303,
+      },
     ]
   },
 }

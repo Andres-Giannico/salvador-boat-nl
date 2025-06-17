@@ -13,7 +13,7 @@ const Footer = () => {
   const whatsappNumber = "34871181393"; // Number for wa.me link
 
   const socialLinks = [
-    { name: 'Instagram', href: 'https://instagram.com/salvador_ibiza', icon: FaInstagram },
+    { name: 'Instagram', href: 'https://www.instagram.com/boatstripsinibiza/', icon: FaInstagram },
     { name: 'Facebook', href: 'https://www.facebook.com/SalvadoIbizaBoat', icon: FaFacebookF },
     { name: 'TripAdvisor', href: 'https://www.tripadvisor.com/Attraction_Review-g652116-d6835309-Reviews-Salvador_Ibiza-Sant_Antoni_de_Portmany_Ibiza_Balearic_Islands.html', icon: FaTripadvisor },
     { name: 'YouTube', href: 'https://www.youtube.com/watch?v=0SN3YMMwUEk', icon: FaYoutube },
