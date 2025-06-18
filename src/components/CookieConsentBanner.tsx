@@ -69,8 +69,7 @@ export default function CookieConsentBanner() {
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
         <p className="text-sm text-gray-300">
           We use cookies to enhance your experience. By continuing to browse, you accept our use of cookies.{' '}
-          {/* You can add a link to your privacy/cookie policy here */}
-          <a href="/privacy-policy" className="underline hover:text-white">Learn more</a>
+          <a href="/privacy-policy" className="underline hover:text-white">Read our privacy policy</a>
         </p>
         <div className="flex items-center gap-3 flex-shrink-0">
           <button 
