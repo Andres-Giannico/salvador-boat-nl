@@ -35,12 +35,12 @@ export default function TermsOfServicePage() {
         
         <div className="prose prose-lg max-w-none bg-white p-8 rounded-xl shadow-lg border border-gray-100 space-y-6">
           <p>
-            Welcome to the website www.salvadoribiza.com (hereinafter, &quot;SALVADOR IBIZA&quot;). We trust that the website will be useful to you and that you enjoy your visit. In this regard, and to provide maximum security to our page and visitors, we must establish the following conditions of use:
+            Welcome to the website salvadoribiza.com (hereinafter, &quot;SALVADOR IBIZA&quot;). We trust that the website will be useful to you and that you enjoy your visit. In this regard, and to provide maximum security to our page and visitors, we must establish the following conditions of use:
           </p>
 
           <section>
             <h2 className="font-bold text-gray-800 mt-6 mb-3">1. Ownership</h2>
-            <p>The website www.salvadoribiza.com is owned by Ibicruiser, S.L., with NIF: B57527392 and Mercantile Registry: Sheet IB-9135 Volume 215 Folio:59 – Ibiza, Balearic Islands, Spain.</p>
+            <p>The website salvadoribiza.com is owned by Ibicruiser, S.L., with NIF: B57527392 and Mercantile Registry: Sheet IB-9135 Volume 215 Folio:59 – Ibiza, Balearic Islands, Spain.</p>
           </section>
 
           <section>

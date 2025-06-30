@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Salvador Ibiza - Boat Trips & Private Charter",
     description: "All-inclusive boat trips and private charters in Ibiza.",
-    url: "https://www.salvadoribiza.com",
+    url: "https://salvadoribiza.com",
     siteName: "Salvador Ibiza",
     locale: 'en_US',
     type: 'website',
@@ -118,7 +118,7 @@ export default function RootLayout({
         />
         
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-        {/* <link rel="canonical" href="https://www.salvadoribiza.com" /> */}
+        {/* <link rel="canonical" href="https://salvadoribiza.com" /> */}
         <link rel="icon" href="/images/favicon.ico" sizes="any" />
         <Script
           id="website-schema"
@@ -128,12 +128,12 @@ export default function RootLayout({
               '@context': 'https://schema.org',
               '@type': 'WebSite',
               'name': 'Salvador Ibiza',
-              'url': 'https://www.salvadoribiza.com',
+              'url': 'https://salvadoribiza.com',
               'potentialAction': {
                 '@type': 'SearchAction',
                 'target': {
                   '@type': 'EntryPoint',
-                  'urlTemplate': 'https://www.salvadoribiza.com/search?q={search_term_string}',
+                  'urlTemplate': 'https://salvadoribiza.com/search?q={search_term_string}',
                 },
                 'query-input': 'required name=search_term_string',
               },
