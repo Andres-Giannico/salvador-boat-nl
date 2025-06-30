@@ -5,28 +5,40 @@ import Script from 'next/script';
 const sunsetTripJsonLd = {
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "Salvador Ibiza - All-Inclusive Sunset Boat Trip",
-  "description": "Experience the legendary Ibiza sunset from the sea on our 3-hour all-inclusive boat cruise. Includes paddle boarding, snorkeling, open bar with cava, tapas, and a stop at Café Mambo.",
-  "image": "https://salvadoribiza.com/images/sunset.png",
-  "sku": "SALVADOR-SUNSET-TRIP",
+  "name": "Sunset Boat Trip in Ibiza - Salvador Ibiza",
+  "image": [
+    "https://salvadoribiza.com/images/boat/sunset.png"
+  ],
+  "description": "All-inclusive sunset boat trip in Ibiza with captain. Enjoy 3 hours of navigation with catering, drinks, paddle surf and snorkel included.",
   "brand": {
-    "@type": "Brand",
+    "@type": "Organization",
     "name": "Salvador Ibiza"
   },
   "offers": {
     "@type": "Offer",
     "url": "https://salvadoribiza.com/boat-trips/sunset-trip",
     "priceCurrency": "EUR",
-    "price": 80,
+    "price": "80.00",
+    "itemCondition": "https://schema.org/NewCondition",
     "availability": "https://schema.org/InStock",
-    "validFrom": "2024-05-01",
-    "priceValidUntil": "2025-10-31",
-    "itemCondition": "https://schema.org/NewCondition"
+    "validFrom": "2025-06-25"
+  },
+  "review": {
+    "@type": "Review",
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "4.9",
+      "bestRating": "5"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Verified Customer"
+    }
   },
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": 5,
-    "reviewCount": 188
+    "ratingValue": "4.9",
+    "reviewCount": "1198"
   }
 };
 

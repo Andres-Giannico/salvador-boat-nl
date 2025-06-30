@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import PrivateCharterClientPage from './page.client';
 import { FiUsers, FiGift, FiStar, FiCamera, FiCalendar, FiHelpCircle, FiBriefcase } from 'react-icons/fi';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'Private Boat Charter Ibiza - Your Exclusive Salvador Experience',
@@ -11,6 +12,46 @@ export const metadata: Metadata = {
 };
 
 // --- Data Definitions (to be passed to client) --- 
+
+const privateCharterJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Private Charter in Ibiza - Salvador Ibiza",
+  "image": [
+    "https://salvadoribiza.com/images/charter-privado.jpg"
+  ],
+  "description": "Private boat rental in Ibiza with captain. Enjoy 4 hours of navigation with catering, drinks, paddle surf and snorkel included.",
+  "brand": {
+    "@type": "Organization",
+    "name": "Salvador Ibiza"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://salvadoribiza.com/charter-privado-ibiza/",
+    "priceCurrency": "EUR",
+    "price": "1350.00",
+    "itemCondition": "https://schema.org/NewCondition",
+    "availability": "https://schema.org/InStock",
+    "validFrom": "2025-06-25"
+  },
+  "review": {
+    "@type": "Review",
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "4.9",
+      "bestRating": "5"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Verified Customer"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "73"
+  }
+};
 
 // Helper to get icon name as string
 const getIconName = (icon: any): string => {
@@ -40,5 +81,14 @@ const perfectForItems = [
 
 // --- Server Component --- 
 export default function PrivateCharterPage() {
-  return <PrivateCharterClientPage perfectFor={perfectForItems} />;
+  return (
+    <>
+      <Script
+        id="private-charter-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(privateCharterJsonLd) }}
+      />
+      <PrivateCharterClientPage perfectFor={perfectForItems} />
+    </>
+  );
 }
