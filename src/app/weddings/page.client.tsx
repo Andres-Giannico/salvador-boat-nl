@@ -300,7 +300,7 @@ export default function WeddingsClientPage() {
                 </li>
                 <li className="flex items-center text-gray-700">
                   <span className="w-2 h-2 bg-pink-500 rounded-full mr-3"></span>
-                  Standard open bar & snacks
+                  Open bar (cava, sangria, wine, beer, rosé, prosecco) & snacks
                 </li>
                 <li className="flex items-center text-gray-700">
                   <span className="w-2 h-2 bg-pink-500 rounded-full mr-3"></span>
@@ -350,18 +350,18 @@ export default function WeddingsClientPage() {
                     <h4 className="font-semibold text-gray-800">Standard Bar Service</h4>
                     <span className="text-green-600 font-bold text-lg">✓ Included</span>
                   </div>
-                  <p className="text-sm text-gray-600">Cava, sangría, vino, cerveza, rosado, proseco & soft drinks (€30/person automatically added)</p>
+                  <p className="text-sm text-gray-600">Cava, sangria, wine, beer, rosé, prosecco & soft drinks (€30/person automatically added)</p>
                 </div>
                 
                 <div className="bg-white rounded-lg p-4 border-2 border-pink-300 relative">
                   <div className="absolute -top-2 right-4">
                     <span className="bg-pink-600 text-white px-2 py-1 rounded text-xs font-semibold">Upgrade</span>
                   </div>
-                  <div className="flex justify-between items-start mb-2">
-                    <h4 className="font-semibold text-gray-800">Premium Bar Service</h4>
-                    <span className="text-pink-600 font-bold text-lg">+€25/person</span>
-                  </div>
-                  <p className="text-sm text-gray-600">Add spirits bottle (vodka, whisky, rum, gin) with mixers for cocktails (Total: €55/person)</p>
+                                      <div className="flex justify-between items-start mb-2">
+                      <h4 className="font-semibold text-gray-800">Premium Bar Service</h4>
+                      <span className="text-pink-600 font-bold text-lg">€55/bottle</span>
+                    </div>
+                    <p className="text-sm text-gray-600">Add spirits bottle (vodka, whisky, rum, gin) with mixers for cocktails</p>
                 </div>
               </div>
 
@@ -630,9 +630,9 @@ export default function WeddingsClientPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
               >
-                <p className="text-sm text-pink-800">
-                  <strong>Wedding Services:</strong> Standard bar service (€30pp) automatically included. Optional upgrades: Premium spirits (+€25pp), Deluxe tapas (€40pp), extra hours (€500). All prices + VAT.
-                </p>
+                                  <p className="text-sm text-pink-800">
+                    <strong>Wedding Services:</strong> Standard bar service (€30pp) automatically included. Optional upgrades: Premium spirits (€55/bottle), Deluxe tapas (€40pp), extra hours (€500). All prices + VAT.
+                  </p>
               </motion.div>
 
             </div>
