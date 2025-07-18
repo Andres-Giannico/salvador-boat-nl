@@ -23,7 +23,7 @@ export default function Hero() {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/esvedraback.png" 
+          src="/images/optimized/es-vedra-island-ibiza-background.webp" 
           alt="Salvador Ibiza Luxury Experience"
           fill
           priority
@@ -113,7 +113,7 @@ export default function Hero() {
             className="bg-white/10 backdrop-blur-sm rounded-lg p-2 md:p-3 hover:bg-white/15 transition-all duration-300"
           >
             <Image
-              src="/images/tripavidor2024.png"
+              src="/images/optimized/tripadvisor-salvador-ibiza-2024.webp"
               alt="Tripadvisor Traveller's Choice 2024"
               width={100}
               height={100}

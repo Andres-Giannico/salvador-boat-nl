@@ -17,7 +17,7 @@ import TurbnbWidget from '@/components/booking/TurbnbWidget';
 
 // Trip image gallery - Extended
 const images = [
-  { src: "/images/boat/sunset.png", alt: "Iconic Ibiza sunset view from Salvador boat" },
+  { src: "/images/optimized/ibiza-sunset-boat-trip-salvador.webp", alt: "Iconic Ibiza sunset view from Salvador boat" },
   { src: "/images/boat/doschicassupsunset.webp", alt: "Two friends paddleboarding during sunset" },
   { src: "/images/boat/parejafeliz.webp", alt: "Happy couple enjoying the sunset cruise" },
   { src: "/images/boat/aereabarco2.webp", alt: "Aerial view of Salvador boat at golden hour" },
@@ -27,8 +27,8 @@ const images = [
   { src: "/images/boat/chicassentadassup.webp", alt: "Sitting on paddleboards watching the sunset" },
   { src: "/images/boat/barcointerior.webp", alt: "Cozy interior of Salvador boat during sunset" },
   { src: "/images/boat/consolabarco.webp", alt: "View from the boat's console at sunset" },
-  { src: "/images/boat/copacavesunset.png", alt: "Enjoying drinks near a cave at sunset" },
-  { src: "/images/boat/chicas-sunset.png", alt: "Silhouettes against the beautiful sunset sky" },
+  { src: "/images/optimized/drinks-cave-sunset-ibiza.webp", alt: "Enjoying drinks near a cave at sunset" },
+  { src: "/images/optimized/friends-ibiza-sunset-boat.webp", alt: "Silhouettes against the beautiful sunset sky" },
 ];
 
 // Trip highlights - Removed Optional Photographer
@@ -123,7 +123,7 @@ export default function SunsetTripClientPage({}: SunsetTripClientPageProps) {
       <section className="relative h-[85vh] min-h-[650px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/boat/sunset.png" 
+            src="/images/optimized/ibiza-sunset-boat-trip-salvador.webp" 
             alt="Spectacular Ibiza sunset from Salvador boat"
             fill
             priority

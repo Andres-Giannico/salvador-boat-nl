@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     url: 'https://salvadoribiza.com/boat-trips/san-antonio',
     images: [
       {
-        url: '/images/barcodesdedron.jpg',
+        url: '/images/optimized/salvador-ibiza-boat-drone-view.webp',
         width: 1200,
         height: 630,
         alt: 'Salvador boat trip departing from San Antonio Ibiza',

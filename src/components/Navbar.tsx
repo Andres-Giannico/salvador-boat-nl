@@ -92,7 +92,7 @@ const Navbar = () => {
           >
             <Link href={currentLocale === 'en' ? '/' : `/${currentLocale}`}> 
               <Image
-                src="/images/logo-salvador.png"
+                src="/images/optimized/salvador-ibiza-boat-trips-logo.webp"
                 alt="Salvador Ibiza Logo"
                 width={200}
                 height={90}

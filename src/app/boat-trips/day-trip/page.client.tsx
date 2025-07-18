@@ -21,7 +21,7 @@ import { GoogleReview } from '@/services/googlePlaces'; // Import type
 const images = [
   { src: "/images/boat/chicaspasandolomuybien.webp", alt: "Friends having fun on Salvador Ibiza boat deck" },
   { src: "/images/boat/parejaensup.webp", alt: "Couple paddleboarding near Salvador Ibiza" },
-  { src: "/images/barco1.png", alt: "Aerial view of Salvador Ibiza boat" },
+  { src: "/images/optimized/salvador-ibiza-boat-aerial-view.webp", alt: "Aerial view of Salvador Ibiza boat" },
   { src: "/images/boat/chicasensupencueva.webp", alt: "Exploring caves on paddleboards" },
   { src: "/images/boat/gente-en-suo.webp", alt: "Group paddleboarding in clear water" },
   { src: "/images/boat/familiaensup.webp", alt: "Family enjoying paddleboarding together" },
@@ -164,7 +164,7 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
       <section className="relative h-[80vh] min-h-[600px] flex items-center justify-center">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/barco1.png"
+            src="/images/optimized/salvador-ibiza-boat-aerial-view.webp"
             alt="Salvador Ibiza Day Trip Experience"
             fill
             priority

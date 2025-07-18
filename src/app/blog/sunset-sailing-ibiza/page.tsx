@@ -33,7 +33,7 @@ export default function SunsetSailingPage() {
         
         <div className="relative mb-8 h-[50vh] min-h-[400px] w-full overflow-hidden rounded-2xl">
           <Image
-            src="/images/blog/sunset-sailing-ibiza.jpg"
+            src="/images/optimized/sunset-sailing-cruise-ibiza.webp"
             alt="Sunset Sailing in Ibiza - Magical golden hour cruise"
             fill
             className="object-cover"

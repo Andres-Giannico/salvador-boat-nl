@@ -12,7 +12,7 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 // Updated trip data to match FeaturedTripsSection
 const middayTrip = {
-  imageUrl: "/images/barco1.png",
+  imageUrl: "/images/optimized/salvador-ibiza-boat-aerial-view.webp",
   imageAlt: "Salvador Ibiza Day Boat Trip - Premium Sea Adventure",
   title: "Daytime Experience",
   description: "Sun, sea, and adventure await.",
@@ -92,8 +92,8 @@ const galleryImages = [
   { src: "/images/boat/chicasensupencueva.webp", alt: "Girls exploring Ibiza caves on paddleboards during a boat tour" },
   { src: "/images/boat/doschicasfelicesenproa.webp", alt: "Two friends enjoying the sun on a boat trip in Ibiza" },
   { src: "/images/boat/parejasnorkeling.webp", alt: "Couple snorkeling in crystal clear Ibiza waters on a boat tour" },
-  { src: "/images/boat/chicasbrindandoenbarra.png", alt: "Friends toasting at the boat's bar during an Ibiza excursion" },
-  { src: "/images/barco1.png", alt: "The Salvador charter yacht in beautiful turquoise waters of Ibiza" },
+  { src: "/images/optimized/toasting-drinks-ibiza-boat.webp", alt: "Friends toasting at the boat's bar during an Ibiza excursion" },
+  { src: "/images/optimized/salvador-ibiza-boat-aerial-view.webp", alt: "The Salvador charter yacht in beautiful turquoise waters of Ibiza" },
   { src: "/images/boat/4chicasparadasentablaxxl.webp", alt: "Group of friends on a large paddleboard during a Salvador Ibiza boat excursion" }
 ];
 
@@ -145,7 +145,7 @@ export default function BoatTripsClientPage() {
           transition={{ duration: 0.8 }}
         >
           <Image
-            src="/images/barcodesdedron.jpg"
+            src="/images/optimized/salvador-ibiza-boat-drone-view.webp"
             alt="Aerial drone view of the Salvador charter boat in Ibiza, ready for a boat trip"
             fill
             priority

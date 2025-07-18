@@ -50,7 +50,7 @@ interface TripData {
 
 const tripData = {
   middayTrip: {
-    imageUrl: "/images/boat/aereabarco1.jpg",
+    imageUrl: "/images/optimized/salvador-ibiza-boat-from-above.webp",
     imageAlt: "Salvador Ibiza Day Trip - Premium Sea Adventure",
     title: "Daytime Experience",
     description: "Sun, sea, and adventure await.",

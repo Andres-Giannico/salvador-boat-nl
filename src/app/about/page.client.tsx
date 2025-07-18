@@ -58,7 +58,7 @@ export default function AboutClientPage() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/boat/aereabarco.png"
+            src="/images/optimized/salvador-ibiza-boat-aerial-shot.webp"
             alt="Salvador Ibiza boat aerial view for about us page"
             fill
             priority
@@ -129,7 +129,7 @@ export default function AboutClientPage() {
             >
               <div className="bg-gradient-to-r from-blue-100 to-cyan-100 rounded-2xl p-1">
                 <Image
-                  src="/images/barco5.png"
+                  src="/images/optimized/salvador-ibiza-boat-interior.webp"
                   alt="Salvador Ibiza Journey"
                   width={600}
                   height={400}
@@ -169,7 +169,7 @@ export default function AboutClientPage() {
             >
               <div className="bg-gradient-to-r from-blue-100 to-cyan-100 rounded-2xl p-1">
                 <Image
-                  src="/images/barco1.png"
+                  src="/images/optimized/salvador-ibiza-boat-aerial-view.webp"
                   alt="Salvador Boat"
                   width={600}
                   height={400}

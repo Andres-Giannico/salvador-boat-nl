@@ -6,7 +6,7 @@ export default function NotFound() {
     <div className="flex min-h-[70vh] flex-col items-center justify-center text-center px-4">
       <div className="relative w-40 h-40 mb-8">
         <Image
-          src="/images/logo-salvador.png"
+          src="/images/optimized/salvador-ibiza-boat-trips-logo.webp"
           alt="Salvador Ibiza Logo"
           fill
           className="object-contain"

@@ -279,7 +279,7 @@ export default function PartnersClientPage() {
             >
               <div className="bg-gradient-to-r from-blue-200 to-purple-200 rounded-2xl p-1 shadow-lg">
                 <Image
-                  src="/images/turbo.png"
+                  src="/images/optimized/turbobookings-salvador-ibiza.webp"
                   alt="Turbookings Widget Integration"
                   width={600}
                   height={400}

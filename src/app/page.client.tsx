@@ -18,7 +18,7 @@ const experiences = [
       "Swimming & snorkeling"
     ],
     link: "/boat-trips",
-    image: "/images/barcoprivate.png",
+    image: "/images/optimized/salvador-ibiza-private-charter-boat.webp",
     price: "From €129"
   },
   {

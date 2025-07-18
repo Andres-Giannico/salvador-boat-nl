@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     url: "https://salvadoribiza.com/book/flyer",
     images: [
       {
-        url: '/images/barco1.png',
+        url: '/images/optimized/salvador-ibiza-boat-aerial-view.webp',
         width: 1200,
         height: 630,
         alt: 'Salvador Ibiza Boat Trip Booking',

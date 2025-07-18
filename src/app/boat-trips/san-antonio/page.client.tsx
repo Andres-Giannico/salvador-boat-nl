@@ -16,12 +16,12 @@ import type { HighlightItem } from '@/components/trips/TripHighlights';
 import type { FAQItem } from '@/components/trips/FAQ';
 
 const sanAntonioImages: GalleryImage[] = [
-  { src: '/images/boat/sunset.png', alt: 'San Antonio sunset boat trip' },
+  { src: '/images/optimized/ibiza-sunset-boat-trip-salvador.webp', alt: 'San Antonio sunset boat trip' },
   { src: '/images/boat/chicasensupencueva.webp', alt: 'Paddleboarding in hidden cove' }, 
   { src: '/images/boat/doschicassupsunset.webp', alt: 'SUP boarding at sunset' },
-  { src: '/images/boat/copacavesunset.png', alt: 'Sunset drinks on boat' },
-  { src: '/images/boat/chicas-sunset.png', alt: 'Friends enjoying sunset' },
-  { src: '/images/boat/proabarcocueva.png', alt: 'Boat near cave entrance' }
+  { src: '/images/optimized/drinks-cave-sunset-ibiza.webp', alt: 'Sunset drinks on boat' },
+  { src: '/images/optimized/friends-ibiza-sunset-boat.webp', alt: 'Friends enjoying sunset' },
+  { src: '/images/optimized/salvador-ibiza-boat-cave-exploration.webp', alt: 'Boat near cave entrance' }
 ];
 
 const highlights: HighlightItem[] = [
@@ -95,7 +95,7 @@ export default function SanAntonioBoatTripsClient() {
       {/* Hero Section */}
       <section className="relative h-[60vh] sm:h-[70vh] flex items-center justify-center overflow-hidden">
         <Image
-          src="/images/boat/sunset.png"
+          src="/images/optimized/ibiza-sunset-boat-trip-salvador.webp"
           alt="San Antonio Boat Trips Ibiza"
           fill
           className="object-cover"

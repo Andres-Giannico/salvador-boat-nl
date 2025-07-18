@@ -53,12 +53,12 @@ interface CorporateClientPageProps {
 // Placeholder gallery images
 const galleryImages = [
   // Original images from Corporate Events
-  { src: "/images/barco4.png", alt: "Corporate group enjoying drinks on Salvador Ibiza" },
-  { src: "/images/barco dron .jpg", alt: "Aerial view of Salvador Ibiza, perfect for corporate events" }, // Manteniendo el espacio si así estaba originalmente
-  { src: "/images/barco1.png", alt: "Spacious deck area for corporate gatherings" },
-  { src: "/images/barco2.png", alt: "Team building activities in crystal clear waters" },
-  { src: "/images/barco5.png", alt: "Relaxed corporate networking atmosphere" },
-  { src: "/images/esvedraback.png", alt: "Stunning backdrop for corporate photos" },
+  { src: "/images/optimized/salvador-ibiza-boat-deck.webp", alt: "Corporate group enjoying drinks on Salvador Ibiza" },
+  { src: "/images/optimized/salvador-ibiza-boat-drone-photo.webp", alt: "Aerial view of Salvador Ibiza, perfect for corporate events" }, // Manteniendo el espacio si así estaba originalmente
+  { src: "/images/optimized/salvador-ibiza-boat-aerial-view.webp", alt: "Spacious deck area for corporate gatherings" },
+  { src: "/images/optimized/salvador-ibiza-luxury-boat.webp", alt: "Team building activities in crystal clear waters" },
+  { src: "/images/optimized/salvador-ibiza-boat-interior.webp", alt: "Relaxed corporate networking atmosphere" },
+  { src: "/images/optimized/es-vedra-island-ibiza-background.webp", alt: "Stunning backdrop for corporate photos" },
   // Nuevas imágenes de la carpeta /images/boat/private-new/
   { src: "/images/boat/private-new/tapasycavapopabarco_1.webp", alt: "Tapas and cava served on the boat stern" },
   { src: "/images/boat/private-new/tapasenbarco_1.webp", alt: "Selection of tapas on the boat" },
@@ -119,7 +119,7 @@ export default function CorporateEventsClientPage({
       <section className="relative h-[85vh] min-h-[600px] flex items-center justify-center text-center text-white overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/barco1.png" // Choose a professional/impressive hero image
+            src="/images/optimized/salvador-ibiza-boat-aerial-view.webp" // Choose a professional/impressive hero image
             alt="Corporate Event Charter on Salvador Ibiza Boat"
             fill
             priority

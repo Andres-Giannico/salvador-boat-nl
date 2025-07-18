@@ -38,7 +38,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center mb-12 pb-8 border-b border-gray-200">
             <Link href={currentLocale === 'en' ? '/' : `/${currentLocale}`} className="mb-6 md:mb-0">
               <Image
-                src="/images/logofooter.png"
+                src="/images/optimized/salvador-ibiza-footer-logo-alt.webp"
                 alt="Salvador Ibiza Footer Logo"
                 width={60}
                 height={18}

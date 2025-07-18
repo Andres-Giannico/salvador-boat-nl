@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/barcodesdedron.jpg',
+        url: '/images/optimized/salvador-ibiza-boat-drone-view.webp',
         width: 1200,
         height: 630,
         alt: 'Salvador Ibiza Boat',
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Salvador Ibiza - Boat Trips & Private Charter',
     description: 'All-inclusive boat trips and private charters in Ibiza.',
-    images: ['/images/barcodesdedron.jpg'],
+    images: ['/images/optimized/salvador-ibiza-boat-drone-view.webp'],
   },
   robots: {
     index: true,

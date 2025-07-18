@@ -41,12 +41,12 @@ const highlights = [
 ];
 
 const galleryImages = [
-  { src: "/images/boat/chicas-sunset.png", alt: "Group enjoying sunset during boat trip in Ibiza" },
-  { src: "/images/boat/copacavesunset.png", alt: "Cava glass during magical sunset cruise in Ibiza" },
+  { src: "/images/optimized/friends-ibiza-sunset-boat.webp", alt: "Group enjoying sunset during boat trip in Ibiza" },
+  { src: "/images/optimized/drinks-cave-sunset-ibiza.webp", alt: "Cava glass during magical sunset cruise in Ibiza" },
   { src: "/images/boat/doschicassupsunset.webp", alt: "Two girls paddleboarding during sunset boat trip" },
   { src: "/images/sunset.png", alt: "Beautiful Ibiza sunset from Salvador boat" },
-  { src: "/images/esvedraback.png", alt: "Sunset view with Es Vedra island in background" },
-  { src: "/images/blog/sunset-sailing-ibiza.jpg", alt: "Sunset sailing experience in Ibiza waters" }
+  { src: "/images/optimized/es-vedra-island-ibiza-background.webp", alt: "Sunset view with Es Vedra island in background" },
+  { src: "/images/optimized/sunset-sailing-cruise-ibiza.webp", alt: "Sunset sailing experience in Ibiza waters" }
 ];
 
 export default function SunsetBoatTripsClientPage() {
@@ -78,7 +78,7 @@ export default function SunsetBoatTripsClientPage() {
           transition={{ duration: 0.8 }}
         >
           <Image
-            src="/images/blog/sunset-sailing-ibiza.jpg"
+            src="/images/optimized/sunset-sailing-cruise-ibiza.webp"
             alt="Magical sunset boat trip in Ibiza with Salvador"
             fill
             priority

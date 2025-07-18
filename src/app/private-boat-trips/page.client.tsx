@@ -36,19 +36,19 @@ interface PrivateBoatTripsClientPageProps {
 // Combinar imágenes originales y nuevas de la carpeta /images/boat/ y /images/boat/private-new/
 const galleryImages = [
   // Original images (unique src)
-  { src: "/images/barco1.png", alt: "Luxury private boat charter / Group relaxing" }, 
-  { src: "/images/barco2.png", alt: "View from Salvador Ibiza boat" },
-  { src: "/images/barcodron.jpg", alt: "Aerial view of Salvador Ibiza boat" },
-  { src: "/images/esvedraback.png", alt: "Sunset view near Es Vedra" },
-  { src: "/images/barco4.png", alt: "Drinks served on Salvador Ibiza charter" },
+  { src: "/images/optimized/salvador-ibiza-boat-aerial-view.webp", alt: "Luxury private boat charter / Group relaxing" }, 
+  { src: "/images/optimized/salvador-ibiza-luxury-boat.webp", alt: "View from Salvador Ibiza boat" },
+  { src: "/images/optimized/salvador-ibiza-boat-aerial-drone.webp", alt: "Aerial view of Salvador Ibiza boat" },
+  { src: "/images/optimized/es-vedra-island-ibiza-background.webp", alt: "Sunset view near Es Vedra" },
+  { src: "/images/optimized/salvador-ibiza-boat-deck.webp", alt: "Drinks served on Salvador Ibiza charter" },
   // Original images from /images/boat/
-  { src: "/images/boat/proabarcocueva.png", alt: "View from inside a sea cave on Salvador Ibiza" },
-  { src: "/images/boat/chicas-sunset.png", alt: "Group enjoying the sunset on Salvador Ibiza" },
+  { src: "/images/optimized/salvador-ibiza-boat-cave-exploration.webp", alt: "View from inside a sea cave on Salvador Ibiza" },
+  { src: "/images/optimized/friends-ibiza-sunset-boat.webp", alt: "Group enjoying the sunset on Salvador Ibiza" },
   { src: "/images/boat/chicasentablasup.png", alt: "Paddleboarding near the cliffs from Salvador Ibiza" },
-  { src: "/images/boat/copacavesunset.png", alt: "Glass of cava during sunset cruise on Salvador Ibiza" },
-  { src: "/images/boat/chichasfelicesenpopa.png", alt: "Happy group posing on the back of Salvador Ibiza" },
-  { src: "/images/boat/tapastop.png", alt: "Close-up of tapas served on Salvador Ibiza" },
-  { src: "/images/boat/chicasbrindandoenbarra.png", alt: "Group toasting drinks at the bar on Salvador Ibiza" },
+  { src: "/images/optimized/drinks-cave-sunset-ibiza.webp", alt: "Glass of cava during sunset cruise on Salvador Ibiza" },
+  { src: "/images/optimized/happy-friends-boat-stern-ibiza.webp", alt: "Happy group posing on the back of Salvador Ibiza" },
+  { src: "/images/optimized/salvador-ibiza-boat-tapas-service.webp", alt: "Close-up of tapas served on Salvador Ibiza" },
+  { src: "/images/optimized/toasting-drinks-ibiza-boat.webp", alt: "Group toasting drinks at the bar on Salvador Ibiza" },
   // Nuevas imágenes de la carpeta /images/boat/private-new/
   { src: "/images/boat/private-new/tapasycavapopabarco_1.webp", alt: "Tapas and cava served on the boat stern" },
   { src: "/images/boat/private-new/tapasenbarco_1.webp", alt: "Selection of tapas on the boat" },
@@ -371,7 +371,7 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
             }}
           >
             <Image
-              src="/images/barco1.png"
+              src="/images/optimized/salvador-ibiza-boat-aerial-view.webp"
               alt="Luxury private boat charter sailing in Ibiza"
               fill
               priority

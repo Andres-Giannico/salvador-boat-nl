@@ -50,7 +50,7 @@ const blogPosts: BlogPost[] = [
     excerpt: "Unwind and witness the breathtaking beauty of an Ibiza sunset from the best viewpoint – the deck of Salvador. An essential island experience.",
     date: "April 15, 2025",
     author: "Guest Writer",
-    imageUrl: "/images/blog/sunset-sailing-ibiza.jpg",
+    imageUrl: "/images/optimized/sunset-sailing-cruise-ibiza.webp",
     category: "Experiences"
   },
   {

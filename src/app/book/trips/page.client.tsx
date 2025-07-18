@@ -14,7 +14,7 @@ export default function BookTripsQrClient() {
         {/* Simple Banner Image */}
         <div className="relative h-24 md:h-32 w-full">
           <Image 
-            src="/images/barco1.png"
+            src="/images/optimized/salvador-ibiza-boat-aerial-view.webp"
             alt="Salvador Ibiza Boat Trip" 
             layout="fill"
             objectFit="cover"

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     url: 'https://salvadoribiza.com/boat-trips/sunset',
     images: [
       {
-        url: '/images/blog/sunset-sailing-ibiza.jpg',
+        url: '/images/optimized/sunset-sailing-cruise-ibiza.webp',
         width: 1200,
         height: 630,
         alt: 'Beautiful sunset during a boat trip in Ibiza with Salvador',

@@ -28,7 +28,7 @@ const galleryImages = [
   { src: "/images/boat/private-new/popabarcosalvador_1.webp", alt: "Stern of Salvador Ibiza, a picturesque backdrop for wedding photos" },
   // Puedes añadir más imágenes relevantes para bodas de otras carpetas si es necesario
   // Ejemplo de imagen de ambiente general (si aplica)
-  // { src: "/images/boat/sunset.png", alt: "Romantic sunset view, perfect for a wedding cruise" }
+  // { src: "/images/optimized/ibiza-sunset-boat-trip-salvador.webp", alt: "Romantic sunset view, perfect for a wedding cruise" }
 ];
 
 export default function WeddingsClientPage() {
@@ -45,7 +45,7 @@ export default function WeddingsClientPage() {
       <section className="relative h-[80vh] min-h-[600px] flex items-center justify-center text-white overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/boat/sunset.png" // Placeholder image - change to a romantic/wedding themed one later
+            src="/images/optimized/ibiza-sunset-boat-trip-salvador.webp" // Placeholder image - change to a romantic/wedding themed one later
             alt="Romantic sunset wedding setting on Salvador Ibiza"
             fill
             priority
