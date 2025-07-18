@@ -196,7 +196,7 @@ export default function WeddingsClientPage() {
             <p className="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto mb-10">
               Salvador Ibiza offers the perfect setting for an intimate wedding charter. Let's start planning your special day. Check availability and details for our private charters.
             </p>
-            <Link href="/private-charter#turbnb-booking-3">
+            <Link href="/private-boat-trips#turbnb-booking-3">
               <motion.span 
                 whileHover={{ scale: 1.05, boxShadow: "0px 8px 25px rgba(255, 255, 255, 0.3)" }} 
                 whileTap={{ scale: 0.95 }}

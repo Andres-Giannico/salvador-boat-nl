@@ -14,7 +14,7 @@ const generalFaqs = [
     question: "What kind of boat trips do you offer?",
     answer: (
       <>
-        We offer vibrant shared trips like our <Link href='/boat-trips/day-trip' className='text-cyan-600 hover:underline font-medium'>Mixed Daytime Tour</Link> and the magical <Link href='/boat-trips/sunset-trip' className='text-orange-600 hover:underline font-medium'>Mixed Sunset Tour</Link>. We also specialize in fully customizable <Link href='/private-charter' className='text-purple-600 hover:underline font-medium'>Private Charters</Link>.
+        We offer vibrant shared trips like our <Link href='/boat-trips/day-trip' className='text-cyan-600 hover:underline font-medium'>Mixed Daytime Tour</Link> and the magical <Link href='/boat-trips/sunset-trip' className='text-orange-600 hover:underline font-medium'>Mixed Sunset Tour</Link>. We also specialize in fully customizable <Link href='/private-boat-trips' className='text-purple-600 hover:underline font-medium'>Private Trips</Link>.
       </>
     ),
   },
@@ -27,7 +27,7 @@ const generalFaqs = [
     question: "What routes do you usually take?",
     answer: (
       <>
-        Our shared tours explore the stunning West Coast (towards Cala Conta) or North Coast (towards Sa Foradada), showcasing beautiful coves and beaches like Cala Gració and Cala Salada. The captain chooses the best route daily based on conditions. See our <Link href='/routes' className='text-blue-600 hover:underline font-medium'>Routes Page</Link> for details. On <Link href='/private-charter' className='text-purple-600 hover:underline font-medium'>Private Charters</Link>, the route is fully customizable within our operational range.
+        Our shared tours explore the stunning West Coast (towards Cala Conta) or North Coast (towards Sa Foradada), showcasing beautiful coves and beaches like Cala Gració and Cala Salada. The captain chooses the best route daily based on conditions. See our <Link href='/routes' className='text-blue-600 hover:underline font-medium'>Routes Page</Link> for details. On <Link href='/private-boat-trips' className='text-purple-600 hover:underline font-medium'>Private Trips</Link>, the route is fully customizable within our operational range.
       </>
     ),
   },
@@ -43,7 +43,7 @@ const pricingFaqs = [
     question: "What's included in the price?",
     answer: (
       <>
-        Shared trips (Day/Sunset) typically include the captain, crew, fuel, unlimited standard open bar (soft drinks, beer, wine, cava, sangria, water), Spanish tapas & fresh fruit, and use of paddleboards, kayaks & snorkel gear. <Link href='/private-charter' className='text-purple-600 hover:underline font-medium'>Private Charters</Link> have similar base inclusions but offer upgrade options (premium tapas, spirits). Always check the specific trip page!
+        Shared trips (Day/Sunset) typically include the captain, crew, fuel, unlimited standard open bar (soft drinks, beer, wine, cava, sangria, water), Spanish tapas & fresh fruit, and use of paddleboards, kayaks & snorkel gear. <Link href='/private-boat-trips' className='text-purple-600 hover:underline font-medium'>Private Trips</Link> have similar base inclusions but offer upgrade options (premium tapas, spirits). Always check the specific trip page!
       </>
     ),
   },
@@ -51,7 +51,7 @@ const pricingFaqs = [
     question: "Can we bring our own food and drinks?",
     answer: (
       <>
-        You are welcome to bring your own food onboard, especially on <Link href='/private-charter' className='text-purple-600 hover:underline font-medium'>Private Charters</Link>. However, <strong>outside drinks are strictly not permitted on any trip</strong>, as we provide a generous complimentary open bar (soft drinks, beer, wine, cava, sangria, water). Specific requests like birthday cakes for charters can be discussed when booking.
+        You are welcome to bring your own food onboard, especially on <Link href='/private-boat-trips' className='text-purple-600 hover:underline font-medium'>Private Trips</Link>. However, <strong>outside drinks are strictly not permitted on any trip</strong>, as we provide a generous complimentary open bar (soft drinks, beer, wine, cava, sangria, water). Specific requests like birthday cakes for charters can be discussed when booking.
       </>
     ),
   },
@@ -59,7 +59,7 @@ const pricingFaqs = [
     question: "How can I book a trip?",
     answer: (
       <>
-        <Link href='/book-now' className='text-blue-600 hover:underline font-medium'>Booking online through our website</Link> is highly recommended! Use the secure booking widgets with live availability on the <Link href='/boat-trips/day-trip' className='text-cyan-600 hover:underline font-medium'>Day Trip</Link>, <Link href='/boat-trips/sunset-trip' className='text-orange-600 hover:underline font-medium'>Sunset Trip</Link>, and <Link href='/private-charter' className='text-purple-600 hover:underline font-medium'>Private Charter</Link> pages. After completing your booking, you will receive a confirmation voucher with all the details, including the exact meeting point and time.
+        <Link href='/book-now' className='text-blue-600 hover:underline font-medium'>Booking online through our website</Link> is highly recommended! Use the secure booking widgets with live availability on the <Link href='/boat-trips/day-trip' className='text-cyan-600 hover:underline font-medium'>Day Trip</Link>, <Link href='/boat-trips/sunset-trip' className='text-orange-600 hover:underline font-medium'>Sunset Trip</Link>, and <Link href='/private-boat-trips' className='text-purple-600 hover:underline font-medium'>Private Trips</Link> pages. After completing your booking, you will receive a confirmation voucher with all the details, including the exact meeting point and time.
       </>
     ),
   },
@@ -74,7 +74,7 @@ const onboardFaqs = [
   {
     question: "What's the maximum capacity of the boat?",
     answer:
-      "Our boats have different capacities. Please check the specific boat description on the <Link href='/boat-trips' className='text-cyan-600 hover:underline font-medium'>Trips</Link> or <Link href='/private-charter' className='text-purple-600 hover:underline font-medium'>Private Charter</Link> pages for the maximum number of passengers allowed.",
+      "Please refer to our <Link href='/boat-trips' className='text-blue-600 hover:underline font-medium'>Trips</Link> or <Link href='/private-boat-trips' className='text-purple-600 hover:underline font-medium'>Private Trips</Link> pages for the maximum number of passengers allowed.",
   },
   {
     question: "Is there a toilet on board?",
@@ -129,7 +129,7 @@ const activityFaqs = [
     question: "Are pets allowed on board?",
     answer: (
       <>
-        For the comfort of all guests, pets are not permitted on our shared Day or Sunset trips. On <Link href='/private-charter' className='text-purple-600 hover:underline font-medium'>Private Charters</Link>, well-behaved pets may be considered upon prior request – please discuss this with us when booking.
+        For the comfort of all guests, pets are not permitted on our shared Day or Sunset trips. On <Link href='/private-boat-trips' className='text-purple-600 hover:underline font-medium'>Private Trips</Link>, well-behaved pets may be considered upon prior request – please discuss this with us when booking.
       </>
     ),
   },

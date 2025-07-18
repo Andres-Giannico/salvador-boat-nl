@@ -13,6 +13,12 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // SEO: Redirect from old /private-charter to new /private-boat-trips
+      {
+        source: '/private-charter',
+        destination: '/private-boat-trips',
+        permanent: true,
+      },
       // Redirección permanente para la antigua página AI
       {
         source: '/salvador-ibiza/salvadorai.html',

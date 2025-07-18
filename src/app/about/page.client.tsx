@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { FiAnchor, FiHeart, FiSunrise, FiUsers } from 'react-icons/fi';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 const values = [
   {
@@ -94,6 +95,13 @@ export default function AboutClientPage() {
           </motion.p>
         </div>
       </section>
+
+      {/* Breadcrumbs */}
+      <div className="bg-gray-50 border-b border-gray-200">
+        <div className="container mx-auto px-4 py-4">
+          <Breadcrumbs />
+        </div>
+      </div>
 
       {/* Main Content */}
       <section className="py-20 lg:py-28 bg-white">

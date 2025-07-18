@@ -5,6 +5,10 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Discover Love at Sea | Salvador Ibiza Blog',
   description: 'Experience romance and luxury aboard our exclusive boat charters in Ibiza. Perfect for couples seeking a unique and memorable experience.',
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function DiscoverLoveAtSeaPage() {

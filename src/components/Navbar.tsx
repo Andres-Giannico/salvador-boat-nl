@@ -41,7 +41,7 @@ const Navbar = () => {
   const links = [
     { href: '/', label: 'HOME' },
     { href: '/boat-trips', label: 'BOAT TRIPS' },
-    { href: '/private-charter', label: 'PRIVATE CHARTER' },
+    { href: '/private-boat-trips', label: 'PRIVATE TRIPS' },
     { href: '/gallery', label: 'GALLERY' },
     { href: '/faq', label: 'FAQ' },
   ];

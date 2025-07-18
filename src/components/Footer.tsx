@@ -84,8 +84,8 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/private-charter" className="text-gray-600 hover:text-blue-600 transition duration-300">
-                    ⟡ Private Charter
+                  <Link href="/private-boat-trips" className="text-gray-600 hover:text-blue-600 transition duration-300">
+                    ⟡ Private Trips
                   </Link>
                 </li>
                 <li>

@@ -5,6 +5,10 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Hidden Coves of Ibiza | Salvador Ibiza Blog',
   description: 'Discover the most secluded and beautiful coves around Ibiza that are only accessible by boat.',
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function HiddenCovesPage() {

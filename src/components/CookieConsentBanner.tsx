@@ -65,27 +65,58 @@ export default function CookieConsentBanner() {
   }
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 z-[100] shadow-lg">
-      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-        <p className="text-sm text-gray-300">
-          We use cookies to enhance your experience. By continuing to browse, you accept our use of cookies.{' '}
-          <a href="/privacy-policy" className="underline hover:text-white">Read our privacy policy</a>
-        </p>
-        <div className="flex items-center gap-3 flex-shrink-0">
-          <button 
-            onClick={() => handleConsent(false)} 
-            className="px-4 py-2 rounded bg-gray-700 hover:bg-gray-600 text-xs font-medium transition-colors"
-          >
-            Decline
-          </button>
-          <button 
-            onClick={() => handleConsent(true)} 
-            className="px-4 py-2 rounded bg-blue-600 hover:bg-blue-700 text-xs font-medium transition-colors"
-          >
-            Accept
-          </button>
+    <>
+      {/* Overlay para hacer el modal más prominente */}
+      <div className="fixed inset-0 bg-black bg-opacity-50 z-[99] backdrop-blur-sm" />
+      
+      {/* Modal de cookies más grande y prominente */}
+      <div className="fixed inset-0 flex items-center justify-center z-[100] p-4">
+        <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full mx-4 border border-gray-200 overflow-hidden">
+          {/* Header */}
+          <div className="bg-gradient-to-r from-blue-600 to-cyan-500 p-6 text-white">
+            <h3 className="text-xl font-bold mb-2">🍪 Cookie Preferences</h3>
+            <p className="text-blue-100 text-sm">We respect your privacy</p>
+          </div>
+          
+          {/* Content */}
+          <div className="p-6">
+            <p className="text-gray-700 mb-4 leading-relaxed">
+              We use cookies to enhance your browsing experience, analyze site traffic, and provide personalized content. 
+              By accepting, you help us improve our services and provide you with the best possible experience.
+            </p>
+            
+            <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6 rounded-r-lg">
+              <p className="text-sm text-blue-800">
+                <strong>Analytics:</strong> Help us understand how visitors interact with our website to improve your experience.
+              </p>
+            </div>
+            
+            <p className="text-xs text-gray-500 mb-6">
+              You can change your preferences at any time. Read our{' '}
+              <a href="/privacy-policy" className="text-blue-600 hover:text-blue-700 underline font-medium">
+                Privacy Policy
+              </a>{' '}
+              for more details.
+            </p>
+            
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row gap-3">
+              <button 
+                onClick={() => handleConsent(false)} 
+                className="flex-1 px-6 py-3 rounded-lg border-2 border-gray-300 text-gray-700 hover:bg-gray-50 font-medium transition-all duration-200 hover:border-gray-400"
+              >
+                Decline All
+              </button>
+              <button 
+                onClick={() => handleConsent(true)} 
+                className="flex-1 px-6 py-3 rounded-lg bg-gradient-to-r from-blue-600 to-cyan-500 text-white hover:from-blue-700 hover:to-cyan-600 font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-[1.02]"
+              >
+                Accept All
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 } 

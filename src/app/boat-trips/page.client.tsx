@@ -8,6 +8,7 @@ import { Anchor, Coffee, Music, Camera } from 'lucide-react';
 import TripCard from '@/components/ui/TripCard';
 import ImageGallery from '@/components/gallery/ImageGallery';
 import CallToActionSection from '@/components/CallToActionSection';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 // Updated trip data to match FeaturedTripsSection
 const middayTrip = {
@@ -164,7 +165,7 @@ export default function BoatTripsClientPage() {
             Your Perfect Ibiza <span className="text-cyan-400">Boat Trip</span>
           </h1>
           <p className="text-lg md:text-xl max-w-3xl mx-auto opacity-95 mb-8 drop-shadow-md">
-            Choose between our all-inclusive Daytime Experience or the magical Sunset Voyage.
+            Choose between our all-inclusive <span className="font-semibold text-cyan-300">3-hour</span> Daytime Experience or the magical Sunset Voyage.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <motion.button
@@ -194,6 +195,13 @@ export default function BoatTripsClientPage() {
           </svg>
         </div>
       </section>
+
+      {/* Breadcrumbs */}
+      <div className="bg-gray-50 border-b border-gray-200">
+        <div className="container mx-auto px-4 py-4">
+          <Breadcrumbs />
+        </div>
+      </div>
 
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">

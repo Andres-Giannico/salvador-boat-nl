@@ -11,7 +11,7 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/interna/salvador-ibiza-style-boat-trip.html',
-        destination: '/private-charter',
+        destination: '/private-boat-trips',
         permanent: true,
       },
       {

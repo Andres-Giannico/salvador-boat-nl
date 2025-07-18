@@ -5,6 +5,10 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'Sunset Sailing in Ibiza | Salvador Ibiza Blog',
   description: 'Experience the magic of Ibiza&apos;s legendary sunsets from the best viewpoint - aboard our luxury yacht.',
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function SunsetSailingPage() {

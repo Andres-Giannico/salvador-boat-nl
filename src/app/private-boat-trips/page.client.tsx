@@ -16,6 +16,7 @@ import WhatsIncluded from '@/components/trips/WhatsIncluded';
 // import CharterDetailsCard from '@/components/trips/CharterDetailsCard'; // Removed unused import
 import PerfectForCard from '@/components/trips/PerfectForCard';
 import WhyChooseUsCard from '@/components/trips/WhyChooseUsCard';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 // --- Define Type for PerfectFor Items ---
 type PerfectForItem = {
@@ -26,7 +27,7 @@ type PerfectForItem = {
 };
 
 // --- Define Props Interface for the Client Page ---
-interface PrivateCharterClientPageProps {
+interface PrivateBoatTripsClientPageProps {
   perfectFor: PerfectForItem[]; // Expecting the array passed from page.tsx
 }
 
@@ -150,7 +151,7 @@ const includedItems = [
 ];
 
 // --- Componente Principal de la Página Cliente ---
-export default function PrivateCharterClientPage({ perfectFor }: PrivateCharterClientPageProps) {
+export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTripsClientPageProps) {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [showDirectWidget, setShowDirectWidget] = useState(false);
@@ -501,6 +502,13 @@ export default function PrivateCharterClientPage({ perfectFor }: PrivateCharterC
             </svg>
           </div>
         </section>
+
+        {/* Breadcrumbs */}
+        <div className="bg-gray-50 border-b border-gray-200">
+          <div className="container mx-auto px-4 py-4">
+            <Breadcrumbs />
+          </div>
+        </div>
 
         {/* Direct Booking Widget Section - ADD ID HERE */}
         {showDirectWidget && (

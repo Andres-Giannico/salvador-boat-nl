@@ -44,7 +44,7 @@ const experiences = [
       "Skipper & watersports included",
       "Perfect for celebrations, families, corporate events"
     ],
-    link: "/private-charter",
+    link: "/private-boat-trips",
     image: "/images/aerial.jpeg",
     badge: "CUSTOM",
     price: "From €1350",
@@ -187,7 +187,7 @@ export default function HomeClientPage() {
                               <button
                                 onClick={(e) => {
                                   e.preventDefault();
-                                  window.location.href = '/private-charter#inquire';
+                                  window.location.href = '/private-boat-trips#inquire';
                                 }}
                                 className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full text-white text-sm hover:bg-white/20 transition-all"
                               >

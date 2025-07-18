@@ -146,9 +146,9 @@ export default function CorporateEventsClientPage({
             Host unforgettable team-building days, client meetings, or incentive trips aboard the stunning Salvador Ibiza.
           </motion.p>
           <motion.div variants={fadeIn}>
-            <Link href="/private-charter#direct-booking-section">
-              <span className="inline-block bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white font-bold py-4 px-10 rounded-lg shadow-xl text-lg transition duration-300 transform hover:scale-105">
-                Plan Your Event
+            <Link href="/private-boat-trips#direct-booking-section">
+              <span className="inline-block bg-white text-teal-600 font-semibold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                Book a Private Charter
               </span>
             </Link>
           </motion.div>
@@ -291,7 +291,7 @@ export default function CorporateEventsClientPage({
           <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
             Book Salvador Ibiza for your next corporate event and provide an experience your team or clients won't forget.
           </p>
-          <Link href="/private-charter#direct-booking-section"> 
+          <Link href="/private-boat-trips#direct-booking-section"> 
             <span className="inline-block bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white font-bold py-4 px-10 rounded-lg shadow-xl text-lg transition duration-300 transform hover:scale-105">
                Check Availability & Book
             </span>

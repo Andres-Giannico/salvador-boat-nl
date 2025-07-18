@@ -5,6 +5,10 @@ export const metadata: Metadata = {
   title: 'Ibiza Boat Weddings | Unforgettable Ceremonies at Sea | Salvador Ibiza',
   description: 'Celebrate your dream wedding aboard the Salvador Ibiza. Experience a unique and romantic ceremony with stunning sea views, personalized service, and lasting memories.',
   keywords: ['Ibiza wedding', 'boat wedding', 'sea wedding', 'romantic wedding Ibiza', 'luxury boat charter', 'Salvador Ibiza'],
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function WeddingsPage() {
