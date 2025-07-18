@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FiHelpCircle, FiAnchor, FiDollarSign } from 'react-icons/fi';
 import { GiWaveSurfer, GiSailboat } from 'react-icons/gi';
 import { motion } from 'framer-motion';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 // Importamos nuestro componente reutilizable
 import FAQ from "@/components/trips/FAQ";
@@ -196,6 +197,13 @@ export default function FAQClientPage() {
 
   return (
     <div className="bg-gradient-to-b from-white via-sky-50 to-blue-50">
+      {/* Breadcrumbs */}
+      <div className="bg-gray-50 border-b border-gray-200">
+        <div className="container mx-auto px-4 py-4">
+          <Breadcrumbs />
+        </div>
+      </div>
+
       {/* Hero Section - Refined styling */}
       <section className="relative py-24 md:py-32 text-center overflow-hidden">
         {/* Soft background gradient elements */}

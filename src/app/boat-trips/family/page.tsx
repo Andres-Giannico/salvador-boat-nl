@@ -1,29 +1,16 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
+import TurbnbWidget from '@/components/booking/TurbnbWidget';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'Family Boat Trips Ibiza | Kid-Friendly Cruises | Salvador Ibiza',
-  description: 'Perfect family boat trips in Ibiza with Salvador. Safe, fun, and educational cruises for families with children. Swimming, snorkeling, and unforgettable memories for all ages.',
-  keywords: 'ibiza family boat trips, family boat trips ibiza, family boat tour ibiza, kids boat trip ibiza, family cruises ibiza',
+  title: 'Family Boat Trips Ibiza (3 hours) | Safe Adventures for All Ages | Salvador Ibiza',
+  description: 'Perfect family boat trips in Ibiza with safety-first approach. 3-hour cruises designed for kids and parents. Swimming, snorkeling, and fun activities.',
+  keywords: 'family boat trips Ibiza, kids boat tour, family cruise Ibiza, safe boat trips children, family adventure Ibiza',
   robots: {
     index: true,
     follow: true,
-  },
-  alternates: {
-    canonical: '/boat-trips/family',
-  },
-  openGraph: {
-    title: 'Family Boat Trips Ibiza | Safe & Fun Cruises for All Ages',
-    description: 'Create lasting family memories with our kid-friendly boat trips in Ibiza. Safe, educational, and fun for the whole family.',
-    url: 'https://salvadoribiza.com/boat-trips/family',
-    images: [
-      {
-        url: '/images/boat/familiaensup.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Family enjoying boat trip in Ibiza with Salvador',
-      }
-    ],
   },
 };
 
@@ -32,13 +19,9 @@ export default function FamilyBoatTripsPage() {
     <div className="min-h-screen bg-gradient-to-b from-green-50 to-white py-16">
       <div className="container mx-auto px-4">
         {/* Breadcrumbs */}
-        <nav className="flex items-center space-x-2 text-sm mb-8">
-          <Link href="/" className="text-gray-500 hover:text-blue-600">Home</Link>
-          <span className="text-gray-400">/</span>
-          <Link href="/boat-trips" className="text-gray-500 hover:text-blue-600">Boat Trips</Link>
-          <span className="text-gray-400">/</span>
-          <span className="text-gray-900 font-medium">Family Trips</span>
-        </nav>
+        <div className="bg-white border-b border-gray-200 -mx-4 px-4 py-4 mb-8">
+          <Breadcrumbs />
+        </div>
 
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6 text-center">

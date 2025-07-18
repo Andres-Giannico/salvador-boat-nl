@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { FiX, FiPlay } from 'react-icons/fi';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 // Define the type for image data passed as prop
 interface GalleryImage {
@@ -57,6 +58,13 @@ export default function GalleryClientPage({ images }: GalleryClientPageProps) {
 
   return (
     <div className="bg-gradient-to-b from-white via-blue-50/10 to-white min-h-screen">
+      {/* Breadcrumbs */}
+      <div className="bg-gray-50 border-b border-gray-200">
+        <div className="container mx-auto px-4 py-4">
+          <Breadcrumbs />
+        </div>
+      </div>
+
       <div className="container mx-auto px-4 py-16 md:py-20">
         <motion.h1 
           initial={{ opacity: 0, y: -20 }}

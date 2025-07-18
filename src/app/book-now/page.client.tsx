@@ -5,10 +5,18 @@ import TurbnbWidget from '@/components/booking/TurbnbWidget';
 import { FiInfo, FiUsers, FiSun, FiMoon } from 'react-icons/fi';
 import { GiSailboat } from 'react-icons/gi';
 import { motion } from 'framer-motion';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 export default function BookNowClientPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-100 via-white to-orange-100/50 py-28 pb-24 md:py-36 md:pb-32">
+      {/* Breadcrumbs */}
+      <div className="bg-gray-50 border-b border-gray-200 fixed top-20 md:top-24 left-0 w-full z-10">
+        <div className="container mx-auto px-4 py-4">
+          <Breadcrumbs />
+        </div>
+      </div>
+
       <div className="container mx-auto px-4">
         <motion.h1 
           initial={{ opacity: 0, y: -20 }}

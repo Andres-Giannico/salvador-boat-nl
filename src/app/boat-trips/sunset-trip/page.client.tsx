@@ -6,6 +6,7 @@ import { FiClock, FiUsers, FiMapPin, FiSunset, FiDollarSign, FiAnchor, FiCompass
 import { GiWaterSplash, GiSparklingSabre } from 'react-icons/gi';
 import { motion } from 'framer-motion';
 import { GoogleReview } from '@/services/googlePlaces';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 // Import our reusable components
 import TripGallery from '@/components/trips/TripGallery';
@@ -111,6 +112,13 @@ interface SunsetTripClientPageProps {
 export default function SunsetTripClientPage({}: SunsetTripClientPageProps) {
   return (
     <div className="bg-gray-50">
+      {/* Breadcrumbs */}
+      <div className="bg-gray-50 border-b border-gray-200">
+        <div className="container mx-auto px-4 py-4">
+          <Breadcrumbs />
+        </div>
+      </div>
+
       {/* Hero Section - Revised */}
       <section className="relative h-[85vh] min-h-[650px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">

@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { FiHeart, FiAnchor, FiCamera, FiUsers, FiMail, FiArrowRight, FiMusic, FiMap } from 'react-icons/fi';
 import { GiWineBottle } from 'react-icons/gi';
 import TripGallery from '@/components/trips/TripGallery';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 // Placeholder for wedding features
 const weddingFeatures = [
@@ -33,6 +34,13 @@ const galleryImages = [
 export default function WeddingsClientPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-pink-50 via-white to-blue-50">
+      {/* Breadcrumbs */}
+      <div className="bg-gray-50 border-b border-gray-200">
+        <div className="container mx-auto px-4 py-4">
+          <Breadcrumbs />
+        </div>
+      </div>
+
       {/* Hero Section */}
       <section className="relative h-[80vh] min-h-[600px] flex items-center justify-center text-white overflow-hidden">
         <div className="absolute inset-0 z-0">

@@ -14,6 +14,7 @@ import {
   FiBriefcase,
   FiGift,
 } from 'react-icons/fi';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 // Features for Influencers (Turbo Bookings)
 const influencerFeatures = [
@@ -81,6 +82,13 @@ const testimonials = [
 export default function PartnersClientPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 via-purple-50 to-pink-50">
+      {/* Breadcrumbs */}
+      <div className="bg-gray-50 border-b border-gray-200">
+        <div className="container mx-auto px-4 py-4">
+          <Breadcrumbs />
+        </div>
+      </div>
+
       {/* Hero Section */}
       <section className="relative pt-32 md:pt-40 pb-20 overflow-hidden">
         <div className="container mx-auto px-4">

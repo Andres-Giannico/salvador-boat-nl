@@ -7,6 +7,7 @@ import { FiClock, FiUsers, FiMapPin, FiDollarSign, FiMusic, FiCompass, FiInfo, F
 import { GiWaterSplash, GiPartyPopper } from 'react-icons/gi';
 import { motion } from 'framer-motion';
 import Script from 'next/script';
+import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 // Importamos nuestros componentes reutilizables
 import TripGallery from '@/components/trips/TripGallery';
@@ -152,6 +153,13 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
 
   return (
     <div className="bg-gray-50">
+      {/* Breadcrumbs */}
+      <div className="bg-gray-50 border-b border-gray-200">
+        <div className="container mx-auto px-4 py-4">
+          <Breadcrumbs />
+        </div>
+      </div>
+
       {/* Hero Section - Full height with parallax effect */}
       <section className="relative h-[80vh] min-h-[600px] flex items-center justify-center">
         <div className="absolute inset-0 z-0">
