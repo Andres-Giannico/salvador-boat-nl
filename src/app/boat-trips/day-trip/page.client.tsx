@@ -400,12 +400,31 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="bg-white rounded-xl shadow-lg p-6 md:p-8 border border-gray-100"
             >
+              {/* Age Information */}
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                <h4 className="font-semibold text-gray-800 mb-2">Age Groups & Pricing</h4>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                  <div className="flex items-center">
+                    <span className="w-3 h-3 bg-blue-500 rounded-full mr-2"></span>
+                    <span><strong>Adults:</strong> €80 per person</span>
+                  </div>
+                  <div className="flex items-center">
+                    <span className="w-3 h-3 bg-green-500 rounded-full mr-2"></span>
+                    <span><strong>Children (6-12 years):</strong> €45</span>
+                  </div>
+                  <div className="flex items-center">
+                    <span className="w-3 h-3 bg-yellow-500 rounded-full mr-2"></span>
+                    <span><strong>Infants (0-5 years):</strong> Free</span>
+                  </div>
+                </div>
+              </div>
+
               {/* Turbnb Booking Widget */}
               <TurbnbWidget 
-                id="turbnb-booking-3"
+                id="turbnb-booking-2"
                 companyId={2}
                 productId={2}
-                billingTermIds={[21]}
+                billingTermIds={[20]}
                 channelId={11}
                 customProperties={{
                   displayBillingTerm: true,
@@ -418,8 +437,8 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
                   selectExperienceLabel: "Day Experience",
                   addonsLabel: "Add-ons",
                   childrenAge: "6 to 12 Years",
-                  infantAge: "0 to 5 Years",
-                  depositObservation: "After completing your booking, you will receive a confirmation voucher with all the details including meeting point and time. Please ensure your contact information (phone and email) is correct as we may need to reach you regarding your booking. A deposit of €20 per person is required to secure your reservation, with the remaining balance paid onboard."
+                  infantAge: "0 to 6 Years",
+                  depositObservation: "After completing your booking, you will receive a confirmation voucher with all the details including meeting point and time. Please ensure your contact information (phone and email) is correct as we may need to reach you regarding your booking. A deposit of €20 per person is required to secure your reservation, with the remaining balance paid in cash onboard."
                 }}
               />
             </motion.div>

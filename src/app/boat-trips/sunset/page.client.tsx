@@ -269,10 +269,10 @@ export default function SunsetBoatTripsClientPage() {
                companyId={2}
                productId={2} 
                channelId={11}
-               billingTermIds={[]}
+               billingTermIds={[21]}
                customProperties={{
                  "displayBillingTerm": true,
-                 "showQuantity": false,
+                 "showQuantity": true,
                  "titleVariant": "Modern",
                  "bookNow": "BOOK SUNSET TRIP",
                  "confirmReservationAndPay": "CONFIRM & PAY",
