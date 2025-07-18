@@ -1,0 +1,141 @@
+import { Metadata } from 'next';
+import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Family Boat Trips Ibiza | Kid-Friendly Cruises | Salvador Ibiza',
+  description: 'Perfect family boat trips in Ibiza with Salvador. Safe, fun, and educational cruises for families with children. Swimming, snorkeling, and unforgettable memories for all ages.',
+  keywords: 'ibiza family boat trips, family boat trips ibiza, family boat tour ibiza, kids boat trip ibiza, family cruises ibiza',
+  robots: {
+    index: true,
+    follow: true,
+  },
+  alternates: {
+    canonical: '/boat-trips/family',
+  },
+  openGraph: {
+    title: 'Family Boat Trips Ibiza | Safe & Fun Cruises for All Ages',
+    description: 'Create lasting family memories with our kid-friendly boat trips in Ibiza. Safe, educational, and fun for the whole family.',
+    url: 'https://salvadoribiza.com/boat-trips/family',
+    images: [
+      {
+        url: '/images/boat/familiaensup.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Family enjoying boat trip in Ibiza with Salvador',
+      }
+    ],
+  },
+};
+
+export default function FamilyBoatTripsPage() {
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-green-50 to-white py-16">
+      <div className="container mx-auto px-4">
+        {/* Breadcrumbs */}
+        <nav className="flex items-center space-x-2 text-sm mb-8">
+          <Link href="/" className="text-gray-500 hover:text-blue-600">Home</Link>
+          <span className="text-gray-400">/</span>
+          <Link href="/boat-trips" className="text-gray-500 hover:text-blue-600">Boat Trips</Link>
+          <span className="text-gray-400">/</span>
+          <span className="text-gray-900 font-medium">Family Trips</span>
+        </nav>
+
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6 text-center">
+            Family Boat Trips <span className="text-green-600">Ibiza</span>
+          </h1>
+          
+          <p className="text-xl text-gray-600 text-center mb-12 leading-relaxed">
+            Create unforgettable memories with our <strong>family boat trips in Ibiza</strong>. 
+            Safe, fun, and educational adventures perfect for all ages.
+          </p>
+
+          <div className="bg-white rounded-2xl shadow-lg p-8 mb-12">
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">Why Families Love Our Boat Trips</h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+              <div className="flex items-start space-x-4">
+                <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="text-green-600 font-bold">👨‍👩‍👧‍👦</span>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-800 mb-2">Family-Friendly Environment</h3>
+                  <p className="text-gray-600">Safe, welcoming atmosphere where children and adults can enjoy together.</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start space-x-4">
+                <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="text-green-600 font-bold">🏊</span>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-800 mb-2">Safe Swimming Areas</h3>
+                  <p className="text-gray-600">Carefully selected calm coves perfect for children to swim and play safely.</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start space-x-4">
+                <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="text-green-600 font-bold">🐠</span>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-800 mb-2">Educational Experience</h3>
+                  <p className="text-gray-600">Learn about marine life, local culture, and Ibiza's natural environment.</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start space-x-4">
+                <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <span className="text-green-600 font-bold">🍎</span>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-800 mb-2">Kid-Friendly Food</h3>
+                  <p className="text-gray-600">Fresh fruits, healthy snacks, and non-alcoholic drinks for children.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-green-50 border-l-4 border-green-500 p-6 mb-8">
+              <h3 className="font-bold text-green-800 mb-2">🛡️ Safety First</h3>
+              <p className="text-green-700">
+                All children receive life jackets and safety briefings. Our experienced crew is trained in family safety protocols.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <p className="text-lg font-semibold text-gray-800 mb-4">Perfect Family Adventure Awaits!</p>
+              <p className="text-3xl font-bold text-green-600 mb-2">€80 per adult</p>
+              <p className="text-lg text-gray-600 mb-6">Children under 12: 50% discount</p>
+              <Link 
+                href="/boat-trips/day-trip"
+                className="inline-block bg-green-600 text-white font-bold py-4 px-8 rounded-lg hover:bg-green-700 transition-colors"
+              >
+                Book Family Trip Now
+              </Link>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <h3 className="text-2xl font-bold text-gray-800 mb-4">More Family Options</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <Link 
+                href="/private-boat-trips"
+                className="block bg-blue-600 text-white p-6 rounded-lg hover:bg-blue-700 transition-colors"
+              >
+                <h4 className="text-xl font-bold mb-2">Private Family Charter</h4>
+                <p>Exclusive boat just for your family</p>
+              </Link>
+              <Link 
+                href="/boat-trips"
+                className="block bg-gray-800 text-white p-6 rounded-lg hover:bg-gray-700 transition-colors"
+              >
+                <h4 className="text-xl font-bold mb-2">All Boat Trips</h4>
+                <p>Explore all our options</p>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+} 

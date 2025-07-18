@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { FiSun, FiMoon } from 'react-icons/fi';
+import { FiSun, FiMoon, FiMapPin, FiUsers, FiGift, FiAnchor } from 'react-icons/fi';
 import { Anchor, Coffee, Music, Camera } from 'lucide-react';
 import TripCard from '@/components/ui/TripCard';
 import ImageGallery from '@/components/gallery/ImageGallery';
@@ -301,6 +301,142 @@ export default function BoatTripsClientPage() {
                 <p className="text-sm text-gray-600">{feature.description}</p>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Explore More Options - Parent to Child Links */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+              Explore Our Specialized <span className="text-blue-600">Boat Trips</span>
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Discover the perfect boat trip for your needs. From romantic sunsets to family adventures, we have something special for everyone.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <Link
+                href="/boat-trips/sunset"
+                className="block bg-gradient-to-br from-orange-500 to-pink-600 text-white p-6 rounded-xl hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+              >
+                <div className="flex items-center mb-4">
+                  <FiSun className="w-6 h-6 mr-3" />
+                  <h3 className="text-xl font-bold">Sunset Trips</h3>
+                </div>
+                <p className="mb-4 opacity-90">Experience Ibiza's legendary sunsets from the sea. Magical golden hour cruises.</p>
+                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">620 searches/month</span>
+              </Link>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <Link
+                href="/boat-trips/san-antonio"
+                className="block bg-gradient-to-br from-blue-500 to-cyan-600 text-white p-6 rounded-xl hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+              >
+                <div className="flex items-center mb-4">
+                  <FiMapPin className="w-6 h-6 mr-3" />
+                  <h3 className="text-xl font-bold">San Antonio Departures</h3>
+                </div>
+                <p className="mb-4 opacity-90">Convenient departures from San Antonio Bay. Explore the stunning west coast.</p>
+                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">240 searches/month</span>
+              </Link>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <Link
+                href="/boat-trips/day"
+                className="block bg-gradient-to-br from-green-500 to-teal-600 text-white p-6 rounded-xl hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+              >
+                <div className="flex items-center mb-4">
+                  <FiSun className="w-6 h-6 mr-3" />
+                  <h3 className="text-xl font-bold">Day Trips</h3>
+                </div>
+                <p className="mb-4 opacity-90">Perfect daytime adventures with swimming, snorkeling, and water sports.</p>
+                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">50 searches/month</span>
+              </Link>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <Link
+                href="/boat-trips/family"
+                className="block bg-gradient-to-br from-purple-500 to-indigo-600 text-white p-6 rounded-xl hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+              >
+                <div className="flex items-center mb-4">
+                  <FiUsers className="w-6 h-6 mr-3" />
+                  <h3 className="text-xl font-bold">Family Trips</h3>
+                </div>
+                <p className="mb-4 opacity-90">Safe, fun, and educational boat trips perfect for families with children.</p>
+                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">40 searches/month</span>
+              </Link>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
+              <Link
+                href="/boat-trips/all-inclusive"
+                className="block bg-gradient-to-br from-yellow-500 to-orange-600 text-white p-6 rounded-xl hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+              >
+                <div className="flex items-center mb-4">
+                  <FiGift className="w-6 h-6 mr-3" />
+                  <h3 className="text-xl font-bold">All-Inclusive</h3>
+                </div>
+                <p className="mb-4 opacity-90">Everything included: drinks, food, equipment, and entertainment.</p>
+                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">10 searches/month</span>
+              </Link>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
+              <Link
+                href="/private-boat-trips"
+                className="block bg-gradient-to-br from-gray-700 to-gray-900 text-white p-6 rounded-xl hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+              >
+                <div className="flex items-center mb-4">
+                  <FiAnchor className="w-6 h-6 mr-3" />
+                  <h3 className="text-xl font-bold">Private Charters</h3>
+                </div>
+                <p className="mb-4 opacity-90">Exclusive boat just for your group. Ultimate privacy and luxury.</p>
+                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">100 searches/month</span>
+              </Link>
+            </motion.div>
           </div>
         </div>
       </section>

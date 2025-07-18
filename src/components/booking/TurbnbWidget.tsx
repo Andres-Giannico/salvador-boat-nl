@@ -20,6 +20,8 @@ interface TurbnbWidgetProps {
     selectTimeLabel?: string;
     selectExperienceLabel?: string;
     addonsLabel?: string;
+    childrenAge?: string;
+    infantAge?: string;
     depositObservation?: string;
   };
 }
