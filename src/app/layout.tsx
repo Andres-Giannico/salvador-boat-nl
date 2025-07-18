@@ -23,6 +23,121 @@ const montserrat = Montserrat({
   weight: ["400", "500", "600", "700", "800"],
 });
 
+// LocalBusiness Schema for SEO
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://salvadoribiza.com/#organization",
+  "name": "Salvador Ibiza",
+  "alternateName": "Salvador Boat Trips Ibiza",
+  "description": "Premium boat trips and private charters in Ibiza. All-inclusive excursions with professional crew, equipment, and unforgettable experiences.",
+  "url": "https://salvadoribiza.com",
+  "telephone": "+34-871 181 393", // TODO: Add real phone number
+  "email": "info@salvadoribiza.com", // TODO: Verify email
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Puerto de San Antonio",
+    "addressLocality": "San Antonio",
+    "addressRegion": "Ibiza",
+    "postalCode": "07820",
+    "addressCountry": "ES"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "38.9804",
+    "longitude": "1.3026"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday", 
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "opens": "09:00",
+      "closes": "21:00"
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "278",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "priceRange": "€€",
+  "currenciesAccepted": "EUR",
+  "paymentAccepted": "Cash, Credit Card",
+  "areaServed": {
+    "@type": "Place",
+    "name": "Ibiza, Balearic Islands, Spain"
+  },
+  "serviceArea": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": "38.9804",
+      "longitude": "1.3026"
+    },
+    "geoRadius": "50000"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Salvador Ibiza Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Day Boat Trips",
+          "description": "3-hour all-inclusive day boat trips with swimming, snorkeling, and refreshments"
+        },
+        "price": "80",
+        "priceCurrency": "EUR"
+      },
+      {
+        "@type": "Offer", 
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Sunset Boat Trips",
+          "description": "3-hour sunset cruises with premium drinks and magical golden hour experience"
+        },
+        "price": "80",
+        "priceCurrency": "EUR"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service", 
+          "name": "Private Boat Charter",
+          "description": "Exclusive private boat charters with customized itinerary and premium service"
+        },
+        "price": "1350",
+        "priceCurrency": "EUR"
+      }
+    ]
+  },
+  "sameAs": [
+    "https://www.instagram.com/boatstripsinibiza/",
+    "https://www.facebook.com/SalvadoIbizaBoat"
+  ],
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://salvadoribiza.com/images/logo-salvador.png",
+    "width": "300",
+    "height": "100"
+  },
+  "image": [
+    "https://salvadoribiza.com/images/optimized/salvador-ibiza-boat-drone-view.webp",
+    "https://salvadoribiza.com/images/optimized/salvador-ibiza-boat-aerial-view.webp"
+  ]
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://salvadoribiza.com'),
   alternates: {
@@ -74,6 +189,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${montserrat.variable}`}>
       <head>
+        {/* LocalBusiness Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
+        
         {/* Google Tag Manager */}
         <Script
           id="google-tag-manager-head"
@@ -137,6 +258,26 @@ export default function RootLayout({
                 },
                 'query-input': 'required name=search_term_string',
               },
+            }),
+          }}
+        />
+        {/* Structured Data for Organization */}
+        <Script
+          id="organization-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Salvador Ibiza",
+              "url": "https://salvadoribiza.com",
+              "logo": "https://salvadoribiza.com/images/logo-salvador.png",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+34-XXX-XXX-XXX",
+                "contactType": "customer service",
+                "availableLanguage": ["English", "Spanish"]
+              }
             }),
           }}
         />

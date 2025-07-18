@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FiClock, FiUsers, FiMapPin, FiDollarSign, FiMusic, FiCompass, FiInfo, FiCamera } from 'react-icons/fi';
+import { FiClock, FiUsers, FiMapPin, FiDollarSign, FiMusic, FiCompass, FiInfo, FiCamera, FiSun, FiAnchor } from 'react-icons/fi';
 import { GiWaterSplash, GiPartyPopper } from 'react-icons/gi';
 import { motion } from 'framer-motion';
 import Script from 'next/script';
@@ -489,17 +489,157 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
         </div>
       </div>
       
-      {/* Load Turbnb Scripts */}
+      {/* Related Boat Trips Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+              Explore More <span className="text-blue-600">Ibiza Adventures</span>
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Discover other amazing boat experiences we offer around the beautiful island of Ibiza
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <Link
+                href="/boat-trips/sunset-trip"
+                className="block bg-gradient-to-br from-orange-500 to-pink-600 text-white p-6 rounded-xl hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+              >
+                <div className="flex items-center mb-4">
+                  <FiSun className="w-6 h-6 mr-3" />
+                  <h3 className="text-xl font-bold">Sunset Boat Trip</h3>
+                </div>
+                <p className="mb-4 opacity-90">Experience Ibiza's legendary sunsets from the sea with our magical evening cruise.</p>
+                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">Same price: €80</span>
+              </Link>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <Link
+                href="/private-boat-trips"
+                className="block bg-gradient-to-br from-purple-500 to-indigo-600 text-white p-6 rounded-xl hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+              >
+                <div className="flex items-center mb-4">
+                  <FiAnchor className="w-6 h-6 mr-3" />
+                  <h3 className="text-xl font-bold">Private Charter</h3>
+                </div>
+                <p className="mb-4 opacity-90">Enjoy an exclusive boat experience tailored just for you and your group.</p>
+                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">From €1,350</span>
+              </Link>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <Link
+                href="/boat-trips/family"
+                className="block bg-gradient-to-br from-green-500 to-teal-600 text-white p-6 rounded-xl hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+              >
+                <div className="flex items-center mb-4">
+                  <FiUsers className="w-6 h-6 mr-3" />
+                  <h3 className="text-xl font-bold">Family Adventures</h3>
+                </div>
+                <p className="mb-4 opacity-90">Perfect family-friendly boat trips designed for all ages with safety first.</p>
+                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">Kids discounts</span>
+              </Link>
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-center mt-12"
+          >
+            <Link
+              href="/boat-trips"
+              className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition duration-300"
+            >
+              View All Boat Trips
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* JSON-LD Schema */}
       <Script
-        src="https://widgets.turbnb.com/turbnb.booking.1.0.31.min.js"
-        strategy="afterInteractive"
-        onLoad={() => {
-          // Dispatch custom event when script is loaded
-          if (typeof window !== 'undefined') {
-            window.dispatchEvent(new Event('turbnbLoaded'));
-          }
-        }}
-      />
+        id="day-trip-schema"
+        type="application/ld+json"
+      >
+        {`{
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": "Mixed Daytime Boat Tour",
+          "description": "Experience the authentic Mediterranean vibes aboard our traditional Balearic wooden boat. Enjoy paddle surfing, kayaking, snorkeling, and swimming in crystal-clear waters. Spanish tapas, fresh fruit, and unlimited drinks including sangria, beer, wine, and cava. Lounge beds, shaded areas, wet bar, clean facilities, and premium Fusion sound system.",
+          "brand": {
+            "@type": "Brand",
+            "name": "Salvador Ibiza Boat Tours"
+          },
+          "offers": {
+            "@type": "Offer",
+            "price": "80",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "validFrom": "2023-05-01T00:00:00+02:00",
+            "validThrough": "2023-10-31T23:59:59+02:00",
+            "seller": {
+              "@type": "Organization",
+              "name": "Salvador Ibiza Boat Tours"
+            }
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.5",
+            "reviewCount": "120"
+          },
+          "review": {
+            "@type": "Review",
+            "reviewRating": {
+              "@type": "Rating",
+              "ratingValue": "4.5"
+            },
+            "author": {
+              "@type": "Person",
+              "name": "TripAdvisor"
+            },
+            "reviewBody": "A fantastic day trip experience! The captain was friendly and knowledgeable, and the boat was comfortable. The all-inclusive open bar was a great touch. Highly recommend!"
+          },
+          "category": "Boat Tour",
+          "audience": "All Ages",
+          "keywords": "boat tour, ibiza, sunset, family, private charter, paddle boarding, kayaking, snorkeling",
+          "inLanguage": "en-ES",
+          "url": "https://www.salvadoribizaboattours.com/boat-trips/day-trip",
+          "image": "https://www.salvadoribizaboattours.com/images/optimized/salvador-ibiza-boat-aerial-view.webp",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://www.salvadoribizaboattours.com/boat-trips/day-trip"
+          },
+          "datePublished": "2023-05-01T00:00:00+02:00",
+          "dateModified": "2023-09-20T10:00:00+02:00"
+        }`}
+      </Script>
       <link href="https://widgets.turbnb.com/turbnb.booking.1.0.31.min.css" rel="stylesheet" />
     </div>
   );

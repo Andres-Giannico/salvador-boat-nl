@@ -70,10 +70,55 @@ export default function GalleryClientPage({ images }: GalleryClientPageProps) {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent"
+          className="text-4xl md:text-5xl font-bold text-center mb-8 bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent"
         >
           Salvador Ibiza Gallery
         </motion.h1>
+
+        {/* Gallery Description */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="max-w-4xl mx-auto text-center mb-16"
+        >
+          <p className="text-xl text-gray-600 mb-6 leading-relaxed">
+            Discover the magic of <strong>Salvador Ibiza boat trips</strong> through our stunning photo gallery. 
+            From breathtaking aerial views to intimate moments of joy, these images capture the essence of our 
+            <strong>all-inclusive boat experiences</strong> around the beautiful island of Ibiza.
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+            <div className="bg-white rounded-lg p-6 shadow-md">
+              <h3 className="text-lg font-bold text-blue-600 mb-3">🌅 Sunset Adventures</h3>
+              <p className="text-gray-600 text-sm">
+                Experience the legendary Ibiza sunsets from our traditional wooden boat. Golden hour magic, 
+                romantic moments, and unforgettable memories captured at sea.
+              </p>
+            </div>
+            
+            <div className="bg-white rounded-lg p-6 shadow-md">
+              <h3 className="text-lg font-bold text-cyan-600 mb-3">🏄‍♀️ Water Sports Fun</h3>
+              <p className="text-gray-600 text-sm">
+                Paddle boarding, kayaking, and snorkeling adventures in crystal-clear Mediterranean waters. 
+                Our guests enjoying the 15 premium SUP boards and water sports equipment.
+              </p>
+            </div>
+            
+            <div className="bg-white rounded-lg p-6 shadow-md">
+              <h3 className="text-lg font-bold text-orange-600 mb-3">🍾 All-Inclusive Luxury</h3>
+              <p className="text-gray-600 text-sm">
+                Spanish tapas, premium drinks, and gourmet experiences onboard. See how we create 
+                the perfect all-inclusive atmosphere for our day and sunset trips.
+              </p>
+            </div>
+          </div>
+          
+          <p className="text-lg text-gray-700 mt-8 font-medium">
+            Ready to create your own memories? <a href="/boat-trips" className="text-blue-600 hover:underline">Book your Salvador Ibiza adventure today</a> 
+            and become part of our incredible gallery!
+          </p>
+        </motion.div>
 
         <motion.div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-6"
           initial="hidden"

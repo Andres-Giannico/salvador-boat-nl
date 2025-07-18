@@ -5,14 +5,18 @@ import { FiUsers, FiGift, FiStar, FiCamera, FiCalendar, FiHelpCircle, FiBriefcas
 
 export const metadata: Metadata = {
   title: 'Private Boat Trips Ibiza - Your Exclusive Salvador Experience',
-  description: 'Book the best private boat trips in Ibiza with Salvador. Charter our exclusive boat for your group (up to 35 guests). Perfect for celebrations, corporate events, and special occasions. An all-inclusive experience with drinks, snacks, and water sports.',
+  description: '🛥️ Exclusive private boat charter in Ibiza! Up to 35 guests, customized routes, premium service & all-inclusive luxury. From €1,350 - Book your dream trip!',
   keywords: 'private boat trips ibiza, private boat tour ibiza, event boat, ibiza private boat trips, private boat charter ibiza, exclusive boat tour',
   alternates: {
     canonical: '/private-boat-trips',
   },
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     title: 'Private Boat Trips Ibiza - Exclusive Salvador Experience',
-    description: 'Charter the Salvador Ibiza boat exclusively for your group. Perfect for celebrations, corporate events, and special occasions.',
+    description: '🛥️ Exclusive private boat charter in Ibiza! Up to 35 guests, customized routes, premium service & all-inclusive luxury.',
     url: 'https://salvadoribiza.com/private-boat-trips',
     images: [
       {

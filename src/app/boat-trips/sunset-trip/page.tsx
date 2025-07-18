@@ -44,9 +44,18 @@ const sunsetTripJsonLd = {
 
 export const metadata: Metadata = {
   title: 'Ibiza Sunset Boat Trip (All-Inclusive) | Salvador',
-  description: 'Book the best sunset boat trip in Ibiza. A 3-hour all-inclusive cruise with drinks, tapas, paddle boards, and the famous Café Mambo sunset view.',
+  description: '🌅 Experience Ibiza\'s legendary sunset from the sea! 3-hour all-inclusive cruise with unlimited drinks, Spanish tapas & paddle boards. Book now from €80!',
   alternates: {
     canonical: 'https://salvadoribiza.com/boat-trips/sunset-trip',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    title: 'Ibiza Sunset Boat Trip (All-Inclusive) | Salvador',
+    description: '🌅 Experience Ibiza\'s legendary sunset from the sea! 3-hour all-inclusive cruise with unlimited drinks, Spanish tapas & paddle boards.',
+    images: ['/images/optimized/sunset-sailing-cruise-ibiza.webp'],
   },
 };
 

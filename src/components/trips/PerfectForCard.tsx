@@ -71,8 +71,8 @@ const PerfectForCard = ({ items, title }: PerfectForCardProps) => {
 
           // Wrap with Link if href exists, otherwise just return content
           return item.href ? (
-            <Link key={`link-${index}`} href={item.href} passHref legacyBehavior>
-              <a className="block no-underline">{itemContent}</a>
+            <Link key={`link-${index}`} href={item.href} className="block no-underline">
+              {itemContent}
             </Link>
           ) : (
             <div key={`no-link-${index}`}>{itemContent}</div>

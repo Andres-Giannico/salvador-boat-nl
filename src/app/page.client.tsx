@@ -63,7 +63,7 @@ export default function HomeClientPage() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/aerial.jpeg"
-            alt="Salvador Ibiza Experience"
+            alt="Aerial view of Salvador Ibiza boat trip experience in crystal clear Mediterranean waters near Ibiza coastline"
             fill
             className="object-cover"
             priority
@@ -280,7 +280,7 @@ export default function HomeClientPage() {
               <div className="bg-gradient-to-r from-blue-100 to-cyan-100 rounded-2xl p-1">
                 <Image
                   src="/images/boat-2.jpeg"
-                  alt="Salvador Experience"
+                  alt="Salvador Ibiza traditional wooden boat with guests enjoying all-inclusive day trip with paddle boards and snorkeling equipment"
                   width={600}
                   height={400}
                   className="rounded-xl shadow-2xl object-cover"
