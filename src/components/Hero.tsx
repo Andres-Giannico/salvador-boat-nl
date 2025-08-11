@@ -37,19 +37,19 @@ export default function Hero() {
 
       {/* Content Container */}
       <div className="relative z-20 flex flex-col items-center justify-center h-full w-full px-4 max-w-screen-xl mx-auto">
-        {/* Badge */}
+        {/* Badge - now as paragraph */}
         <motion.div
           variants={fadeIn(0.2)}
           initial="hidden"
           animate="visible"
           className="mb-12 md:mb-16"
         >
-          <span className="px-6 py-2 rounded-full bg-white/10 backdrop-blur-sm text-white text-sm tracking-widest font-light border border-white/10">
+          <p className="px-6 py-2 rounded-full bg-white/10 backdrop-blur-sm text-white text-sm tracking-widest font-light border border-white/10">
             SALVADOR BOAT EXPERIENCE
-          </span>
+          </p>
         </motion.div>
         
-        {/* Main Headline */}
+        {/* Main Headline - now H1 with SEO keywords */}
         <motion.div 
           variants={fadeIn(0.4)}
           initial="hidden"
@@ -57,14 +57,14 @@ export default function Hero() {
           className="max-w-5xl mb-6 md:mb-8"
         >
           <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold text-white mb-6 md:mb-8 leading-[1.1] tracking-tight">
-            DISCOVER
+            SALVADOR BOAT
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/80">
-              IBIZA BY SEA
+              TRIP IBIZA
             </span>
           </h1>
           <p className="text-lg md:text-xl lg:text-2xl text-white/80 font-light max-w-3xl mx-auto tracking-wide">
-            Experience the Mediterranean&apos;s finest waters aboard the iconic Salvador boat
+            Discover Ibiza by sea - Experience the Mediterranean&apos;s finest waters aboard the iconic Salvador boat
           </p>
         </motion.div>
 

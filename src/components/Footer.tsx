@@ -157,7 +157,7 @@ const Footer = () => {
                   <div className="bg-blue-50 p-2 rounded-full mr-3">
                     <FiMapPin className="w-4 h-4 text-blue-600" />
                   </div>
-                  <span>San Antonio Port, Ibiza</span>
+                  <span>Avinguda del Doctor Fleming, 07820 Sant Antoni de Portmany, Illes Balears</span>
                 </li>
                 <li className="flex items-center text-gray-600">
                   <div className="bg-blue-50 p-2 rounded-full mr-3">

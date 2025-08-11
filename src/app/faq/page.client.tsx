@@ -34,8 +34,11 @@ const generalFaqs = [
   },
   {
     question: "Where is the meeting point?",
-    answer:
-      "The usual meeting point is the port of San Antonio, but it might vary slightly. We'll confirm the exact location and boarding time once your booking is confirmed.",
+    answer: (
+      <>
+        Our meeting point is always at the port of San Antonio. You can find the exact location and directions on our <Link href='/contact' className='text-blue-600 hover:underline font-medium'>contact page with interactive map</Link>. We'll confirm the boarding time once your booking is confirmed.
+      </>
+    ),
   },
 ];
 

@@ -4,6 +4,8 @@ import Hero from '@/components/Hero';
 import IntroSection from '@/components/IntroSection';
 import FeaturedTripsSection from '@/components/FeaturedTripsSection';
 import WhyChooseUsSection from '@/components/WhyChooseUsSection';
+import ActivitiesSection from '@/components/ActivitiesSection';
+import HomepageFAQSection from '@/components/HomepageFAQSection';
 import CallToActionSection from '@/components/CallToActionSection';
 import Script from 'next/script';
 
@@ -72,6 +74,8 @@ export default function HomePage() {
       <IntroSection />
       <FeaturedTripsSection />
       <WhyChooseUsSection />
+      <ActivitiesSection />
+      <HomepageFAQSection />
       <CallToActionSection />
     </main>
     </>
