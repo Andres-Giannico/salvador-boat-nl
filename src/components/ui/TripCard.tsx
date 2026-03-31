@@ -24,6 +24,8 @@ interface TripCardProps {
   isPopular?: boolean;
   description?: string;
   delay?: number;
+  /** Evita /_next/image: sirve el archivo estático directo (útil si el optimizador falla en algún cliente). */
+  imageUnoptimized?: boolean;
 }
 
 const TripCard: React.FC<TripCardProps> = ({
@@ -43,7 +45,8 @@ const TripCard: React.FC<TripCardProps> = ({
   detailsText = 'Learn More',
   isPopular = false,
   description,
-  delay = 0
+  delay = 0,
+  imageUnoptimized = false
 }) => {
 
   const cardVariants = {
@@ -77,6 +80,7 @@ const TripCard: React.FC<TripCardProps> = ({
           src={imageUrl}
           alt={imageAlt}
           fill
+          unoptimized={imageUnoptimized}
           className="object-cover group-hover:scale-105 transition-transform duration-300 ease-out"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />

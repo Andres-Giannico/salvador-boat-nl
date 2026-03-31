@@ -99,7 +99,7 @@ const tripData = {
     detailsText: "Explore Details"
   },
   privateCharter: {
-    imageUrl: "/images/boat/aereabarco2.webp",
+    imageUrl: "/images/optimized/aereabarco2.webp",
     imageAlt: "Salvador Ibiza Private Charter - Exclusive Sea Experience",
     title: "Private Experience",
     description: "Your personalized maritime adventure.",
@@ -148,6 +148,7 @@ export default function FeaturedTripsSection() {
             {...tripData.privateCharter} 
             delay={0.3} 
             description={tripData.privateCharter.description}
+            imageUnoptimized
           />
         </div>
       </motion.div>
