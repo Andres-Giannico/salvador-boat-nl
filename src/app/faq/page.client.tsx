@@ -177,7 +177,7 @@ export default function FAQClientPage() {
   // Animation for Hero section
   const heroAnimation = {
     initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } }
+    animate: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" as const } }
   };
   
   // Animation for Category Icons wrapper
@@ -189,13 +189,13 @@ export default function FAQClientPage() {
   // Animation for individual Category Icons
   const iconAnimation = {
     initial: { opacity: 0, scale: 0.9 },
-    animate: { opacity: 1, scale: 1, transition: { duration: 0.4, ease: "easeOut" } }
+    animate: { opacity: 1, scale: 1, transition: { duration: 0.4, ease: "easeOut" as const } }
   };
 
   // Animation for FAQ sections
   const sectionAnimation = {
     initial: { opacity: 0, y: 30 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+    animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } }
   };
 
   return (

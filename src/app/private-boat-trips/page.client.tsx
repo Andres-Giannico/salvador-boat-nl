@@ -223,7 +223,7 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
         repeat: Infinity,
         repeatType: "mirror" as const,
         duration: 3,
-        ease: "easeInOut"
+        ease: "easeInOut" as const
       }
     }
   };
