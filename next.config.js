@@ -4,6 +4,8 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
+    // Sirve /public/* directo sin /_next/image (evita fallos de miniaturas en cliente/redes restrictivas).
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',

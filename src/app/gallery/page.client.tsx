@@ -120,22 +120,24 @@ export default function GalleryClientPage({ images }: GalleryClientPageProps) {
           </p>
         </motion.div>
 
-        <motion.div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-6"
+        <motion.div
+          className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-6"
           initial="hidden"
           animate="visible"
           variants={{
-            visible: { transition: { staggerChildren: 0.05 } }
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.05 } },
           }}
         >
           {images.map((image, index) => (
             <motion.div
               key={index}
-              className="aspect-video overflow-hidden rounded-xl shadow-md hover:shadow-lg cursor-pointer group relative transition-shadow duration-300"
+              className="relative w-full aspect-video overflow-hidden rounded-xl shadow-md hover:shadow-lg cursor-pointer group transition-shadow duration-300"
               onClick={() => openModal(index)}
               title={image.alt}
               variants={{
-                hidden: { opacity: 0, scale: 0.8 },
-                visible: { opacity: 1, scale: 1 }
+                hidden: { opacity: 0, scale: 0.98 },
+                visible: { opacity: 1, scale: 1 },
               }}
               whileHover={{ scale: 1.03, zIndex: 10, transition: { duration: 0.2 } }}
               transition={{ type: 'spring', stiffness: 300 }}
@@ -143,10 +145,10 @@ export default function GalleryClientPage({ images }: GalleryClientPageProps) {
               <Image
                 src={image.src}
                 alt={image.alt}
-                fill 
-                className="object-cover transition-transform duration-300 group-hover:scale-110 w-full h-full"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                priority={index < 15}
+                fill
+                className="object-cover transition-transform duration-300 group-hover:scale-110"
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                priority={index < 16}
               />
               <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
             </motion.div>
