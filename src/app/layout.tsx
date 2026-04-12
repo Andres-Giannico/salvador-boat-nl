@@ -8,6 +8,7 @@ import Script from 'next/script';
 import { Toaster } from 'sonner';
 import localFont from 'next/font/local';
 import CookieConsentBanner from "@/components/CookieConsentBanner";
+import EarlyBirdPromoModal from "@/components/EarlyBirdPromoModal";
 
 // Configuración de fuentes
 const inter = Inter({
@@ -297,6 +298,7 @@ export default function RootLayout({
         </div>
         <WhatsAppButton />
         <CookieConsentBanner />
+        <EarlyBirdPromoModal />
       </body>
     </html>
   );
