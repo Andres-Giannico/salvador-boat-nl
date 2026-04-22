@@ -89,12 +89,12 @@ export default function EarlyBirdPromoModal() {
           aria-labelledby="earlybird-promo-title"
           aria-describedby="earlybird-promo-desc"
         >
-          <div className="relative h-40 w-full shrink-0 sm:h-44">
+          <div className="relative h-44 w-full shrink-0 sm:h-48">
             <Image
-              src="/images/optimized/salvador-ibiza-boat-sunset.webp"
-              alt="Salvador Ibiza boat at sunset"
+              src="/images/optimized/salvador-ibiza-boat-aerial-view.webp"
+              alt="Salvador Ibiza — aerial view over turquoise waters"
               fill
-              className="object-cover"
+              className="object-cover object-center"
               sizes="(max-width: 28rem) 100vw, 28rem"
               priority
             />
@@ -164,7 +164,10 @@ export default function EarlyBirdPromoModal() {
               </button>
               <Link
                 href="/book-now"
-                onClick={() => pushDataLayer('earlybird_promo_book_now_click')}
+                onClick={() => {
+                  pushDataLayer('earlybird_promo_book_now_click');
+                  dismiss();
+                }}
                 className="order-1 inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-blue-600 to-cyan-500 px-4 py-2.5 text-sm font-semibold text-white shadow-md transition hover:from-blue-700 hover:to-cyan-600 sm:order-2"
               >
                 Book now

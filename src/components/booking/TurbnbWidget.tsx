@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import Script from 'next/script';
+import { TURBNB_WIDGET_CSS, TURBNB_WIDGET_JS } from '@/lib/turbnb-widget-assets';
 
 interface TurbnbWidgetProps {
   id?: string;
@@ -82,7 +83,7 @@ export default function TurbnbWidget({
       <div id={id} className={`w-full ${className}`}></div>
       
       <Script
-        src="https://widgets.turbnb.com/turbnb.booking.1.0.31.min.js"
+        src={TURBNB_WIDGET_JS}
         strategy="afterInteractive"
         onLoad={() => {
           if (typeof window !== 'undefined') {
@@ -90,7 +91,7 @@ export default function TurbnbWidget({
           }
         }}
       />
-      <link href="https://widgets.turbnb.com/turbnb.booking.1.0.31.min.css" rel="stylesheet" />
+      <link href={TURBNB_WIDGET_CSS} rel="stylesheet" />
     </>
   );
 } 

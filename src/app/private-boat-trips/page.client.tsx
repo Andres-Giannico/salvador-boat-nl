@@ -17,6 +17,7 @@ import WhatsIncluded from '@/components/trips/WhatsIncluded';
 import PerfectForCard from '@/components/trips/PerfectForCard';
 import WhyChooseUsCard from '@/components/trips/WhyChooseUsCard';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import { TURBNB_WIDGET_CSS, TURBNB_WIDGET_JS } from '@/lib/turbnb-widget-assets';
 
 // --- Define Type for PerfectFor Items ---
 type PerfectForItem = {
@@ -163,7 +164,7 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
       const link = document.createElement('link');
       link.id = linkId;
       link.rel = 'stylesheet';
-      link.href = 'https://widgets.turbnb.com/turbnb.booking.1.0.31.min.css';
+      link.href = TURBNB_WIDGET_CSS;
       document.head.appendChild(link);
       console.log('Turbnb CSS link added to head');
     }
@@ -273,7 +274,7 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
     <>
       {/* Script ahora maneja la carga y podemos usar onLoad para inicializar */}
       <Script 
-        src="https://widgets.turbnb.com/turbnb.booking.1.0.31.min.js"
+        src={TURBNB_WIDGET_JS}
         strategy="afterInteractive"
         onLoad={() => {
            console.log('TurboBooking script loaded via Next Script');

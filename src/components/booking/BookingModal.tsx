@@ -5,6 +5,7 @@ import Head from 'next/head';
 import Script from 'next/script';
 import Link from 'next/link';
 import { Dialog, DialogContent, DialogOverlay } from "@/components/ui/dialog";
+import { TURBNB_WIDGET_CSS, TURBNB_WIDGET_JS } from '@/lib/turbnb-widget-assets';
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -84,10 +85,10 @@ const BookingModal: React.FC<BookingModalProps> = ({
   return (
     <>
       <Head>
-        <link href="https://widgets.turbnb.com/turbnb.booking.1.0.31.min.css" rel="stylesheet" />
+        <link href={TURBNB_WIDGET_CSS} rel="stylesheet" />
       </Head>
       <Script 
-        src="https://widgets.turbnb.com/turbnb.booking.1.0.31.min.js"
+        src={TURBNB_WIDGET_JS}
         strategy="lazyOnload"
         onReady={() => {
           console.log("TurboBooking script ready (onReady).");

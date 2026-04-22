@@ -15,6 +15,7 @@ import TripHighlights from '@/components/trips/TripHighlights';
 import ReviewsSection from '@/components/trips/ReviewsSection';
 import FAQ from '@/components/trips/FAQ';
 import TurbnbWidget from '@/components/booking/TurbnbWidget';
+import { TURBNB_WIDGET_CSS } from '@/lib/turbnb-widget-assets';
 import { GoogleReview } from '@/services/googlePlaces'; // Import type
 
 // Galería de imágenes para el viaje - Ampliada con fotos aéreas
@@ -640,7 +641,7 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
           "dateModified": "2023-09-20T10:00:00+02:00"
         }`}
       </Script>
-      <link href="https://widgets.turbnb.com/turbnb.booking.1.0.31.min.css" rel="stylesheet" />
+      <link href={TURBNB_WIDGET_CSS} rel="stylesheet" />
     </div>
   );
 } 

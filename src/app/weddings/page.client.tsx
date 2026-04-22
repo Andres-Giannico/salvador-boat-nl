@@ -10,6 +10,7 @@ import { GiWineBottle } from 'react-icons/gi';
 import TripGallery from '@/components/trips/TripGallery';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import BookingModal from '@/components/booking/BookingModal';
+import { TURBNB_WIDGET_CSS, TURBNB_WIDGET_JS } from '@/lib/turbnb-widget-assets';
 
 // Placeholder for wedding features
 const weddingFeatures = [
@@ -45,7 +46,7 @@ export default function WeddingsClientPage() {
       const link = document.createElement('link');
       link.id = linkId;
       link.rel = 'stylesheet';
-      link.href = 'https://widgets.turbnb.com/turbnb.booking.1.0.31.min.css';
+      link.href = TURBNB_WIDGET_CSS;
       document.head.appendChild(link);
       console.log('Turbnb CSS link added to head');
     }
@@ -116,7 +117,7 @@ export default function WeddingsClientPage() {
     <>
       {/* TurboBooking Script */}
       <Script 
-        src="https://widgets.turbnb.com/turbnb.booking.1.0.31.min.js"
+        src={TURBNB_WIDGET_JS}
         strategy="afterInteractive"
         onLoad={() => {
           console.log('TurboBooking script loaded for weddings');
