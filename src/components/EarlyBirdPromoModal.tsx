@@ -78,6 +78,22 @@ function storageKeyFor(promo: ActivePromo['kind']): string {
   return 'salvador_earlybird5_promo_dismissed_2026';
 }
 
+/** Hero del modal: Super promo = banner generado; Early Bird = foto clásica aérea. */
+const PROMO_HERO: Record<ActivePromo['kind'], { src: string; alt: string; className: string; overlay: string }> = {
+  super: {
+    src: '/images/optimized/superpromo-salvador-ibiza-flash-deal.webp',
+    alt: 'Salvador Ibiza — flash deal, €10 off per person, 10 days only',
+    className: 'object-cover object-center',
+    overlay: 'from-black/35 to-transparent',
+  },
+  earlybird: {
+    src: '/images/optimized/salvador-ibiza-boat-aerial-view.webp',
+    alt: 'Salvador Ibiza — aerial view over turquoise waters',
+    className: 'object-cover object-center',
+    overlay: 'from-black/50 to-transparent',
+  },
+};
+
 function pushDataLayer(event: string, payload?: Record<string, unknown>) {
   if (typeof window === 'undefined') return;
   window.dataLayer = window.dataLayer || [];
@@ -156,16 +172,24 @@ export default function EarlyBirdPromoModal() {
           aria-labelledby="earlybird-promo-title"
           aria-describedby="earlybird-promo-desc"
         >
-          <div className="relative h-44 w-full shrink-0 sm:h-48">
+          <div
+            className={
+              promo.kind === 'super'
+                ? 'relative h-48 w-full shrink-0 sm:h-52'
+                : 'relative h-44 w-full shrink-0 sm:h-48'
+            }
+          >
             <Image
-              src="/images/optimized/salvador-ibiza-boat-aerial-view.webp"
-              alt="Salvador Ibiza — aerial view over turquoise waters"
+              src={PROMO_HERO[promo.kind].src}
+              alt={PROMO_HERO[promo.kind].alt}
               fill
-              className="object-cover object-center"
+              className={PROMO_HERO[promo.kind].className}
               sizes="(max-width: 28rem) 100vw, 28rem"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+            <div
+              className={`absolute inset-0 bg-gradient-to-t ${PROMO_HERO[promo.kind].overlay}`}
+            />
             <button
               type="button"
               onClick={dismiss}
