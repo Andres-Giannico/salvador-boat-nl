@@ -7,11 +7,11 @@ function stripTrailingSlash(url) {
 const siteUrl = stripTrailingSlash(
   process.env.SITE_URL ||
     process.env.NEXT_PUBLIC_SITE_URL ||
-    'https://salvadoribiza.com'
+    'https://www.salvadoribiza.com'
 );
 
 const spanishSiteUrl = stripTrailingSlash(
-  process.env.NEXT_PUBLIC_SITE_URL_ES || 'https://salvadoribiza.es'
+  process.env.NEXT_PUBLIC_SITE_URL_ES || 'https://www.salvadoribiza.es'
 );
 
 function absoluteForPath(base, pathname) {

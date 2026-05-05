@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const ES_SITE_BASE = (
-  process.env.NEXT_PUBLIC_SITE_URL_ES || 'https://salvadoribiza.es'
+  process.env.NEXT_PUBLIC_SITE_URL_ES || 'https://www.salvadoribiza.es'
 ).replace(/\/+$/, '');
 
 /** Misma ruta que la página EN actual, en el dominio español */

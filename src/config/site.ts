@@ -1,7 +1,7 @@
 /**
  * Sitio EN (.com) + sitio ES (.es): canonical y hreflang coherentes entre dominios.
  * Producción: definir NEXT_PUBLIC_SITE_URL y NEXT_PUBLIC_SITE_URL_ES exactamente como
- * la URL canónica de cada sitio (mismo esquema/host que las redirecciones 301).
+ * la URL canónica de cada sitio (p. ej. https://www.salvadoribiza.com y https://www.salvadoribiza.es).
  */
 
 function stripTrailingSlash(url: string): string {
@@ -11,14 +11,14 @@ function stripTrailingSlash(url: string): string {
 /** URL canónica del sitio en inglés */
 export function getSiteUrl(): string {
   return stripTrailingSlash(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://salvadoribiza.com"
+    process.env.NEXT_PUBLIC_SITE_URL || "https://www.salvadoribiza.com"
   );
 }
 
 /** Sitio en español — misma estructura de paths que este repo */
 export function getSpanishSiteUrl(): string {
   return stripTrailingSlash(
-    process.env.NEXT_PUBLIC_SITE_URL_ES || "https://salvadoribiza.es"
+    process.env.NEXT_PUBLIC_SITE_URL_ES || "https://www.salvadoribiza.es"
   );
 }
 

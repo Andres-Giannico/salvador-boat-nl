@@ -3,8 +3,8 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://salvadoribiza.com
+Host: https://www.salvadoribiza.com
 
 # Sitemaps
-Sitemap: https://salvadoribiza.com/sitemap.xml
-Sitemap: https://salvadoribiza.es/sitemap.xml
+Sitemap: https://www.salvadoribiza.com/sitemap.xml
+Sitemap: https://www.salvadoribiza.es/sitemap.xml
