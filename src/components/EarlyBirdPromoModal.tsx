@@ -11,25 +11,23 @@ const COOKIE_CONSENT_KEY = 'cookie_consent_status';
 /**
  * ---------------------------------------------------------------------------
  * Ventana Early Bird 5 (€5) — reservas entre estas fechas (hora local)
- * Tras el bloque “Super promo” de 10 días, se usa esta promo si aún cae en rango
+ * Tras el bloque “Super promo”, se usa esta promo si aún cae en rango.
  * ---------------------------------------------------------------------------
  */
 const EARLYBIRD: { start: Date; end: Date } = {
   start: new Date(2026, 3, 10, 0, 0, 0, 0),
-  end: new Date(2026, 4, 10, 23, 59, 59, 999),
+  end: new Date(2026, 4, 30, 23, 59, 59, 999), // hasta 30 may 2026 (vuelve tras super promo)
 };
 
 /**
  * ---------------------------------------------------------------------------
- * Super promo SUPERPROMO (€10 / persona) — solo 10 días
- * Ajusta `start` y `end` al lanzar (fin = inicio + 9 días calendario con hora
- * 23:59:59.999, o fija `end` manualmente) = 10 días consecutivos.
- * Cuando pase, el modal vuelve a Early Bird 5 mientras sigan vigentes 10 abr – 10 may.
+ * Super promo SUPERPROMO (€10 / persona)
+ * Prioridad sobre Early Bird mientras esté en rango; al terminar, Early Bird 5.
  * ---------------------------------------------------------------------------
  */
 const SUPER_PROMO: { start: Date; end: Date } = {
-  start: new Date(2026, 3, 24, 0, 0, 0, 0), // 24 abr 2026
-  end: new Date(2026, 4, 3, 23, 59, 59, 999), // 3 may 2026 (10 días incl.)
+  start: new Date(2026, 4, 5, 0, 0, 0, 0), // 5 may 2026
+  end: new Date(2026, 4, 20, 23, 59, 59, 999), // 20 may 2026
 };
 
 type ActivePromo = {
@@ -56,7 +54,7 @@ function getActivePromo(now: Date): ActivePromo | null {
       labelShort: 'Super promo',
       kicker: 'Exclusive · Super promo',
       validityText:
-        'Valid for bookings made while this 10-day campaign runs. Then our €5 Early Bird offer applies again (where dates still allow).',
+        'Valid for bookings made through 20 May 2026 while this campaign runs. After that, our €5 Early Bird offer applies again (where dates still allow).',
     };
   }
   if (inRange(now, EARLYBIRD.start, EARLYBIRD.end)) {
@@ -67,7 +65,7 @@ function getActivePromo(now: Date): ActivePromo | null {
       labelShort: 'Early Bird 5',
       kicker: 'Exclusive · Early Bird',
       validityText:
-        'Valid for bookings made 10 Apr – 10 May 2026. After that, this promotion ends.',
+        'Valid for bookings made 10 Apr – 30 May 2026. After that, this promotion ends.',
     };
   }
   return null;
@@ -82,7 +80,7 @@ function storageKeyFor(promo: ActivePromo['kind']): string {
 const PROMO_HERO: Record<ActivePromo['kind'], { src: string; alt: string; className: string; overlay: string }> = {
   super: {
     src: '/images/optimized/superpromo-salvador-ibiza-flash-deal.webp',
-    alt: 'Salvador Ibiza — flash deal, €10 off per person, 10 days only',
+    alt: 'Salvador Ibiza — flash deal, €10 off per person, limited campaign',
     className: 'object-cover object-center',
     overlay: 'from-black/35 to-transparent',
   },
