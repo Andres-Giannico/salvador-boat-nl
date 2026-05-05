@@ -1,6 +1,7 @@
 /**
- * Sitio EN (canónico .com) + sitio ES (hreflang + selector).
- * Vercel: NEXT_PUBLIC_SITE_URL, NEXT_PUBLIC_SITE_URL_ES
+ * Sitio EN (.com) + sitio ES (.es): canonical y hreflang coherentes entre dominios.
+ * Producción: definir NEXT_PUBLIC_SITE_URL y NEXT_PUBLIC_SITE_URL_ES exactamente como
+ * la URL canónica de cada sitio (mismo esquema/host que las redirecciones 301).
  */
 
 function stripTrailingSlash(url: string): string {
@@ -49,13 +50,14 @@ export function pageAlternates(path: string): {
   canonical: string;
   languages: Record<string, string>;
 } {
-  const canonical = normalizePath(path);
+  const canonicalPath = normalizePath(path);
+  const canonicalAbsolute = absoluteUrl(canonicalPath);
   return {
-    canonical,
+    canonical: canonicalAbsolute,
     languages: {
-      en: absoluteUrl(canonical),
-      es: absoluteSpanishUrl(canonical),
-      "x-default": absoluteUrl(canonical),
+      en: canonicalAbsolute,
+      es: absoluteSpanishUrl(canonicalPath),
+      "x-default": canonicalAbsolute,
     },
   };
 }
