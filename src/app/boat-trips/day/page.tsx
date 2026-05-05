@@ -5,7 +5,7 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import { enPageMetadata } from '@/lib/page-meta';
 
 export const metadata = enPageMetadata({
-  title: 'Day Boat Trips Ibiza (3 hours) | Family-Friendly Adventures | Salvador Ibiza',
+  title: 'Day Boat Trips Ibiza (3 hours) | Family-Friendly Adventures',
   description:
     'Perfect day boat trips in Ibiza for families and friends. 3-hour cruises with swimming, snorkeling, and paddleboarding. Book your daytime adventure today.',
   path: '/boat-trips/day',

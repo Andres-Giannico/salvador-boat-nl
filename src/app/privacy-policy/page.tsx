@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { getSiteUrl, getSpanishSiteUrl } from '@/config/site';
 import { enPageMetadata } from '@/lib/page-meta';
 
-const title = "Privacy Policy | Salvador Ibiza";
+const title = "Privacy Policy";
 const description = "Learn about how Salvador Ibiza handles your personal data in compliance with data protection regulations.";
 
 export const metadata: Metadata = {

@@ -4,9 +4,10 @@ function stripTrailingSlash(url) {
   return url.replace(/\/+$/, '');
 }
 
+/** NEXT_PUBLIC_* primero: en Vercel coincide con el HTML; SITE_URL del build a veces queda en apex */
 const siteUrl = stripTrailingSlash(
-  process.env.SITE_URL ||
-    process.env.NEXT_PUBLIC_SITE_URL ||
+  process.env.NEXT_PUBLIC_SITE_URL ||
+    process.env.SITE_URL ||
     'https://www.salvadoribiza.com'
 );
 

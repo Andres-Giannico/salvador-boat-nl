@@ -2,7 +2,7 @@ import React from 'react';
 import { enPageMetadata } from '@/lib/page-meta';
 
 export const metadata = enPageMetadata({
-  title: 'Partner Earnings | Salvador Ibiza',
+  title: 'Partner Earnings',
   description: 'Information about our partner earnings program.',
   path: '/partners/earnings',
   robots: { index: true, follow: true },

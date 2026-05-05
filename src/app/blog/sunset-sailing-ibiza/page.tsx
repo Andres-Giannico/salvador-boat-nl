@@ -4,7 +4,7 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs'
 import { enPageMetadata } from '@/lib/page-meta'
 
 export const metadata = enPageMetadata({
-  title: 'Sunset Sailing in Ibiza: A Magical End to a Perfect Day | Salvador Ibiza',
+  title: 'Sunset Sailing in Ibiza: A Magical End to a Perfect Day',
   description:
     'Experience the magic of Ibiza\'s legendary sunsets from the best viewpoint - aboard our luxury yacht. Book your sunset sailing adventure today.',
   path: '/blog/sunset-sailing-ibiza',

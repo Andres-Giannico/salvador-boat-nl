@@ -7,7 +7,7 @@ import { enPageMetadata } from '@/lib/page-meta';
 
 // Metadata for the page (can be moved to page.tsx if refactored to Server Component)
 export const metadata = enPageMetadata({
-  title: 'Our Boat Routes - Explore Ibiza\'s West & North Coasts | Salvador Ibiza',
+  title: 'Our Boat Routes - Explore Ibiza\'s West & North Coasts',
   description:
     'Discover Salvador Ibiza\'s stunning West Coast (Cala Conta) and North Coast (Sa Foradada) boat routes departing from San Antonio. Captain chooses best route daily.',
   path: '/routes',

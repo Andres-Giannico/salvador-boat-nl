@@ -6,7 +6,7 @@ import { absoluteUrl, publicAssetUrl } from '@/config/site';
 import { enPageMetadata } from '@/lib/page-meta';
 
 export const metadata = enPageMetadata({
-  title: 'Group Boat Trips Ibiza (3 hours) | Perfect for Large Groups | Salvador Ibiza',
+  title: 'Group Boat Trips Ibiza (3 hours) | Perfect for Large Groups',
   description: 'Ideal group boat trips in Ibiza for friends, celebrations, and corporate events. Accommodates large groups with special rates and customized experiences.',
   path: '/boat-trips/groups',
   keywords: 'group boat trips Ibiza, large group boat tour, friends boat trip Ibiza, corporate boat events, group discounts Ibiza, party boat Ibiza',

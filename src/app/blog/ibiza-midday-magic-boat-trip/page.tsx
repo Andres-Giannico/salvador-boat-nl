@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { enPageMetadata } from '@/lib/page-meta'
 
 const metaBase = enPageMetadata({
-  title: "Ibiza's Midday Magic: The Unforgettable Day Trip | Salvador Ibiza",
+  title: "Ibiza's Midday Magic: The Unforgettable Day Trip",
   description:
     "Discover why a midday boat trip in Ibiza offers a unique and magical experience. Sunshine, crystal clear waters, and vibrant energy await you.",
   path: '/blog/ibiza-midday-magic-boat-trip',
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   ...metaBase,
   twitter: {
     card: 'summary_large_image',
-    title: "Ibiza's Midday Magic: The Unforgettable Day Trip | Salvador Ibiza",
+    title: "Ibiza's Midday Magic: The Unforgettable Day Trip",
     description:
       'Discover why a midday boat trip in Ibiza offers a unique and magical experience. Sunshine, crystal clear waters, and vibrant energy await you.',
     images: ['/images/blog/midday-magic-placeholder.webp'],

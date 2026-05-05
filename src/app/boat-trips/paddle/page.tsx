@@ -6,7 +6,7 @@ import { absoluteUrl, publicAssetUrl } from '@/config/site';
 import { enPageMetadata } from '@/lib/page-meta';
 
 export const metadata = enPageMetadata({
-  title: 'Paddle Boarding Boat Trips Ibiza (3 hours) | SUP Adventures | Salvador Ibiza',
+  title: 'Paddle Boarding Boat Trips Ibiza (3 hours) | SUP Adventures',
   description: 'Amazing paddle boarding boat trips in Ibiza with 15 premium SUP boards included. Explore hidden coves and crystal-clear waters on your paddle board adventure.',
   path: '/boat-trips/paddle',
   keywords: 'paddle boarding Ibiza, SUP boat trips, paddle board rental Ibiza, stand up paddle boarding, SUP adventure Ibiza, paddle board tours',

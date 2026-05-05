@@ -3,7 +3,7 @@ import FAQClientPage from "./page.client";
 import { pageAlternates } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "Frequently Asked Questions | Salvador Ibiza",
+  title: "Frequently Asked Questions",
   description:
     "Find answers to common questions about our boat trips, services, and more. Plan your perfect Mediterranean adventure with Salvador Ibiza.",
   alternates: pageAlternates("/faq"),

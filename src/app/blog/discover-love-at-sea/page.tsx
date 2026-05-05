@@ -4,7 +4,7 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import { enPageMetadata } from '@/lib/page-meta';
 
 export const metadata = enPageMetadata({
-  title: 'Romantic Boat Charters in Ibiza: Discover Love at Sea | Salvador Ibiza',
+  title: 'Romantic Boat Charters in Ibiza: Discover Love at Sea',
   description:
     'Create unforgettable romantic memories with private boat charters in Ibiza. Perfect for proposals, anniversaries, and intimate escapes. Book your romantic cruise today.',
   path: '/blog/discover-love-at-sea',

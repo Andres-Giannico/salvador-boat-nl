@@ -6,7 +6,7 @@ import { absoluteUrl, publicAssetUrl } from '@/config/site';
 import { enPageMetadata } from '@/lib/page-meta';
 
 export const metadata = enPageMetadata({
-  title: 'All-Inclusive Boat Trips Ibiza (3 hours) | Everything Included | Salvador Ibiza',
+  title: 'All-Inclusive Boat Trips Ibiza (3 hours) | Everything Included',
   description: 'Ultimate all-inclusive boat trips in Ibiza with everything included: premium drinks, gourmet food, water sports, and professional crew. No hidden costs, pure relaxation.',
   path: '/boat-trips/all-inclusive',
   keywords: 'all inclusive boat trips Ibiza, everything included boat tour, premium boat trip Ibiza, luxury boat experience, all inclusive cruise Ibiza',

@@ -3,7 +3,7 @@ import { absoluteUrl, publicAssetUrl } from '@/config/site';
 import { enPageMetadata } from '@/lib/page-meta';
 
 export const metadata = enPageMetadata({
-  title: 'Sunset Boat Trips Ibiza | Magical Evening Cruises | Salvador Ibiza',
+  title: 'Sunset Boat Trips Ibiza | Magical Evening Cruises',
   description: 'Experience the magic of Ibiza sunset boat trips with Salvador. Join our evening cruises for breathtaking sunsets, premium drinks, and unforgettable memories on the Mediterranean.',
   path: '/boat-trips/sunset',
   keywords: 'ibiza sunset boat trip, sunset boat, sunset boat trip, sunset boat tour, boat sunset, sunset from boat, sunset on boat, ibiza boat trip sunset, sunset boat trips san antonio ibiza',

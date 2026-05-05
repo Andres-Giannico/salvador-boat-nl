@@ -3,7 +3,7 @@ import { getSiteUrl } from '@/config/site';
 import { enPageMetadata } from '@/lib/page-meta';
 
 export const metadata = enPageMetadata({
-  title: 'Ibiza Boat Weddings | Unforgettable Ceremonies at Sea | Salvador Ibiza',
+  title: 'Ibiza Boat Weddings | Unforgettable Ceremonies at Sea',
   description: '💒 Dream wedding at sea in Ibiza! Intimate ceremonies aboard our traditional boat with stunning sunsets, all-inclusive packages from €1,500. Book your perfect day!',
   path: '/weddings',
   keywords: 'Ibiza wedding, boat wedding, sea wedding ceremony, romantic wedding Ibiza, elopement Ibiza, wedding packages, intimate wedding, sunset wedding, luxury boat charter, Salvador Ibiza, wedding at sea, destination wedding',

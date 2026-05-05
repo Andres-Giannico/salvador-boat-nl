@@ -5,7 +5,7 @@ import { enPageMetadata } from '@/lib/page-meta'
 
 export const metadata = enPageMetadata({
   title:
-    "Hidden Coves of Ibiza: Discover the Island's Best-Kept Secrets by Boat | Salvador Ibiza",
+    "Hidden Coves of Ibiza: Discover the Island's Best-Kept Secrets by Boat",
   description:
     "Explore Ibiza's secret hidden coves and secluded beaches only accessible by boat. Discover untouched natural beauty with Salvador Ibiza boat trips.",
   path: '/blog/hidden-coves-ibiza',

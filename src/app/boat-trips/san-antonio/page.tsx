@@ -3,7 +3,7 @@ import { absoluteUrl, publicAssetUrl } from '@/config/site';
 import { enPageMetadata } from '@/lib/page-meta';
 
 export const metadata = enPageMetadata({
-  title: 'Boat Trips San Antonio Ibiza | Departing from San Antonio Bay | Salvador Ibiza',
+  title: 'Boat Trips San Antonio Ibiza | Departing from San Antonio Bay',
   description: 'Join our boat trips departing from San Antonio Ibiza. Explore the best of Ibiza\'s west coast with our premium boat tours from San Antonio Bay. Day and sunset trips available.',
   path: '/boat-trips/san-antonio',
   keywords: 'boat trips san antonio ibiza, boat trips in ibiza san antonio, ibiza boat trips from san antonio, boat trips from san antonio ibiza, san antonio boat trips ibiza, boat tour san antonio ibiza, sunset boat trip ibiza san antonio',

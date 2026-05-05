@@ -6,7 +6,7 @@ import { absoluteUrl, publicAssetUrl } from '@/config/site';
 import { enPageMetadata } from '@/lib/page-meta';
 
 export const metadata = enPageMetadata({
-  title: 'Snorkeling Boat Trips Ibiza (3 hours) | Underwater Adventures | Salvador Ibiza',
+  title: 'Snorkeling Boat Trips Ibiza (3 hours) | Underwater Adventures',
   description: 'Discover Ibiza\'s underwater world with our snorkeling boat trips. Professional equipment included, crystal-clear waters, and expert guidance for all skill levels.',
   path: '/boat-trips/snorkeling',
   keywords: 'snorkeling boat trips Ibiza, underwater Ibiza, snorkel tour Ibiza, marine life Ibiza, crystal clear waters, snorkeling equipment',

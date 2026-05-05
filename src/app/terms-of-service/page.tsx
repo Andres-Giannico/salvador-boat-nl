@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { getSiteUrl, getSpanishSiteUrl } from '@/config/site';
 import { enPageMetadata } from '@/lib/page-meta';
 
-const title = "Terms of Service | Salvador Ibiza";
+const title = "Terms of Service";
 const description = "Read the terms and conditions for using the Salvador Ibiza website and services, including information on intellectual property, liability, and user conduct.";
 
 export const metadata: Metadata = {
