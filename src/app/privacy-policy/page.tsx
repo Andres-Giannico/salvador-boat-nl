@@ -1,25 +1,16 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
+import { getSiteUrl, getSpanishSiteUrl } from '@/config/site';
+import { enPageMetadata } from '@/lib/page-meta';
 
-const siteUrl = 'https://salvadoribiza.com';
-const pageUrl = `${siteUrl}/privacy-policy`;
 const title = "Privacy Policy | Salvador Ibiza";
 const description = "Learn about how Salvador Ibiza handles your personal data in compliance with data protection regulations.";
 
 export const metadata: Metadata = {
-  title: title,
-  description: description,
-  alternates: {
-    canonical: pageUrl,
-  },
-  robots: { // Discourage indexing of legal pages if desired, or allow
-    index: true, 
-    follow: true,
-  },
-  openGraph: {
-    title: title,
-    description: description,
-    url: pageUrl,
-  },
+  ...enPageMetadata({
+    title,
+    description,
+    path: '/privacy-policy',
+  }),
   twitter: {
     card: 'summary',
     title: title,
@@ -28,6 +19,8 @@ export const metadata: Metadata = {
 };
 
 export default function PrivacyPolicyPage() {
+  const enHost = new URL(getSiteUrl()).hostname;
+  const esHost = new URL(getSpanishSiteUrl()).hostname;
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-50 to-blue-50 py-24 md:py-32">
       <div className="container mx-auto px-6 lg:px-8 max-w-4xl">
@@ -39,7 +32,7 @@ export default function PrivacyPolicyPage() {
           </p>
 
           <p>
-            This Privacy Policy describes how <strong>SALVADOR IBIZA (Ibicruiser, S.L.)</strong> ("we," "us," or "our") collects, uses, and discloses your information when you use our website (salvadoribiza.com) and the services offered through it.
+            This Privacy Policy describes how <strong>SALVADOR IBIZA (Ibicruiser, S.L.)</strong> (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) collects, uses, and discloses your information when you use our websites in English (<strong>{enHost}</strong>) and Spanish (<strong>{esHost}</strong>, same paths) and the services offered through them.
           </p>
           
           <h2 className="font-bold text-gray-800 mt-6 mb-3">1. Data Controller</h2>

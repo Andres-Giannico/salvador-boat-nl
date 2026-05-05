@@ -6,9 +6,9 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import Script from 'next/script';
 import { Toaster } from 'sonner';
-import localFont from 'next/font/local';
 import CookieConsentBanner from "@/components/CookieConsentBanner";
 import EarlyBirdPromoModal from "@/components/EarlyBirdPromoModal";
+import { getSiteUrl, pageAlternates } from "@/config/site";
 
 // Configuración de fuentes
 const inter = Inter({
@@ -24,15 +24,17 @@ const montserrat = Montserrat({
   weight: ["400", "500", "600", "700", "800"],
 });
 
+const siteBase = getSiteUrl();
+
 // LocalBusiness Schema for SEO
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "https://salvadoribiza.com/#organization",
+  "@id": `${siteBase}/#organization`,
   "name": "Salvador Ibiza",
   "alternateName": "Salvador Boat Trips Ibiza",
   "description": "Premium boat trips and private charters in Ibiza. All-inclusive excursions with professional crew, equipment, and unforgettable experiences.",
-  "url": "https://salvadoribiza.com",
+  "url": siteBase,
   "telephone": "+34-871 181 393", // TODO: Add real phone number
   "email": "info@salvadoribiza.com", // TODO: Verify email
   "address": {
@@ -129,21 +131,19 @@ const localBusinessSchema = {
   ],
   "logo": {
     "@type": "ImageObject",
-    "url": "https://salvadoribiza.com/images/logo-salvador.png",
+    "url": `${siteBase}/images/logo-salvador.png`,
     "width": "300",
     "height": "100"
   },
   "image": [
-    "https://salvadoribiza.com/images/optimized/salvador-ibiza-boat-drone-view.webp",
-    "https://salvadoribiza.com/images/optimized/salvador-ibiza-boat-aerial-view.webp"
+    `${siteBase}/images/optimized/salvador-ibiza-boat-drone-view.webp`,
+    `${siteBase}/images/optimized/salvador-ibiza-boat-aerial-view.webp`
   ]
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://salvadoribiza.com'),
-  alternates: {
-    canonical: '/',
-  },
+  metadataBase: new URL(getSiteUrl()),
+  alternates: pageAlternates('/'),
   title: {
     default: "Salvador Ibiza - Boat Trips & Private Charter",
     template: "%s | Salvador Ibiza",
@@ -155,7 +155,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Salvador Ibiza - Boat Trips & Private Charter",
     description: "All-inclusive boat trips and private charters in Ibiza.",
-    url: "https://salvadoribiza.com",
+    url: getSiteUrl(),
     siteName: "Salvador Ibiza",
     locale: 'en_US',
     type: 'website',
@@ -250,12 +250,12 @@ export default function RootLayout({
               '@context': 'https://schema.org',
               '@type': 'WebSite',
               'name': 'Salvador Ibiza',
-              'url': 'https://salvadoribiza.com',
+              'url': siteBase,
               'potentialAction': {
                 '@type': 'SearchAction',
                 'target': {
                   '@type': 'EntryPoint',
-                  'urlTemplate': 'https://salvadoribiza.com/search?q={search_term_string}',
+                  'urlTemplate': `${siteBase}/search?q={search_term_string}`,
                 },
                 'query-input': 'required name=search_term_string',
               },
@@ -271,8 +271,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "Salvador Ibiza",
-              "url": "https://salvadoribiza.com",
-              "logo": "https://salvadoribiza.com/images/logo-salvador.png",
+              "url": siteBase,
+              "logo": `${siteBase}/images/logo-salvador.png`,
               "contactPoint": {
                 "@type": "ContactPoint",
                 "telephone": "+34-XXX-XXX-XXX",

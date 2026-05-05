@@ -1,34 +1,20 @@
-import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import TurbnbWidget from '@/components/booking/TurbnbWidget';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import { absoluteUrl, publicAssetUrl } from '@/config/site';
+import { enPageMetadata } from '@/lib/page-meta';
 
-export const metadata: Metadata = {
+export const metadata = enPageMetadata({
   title: 'Group Boat Trips Ibiza (3 hours) | Perfect for Large Groups | Salvador Ibiza',
   description: 'Ideal group boat trips in Ibiza for friends, celebrations, and corporate events. Accommodates large groups with special rates and customized experiences.',
+  path: '/boat-trips/groups',
   keywords: 'group boat trips Ibiza, large group boat tour, friends boat trip Ibiza, corporate boat events, group discounts Ibiza, party boat Ibiza',
-  robots: {
-    index: true,
-    follow: true,
-  },
-  alternates: {
-    canonical: '/boat-trips/groups',
-  },
-  openGraph: {
-    title: 'Group Boat Trips Ibiza | Perfect for Large Groups',
-    description: 'Perfect group boat trips in Ibiza for friends, celebrations, and corporate events. Special rates and customized experiences for large groups.',
-    url: 'https://salvadoribiza.com/boat-trips/groups',
-    images: [
-      {
-        url: '/images/boat/chicasmuyfelices.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Happy group of friends enjoying boat trip in Ibiza',
-      }
-    ],
-  },
-};
+  ogTitle: 'Group Boat Trips Ibiza | Perfect for Large Groups',
+  ogDescription: 'Perfect group boat trips in Ibiza for friends, celebrations, and corporate events. Special rates and customized experiences for large groups.',
+  ogImage: '/images/boat/chicasmuyfelices.webp',
+  ogImageAlt: 'Happy group of friends enjoying boat trip in Ibiza',
+});
 
 // JSON-LD structured data for group boat trips
 const groupBoatTripsJsonLd = {
@@ -36,14 +22,14 @@ const groupBoatTripsJsonLd = {
   "@type": "Product",
   "name": "Group Boat Trips Ibiza by Salvador",
   "description": "Perfect boat trips for large groups in Ibiza. Special rates and customized experiences for friends, celebrations, and corporate events.",
-  "image": "https://salvadoribiza.com/images/boat/chicasmuyfelices.webp",
+  "image": publicAssetUrl("/images/boat/chicasmuyfelices.webp"),
   "brand": {
     "@type": "Brand",
     "name": "Salvador Ibiza"
   },
   "offers": {
     "@type": "Offer",
-    "url": "https://salvadoribiza.com/boat-trips/groups",
+    "url": absoluteUrl("/boat-trips/groups"),
     "priceCurrency": "EUR",
     "price": "80",
     "priceSpecification": {

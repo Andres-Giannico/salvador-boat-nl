@@ -1,34 +1,20 @@
-import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import TurbnbWidget from '@/components/booking/TurbnbWidget';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import { absoluteUrl, publicAssetUrl } from '@/config/site';
+import { enPageMetadata } from '@/lib/page-meta';
 
-export const metadata: Metadata = {
+export const metadata = enPageMetadata({
   title: 'Snorkeling Boat Trips Ibiza (3 hours) | Underwater Adventures | Salvador Ibiza',
   description: 'Discover Ibiza\'s underwater world with our snorkeling boat trips. Professional equipment included, crystal-clear waters, and expert guidance for all skill levels.',
+  path: '/boat-trips/snorkeling',
   keywords: 'snorkeling boat trips Ibiza, underwater Ibiza, snorkel tour Ibiza, marine life Ibiza, crystal clear waters, snorkeling equipment',
-  robots: {
-    index: true,
-    follow: true,
-  },
-  alternates: {
-    canonical: '/boat-trips/snorkeling',
-  },
-  openGraph: {
-    title: 'Snorkeling Boat Trips Ibiza | Underwater Adventures',
-    description: 'Explore Ibiza\'s underwater paradise with our snorkeling boat trips. Professional equipment and expert guidance included.',
-    url: 'https://salvadoribiza.com/boat-trips/snorkeling',
-    images: [
-      {
-        url: '/images/boat/parejasnorkeling.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Couple snorkeling in crystal clear waters during Ibiza boat trip',
-      }
-    ],
-  },
-};
+  ogTitle: 'Snorkeling Boat Trips Ibiza | Underwater Adventures',
+  ogDescription: 'Explore Ibiza\'s underwater paradise with our snorkeling boat trips. Professional equipment and expert guidance included.',
+  ogImage: '/images/boat/parejasnorkeling.webp',
+  ogImageAlt: 'Couple snorkeling in crystal clear waters during Ibiza boat trip',
+});
 
 // JSON-LD structured data for snorkeling boat trips
 const snorkelingBoatTripsJsonLd = {
@@ -36,14 +22,14 @@ const snorkelingBoatTripsJsonLd = {
   "@type": "Product",
   "name": "Snorkeling Boat Trips Ibiza by Salvador",
   "description": "Discover Ibiza's underwater world with professional snorkeling equipment and expert guidance. Perfect for all skill levels in crystal-clear Mediterranean waters.",
-  "image": "https://salvadoribiza.com/images/boat/parejasnorkeling.webp",
+  "image": publicAssetUrl("/images/boat/parejasnorkeling.webp"),
   "brand": {
     "@type": "Brand",
     "name": "Salvador Ibiza"
   },
   "offers": {
     "@type": "Offer",
-    "url": "https://salvadoribiza.com/boat-trips/snorkeling",
+    "url": absoluteUrl("/boat-trips/snorkeling"),
     "priceCurrency": "EUR",
     "price": "80",
     "priceSpecification": {

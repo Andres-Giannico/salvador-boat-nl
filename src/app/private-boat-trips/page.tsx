@@ -1,33 +1,19 @@
-import { Metadata } from 'next';
 import Script from 'next/script';
 import PrivateBoatTripsClientPage from './page.client';
 import { FiUsers, FiGift, FiStar, FiCamera, FiCalendar, FiHelpCircle, FiBriefcase } from 'react-icons/fi';
+import { absoluteUrl, publicAssetUrl } from '@/config/site';
+import { enPageMetadata } from '@/lib/page-meta';
 
-export const metadata: Metadata = {
+export const metadata = enPageMetadata({
   title: 'Private Boat Trips Ibiza - Your Exclusive Salvador Experience',
   description: '🛥️ Exclusive private boat charter in Ibiza! Up to 35 guests, customized routes, premium service & all-inclusive luxury. From €1,350 - Book your dream trip!',
+  path: '/private-boat-trips',
   keywords: 'private boat trips ibiza, private boat tour ibiza, event boat, ibiza private boat trips, private boat charter ibiza, exclusive boat tour',
-  alternates: {
-    canonical: '/private-boat-trips',
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-  openGraph: {
-    title: 'Private Boat Trips Ibiza - Exclusive Salvador Experience',
-    description: '🛥️ Exclusive private boat charter in Ibiza! Up to 35 guests, customized routes, premium service & all-inclusive luxury.',
-    url: 'https://salvadoribiza.com/private-boat-trips',
-    images: [
-      {
-        url: '/images/boat/aereabarco2.webp',
-        width: 1200,
-        height: 630,
-        alt: 'An aerial view of the Salvador Ibiza boat during a private trip.',
-      }
-    ],
-  },
-};
+  ogTitle: 'Private Boat Trips Ibiza - Exclusive Salvador Experience',
+  ogDescription: '🛥️ Exclusive private boat charter in Ibiza! Up to 35 guests, customized routes, premium service & all-inclusive luxury.',
+  ogImage: '/images/boat/aereabarco2.webp',
+  ogImageAlt: 'An aerial view of the Salvador Ibiza boat during a private trip.',
+});
 
 // --- Data Definitions (to be passed to client) --- 
 
@@ -37,14 +23,14 @@ const privateBoatTripsJsonLd = {
   "@type": "Product",
   "name": "Private Boat Trips Ibiza by Salvador",
   "description": "Exclusive private boat trips in Ibiza for up to 35 guests. Includes captain, open bar, snacks, and water sports like paddleboarding and snorkeling.",
-  "image": "https://salvadoribiza.com/images/boat/aereabarco2.webp",
+  "image": publicAssetUrl("/images/boat/aereabarco2.webp"),
   "brand": {
     "@type": "Brand",
     "name": "Salvador Ibiza"
   },
   "offers": {
     "@type": "Offer",
-    "url": "https://salvadoribiza.com/private-boat-trips",
+    "url": absoluteUrl("/private-boat-trips"),
     "priceCurrency": "EUR",
     "price": "1350",
     "priceSpecification": {

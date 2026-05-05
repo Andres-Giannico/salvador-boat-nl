@@ -1,17 +1,17 @@
-import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
+import { enPageMetadata } from '@/lib/page-meta'
 
-export const metadata: Metadata = {
-  title: 'Hidden Coves of Ibiza: Discover the Island\'s Best-Kept Secrets by Boat | Salvador Ibiza',
-  description: 'Explore Ibiza\'s secret hidden coves and secluded beaches only accessible by boat. Discover untouched natural beauty with Salvador Ibiza boat trips.',
-  keywords: 'hidden coves Ibiza, secret beaches Ibiza, secluded coves, boat accessible beaches, Ibiza hidden gems, private swimming spots',
-  robots: {
-    index: true,
-    follow: true,
-  },
-}
+export const metadata = enPageMetadata({
+  title:
+    "Hidden Coves of Ibiza: Discover the Island's Best-Kept Secrets by Boat | Salvador Ibiza",
+  description:
+    "Explore Ibiza's secret hidden coves and secluded beaches only accessible by boat. Discover untouched natural beauty with Salvador Ibiza boat trips.",
+  path: '/blog/hidden-coves-ibiza',
+  keywords:
+    'hidden coves Ibiza, secret beaches Ibiza, secluded coves, boat accessible beaches, Ibiza hidden gems, private swimming spots',
+})
 
 export default function HiddenCovesPage() {
   return (

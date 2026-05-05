@@ -1,13 +1,12 @@
 import { Metadata } from "next";
 import FAQClientPage from "./page.client";
+import { pageAlternates } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Frequently Asked Questions | Salvador Ibiza",
   description:
     "Find answers to common questions about our boat trips, services, and more. Plan your perfect Mediterranean adventure with Salvador Ibiza.",
-  alternates: {
-    canonical: '/faq',
-  },
+  alternates: pageAlternates("/faq"),
   robots: {
     index: true,
     follow: true,

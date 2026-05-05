@@ -1,6 +1,7 @@
-import { Metadata } from 'next';
 import DayTripClientPage from './page.client';
 import Script from 'next/script';
+import { absoluteUrl, publicAssetUrl } from '@/config/site';
+import { enPageMetadata } from '@/lib/page-meta';
 // Remove imports related to review fetching
 // import { GoogleReview } from '@/services/googlePlaces';
 // import { getReviews } from '@/services/getReviews'; // Assuming a function like this existed
@@ -10,7 +11,7 @@ const dayTripJsonLd = {
   "@type": "Product",
   "name": "All inclusive boat trip and tours in Ibiza - Salvador Ibiza",
   "image": [
-    "https://salvadoribiza.com/images/boat/aereabarco1.jpg"
+    publicAssetUrl("/images/boat/aereabarco1.jpg")
   ],
   "description": "All-inclusive day boat trip in Ibiza with captain. Enjoy 3 hours of navigation with catering, drinks, paddle surf and snorkel included.",
   "brand": {
@@ -19,7 +20,7 @@ const dayTripJsonLd = {
   },
   "offers": {
     "@type": "Offer",
-    "url": "https://salvadoribiza.com/boat-trips/day-trip",
+    "url": absoluteUrl("/boat-trips/day-trip"),
     "priceCurrency": "EUR",
     "price": "80.00",
     "itemCondition": "https://schema.org/NewCondition",
@@ -56,22 +57,14 @@ const dayTripJsonLd = {
 //   }
 // }
 
-export const metadata: Metadata = {
+export const metadata = enPageMetadata({
   title: 'All-Inclusive Day Boat Trip Ibiza | Salvador',
   description: '⛵ Ultimate Ibiza day adventure! 3-hour all-inclusive boat trip with 15 paddle boards, snorkeling, unlimited drinks & Spanish tapas. From €80 - Book now!',
-  alternates: {
-    canonical: 'https://salvadoribiza.com/boat-trips/day-trip',
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-  openGraph: {
-    title: 'All-Inclusive Day Boat Trip Ibiza | Salvador',
-    description: '⛵ Ultimate Ibiza day adventure! 3-hour all-inclusive boat trip with paddle boards, snorkeling, unlimited drinks & Spanish tapas.',
-    images: ['/images/optimized/salvador-ibiza-boat-aerial-view.webp'],
-  },
-};
+  path: '/boat-trips/day-trip',
+  ogTitle: 'All-Inclusive Day Boat Trip Ibiza | Salvador',
+  ogDescription: '⛵ Ultimate Ibiza day adventure! 3-hour all-inclusive boat trip with paddle boards, snorkeling, unlimited drinks & Spanish tapas.',
+  ogImage: '/images/optimized/salvador-ibiza-boat-aerial-view.webp',
+});
 
 export default function DayTripPage() {
   // const { initialReviews, error } = await getData(); // Remove data fetching call

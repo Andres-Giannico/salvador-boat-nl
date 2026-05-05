@@ -1,16 +1,15 @@
-import { Metadata } from 'next';
 import CorporateEventsClientPage from './page.client';
 import { FiBriefcase, FiUsers, FiSun, FiCheckCircle, FiAward, FiCoffee, FiHelpCircle } from 'react-icons/fi';
 import { GiPartyPopper, GiTeamIdea } from 'react-icons/gi';
+import { enPageMetadata } from '@/lib/page-meta';
 
 // --- Metadata --- 
-export const metadata: Metadata = {
+export const metadata = enPageMetadata({
   title: 'Corporate Events & Boat Charters in Ibiza | Salvador Ibiza',
-  description: 'Host unforgettable corporate events, team building activities, client entertainment, or incentive trips aboard Salvador Ibiza, a stunning traditional boat in San Antonio.',
-  alternates: {
-    canonical: '/corporate-events',
-  },
-};
+  description:
+    'Host unforgettable corporate events, team building activities, client entertainment, or incentive trips aboard Salvador Ibiza, a stunning traditional boat in San Antonio.',
+  path: '/corporate-events',
+});
 
 // --- Data Definitions (to be passed to client) --- 
 

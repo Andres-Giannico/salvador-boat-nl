@@ -1,34 +1,20 @@
-import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import TurbnbWidget from '@/components/booking/TurbnbWidget';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import { absoluteUrl, publicAssetUrl } from '@/config/site';
+import { enPageMetadata } from '@/lib/page-meta';
 
-export const metadata: Metadata = {
+export const metadata = enPageMetadata({
   title: 'Paddle Boarding Boat Trips Ibiza (3 hours) | SUP Adventures | Salvador Ibiza',
   description: 'Amazing paddle boarding boat trips in Ibiza with 15 premium SUP boards included. Explore hidden coves and crystal-clear waters on your paddle board adventure.',
+  path: '/boat-trips/paddle',
   keywords: 'paddle boarding Ibiza, SUP boat trips, paddle board rental Ibiza, stand up paddle boarding, SUP adventure Ibiza, paddle board tours',
-  robots: {
-    index: true,
-    follow: true,
-  },
-  alternates: {
-    canonical: '/boat-trips/paddle',
-  },
-  openGraph: {
-    title: 'Paddle Boarding Boat Trips Ibiza | SUP Adventures',
-    description: 'Amazing paddle boarding boat trips in Ibiza with 15 premium SUP boards included. Explore hidden coves and crystal-clear waters.',
-    url: 'https://salvadoribiza.com/boat-trips/paddle',
-    images: [
-      {
-        url: '/images/boat/chicasentablasup.png',
-        width: 1200,
-        height: 630,
-        alt: 'Woman paddle boarding during Ibiza boat trip',
-      }
-    ],
-  },
-};
+  ogTitle: 'Paddle Boarding Boat Trips Ibiza | SUP Adventures',
+  ogDescription: 'Amazing paddle boarding boat trips in Ibiza with 15 premium SUP boards included. Explore hidden coves and crystal-clear waters.',
+  ogImage: '/images/boat/chicasentablasup.png',
+  ogImageAlt: 'Woman paddle boarding during Ibiza boat trip',
+});
 
 // JSON-LD structured data for paddle boarding boat trips
 const paddleBoatTripsJsonLd = {
@@ -36,14 +22,14 @@ const paddleBoatTripsJsonLd = {
   "@type": "Product",
   "name": "Paddle Boarding Boat Trips Ibiza by Salvador",
   "description": "Amazing paddle boarding boat trips in Ibiza with 15 premium SUP boards included. Explore hidden coves and crystal-clear waters on your adventure.",
-  "image": "https://salvadoribiza.com/images/boat/chicasentablasup.png",
+  "image": publicAssetUrl("/images/boat/chicasentablasup.png"),
   "brand": {
     "@type": "Brand",
     "name": "Salvador Ibiza"
   },
   "offers": {
     "@type": "Offer",
-    "url": "https://salvadoribiza.com/boat-trips/paddle",
+    "url": absoluteUrl("/boat-trips/paddle"),
     "priceCurrency": "EUR",
     "price": "80",
     "priceSpecification": {

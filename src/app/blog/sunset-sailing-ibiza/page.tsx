@@ -1,17 +1,18 @@
-import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
+import { enPageMetadata } from '@/lib/page-meta'
 
-export const metadata: Metadata = {
+export const metadata = enPageMetadata({
   title: 'Sunset Sailing in Ibiza: A Magical End to a Perfect Day | Salvador Ibiza',
-  description: 'Experience the magic of Ibiza\'s legendary sunsets from the best viewpoint - aboard our luxury yacht. Book your sunset sailing adventure today.',
-  keywords: 'sunset sailing Ibiza, sunset cruise Ibiza, sunset boat trip, golden hour cruise, Ibiza sunset experience, luxury yacht sunset',
-  robots: {
-    index: true,
-    follow: true,
-  },
-}
+  description:
+    'Experience the magic of Ibiza\'s legendary sunsets from the best viewpoint - aboard our luxury yacht. Book your sunset sailing adventure today.',
+  path: '/blog/sunset-sailing-ibiza',
+  keywords:
+    'sunset sailing Ibiza, sunset cruise Ibiza, sunset boat trip, golden hour cruise, Ibiza sunset experience, luxury yacht sunset',
+  ogImage: '/images/optimized/sunset-sailing-cruise-ibiza.webp',
+  ogImageAlt: 'Sunset Sailing in Ibiza - Magical golden hour cruise',
+})
 
 export default function SunsetSailingPage() {
   return (

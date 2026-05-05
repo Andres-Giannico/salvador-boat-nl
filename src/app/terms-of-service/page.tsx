@@ -1,25 +1,16 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
+import { getSiteUrl, getSpanishSiteUrl } from '@/config/site';
+import { enPageMetadata } from '@/lib/page-meta';
 
-const siteUrl = 'https://salvadoribiza.com';
-const pageUrl = `${siteUrl}/terms-of-service`;
 const title = "Terms of Service | Salvador Ibiza";
 const description = "Read the terms and conditions for using the Salvador Ibiza website and services, including information on intellectual property, liability, and user conduct.";
 
 export const metadata: Metadata = {
-  title: title,
-  description: description,
-  alternates: {
-    canonical: pageUrl,
-  },
-  robots: { // Discourage indexing of legal pages if desired, or allow
-    index: true, 
-    follow: true,
-  },
-  openGraph: {
-    title: title,
-    description: description,
-    url: pageUrl,
-  },
+  ...enPageMetadata({
+    title,
+    description,
+    path: '/terms-of-service',
+  }),
   twitter: {
     card: 'summary',
     title: title,
@@ -28,6 +19,8 @@ export const metadata: Metadata = {
 };
 
 export default function TermsOfServicePage() {
+  const enHost = new URL(getSiteUrl()).hostname;
+  const esHost = new URL(getSpanishSiteUrl()).hostname;
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-50 to-cyan-50 py-24 md:py-32">
       <div className="container mx-auto px-6 lg:px-8 max-w-4xl">
@@ -35,12 +28,14 @@ export default function TermsOfServicePage() {
         
         <div className="prose prose-lg max-w-none bg-white p-8 rounded-xl shadow-lg border border-gray-100 space-y-6">
           <p>
-            Welcome to the website salvadoribiza.com (hereinafter, &quot;SALVADOR IBIZA&quot;). We trust that the website will be useful to you and that you enjoy your visit. In this regard, and to provide maximum security to our page and visitors, we must establish the following conditions of use:
+            Welcome to the Salvador Ibiza website in English at <strong>{enHost}</strong> (hereinafter, &quot;SALVADOR IBIZA&quot;).
+            The Spanish version of the site uses the same paths on <strong>{esHost}</strong> — use the language switcher to open it.
+            We trust that the website will be useful to you and that you enjoy your visit. In this regard, and to provide maximum security to our page and visitors, we must establish the following conditions of use:
           </p>
 
           <section>
             <h2 className="font-bold text-gray-800 mt-6 mb-3">1. Ownership</h2>
-            <p>The website salvadoribiza.com is owned by Ibicruiser, S.L., with NIF: B57527392 and Mercantile Registry: Sheet IB-9135 Volume 215 Folio:59 – Ibiza, Balearic Islands, Spain.</p>
+            <p>The official Salvador Ibiza websites (including <strong>{enHost}</strong> and <strong>{esHost}</strong>) are owned by Ibicruiser, S.L., with NIF: B57527392 and Mercantile Registry: Sheet IB-9135 Volume 215 Folio:59 – Ibiza, Balearic Islands, Spain.</p>
           </section>
 
           <section>

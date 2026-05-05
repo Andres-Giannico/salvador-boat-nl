@@ -1,13 +1,14 @@
-import { Metadata } from 'next';
 import SunsetTripClientPage from './page.client';
 import Script from 'next/script';
+import { absoluteUrl, publicAssetUrl } from '@/config/site';
+import { enPageMetadata } from '@/lib/page-meta';
 
 const sunsetTripJsonLd = {
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "Sunset Boat Trip in Ibiza - Salvador Ibiza",
   "image": [
-    "https://salvadoribiza.com/images/boat/sunset.png"
+    publicAssetUrl("/images/boat/sunset.png")
   ],
   "description": "All-inclusive sunset boat trip in Ibiza with captain. Enjoy 3 hours of navigation with catering, drinks, paddle surf and snorkel included.",
   "brand": {
@@ -16,7 +17,7 @@ const sunsetTripJsonLd = {
   },
   "offers": {
     "@type": "Offer",
-    "url": "https://salvadoribiza.com/boat-trips/sunset-trip",
+    "url": absoluteUrl("/boat-trips/sunset-trip"),
     "priceCurrency": "EUR",
     "price": "80.00",
     "itemCondition": "https://schema.org/NewCondition",
@@ -42,22 +43,14 @@ const sunsetTripJsonLd = {
   }
 };
 
-export const metadata: Metadata = {
+export const metadata = enPageMetadata({
   title: 'Ibiza Sunset Boat Trip (All-Inclusive) | Salvador',
   description: '🌅 Experience Ibiza\'s legendary sunset from the sea! 3-hour all-inclusive cruise with unlimited drinks, Spanish tapas & paddle boards. Book now from €80!',
-  alternates: {
-    canonical: 'https://salvadoribiza.com/boat-trips/sunset-trip',
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-  openGraph: {
-    title: 'Ibiza Sunset Boat Trip (All-Inclusive) | Salvador',
-    description: '🌅 Experience Ibiza\'s legendary sunset from the sea! 3-hour all-inclusive cruise with unlimited drinks, Spanish tapas & paddle boards.',
-    images: ['/images/optimized/sunset-sailing-cruise-ibiza.webp'],
-  },
-};
+  path: '/boat-trips/sunset-trip',
+  ogTitle: 'Ibiza Sunset Boat Trip (All-Inclusive) | Salvador',
+  ogDescription: '🌅 Experience Ibiza\'s legendary sunset from the sea! 3-hour all-inclusive cruise with unlimited drinks, Spanish tapas & paddle boards.',
+  ogImage: '/images/optimized/sunset-sailing-cruise-ibiza.webp',
+});
 
 export default function SunsetTripPage() {
   return (

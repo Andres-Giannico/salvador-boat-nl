@@ -1,31 +1,17 @@
-import { Metadata } from 'next';
 import WeddingsClientPage from './page.client';
+import { getSiteUrl } from '@/config/site';
+import { enPageMetadata } from '@/lib/page-meta';
 
-export const metadata: Metadata = {
+export const metadata = enPageMetadata({
   title: 'Ibiza Boat Weddings | Unforgettable Ceremonies at Sea | Salvador Ibiza',
   description: '💒 Dream wedding at sea in Ibiza! Intimate ceremonies aboard our traditional boat with stunning sunsets, all-inclusive packages from €1,500. Book your perfect day!',
+  path: '/weddings',
   keywords: 'Ibiza wedding, boat wedding, sea wedding ceremony, romantic wedding Ibiza, elopement Ibiza, wedding packages, intimate wedding, sunset wedding, luxury boat charter, Salvador Ibiza, wedding at sea, destination wedding',
-  robots: {
-    index: true,
-    follow: true,
-  },
-  alternates: {
-    canonical: '/weddings',
-  },
-  openGraph: {
-    title: 'Ibiza Boat Weddings | Dream Ceremonies at Sea',
-    description: '💒 Create your perfect wedding at sea in Ibiza! Intimate ceremonies with stunning sunsets and all-inclusive packages.',
-    url: 'https://salvadoribiza.com/weddings',
-    images: [
-      {
-        url: '/images/boat/private-new/tapasycavapopabarco_1.webp',
-        width: 1200,
-        height: 630,
-        alt: 'Elegant wedding setup with champagne and catering on Salvador Ibiza boat',
-      }
-    ],
-  },
-};
+  ogTitle: 'Ibiza Boat Weddings | Dream Ceremonies at Sea',
+  ogDescription: '💒 Create your perfect wedding at sea in Ibiza! Intimate ceremonies with stunning sunsets and all-inclusive packages.',
+  ogImage: '/images/boat/private-new/tapasycavapopabarco_1.webp',
+  ogImageAlt: 'Elegant wedding setup with champagne and catering on Salvador Ibiza boat',
+});
 
 // Wedding Schema for better SEO
 const weddingSchema = {
@@ -36,7 +22,7 @@ const weddingSchema = {
   "provider": {
     "@type": "LocalBusiness",
     "name": "Salvador Ibiza",
-    "url": "https://salvadoribiza.com"
+    "url": getSiteUrl()
   },
   "areaServed": {
     "@type": "Place",

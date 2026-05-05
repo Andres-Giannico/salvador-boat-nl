@@ -8,8 +8,10 @@ import ActivitiesSection from '@/components/ActivitiesSection';
 import HomepageFAQSection from '@/components/HomepageFAQSection';
 import CallToActionSection from '@/components/CallToActionSection';
 import Script from 'next/script';
+import { publicAssetUrl, getSiteUrl } from '@/config/site';
 
 export default function HomePage() {
+  const base = getSiteUrl();
   return (
     <>
       <Script
@@ -20,8 +22,8 @@ export default function HomePage() {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             "name": "Salvador Ibiza",
-            "image": "https://salvadoribiza.com/logo.png",
-            "url": "https://salvadoribiza.com",
+            "image": publicAssetUrl('/images/optimized/salvador-ibiza-boat-trips-logo.webp'),
+            "url": base,
             "telephone": "+34 681 611 598",
             "priceRange": "€€",
             "address": {

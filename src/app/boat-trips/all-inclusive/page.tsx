@@ -1,34 +1,20 @@
-import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import TurbnbWidget from '@/components/booking/TurbnbWidget';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import { absoluteUrl, publicAssetUrl } from '@/config/site';
+import { enPageMetadata } from '@/lib/page-meta';
 
-export const metadata: Metadata = {
+export const metadata = enPageMetadata({
   title: 'All-Inclusive Boat Trips Ibiza (3 hours) | Everything Included | Salvador Ibiza',
   description: 'Ultimate all-inclusive boat trips in Ibiza with everything included: premium drinks, gourmet food, water sports, and professional crew. No hidden costs, pure relaxation.',
+  path: '/boat-trips/all-inclusive',
   keywords: 'all inclusive boat trips Ibiza, everything included boat tour, premium boat trip Ibiza, luxury boat experience, all inclusive cruise Ibiza',
-  robots: {
-    index: true,
-    follow: true,
-  },
-  alternates: {
-    canonical: '/boat-trips/all-inclusive',
-  },
-  openGraph: {
-    title: 'All-Inclusive Boat Trips Ibiza | Everything Included',
-    description: 'Ultimate all-inclusive boat trips in Ibiza with premium drinks, gourmet food, water sports, and professional crew. No hidden costs.',
-    url: 'https://salvadoribiza.com/boat-trips/all-inclusive',
-    images: [
-      {
-        url: '/images/optimized/salvador-ibiza-boat-aerial-view.webp',
-        width: 1200,
-        height: 630,
-        alt: 'All-inclusive boat trip in Ibiza with Salvador - premium experience',
-      }
-    ],
-  },
-};
+  ogTitle: 'All-Inclusive Boat Trips Ibiza | Everything Included',
+  ogDescription: 'Ultimate all-inclusive boat trips in Ibiza with premium drinks, gourmet food, water sports, and professional crew. No hidden costs.',
+  ogImage: '/images/optimized/salvador-ibiza-boat-aerial-view.webp',
+  ogImageAlt: 'All-inclusive boat trip in Ibiza with Salvador - premium experience',
+});
 
 // JSON-LD structured data for all-inclusive boat trips
 const allInclusiveBoatTripsJsonLd = {
@@ -36,14 +22,14 @@ const allInclusiveBoatTripsJsonLd = {
   "@type": "Product",
   "name": "All-Inclusive Boat Trips Ibiza by Salvador",
   "description": "Ultimate all-inclusive boat trips in Ibiza with premium drinks, gourmet food, water sports, and professional crew. Everything included for the perfect day at sea.",
-  "image": "https://salvadoribiza.com/images/optimized/salvador-ibiza-boat-aerial-view.webp",
+  "image": publicAssetUrl("/images/optimized/salvador-ibiza-boat-aerial-view.webp"),
   "brand": {
     "@type": "Brand",
     "name": "Salvador Ibiza"
   },
   "offers": {
     "@type": "Offer",
-    "url": "https://salvadoribiza.com/boat-trips/all-inclusive",
+    "url": absoluteUrl("/boat-trips/all-inclusive"),
     "priceCurrency": "EUR",
     "price": "80",
     "priceSpecification": {

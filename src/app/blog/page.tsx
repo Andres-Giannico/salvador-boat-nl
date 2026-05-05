@@ -1,5 +1,6 @@
-import { Metadata } from 'next'
 import BlogClientPage from './page.client'
+import { absoluteUrl, publicAssetUrl } from '@/config/site'
+import { enPageMetadata } from '@/lib/page-meta'
 // Import the type correctly assuming it might be exported, 
 // or remove if the type definition is intended to be passed implicitly or duplicated.
 // For now, let's assume the type definition is available/passed via BlogClientPage props.
@@ -16,13 +17,12 @@ interface BlogPost {
   category: string;
 }
 
-export const metadata: Metadata = {
+export const metadata = enPageMetadata({
   title: 'Salvador Ibiza Blog | Luxury Boat Experiences & Island Tips',
-  description: 'Explore our latest stories about luxury boat experiences, hidden coves, sunset sailing, and life in Ibiza. Discover insider tips and inspiration for your next adventure.',
-  alternates: {
-    canonical: '/blog',
-  },
-}
+  description:
+    'Explore our latest stories about luxury boat experiences, hidden coves, sunset sailing, and life in Ibiza. Discover insider tips and inspiration for your next adventure.',
+  path: '/blog',
+})
 
 // Definir los datos aquí, en el componente servidor
 const blogPosts: BlogPost[] = [
@@ -69,8 +69,8 @@ const generateBlogSchema = (posts: BlogPost[]) => {
   const blogPostings = posts.map(post => ({
     '@type': 'BlogPosting',
     'headline': post.title,
-    'url': `https://salvador-boat.vercel.app/blog/${post.slug}`, // Use absolute URL
-    'image': `https://salvador-boat.vercel.app${post.imageUrl}`, // Use absolute URL
+    'url': absoluteUrl(`/blog/${post.slug}`),
+    'image': publicAssetUrl(post.imageUrl),
     'datePublished': new Date(post.date).toISOString(),
     'author': {
       '@type': 'Person',
@@ -83,7 +83,7 @@ const generateBlogSchema = (posts: BlogPost[]) => {
     '@context': 'https://schema.org',
     '@type': 'Blog',
     'name': 'Salvador Ibiza Blog',
-    'url': 'https://salvador-boat.vercel.app/blog',
+    'url': absoluteUrl('/blog'),
     'description': metadata.description,
     'blogPost': blogPostings
   };

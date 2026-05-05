@@ -1,12 +1,11 @@
 import { Metadata } from 'next';
 import GalleryClientPage from './page.client';
+import { pageAlternates } from '@/config/site';
 
 export const metadata: Metadata = {
   title: 'Salvador Ibiza Photo Gallery | Boat Trips & Experiences',
   description: 'Explore the beauty of Ibiza through our photo gallery. See stunning images from our day trips, sunset voyages, and private charters aboard the Salvador boat.',
-  alternates: {
-    canonical: '/gallery',
-  },
+  alternates: pageAlternates('/gallery'),
 };
 
 // Define the type for image data

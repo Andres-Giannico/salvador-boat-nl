@@ -1,3 +1,13 @@
+import { enPageMetadata } from '@/lib/page-meta';
+
+export const metadata = enPageMetadata({
+  title: 'Turbookings integration | Salvador Ibiza',
+  description:
+    'How Salvador Ibiza partners with Turbookings for secure online booking, availability, and partner tools.',
+  path: '/partners/turbookings',
+  robots: { index: true, follow: true },
+});
+
 export default function TurbookingsPage() {
   return (
     <div>

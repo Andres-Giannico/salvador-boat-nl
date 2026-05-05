@@ -1,18 +1,17 @@
-import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import TurbnbWidget from '@/components/booking/TurbnbWidget';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import { enPageMetadata } from '@/lib/page-meta';
 
-export const metadata: Metadata = {
+export const metadata = enPageMetadata({
   title: 'Family Boat Trips Ibiza (3 hours) | Safe Adventures for All Ages | Salvador Ibiza',
-  description: 'Perfect family boat trips in Ibiza with safety-first approach. 3-hour cruises designed for kids and parents. Swimming, snorkeling, and fun activities.',
-  keywords: 'family boat trips Ibiza, kids boat tour, family cruise Ibiza, safe boat trips children, family adventure Ibiza',
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
+  description:
+    'Perfect family boat trips in Ibiza with safety-first approach. 3-hour cruises designed for kids and parents. Swimming, snorkeling, and fun activities.',
+  path: '/boat-trips/family',
+  keywords:
+    'family boat trips Ibiza, kids boat tour, family cruise Ibiza, safe boat trips children, family adventure Ibiza',
+});
 
 export default function FamilyBoatTripsPage() {
   return (

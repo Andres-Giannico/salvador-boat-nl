@@ -1,31 +1,29 @@
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import { enPageMetadata } from '@/lib/page-meta'
+
+const metaBase = enPageMetadata({
+  title: "Ibiza's Midday Magic: The Unforgettable Day Trip | Salvador Ibiza",
+  description:
+    "Discover why a midday boat trip in Ibiza offers a unique and magical experience. Sunshine, crystal clear waters, and vibrant energy await you.",
+  path: '/blog/ibiza-midday-magic-boat-trip',
+  keywords:
+    'Ibiza day boat trip, midday boat tour Ibiza, best daytime excursions Ibiza, Salvador Ibiza blog, Ibiza boat activities',
+  ogTitle: "Ibiza's Midday Magic: The Unforgettable Day Trip",
+  ogDescription: 'Explore the unique charm of a daytime boat adventure in Ibiza with Salvador.',
+  ogImage: '/images/blog/midday-magic-placeholder.webp',
+  ogImageAlt: 'Enjoying a sunny midday boat trip in Ibiza',
+})
 
 export const metadata: Metadata = {
-  title: "Ibiza's Midday Magic: The Unforgettable Day Trip | Salvador Ibiza",
-  description: "Discover why a midday boat trip in Ibiza offers a unique and magical experience. Sunshine, crystal clear waters, and vibrant energy await you.",
-  keywords: "Ibiza day boat trip, midday boat tour Ibiza, best daytime excursions Ibiza, Salvador Ibiza blog, Ibiza boat activities",
-  alternates: {
-    canonical: '/blog/ibiza-midday-magic-boat-trip',
-  },
-  openGraph: {
-    title: "Ibiza's Midday Magic: The Unforgettable Day Trip",
-    description: "Explore the unique charm of a daytime boat adventure in Ibiza with Salvador.",
-    images: [
-      {
-        url: '/images/blog/midday-magic-placeholder.webp', // Placeholder - reemplazar luego
-        width: 1200,
-        height: 630,
-        alt: "Enjoying a sunny midday boat trip in Ibiza",
-      }
-    ],
-  },
+  ...metaBase,
   twitter: {
-    card: "summary_large_image",
+    card: 'summary_large_image',
     title: "Ibiza's Midday Magic: The Unforgettable Day Trip | Salvador Ibiza",
-    description: "Discover why a midday boat trip in Ibiza offers a unique and magical experience. Sunshine, crystal clear waters, and vibrant energy await you.",
-    images: ['/images/blog/midday-magic-placeholder.webp'], // Asegúrate que esta imagen también sea atractiva para Twitter
+    description:
+      'Discover why a midday boat trip in Ibiza offers a unique and magical experience. Sunshine, crystal clear waters, and vibrant energy await you.',
+    images: ['/images/blog/midday-magic-placeholder.webp'],
   },
 }
 
