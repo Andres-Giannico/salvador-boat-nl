@@ -290,7 +290,7 @@ export default function RootLayout({
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MZR67SFF"
         height="0" width="0" style={{display:'none',visibility:'hidden'}}></iframe></noscript>
         {/* Fin Google Tag Manager (noscript) */}
-        <div className="flex flex-col min-h-screen">
+        <div id="top" className="flex flex-col min-h-screen">
           <Navbar />
           <Toaster position="top-center" richColors />
           <main className="flex-grow pt-20 md:pt-24 sm:pt-16">
