@@ -8,23 +8,23 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs';
 const values = [
   {
     icon: <FiHeart className="w-6 h-6" />,
-    title: "Passion for Excellence",
-    description: "We&apos;re dedicated to providing the highest quality service in every detail of your experience"
+    title: "Passie voor kwaliteit",
+    description: "We leveren top service in elk detail van je ervaring."
   },
   {
     icon: <FiAnchor className="w-6 h-6" />,
-    title: "Maritime Expertise",
-    description: "Years of experience navigating Ibiza&apos;s waters, ensuring safe and unforgettable journeys"
+    title: "Maritieme expertise",
+    description: "Jarenlange ervaring op het water rond Ibiza — veilig en onvergetelijk."
   },
   {
     icon: <FiSunrise className="w-6 h-6" />,
-    title: "Unique Experiences",
-    description: "Creating magical moments and memories that last a lifetime"
+    title: "Unieke ervaringen",
+    description: "Magische momenten die je niet snel vergeet."
   },
   {
     icon: <FiUsers className="w-6 h-6" />,
-    title: "Customer Focus",
-    description: "Your satisfaction and comfort are our top priorities"
+    title: "Gastgericht",
+    description: "Jouw tevredenheid en comfort staan voorop."
   }
 ];
 
@@ -49,7 +49,7 @@ export default function AboutClientPage() {
     },
   }
 
-  const titleText = "The Salvador Ibiza Story";
+  const titleText = "Het verhaal van Salvador Ibiza";
 
   return (
     <div className="min-h-screen bg-white">
@@ -59,7 +59,7 @@ export default function AboutClientPage() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/optimized/salvador-ibiza-boat-aerial-shot.webp"
-            alt="Salvador Ibiza boat aerial view for about us page"
+            alt="Luchtfoto Salvador Ibiza — over ons"
             fill
             priority
             className="object-cover object-center"
@@ -91,7 +91,7 @@ export default function AboutClientPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.5 }}
           >
-            Creating unforgettable maritime experiences in the heart of the Mediterranean
+            Onvergetelijke vaarervaringen in het hart van de Middellandse Zee
           </motion.p>
         </div>
       </section>
@@ -113,12 +113,12 @@ export default function AboutClientPage() {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <h2 className="text-3xl font-bold mb-4">Our Journey</h2>
+              <h2 className="text-3xl font-bold mb-4">Onze reis</h2>
               <p className="text-gray-600 leading-relaxed">
-                Salvador Ibiza was born from a deep passion for the Mediterranean Sea and the magical island of Ibiza. What started as a dream to share the beauty of Ibiza&apos;s crystal-clear waters has evolved into a premium boat charter service that combines luxury, comfort, and unforgettable experiences.
+                Salvador Ibiza ontstond uit liefde voor de Middellandse Zee en het magische Ibiza. Wat begon als droom om het heldere water te delen, groeide uit tot een premium charterervaring met luxe, comfort en momenten die blijven hangen.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                Our commitment to excellence and attention to detail has made us a preferred choice for those seeking extraordinary maritime adventures in Ibiza.
+                Onze focus op kwaliteit en details maakt ons een geliefde keuze voor wie op zoek is naar iets bijzonders op zee.
               </p>
             </motion.div>
             <motion.div
@@ -130,7 +130,7 @@ export default function AboutClientPage() {
               <div className="bg-gradient-to-r from-blue-100 to-cyan-100 rounded-2xl p-1">
                 <Image
                   src="/images/optimized/salvador-ibiza-boat-interior.webp"
-                  alt="Salvador Ibiza Journey"
+                  alt="Salvador Ibiza aan boord"
                   width={600}
                   height={400}
                   className="rounded-xl shadow-2xl object-cover"
@@ -170,7 +170,7 @@ export default function AboutClientPage() {
               <div className="bg-gradient-to-r from-blue-100 to-cyan-100 rounded-2xl p-1">
                 <Image
                   src="/images/optimized/salvador-ibiza-boat-aerial-view.webp"
-                  alt="Salvador Boat"
+                  alt="Boot Salvador Ibiza"
                   width={600}
                   height={400}
                   className="rounded-xl shadow-2xl object-cover"
@@ -183,17 +183,17 @@ export default function AboutClientPage() {
               viewport={{ once: true }}
               className="space-y-6 lg:order-1"
             >
-              <h2 className="text-3xl font-bold mb-4">The Salvador Experience</h2>
+              <h2 className="text-3xl font-bold mb-4">De Salvador-ervaring</h2>
               <p className="text-gray-600 leading-relaxed">
-                Step aboard our meticulously maintained vessel, equipped with modern amenities while preserving its classic charm. With spacious decks, comfortable seating areas, and state-of-the-art safety equipment, we ensure every journey is as comfortable as it is memorable.
+                Stap aan boord van ons zorgvuldig onderhouden schip: moderne voorzieningen met klassieke uitstraling. Ruime dekken, comfortabele zitplekken en eersteklas veiligheid — elke tocht wordt comfortabel én memorabel.
               </p>
               <ul className="space-y-3">
                 {[
-                  "Spacious sun deck for relaxation",
-                  "Premium sound system",
-                  "Comfortable seating areas",
-                  "Water sports equipment",
-                  "Modern safety features"
+                  "Ruim zonnedek om te ontspannen",
+                  "Premium geluidssysteem",
+                  "Comfortabele zitplekken",
+                  "Watersportmateriaal",
+                  "Moderne veiligheidsvoorzieningen"
                 ].map((feature, index) => (
                   <li key={index} className="flex items-center space-x-2">
                     <FiAnchor className="text-blue-500 w-5 h-5" />
@@ -212,14 +212,14 @@ export default function AboutClientPage() {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <h2 className="text-3xl font-bold mb-4">Meet Our Crew</h2>
+              <h2 className="text-3xl font-bold mb-4">Ontmoet de bemanning</h2>
               <p className="text-gray-600 leading-relaxed">
-                Our experienced and passionate crew is the heart of Salvador Ibiza. With extensive knowledge of the local waters and a commitment to exceptional service, they ensure every journey is safe, comfortable, and truly unforgettable.
+                Onze ervaren, enthousiaste crew is het hart van Salvador Ibiza. Ze kennen de lokale wateren en zorgen voor veilige, comfortabele en onvergetelijke tochten.
               </p>
               <div className="mt-8">
                 <Image
                   src="/images/crew-boat.jpeg"
-                  alt="Salvador Ibiza Crew"
+                  alt="Bemanning Salvador Ibiza"
                   width={500}
                   height={400}
                   className="rounded-2xl shadow-xl object-cover  mx-auto"

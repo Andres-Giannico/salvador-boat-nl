@@ -51,10 +51,10 @@ function getActivePromo(now: Date): ActivePromo | null {
       kind: 'super',
       code: 'SUPERPROMO',
       eur: 10,
-      labelShort: 'Super promo',
-      kicker: 'Exclusive · Super promo',
+      labelShort: 'Superpromo',
+      kicker: 'Exclusief · Superpromo',
       validityText:
-        'Valid for bookings made through 20 May 2026 while this campaign runs. After that, our €5 Early Bird offer applies again (where dates still allow).',
+        'Geldig voor boekingen tot en met 20 mei 2026 zolang deze campagne loopt. Daarna geldt opnieuw onze €5 Early Bird-actie (waar data dat toelaten).',
     };
   }
   if (inRange(now, EARLYBIRD.start, EARLYBIRD.end)) {
@@ -63,9 +63,9 @@ function getActivePromo(now: Date): ActivePromo | null {
       code: 'EARLYBIRD5',
       eur: 5,
       labelShort: 'Early Bird 5',
-      kicker: 'Exclusive · Early Bird',
+      kicker: 'Exclusief · Early Bird',
       validityText:
-        'Valid for bookings made 10 Apr – 30 May 2026. After that, this promotion ends.',
+        'Geldig voor boekingen van 10 apr – 30 mei 2026. Daarna eindigt deze actie.',
     };
   }
   return null;
@@ -80,13 +80,13 @@ function storageKeyFor(promo: ActivePromo['kind']): string {
 const PROMO_HERO: Record<ActivePromo['kind'], { src: string; alt: string; className: string; overlay: string }> = {
   super: {
     src: '/images/optimized/superpromo-salvador-ibiza-flash-deal.webp',
-    alt: 'Salvador Ibiza — flash deal, €10 off per person, limited campaign',
+    alt: 'Salvador Ibiza — flashdeal, €10 korting per persoon, beperkte campagne',
     className: 'object-cover object-center',
     overlay: 'from-black/35 to-transparent',
   },
   earlybird: {
     src: '/images/optimized/salvador-ibiza-boat-aerial-view.webp',
-    alt: 'Salvador Ibiza — aerial view over turquoise waters',
+    alt: 'Salvador Ibiza — luchtfoto boven turquoise zee',
     className: 'object-cover object-center',
     overlay: 'from-black/50 to-transparent',
   },
@@ -143,11 +143,11 @@ export default function EarlyBirdPromoModal() {
     try {
       await navigator.clipboard.writeText(promo.code);
       setCopied(true);
-      toast.success('Code copied — paste it at checkout.');
+      toast.success('Code gekopieerd — plak hem bij het afrekenen.');
       pushDataLayer('salvador_promo_code_copied', { promo_type: promo.kind, promo_code: promo.code });
       window.setTimeout(() => setCopied(false), 2000);
     } catch {
-      toast.error('Could not copy. Please type the code manually.');
+      toast.error('Kopiëren mislukt. Typ de code handmatig in.');
     }
   }, [promo]);
 
@@ -192,7 +192,7 @@ export default function EarlyBirdPromoModal() {
               type="button"
               onClick={dismiss}
               className="absolute right-3 top-3 rounded-full bg-white/90 p-2 text-gray-800 shadow-md transition hover:bg-white"
-              aria-label="Close promotion"
+              aria-label="Promotie sluiten"
             >
               <X className="size-5" />
             </button>
@@ -206,26 +206,26 @@ export default function EarlyBirdPromoModal() {
               id="earlybird-promo-title"
               className="mt-1 font-display text-2xl font-bold text-gray-900"
             >
-              Gracias — you&apos;re in
+              Bedankt — je bent erbij
             </h2>
             <p id="earlybird-promo-desc" className="mt-3 text-sm leading-relaxed text-gray-600">
               {promo.kind === 'super' ? (
                 <>
-                  Use code <strong className="text-gray-800">SUPERPROMO</strong> for a limited{' '}
-                  <strong className="text-[#1a7f37]">€10 off per person</strong> on{' '}
-                  <strong>Salvador Boat Mix</strong> — Day Trip or Sunset. Enter it when you book.
+                  Gebruik code <strong className="text-gray-800">SUPERPROMO</strong> voor beperkte tijd{' '}
+                  <strong className="text-[#1a7f37]">€10 korting per persoon</strong> op{' '}
+                  <strong>Salvador Boat Mix</strong> — dagtrip of zonsondergang. Vul hem in bij je boeking.
                 </>
               ) : (
                 <>
-                  Use our <strong className="text-gray-800">Early Bird 5</strong> offer:{' '}
-                  <strong className="text-[#1a7f37]">€5 off per person</strong> on{' '}
-                  <strong>Salvador Boat Mix</strong> — Day Trip or Sunset. Enter your code when you book.
+                  Gebruik onze <strong className="text-gray-800">Early Bird 5</strong>-actie:{' '}
+                  <strong className="text-[#1a7f37]">€5 korting per persoon</strong> op{' '}
+                  <strong>Salvador Boat Mix</strong> — dagtrip of zonsondergang. Vul je code in bij het boeken.
                 </>
               )}
             </p>
 
             <div className="mt-4 rounded-xl border-2 border-[#28a745] bg-[#f6fff8] p-3">
-              <p className="text-xs font-medium text-gray-600">Discount code</p>
+              <p className="text-xs font-medium text-gray-600">Kortingscode</p>
               <div className="mt-1 flex flex-wrap items-center gap-2">
                 <span className="font-mono text-lg font-bold tracking-wide text-gray-900">
                   {promo.code}
@@ -240,11 +240,11 @@ export default function EarlyBirdPromoModal() {
                   ) : (
                     <Copy className="size-3.5" />
                   )}
-                  {copied ? 'Copied' : 'Copy'}
+                  {copied ? 'Gekopieerd' : 'Kopiëren'}
                 </button>
               </div>
               <p className="mt-2 text-xs text-[#1a7f37]">
-                ✓ €{promo.eur} off each guest on Salvador Boat Mix (Day or Sunset)
+                ✓ €{promo.eur} korting per gast op Salvador Boat Mix (dag- of zonsondergangstocht)
               </p>
             </div>
 
@@ -256,7 +256,7 @@ export default function EarlyBirdPromoModal() {
                 onClick={dismiss}
                 className="order-2 rounded-lg border border-gray-300 px-4 py-2.5 text-sm font-medium text-gray-700 transition hover:bg-gray-50 sm:order-1"
               >
-                Maybe later
+                Misschien later
               </button>
               <Link
                 href="/boat-trips"
@@ -269,7 +269,7 @@ export default function EarlyBirdPromoModal() {
                 }}
                 className="order-1 inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-blue-600 to-cyan-500 px-4 py-2.5 text-sm font-semibold text-white shadow-md transition hover:from-blue-700 hover:to-cyan-600 sm:order-2"
               >
-                Book now
+                Boek nu
               </Link>
             </div>
           </div>

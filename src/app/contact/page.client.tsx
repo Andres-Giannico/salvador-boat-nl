@@ -26,10 +26,10 @@ export default function ContactClientPage() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
-              Contact Us
+              Contact
             </h1>
             <p className="text-lg text-gray-700 mb-8">
-              Get in touch with us to plan your perfect boat trip in Ibiza
+              Neem contact op om je perfecte boottocht op Ibiza te plannen
             </p>
           </motion.div>
         </div>
@@ -48,7 +48,7 @@ export default function ContactClientPage() {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className="bg-white rounded-2xl shadow-xl p-8 md:p-10 border border-gray-100"
               >
-                <h2 className="text-3xl font-bold mb-8 text-gray-900">Contact Information</h2>
+                <h2 className="text-3xl font-bold mb-8 text-gray-900">Contactgegevens</h2>
                 
                 {/* Increased spacing */}
                 <div className="space-y-8">
@@ -63,7 +63,7 @@ export default function ContactClientPage() {
                       <FiPhone className="w-7 h-7 text-blue-600" />
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-gray-500 mb-1">Phone</p>
+                      <p className="text-sm font-medium text-gray-500 mb-1">Telefoon</p>
                       <p className="text-lg font-semibold text-gray-900">+34 871 181 393</p>
                       <p className="text-lg font-semibold text-gray-900">+34 681 611 598</p>
                     </div>
@@ -75,7 +75,7 @@ export default function ContactClientPage() {
                       <FiMail className="w-7 h-7 text-blue-600" />
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-gray-500 mb-1">Email</p>
+                      <p className="text-sm font-medium text-gray-500 mb-1">E-mail</p>
                       <a href="mailto:info@salvadoribiza.com" className="text-lg font-semibold text-blue-600 hover:text-blue-700 hover:underline break-all">
                         info@salvadoribiza.com
                       </a>
@@ -88,7 +88,7 @@ export default function ContactClientPage() {
                       <FiMapPin className="w-7 h-7 text-blue-600" />
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-gray-500 mb-1">Location</p>
+                      <p className="text-sm font-medium text-gray-500 mb-1">Locatie</p>
                       <p className="text-lg font-semibold text-gray-900">San Antonio Port, Ibiza</p>
                       <a 
                         href="https://www.google.com/maps/dir//Boat+Trip+Salvador+Ibiza,+Avinguda+del+Doctor+Fleming,+07820+Sant+Antoni+de+Portmany,+Balearic+Islands/@38.9792996,1.3059022,17z"
@@ -96,7 +96,7 @@ export default function ContactClientPage() {
                         rel="noopener noreferrer"
                         className="text-blue-600 hover:text-blue-700 text-sm font-semibold inline-flex items-center mt-2 group"
                       >
-                        Get Directions
+                        Routebeschrijving
                         <FiArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                       </a>
                     </div>
@@ -108,9 +108,9 @@ export default function ContactClientPage() {
                       <FiClock className="w-7 h-7 text-blue-600" />
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-gray-500 mb-1">Opening Hours</p>
-                      <p className="text-lg font-semibold text-gray-900">Late Morning - Early Evening</p>
-                      <p className="text-sm font-medium text-gray-500">Daily during season</p>
+                      <p className="text-sm font-medium text-gray-500 mb-1">Openingstijden</p>
+                      <p className="text-lg font-semibold text-gray-900">Laat in de ochtend tot vroeg in de avond</p>
+                      <p className="text-sm font-medium text-gray-500">Dagelijks in het seizoen</p>
                     </div>
                   </motion.div>
                 </div>
@@ -119,13 +119,13 @@ export default function ContactClientPage() {
                 <div className="mt-10 relative rounded-xl overflow-hidden shadow-lg">
                   <Image
                     src="/images/caseta.png"
-                    alt="Salvador Ibiza Meeting Point"
+                    alt="Salvador Ibiza ontmoetingspunt"
                     width={600}
                     height={400}
                     className="w-full object-cover"
                   />
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                    <p className="text-white text-sm">Our waterfront cabin at San Antonio Port</p>
+                    <p className="text-white text-sm">Ons hutje aan de kade van San Antonio</p>
                   </div>
                 </div>
               </motion.div>
@@ -164,7 +164,7 @@ export default function ContactClientPage() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-3xl font-bold mb-8 text-gray-900">
-              Ready to Book Your Trip?
+              Klaar om te boeken?
             </h2>
             {/* Enhanced Button Style */}
             <Link href="/boat-trips">
@@ -173,7 +173,7 @@ export default function ContactClientPage() {
                 whileTap={{ scale: 0.95 }}
                 className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg transition duration-300 transform hover:-translate-y-0.5"
               >
-                View Available Trips <FiArrowRight className="ml-1 w-5 h-5"/>
+                Bekijk boottochten <FiArrowRight className="ml-1 w-5 h-5"/>
               </motion.span>
             </Link>
           </motion.div>

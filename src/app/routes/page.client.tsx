@@ -68,7 +68,7 @@ export default function RoutesClientPage({
     },
   }
 
-  const titleText = "Our Ibiza Boat Routes";
+  const titleText = "Onze vaarroutes Ibiza";
 
   return (
     <div className="bg-gradient-to-b from-blue-50 via-white to-cyan-50 min-h-screen">
@@ -78,7 +78,7 @@ export default function RoutesClientPage({
         <div className="absolute inset-0 z-0">
           <Image 
             src="/images/boat/aereabarco2.webp" // Changed background image
-            alt="Aerial view of Ibiza coastline"
+            alt="Luchtopname Ibiza-kustlijn"
             fill
             priority 
             objectFit="cover" 
@@ -108,7 +108,7 @@ export default function RoutesClientPage({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 1.0 }} // Adjusted delay
           >
-            Departing from San Antonio, we explore the stunning West and North coasts. Discover the highlights of each route below.
+            Vertrek in San Antonio: we verkennen de west- en noordkust. Hieronder de hoogtepunten per route.
           </motion.p>
         </div>
       </section>
@@ -153,7 +153,7 @@ export default function RoutesClientPage({
             <div className="relative w-full aspect-video">
               <Image 
                 src="/images/boat/parejaensup.webp" // Representative image for West Route
-                alt="Couple paddleboarding near Cala Conta, West Ibiza Route"
+                alt="SUP bij Cala Conta — route west Ibiza"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -161,12 +161,12 @@ export default function RoutesClientPage({
             </div>
             <div className="p-6 md:p-8 flex-grow flex flex-col">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3 flex items-center">
-                <FiSun className="mr-3 text-orange-500"/> West Coast Route
+                <FiSun className="mr-3 text-orange-500"/> Route westkust
               </h2>
               <p className="text-gray-600 mb-6">
-                San Antonio to Cala Conta. Iconic beaches, vibrant scenery, and Ibiza's best swim spots with crystal-clear turquoise waters.
+                Van San Antonio naar Cala Conta: iconische stranden, helder turquoise water en de beste zwemstops.
               </p>
-              <h3 className="font-semibold text-lg text-gray-700 mb-4 mt-auto pt-4 border-t border-gray-100">Key Stops & Highlights:</h3>
+              <h3 className="font-semibold text-lg text-gray-700 mb-4 mt-auto pt-4 border-t border-gray-100">Hoogtepunten:</h3>
               <div className="space-y-4">
                 {westStops.map((stop, index) => {
                   const IconComponent = iconMap[stop.icon] || FiHelpCircle; // Map string back to component
@@ -197,7 +197,7 @@ export default function RoutesClientPage({
             <div className="relative w-full aspect-video">
               <Image 
                 src="/images/saforadada.png" // Representative image for North Route
-                alt="Aerial view of Salvador Ibiza near cliffs, North Ibiza Route"
+                alt="Salvador Ibiza bij kliffen — route noord Ibiza"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -205,12 +205,12 @@ export default function RoutesClientPage({
             </div>
             <div className="p-6 md:p-8 flex-grow flex flex-col">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3 flex items-center">
-                <FiAnchor className="mr-3 text-teal-500"/> Northern Route
+                <FiAnchor className="mr-3 text-teal-500"/> Route noordkust
               </h2>
               <p className="text-gray-600 mb-6">
-                San Antonio towards Sa Foradada. Explore secluded coves like Cala Gració, pass by the famous Cala Salada, and anchor in the pristine waters near the iconic Sa Foradada rock formation.
+                Richting Sa Foradada: afgelegen baaien zoals Cala Gració, langs Cala Salada, ankeren bij het iconische rotsblok.
               </p>
-              <h3 className="font-semibold text-lg text-gray-700 mb-4 mt-auto pt-4 border-t border-gray-100">Key Stops & Highlights:</h3>
+              <h3 className="font-semibold text-lg text-gray-700 mb-4 mt-auto pt-4 border-t border-gray-100">Hoogtepunten:</h3>
               <div className="space-y-4">
                 {northStops.map((stop, index) => {
                    const IconComponent = iconMap[stop.icon] || FiHelpCircle; // Map string back to component

@@ -20,8 +20,8 @@ export const metadata = pageMetadata({
 const allInclusiveBoatTripsJsonLd = {
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "All-Inclusive Boat Trips Ibiza by Salvador",
-  "description": "Ultimate all-inclusive boat trips in Ibiza with premium drinks, gourmet food, water sports, and professional crew. Everything included for the perfect day at sea.",
+  "name": "All-inclusive boottochten Ibiza met Salvador",
+  "description": "All-inclusive boottochten op Ibiza met premium drankjes, tapas, watersport en professionele bemanning. Alles inbegrepen voor een perfecte dag op zee.",
   "image": publicAssetUrl("/images/optimized/salvador-ibiza-boat-aerial-view.webp"),
   "brand": {
     "@type": "Brand",
@@ -64,16 +64,16 @@ export default function AllInclusiveBoatTripsPage() {
 
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6 text-center">
-              All-Inclusive Boat Trips <span className="text-yellow-600">Ibiza</span>
+              All-inclusive boottochten <span className="text-yellow-600">Ibiza</span>
             </h1>
             
             <p className="text-xl text-gray-600 text-center mb-12 leading-relaxed">
-              Experience the ultimate <strong>all-inclusive boat trips in Ibiza</strong>. 
-              Everything is included - premium drinks, gourmet food, water sports, and professional crew.
+              Beleef de ultieme <strong>all-inclusive boottocht op Ibiza</strong>. 
+              Alles is inbegrepen — premium drankjes, lekker eten, watersport en een professionele bemanning.
             </p>
 
             <div className="bg-white rounded-2xl shadow-lg p-8 mb-12">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">Everything Included - No Hidden Costs</h2>
+              <h2 className="text-2xl font-bold text-gray-800 mb-6">Alles inbegrepen — geen verborgen kosten</h2>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 <div className="flex items-start space-x-4">
@@ -81,8 +81,8 @@ export default function AllInclusiveBoatTripsPage() {
                     <span className="text-yellow-600 font-bold">🍾</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Premium Open Bar</h3>
-                    <p className="text-gray-600">Unlimited premium drinks: Spanish cava, sangria, beer, soft drinks, and water.</p>
+                    <h3 className="font-semibold text-gray-800 mb-2">Premium open bar</h3>
+                    <p className="text-gray-600">Onbeperkt premium drankjes: Spaanse cava, sangría, bier, frisdrank en water.</p>
                   </div>
                 </div>
                 
@@ -91,8 +91,8 @@ export default function AllInclusiveBoatTripsPage() {
                     <span className="text-yellow-600 font-bold">🍤</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Gourmet Spanish Tapas</h3>
-                    <p className="text-gray-600">Delicious selection of authentic Spanish tapas and fresh seasonal fruit.</p>
+                    <h3 className="font-semibold text-gray-800 mb-2">Spaanse tapas</h3>
+                    <p className="text-gray-600">Authentieke tapas en vers seizoensfruit.</p>
                   </div>
                 </div>
 
@@ -101,8 +101,8 @@ export default function AllInclusiveBoatTripsPage() {
                     <span className="text-yellow-600 font-bold">🏄‍♂️</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Water Sports Equipment</h3>
-                    <p className="text-gray-600">15 premium paddle boards, 2 kayaks, and professional snorkeling gear.</p>
+                    <h3 className="font-semibold text-gray-800 mb-2">Watersportuitrusting</h3>
+                    <p className="text-gray-600">15 premium paddleboards, 2 kajaks en professionele snorkelsets.</p>
                   </div>
                 </div>
 
@@ -111,8 +111,8 @@ export default function AllInclusiveBoatTripsPage() {
                     <span className="text-yellow-600 font-bold">⚓</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Professional Crew</h3>
-                    <p className="text-gray-600">Expert captain and crew ensuring safety, service, and local insights.</p>
+                    <h3 className="font-semibold text-gray-800 mb-2">Professionele bemanning</h3>
+                    <p className="text-gray-600">Ervaren schipper en crew voor veiligheid, service en lokale tips.</p>
                   </div>
                 </div>
 
@@ -121,8 +121,8 @@ export default function AllInclusiveBoatTripsPage() {
                     <span className="text-yellow-600 font-bold">🎵</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Premium Sound System</h3>
-                    <p className="text-gray-600">High-quality audio system with Bluetooth connectivity for your playlist.</p>
+                    <h3 className="font-semibold text-gray-800 mb-2">Geluidsinstallatie</h3>
+                    <p className="text-gray-600">Kwalitatief audiosysteem met Bluetooth voor je eigen afspeellijst.</p>
                   </div>
                 </div>
 
@@ -131,30 +131,30 @@ export default function AllInclusiveBoatTripsPage() {
                     <span className="text-yellow-600 font-bold">🏝️</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Hidden Coves Access</h3>
-                    <p className="text-gray-600">Exclusive access to secret swimming spots and pristine crystal-clear waters.</p>
+                    <h3 className="font-semibold text-gray-800 mb-2">Verborgen cala's</h3>
+                    <p className="text-gray-600">Toegang tot afgelegen zwemplekken en kraakhelder water.</p>
                   </div>
                 </div>
               </div>
 
               <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 mb-8">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">💎 All-Inclusive Experience Highlights</h3>
+                <h3 className="text-lg font-bold text-gray-800 mb-3">💎 Hoogtepunten all-inclusive</h3>
                 <ul className="space-y-2 text-gray-700">
                   <li className="flex items-center">
                     <span className="w-2 h-2 bg-yellow-500 rounded-full mr-3"></span>
-                    <strong>No additional costs</strong> - everything is included in your ticket
+                    <strong>Geen extra kosten</strong> — alles zit in je ticket
                   </li>
                   <li className="flex items-center">
                     <span className="w-2 h-2 bg-yellow-500 rounded-full mr-3"></span>
-                    <strong>Premium service</strong> - dedicated crew attention throughout the trip
+                    <strong>Premium service</strong> — persoonlijke aandacht van de crew
                   </li>
                   <li className="flex items-center">
                     <span className="w-2 h-2 bg-yellow-500 rounded-full mr-3"></span>
-                    <strong>Luxury amenities</strong> - comfortable seating and onboard facilities
+                    <strong>Comfort aan boord</strong> — ruime zitplekken en faciliteiten
                   </li>
                   <li className="flex items-center">
                     <span className="w-2 h-2 bg-yellow-500 rounded-full mr-3"></span>
-                    <strong>Stress-free experience</strong> - just arrive and enjoy, we handle everything
+                    <strong>Stressvrij</strong> — jij geniet, wij regelen de rest
                   </li>
                 </ul>
               </div>
@@ -165,7 +165,7 @@ export default function AllInclusiveBoatTripsPage() {
               <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden">
                 <Image
                   src="/images/optimized/salvador-ibiza-boat-aerial-view.webp"
-                  alt="All-inclusive boat trip Ibiza - aerial view of Salvador boat"
+                  alt="All-inclusive boottocht Ibiza — luchtopname Salvador"
                   fill
                   className="object-cover"
                 />
@@ -173,7 +173,7 @@ export default function AllInclusiveBoatTripsPage() {
               <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden">
                 <Image
                   src="/images/boat/tapastop.png"
-                  alt="Gourmet Spanish tapas included in all-inclusive boat trip"
+                  alt="Spaanse tapas inbegrepen bij all-inclusive boottocht"
                   fill
                   className="object-cover"
                 />
@@ -183,7 +183,7 @@ export default function AllInclusiveBoatTripsPage() {
             {/* Booking Widget */}
             <div className="bg-white rounded-2xl shadow-lg p-8 mb-12" id="booking-widget">
               <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-                Book Your All-Inclusive Experience
+                Boek je all-inclusive ervaring
               </h2>
               <TurbnbWidget
                 companyId={2}
@@ -193,37 +193,37 @@ export default function AllInclusiveBoatTripsPage() {
                 customProperties={{
                   displayBillingTerm: true,
                   showQuantity: true,
-                  quantity: "Quantity",
+                  quantity: "Gasten",
                   titleVariant: "Modern",
-                  bookNow: "RESERVE NOW",
-                  confirmReservationAndPay: "CLICK TO PAY",
-                  selectTimeLabel: "Time Selection",
-                  selectExperienceLabel: "Experience Type",
-                  addonsLabel: "Add-ons",
-                  childrenAge: "0 to 5 Years",
-                  infantAge: "0 to 5 Years",
-                  depositObservation: "After completing your booking, you will receive a confirmation voucher with all the details including meeting point and time. Please ensure your contact information (phone and email) is correct as we may need to reach you regarding your booking. A deposit of €20 per person is required to secure your reservation, with the remaining balance paid onboard."
+                  bookNow: "NU RESERVEREN",
+                  confirmReservationAndPay: "BEVESTIGEN & BETALEN",
+                  selectTimeLabel: "Kies tijd",
+                  selectExperienceLabel: "Soort ervaring",
+                  addonsLabel: "Extra's",
+                  childrenAge: "0 tot 5 jaar",
+                  infantAge: "0 tot 5 jaar",
+                  depositObservation: "Na je boeking ontvang je een bevestiging met ontmoetingspunt en tijd. Controleer of telefoon en e-mail kloppen. Aanbetaling €20 per persoon; het restant aan boord."
                 }}
               />
             </div>
 
             {/* Additional Options */}
             <div className="text-center">
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">More Premium Options</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">Meer premium-opties</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Link 
                   href="/private-boat-trips"
                   className="block bg-yellow-600 text-white p-6 rounded-lg hover:bg-yellow-700 transition-colors"
                 >
-                  <h4 className="text-xl font-bold mb-2">Private All-Inclusive Charter</h4>
-                  <p>Exclusive boat with personalized all-inclusive service</p>
+                  <h4 className="text-xl font-bold mb-2">Privé all-inclusive charter</h4>
+                  <p>Exclusieve boot met persoonlijke all-inclusive service</p>
                 </Link>
                 <Link 
                   href="/boat-trips"
                   className="block bg-gray-800 text-white p-6 rounded-lg hover:bg-gray-700 transition-colors"
                 >
-                  <h4 className="text-xl font-bold mb-2">All Boat Trips</h4>
-                  <p>Explore all our premium options</p>
+                  <h4 className="text-xl font-bold mb-2">Alle boottochten</h4>
+                  <p>Ontdek al onze premium-opties</p>
                 </Link>
               </div>
             </div>

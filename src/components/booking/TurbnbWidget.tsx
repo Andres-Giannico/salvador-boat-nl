@@ -37,14 +37,15 @@ export default function TurbnbWidget({
   customProperties = {
     displayBillingTerm: true,
     showQuantity: true,
-    quantity: "Quantity",
+    quantity: "Aantal gasten",
     titleVariant: "Modern",
-    bookNow: "RESERVE NOW",
-    confirmReservationAndPay: "CLICK TO PAY",
-    selectTimeLabel: "Time Selection",
-    selectExperienceLabel: "Experience Type",
-    addonsLabel: "Add-ons",
-    depositObservation: "After completing your booking, you will receive a confirmation voucher with all the details including meeting point and time. Please ensure your contact information (phone and email) is correct as we may need to reach you regarding your booking. A deposit of €20 per person is required to secure your reservation, with the remaining balance paid onboard."
+    bookNow: "NU RESERVEREN",
+    confirmReservationAndPay: "GA DOOR NAAR BETALING",
+    selectTimeLabel: "Tijdstip kiezen",
+    selectExperienceLabel: "Soort ervaring",
+    addonsLabel: "Extra's",
+    depositObservation:
+      "Na je boeking ontvang je een bevestiging met ontmoetingspunt en tijd. Controleer telefoon en e-mail. Aanbetaling €20 p.p.; het restbedrag contant aan boord.",
   }
 }: TurbnbWidgetProps) {
   useEffect(() => {

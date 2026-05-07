@@ -20,23 +20,23 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs';
 const influencerFeatures = [
   {
     icon: <FiShare2 className="w-6 h-6 text-pink-500" />,
-    title: "Effortless Setup",
-    description: "Sign up in minutes & get your unique booking link instantly."
+    title: "Snel aan de slag",
+    description: "Registreer in minuten en ontvang direct je unieke boekingslink."
   },
   {
     icon: <FiDollarSign className="w-6 h-6 text-green-500" />,
-    title: "$$$ Attractive Commissions $$$ ",
-    description: "Earn a massive ~25% commission on every single ticket sold via your link."
+    title: "Aantrekkelijke commissies",
+    description: "Verdien circa 25% commissie op elke ticketverkoop via jouw link."
   },
   {
     icon: <FiZap className="w-6 h-6 text-yellow-500" />,
-    title: "Instant URL Creation",
-    description: "Our Turbo system auto-generates your personalized URL. Share & start earning!"
+    title: "Direct je eigen URL",
+    description: "Ons Turbo-systeem maakt automatisch je persoonlijke link. Deel en verdien."
   },
   {
     icon: <FiTrendingUp className="w-6 h-6 text-purple-500" />,
-    title: "Maximize Your Influence",
-    description: "Turn your social clout into real cash. Perfect for influencers of all sizes."
+    title: "Maximaliseer je bereik",
+    description: "Zet je community om in echte inkomsten — voor influencers groot en klein."
   }
 ];
 
@@ -44,37 +44,37 @@ const influencerFeatures = [
 const businessFeatures = [
   {
     icon: <FiClock className="w-6 h-6 text-blue-500" />,
-    title: "Real-Time Availability",
-    description: "Instant access to our live calendar. No more back-and-forth calls!"
+    title: "Live beschikbaarheid",
+    description: "Direct toegang tot onze actuele agenda. Minder heen-en-weer via telefoon."
   },
   {
     icon: <FiMonitor className="w-6 h-6 text-teal-500" />,
-    title: "Seamless Widget Integration",
-    description: "Embed our booking widget directly on YOUR site. Keep your customers engaged."
+    title: "Widget op jouw site",
+    description: "Integreer onze boekingswidget op je eigen website en houd klanten on-site."
   },
   {
     icon: <FiBriefcase className="w-6 h-6 text-indigo-500" />,
-    title: "Direct System Connectivity",
-    description: "Make bookings instantly in our system. Ideal for concierges needing speed."
+    title: "Direct in ons systeem",
+    description: "Boekingen komen meteen binnen — ideaal voor conciërges en agentschappen."
   },
   {
     icon: <FiGift className="w-6 h-6 text-red-500" />,
-    title: "Add Value & Earn More",
-    description: "Offer premium experiences and earn competitive commissions."
+    title: "Meer waarde, meer omzet",
+    description: "Bied premium ervaringen aan met concurrerende commissies."
   }
 ];
 
 const testimonials = [
   {
-    quote: "Turbo Bookings made it so simple for me to monetize my influence. I couldn&apos;t be happier with the results!",
+    quote: "Turbo Bookings maakte monetiseren super eenvoudig. Ik ben heel tevreden met het resultaat!",
     author: "Alex M."
   },
   {
-    quote: "A game-changer! I earn a steady commission with minimal effort. Highly recommended for any influencer.",
+    quote: "Gamechanger: stabiele commissie met weinig moeite. Een aanrader voor influencers.",
     author: "Jamie L."
   },
   {
-    quote: "The automated system and instant URL generation are amazing. I&apos;m now earning money while I sleep!",
+    quote: "Geautomatiseerde URL's zijn top. Ik verdien zelfs wanneer ik slaap!",
     author: "Casey R."
   }
 ];
@@ -99,23 +99,23 @@ export default function PartnersClientPage() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 bg-clip-text text-transparent">
-              Partner with Salvador Ibiza & Skyrocket Your Earnings!
+              Partner met Salvador Ibiza — groei je omzet
             </h1>
             <p className="text-xl text-gray-700 mb-10">
-              Whether you&apos;re an influencer or a business, we have the perfect partnership program for you.
+              Voor influencers én bedrijven hebben we een partnershipprogramma op maat.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <a 
                 href="#influencers" 
                 className="px-8 py-4 bg-gradient-to-r from-pink-500 to-red-500 text-white rounded-full font-semibold hover:from-pink-600 hover:to-red-600 transition-all duration-300 shadow-lg hover:shadow-xl text-lg"
               >
-                <FiStar className="inline mr-2 mb-1" /> I&apos;m an Influencer
+                <FiStar className="inline mr-2 mb-1" /> Ik ben influencer
               </a>
               <a 
                 href="#businesses" 
                 className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl text-lg"
               >
-                 <FiBriefcase className="inline mr-2 mb-1"/> I&apos;m a Business
+                 <FiBriefcase className="inline mr-2 mb-1"/> Ik ben een bedrijf
               </a>
             </div>
           </motion.div>
@@ -132,10 +132,10 @@ export default function PartnersClientPage() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-pink-600 to-red-500 bg-clip-text text-transparent">
-              <FiStar className="inline mr-2 mb-1" /> For Influencers: Turbocharge Your Earnings!
+              <FiStar className="inline mr-2 mb-1" /> Voor influencers: meer verdienen met Turbo Bookings
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Turn your social influence into serious cash with our exclusive Turbo Bookings program. It&apos;s easy, automated, and highly rewarding!
+              Zet je bereik om in inkomsten met ons Turbo Bookings-programma — eenvoudig, geautomatiseerd en lonend.
             </p>
           </motion.div>
           
@@ -164,12 +164,12 @@ export default function PartnersClientPage() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
-             <h3 className="text-2xl font-bold mb-4 text-gray-800">How It Works (It&apos;s Simple!)</h3>
+             <h3 className="text-2xl font-bold mb-4 text-gray-800">Zo werkt het (simpel)</h3>
              <ol className="text-left inline-block max-w-md space-y-2 text-gray-600">
-                 <li className="flex items-start"><span className="font-bold mr-2 text-pink-600">1.</span> Provide basic info & avatar.</li>
-                 <li className="flex items-start"><span className="font-bold mr-2 text-pink-600">2.</span> Get your unique booking URL instantly.</li>
-                 <li className="flex items-start"><span className="font-bold mr-2 text-pink-600">3.</span> Share the link on your socials.</li>
-                 <li className="flex items-start"><span className="font-bold mr-2 text-pink-600">4.</span> Earn ~25% commission per ticket!</li>
+                 <li className="flex items-start"><span className="font-bold mr-2 text-pink-600">1.</span> Basisgegevens & avatar invullen.</li>
+                 <li className="flex items-start"><span className="font-bold mr-2 text-pink-600">2.</span> Direct je unieke boekings-URL ontvangen.</li>
+                 <li className="flex items-start"><span className="font-bold mr-2 text-pink-600">3.</span> De link delen op je socials.</li>
+                 <li className="flex items-start"><span className="font-bold mr-2 text-pink-600">4.</span> ~25% commissie per ticket!</li>
              </ol>
           </motion.div>
 
@@ -179,7 +179,7 @@ export default function PartnersClientPage() {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h3 className="text-2xl font-bold mb-8 text-gray-800">What Our Turbo Sellers Say</h3>
+            <h3 className="text-2xl font-bold mb-8 text-gray-800">Wat Turbo-sellers zeggen</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {testimonials.map((testimonial, index) => (
                 <motion.div
@@ -190,7 +190,7 @@ export default function PartnersClientPage() {
                   transition={{ delay: index * 0.1 }}
                   className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100"
                 >
-                  <p className="text-gray-600 mb-4 italic">{`&quot;${testimonial.quote}&quot;`}</p>
+                  <p className="text-gray-600 mb-4 italic">&ldquo;{testimonial.quote}&rdquo;</p>
                   <p className="font-semibold text-pink-600">— {testimonial.author}</p>
                 </motion.div>
               ))}
@@ -205,12 +205,12 @@ export default function PartnersClientPage() {
             transition={{ delay: 0.2 }}
           >
             <a 
-              href="https://wa.me/34871181393?text=Hi!%20I'm%20interested%20in%20the%20Turbo%20Bookings%20influencer%20program."
+              href="https://wa.me/34871181393?text=Hoi!%20Ik%20wil%20meer%20weten%20over%20het%20Turbo%20Bookings%20influencerprogramma."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block px-10 py-5 bg-gradient-to-r from-pink-500 to-red-500 text-white rounded-full font-bold hover:from-pink-600 hover:to-red-600 transition-all duration-300 shadow-xl hover:shadow-2xl text-xl transform hover:scale-105"
             >
-              Become a Turbo Seller NOW!
+              Word nu Turbo-seller!
             </a>
           </motion.div>
         </div>
@@ -226,10 +226,10 @@ export default function PartnersClientPage() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-               <FiBriefcase className="inline mr-2 mb-1"/> For Businesses: Elevate Your Offerings
+               <FiBriefcase className="inline mr-2 mb-1"/> Voor bedrijven: versterk je aanbod
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Partner with us via Turbookings to offer premium Salvador Ibiza experiences directly to your clients (Hotels, Concierges, Agencies, Websites).
+              Partner via Turbookings en bied Salvador Ibiza direct aan je klanten aan (hotels, conciërges, agentschappen, websites).
             </p>
           </motion.div>
           
@@ -260,15 +260,15 @@ export default function PartnersClientPage() {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <h3 className="text-2xl font-bold text-gray-800">The Turbookings Widget</h3>
+              <h3 className="text-2xl font-bold text-gray-800">De Turbookings-widget</h3>
               <p className="text-gray-600">
-                Integrate our powerful booking system directly onto your website:
+                Integreer ons reserveringssysteem direct op je website:
               </p>
               <ul className="space-y-3 text-gray-600">
-                <li className="flex items-center"><FiCheck className="text-green-500 mr-2" /> Customizable design to match your brand.</li>
-                <li className="flex items-center"><FiCheck className="text-green-500 mr-2" /> Live availability & pricing updates.</li>
-                <li className="flex items-center"><FiCheck className="text-green-500 mr-2" /> Simplified booking process for your clients.</li>
-                <li className="flex items-center"><FiCheck className="text-green-500 mr-2" /> Increase conversions & add value.</li>
+                <li className="flex items-center"><FiCheck className="text-green-500 mr-2" /> Aanpasbaar aan je merk.</li>
+                <li className="flex items-center"><FiCheck className="text-green-500 mr-2" /> Live beschikbaarheid & prijzen.</li>
+                <li className="flex items-center"><FiCheck className="text-green-500 mr-2" /> Eenvoudig boeken voor je klanten.</li>
+                <li className="flex items-center"><FiCheck className="text-green-500 mr-2" /> Hogere conversie & extra waarde.</li>
               </ul>
             </motion.div>
             <motion.div
@@ -280,7 +280,7 @@ export default function PartnersClientPage() {
               <div className="bg-gradient-to-r from-blue-200 to-purple-200 rounded-2xl p-1 shadow-lg">
                 <Image
                   src="/images/optimized/turbobookings-salvador-ibiza.webp"
-                  alt="Turbookings Widget Integration"
+                  alt="Turbookings-widget integratie Salvador Ibiza"
                   width={600}
                   height={400}
                   className="rounded-xl shadow-2xl"
@@ -295,12 +295,12 @@ export default function PartnersClientPage() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
-             <h3 className="text-2xl font-bold mb-4 text-gray-800">How to Get Started</h3>
+             <h3 className="text-2xl font-bold mb-4 text-gray-800">Aan de slag</h3>
              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {[ /* Reusing simpler steps structure */
-                  { title: "Register", description: "Complete our partner application form." },
-                  { title: "Verify & Train", description: "Get access & participate in online training." },
-                  { title: "Start Selling!", description: "Integrate the widget & offer our experiences." }
+                {[
+                  { title: "Registreren", description: "Vul het partnerformulier in." },
+                  { title: "Verifiëren & trainen", description: "Toegang krijgen en online training volgen." },
+                  { title: "Verkopen!", description: "Widget integreren en onze ervaringen aanbieden." }
                 ].map((step, index) => (
                   <motion.div
                     key={index}
@@ -328,14 +328,14 @@ export default function PartnersClientPage() {
             transition={{ delay: 0.2 }}
           >
             <a 
-              href="https://wa.me/34871181393?text=Hi!%20I'm%20interested%20in%20the%20Turbookings%20business%20partner%20program."
+              href="https://wa.me/34871181393?text=Hoi!%20Ik%20wil%20meer%20weten%20over%20het%20Turbookings%20bedrijfspartnerprogramma."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block px-10 py-5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-bold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-xl hover:shadow-2xl text-xl transform hover:scale-105"
             >
-              Partner with Us Today!
+              Word vandaag partner!
             </a>
-            <p className="text-sm text-gray-500 mt-4">Or email us at partners@salvadoribiza.com</p>
+            <p className="text-sm text-gray-500 mt-4">Of mail naar partners@salvadoribiza.com</p>
           </motion.div>
         </div>
       </section>

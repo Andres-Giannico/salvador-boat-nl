@@ -72,7 +72,7 @@ export default function GalleryClientPage({ images }: GalleryClientPageProps) {
           transition={{ duration: 0.6 }}
           className="text-4xl md:text-5xl font-bold text-center mb-8 bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent"
         >
-          Salvador Ibiza Gallery
+          Salvador Ibiza — galerij
         </motion.h1>
 
         {/* Gallery Description */}
@@ -83,40 +83,34 @@ export default function GalleryClientPage({ images }: GalleryClientPageProps) {
           className="max-w-4xl mx-auto text-center mb-16"
         >
           <p className="text-xl text-gray-600 mb-6 leading-relaxed">
-            Discover the magic of <strong>Salvador Ibiza boat trips</strong> through our stunning photo gallery. 
-            From breathtaking aerial views to intimate moments of joy, these images capture the essence of our 
-            <strong>all-inclusive boat experiences</strong> around the beautiful island of Ibiza.
+            Ontdek de sfeer van <strong>boottochten met Salvador Ibiza</strong> in onze fotogalerij — van luchtopnames tot spontane momenten aan boord, altijd rond onze <strong>all-inclusive ervaringen</strong> bij het eiland Ibiza.
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
             <div className="bg-white rounded-lg p-6 shadow-md">
-              <h3 className="text-lg font-bold text-blue-600 mb-3">🌅 Sunset Adventures</h3>
+              <h3 className="text-lg font-bold text-blue-600 mb-3">🌅 Zonsondergang</h3>
               <p className="text-gray-600 text-sm">
-                Experience the legendary Ibiza sunsets from our traditional wooden boat. Golden hour magic, 
-                romantic moments, and unforgettable memories captured at sea.
+                Ibiza's zonsondergang vanaf onze traditionele houten boot — gouden uur, romantiek en herinneringen op zee.
               </p>
             </div>
             
             <div className="bg-white rounded-lg p-6 shadow-md">
-              <h3 className="text-lg font-bold text-cyan-600 mb-3">🏄‍♀️ Water Sports Fun</h3>
+              <h3 className="text-lg font-bold text-cyan-600 mb-3">🏄‍♀️ Watersport</h3>
               <p className="text-gray-600 text-sm">
-                Paddle boarding, kayaking, and snorkeling adventures in crystal-clear Mediterranean waters. 
-                Our guests enjoying the 15 premium SUP boards and water sports equipment.
+                Paddleboarden, kajakken en snorkelen in helder Mediterrane water — met onze premium SUP's en uitrusting.
               </p>
             </div>
             
             <div className="bg-white rounded-lg p-6 shadow-md">
-              <h3 className="text-lg font-bold text-orange-600 mb-3">🍾 All-Inclusive Luxury</h3>
+              <h3 className="text-lg font-bold text-orange-600 mb-3">🍾 All-inclusive</h3>
               <p className="text-gray-600 text-sm">
-                Spanish tapas, premium drinks, and gourmet experiences onboard. See how we create 
-                the perfect all-inclusive atmosphere for our day and sunset trips.
+                Spaanse tapas, premium drankjes en sfeer aan boord — zo ervaren gasten onze dag- en zonsondergangtochten.
               </p>
             </div>
           </div>
           
           <p className="text-lg text-gray-700 mt-8 font-medium">
-            Ready to create your own memories? <a href="/boat-trips" className="text-blue-600 hover:underline">Book your Salvador Ibiza adventure today</a> 
-            and become part of our incredible gallery!
+            Zelf mee op stap? <a href="/boat-trips" className="text-blue-600 hover:underline">Boek nu je Salvador Ibiza-avontuur</a> en maak deel uit van onze volgende foto's!
           </p>
         </motion.div>
 
@@ -233,10 +227,10 @@ export default function GalleryClientPage({ images }: GalleryClientPageProps) {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
-              Experience Salvador Ibiza
+              Ervaar Salvador Ibiza
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-              Take a virtual journey with us and discover the magic of our boat trips
+              Een korte virtuele rondleiding — ontdek de magie van onze boottochten
             </p>
           </motion.div>
 
@@ -247,7 +241,7 @@ export default function GalleryClientPage({ images }: GalleryClientPageProps) {
             <div className="relative pb-[56.25%] h-0">
               <iframe
                 src="https://www.youtube.com/embed/0SN3YMMwUEk?autoplay=0&rel=0&showinfo=0&modestbranding=1"
-                title="Salvador Ibiza Boat Experience"
+                title="Salvador Ibiza bootervaring"
                 className="absolute top-0 left-0 w-full h-full rounded-2xl"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
@@ -269,7 +263,7 @@ export default function GalleryClientPage({ images }: GalleryClientPageProps) {
               href="/boat-trips" 
               className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-full font-semibold hover:from-blue-700 hover:to-cyan-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
             >
-              Book Your Experience
+              Boek je ervaring
             </a>
           </motion.div>
         </div>

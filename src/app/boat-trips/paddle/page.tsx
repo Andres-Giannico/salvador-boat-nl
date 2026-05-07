@@ -20,8 +20,8 @@ export const metadata = pageMetadata({
 const paddleBoatTripsJsonLd = {
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "Paddle Boarding Boat Trips Ibiza by Salvador",
-  "description": "Amazing paddle boarding boat trips in Ibiza with 15 premium SUP boards included. Explore hidden coves and crystal-clear waters on your adventure.",
+  "name": "SUP-boottochten Ibiza met Salvador",
+  "description": "SUP-boottochten op Ibiza met 15 premium paddleboards inbegrepen. Verken verborgen cala's en helder water.",
   "image": publicAssetUrl("/images/boat/chicasentablasup.png"),
   "brand": {
     "@type": "Brand",
@@ -64,16 +64,16 @@ export default function PaddleBoatTripsPage() {
 
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6 text-center">
-              Paddle Boarding Boat Trips <span className="text-teal-600">Ibiza</span>
+              SUP-boottochten <span className="text-teal-600">Ibiza</span>
             </h1>
             
             <p className="text-xl text-gray-600 text-center mb-12 leading-relaxed">
-              Experience the best <strong>paddle boarding boat trips in Ibiza</strong>. 
-              15 premium SUP boards included to explore hidden coves and crystal-clear waters.
+              De beste <strong>SUP-boottochten op Ibiza</strong>. 
+              15 premium paddleboards inbegrepen om verborgen cala's en helder water te verkennen.
             </p>
 
             <div className="bg-white rounded-2xl shadow-lg p-8 mb-12">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">Premium SUP Adventure Experience</h2>
+              <h2 className="text-2xl font-bold text-gray-800 mb-6">Premium SUP-avontuur</h2>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 <div className="flex items-start space-x-4">
@@ -81,8 +81,8 @@ export default function PaddleBoatTripsPage() {
                     <span className="text-teal-600 font-bold">🏄‍♀️</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">15 Premium SUP Boards</h3>
-                    <p className="text-gray-600">High-quality, stable paddle boards suitable for all skill levels, from beginners to advanced paddlers.</p>
+                    <h3 className="font-semibold text-gray-800 mb-2">15 premium paddleboards</h3>
+                    <p className="text-gray-600">Stabiele boards voor elk niveau, van beginners tot gevorderden.</p>
                   </div>
                 </div>
                 
@@ -91,8 +91,8 @@ export default function PaddleBoatTripsPage() {
                     <span className="text-teal-600 font-bold">🏝️</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Hidden Cove Access</h3>
-                    <p className="text-gray-600">Paddle to secluded beaches and hidden coves only accessible by water for a unique exploration.</p>
+                    <h3 className="font-semibold text-gray-800 mb-2">Verborgen cala's</h3>
+                    <p className="text-gray-600">Peddel naar afgelegen strandjes en baaitjes die je alleen vanaf het water bereikt.</p>
                   </div>
                 </div>
 
@@ -101,8 +101,8 @@ export default function PaddleBoatTripsPage() {
                     <span className="text-teal-600 font-bold">👨‍🏫</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">SUP Instruction</h3>
-                    <p className="text-gray-600">Professional guidance and basic SUP lessons for beginners, plus tips for improving your technique.</p>
+                    <h3 className="font-semibold text-gray-800 mb-2">SUP-uitleg</h3>
+                    <p className="text-gray-600">Professionele begeleiding en basiscursus voor beginners, plus tips om je techniek te verbeteren.</p>
                   </div>
                 </div>
 
@@ -111,8 +111,8 @@ export default function PaddleBoatTripsPage() {
                     <span className="text-teal-600 font-bold">💎</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Crystal Clear Waters</h3>
-                    <p className="text-gray-600">Paddle in pristine Mediterranean waters with excellent visibility and calm conditions.</p>
+                    <h3 className="font-semibold text-gray-800 mb-2">Helder water</h3>
+                    <p className="text-gray-600">Peddel in kraakhelder Middellandse-Zee-water met goed zicht en vaak rustige omstandigheden.</p>
                   </div>
                 </div>
 
@@ -121,8 +121,8 @@ export default function PaddleBoatTripsPage() {
                     <span className="text-teal-600 font-bold">🛶</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Kayaks Also Included</h3>
-                    <p className="text-gray-600">2 kayaks available for those who prefer kayaking or want to try both paddle sports.</p>
+                    <h3 className="font-semibold text-gray-800 mb-2">Ook kajaks inbegrepen</h3>
+                    <p className="text-gray-600">2 kajaks voor wie liever kajakt of beide wil proberen.</p>
                   </div>
                 </div>
 
@@ -131,52 +131,52 @@ export default function PaddleBoatTripsPage() {
                     <span className="text-teal-600 font-bold">📸</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Instagram-Worthy Spots</h3>
-                    <p className="text-gray-600">Paddle to the most photogenic locations around Ibiza for amazing photos and memories.</p>
+                    <h3 className="font-semibold text-gray-800 mb-2">Fotomooie plekken</h3>
+                    <p className="text-gray-600">Peddel naar de meest sfeervolle plekken rond Ibiza voor topfoto's.</p>
                   </div>
                 </div>
               </div>
 
               <div className="bg-teal-50 border border-teal-200 rounded-lg p-6 mb-8">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">🏄‍♂️ Perfect for All Skill Levels</h3>
+                <h3 className="text-lg font-bold text-gray-800 mb-3">🏄‍♂️ Voor elk niveau</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <ul className="space-y-2 text-gray-700">
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-teal-500 rounded-full mr-3"></span>
-                      <strong>Complete beginners</strong> - basic instruction included
+                      <strong>Absolute beginners</strong> — basiscursus inbegrepen
                     </li>
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-teal-500 rounded-full mr-3"></span>
-                      <strong>Intermediate paddlers</strong> - explore new areas
+                      <strong>Gemiddeld</strong> — nieuwe gebieden verkennen
                     </li>
                   </ul>
                   <ul className="space-y-2 text-gray-700">
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-teal-500 rounded-full mr-3"></span>
-                      <strong>Advanced SUPers</strong> - challenging routes available
+                      <strong>Gevorderden</strong> — uitdagendere routes mogelijk
                     </li>
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-teal-500 rounded-full mr-3"></span>
-                      <strong>Non-paddlers</strong> - can relax on boat and swim
+                      <strong>Niet-peddelaars</strong> — ontspannen op de boot en zwemmen
                     </li>
                   </ul>
                 </div>
               </div>
 
               <div className="bg-gradient-to-r from-teal-100 to-cyan-100 rounded-lg p-6">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">🌊 What's Included in Your SUP Adventure</h3>
+                <h3 className="text-lg font-bold text-gray-800 mb-3">🌊 Wat is inbegrepen</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <ul className="space-y-2 text-gray-700">
-                    <li>✅ 15 premium paddle boards</li>
-                    <li>✅ 2 kayaks for variety</li>
-                    <li>✅ All safety equipment</li>
-                    <li>✅ Basic SUP instruction</li>
+                    <li>✅ 15 premium paddleboards</li>
+                    <li>✅ 2 kajaks</li>
+                    <li>✅ Veiligheidsmateriaal</li>
+                    <li>✅ Basis SUP-uitleg</li>
                   </ul>
                   <ul className="space-y-2 text-gray-700">
-                    <li>✅ Snorkeling equipment</li>
-                    <li>✅ All-inclusive drinks & tapas</li>
-                    <li>✅ Professional crew guidance</li>
-                    <li>✅ Multiple paddle locations</li>
+                    <li>✅ Snorkelspullen</li>
+                    <li>✅ Drankjes & tapas (all-inclusive trip)</li>
+                    <li>✅ Begeleiding door crew</li>
+                    <li>✅ Meerdere peddelplekken</li>
                   </ul>
                 </div>
               </div>
@@ -187,7 +187,7 @@ export default function PaddleBoatTripsPage() {
               <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden">
                 <Image
                   src="/images/boat/chicasentablasup.png"
-                  alt="Woman paddle boarding during Ibiza boat trip"
+                  alt="Vrouw op paddleboard tijdens boottocht Ibiza"
                   fill
                   className="object-cover"
                 />
@@ -195,7 +195,7 @@ export default function PaddleBoatTripsPage() {
               <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden">
                 <Image
                   src="/images/boat/4chicasparadasentablaxxl.webp"
-                  alt="Four women on paddle boards during Ibiza SUP adventure"
+                  alt="Vier gasten op paddleboards tijdens SUP-avontuur Ibiza"
                   fill
                   className="object-cover"
                 />
@@ -205,7 +205,7 @@ export default function PaddleBoatTripsPage() {
             {/* Booking Widget */}
             <div className="bg-white rounded-2xl shadow-lg p-8 mb-12" id="booking-widget">
               <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-                Book Your SUP Adventure
+                Boek je SUP-avontuur
               </h2>
               <TurbnbWidget
                 companyId={2}
@@ -215,35 +215,37 @@ export default function PaddleBoatTripsPage() {
                 customProperties={{
                   displayBillingTerm: true,
                   showQuantity: true,
+                  quantity: "Gasten",
                   titleVariant: "Modern",
-                  bookNow: "BOOK SUP TRIP",
-                  confirmReservationAndPay: "CONFIRM & PAY",
-                  selectTimeLabel: "Time Selection",
-                  selectExperienceLabel: "SUP Experience",
-                  addonsLabel: "Add-ons",
-                  childrenAge: "6 to 12 Years",
-                  infantAge: "0 to 5 Years"
+                  bookNow: "SUP-TOCHT BOEKEN",
+                  confirmReservationAndPay: "BEVESTIGEN & BETALEN",
+                  selectTimeLabel: "Kies tijd",
+                  selectExperienceLabel: "SUP-ervaring",
+                  addonsLabel: "Extra's",
+                  childrenAge: "6 tot 12 jaar",
+                  infantAge: "0 tot 5 jaar",
+                  depositObservation: "Na je boeking ontvang je een bevestiging met ontmoetingspunt en tijd. Controleer of telefoon en e-mail kloppen. Aanbetaling €20 per persoon; het restant aan boord."
                 }}
               />
             </div>
 
             {/* Additional Options */}
             <div className="text-center">
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">More Water Sports Adventures</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">Meer watersportavonturen</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Link 
                   href="/boat-trips/snorkeling"
                   className="block bg-teal-600 text-white p-6 rounded-lg hover:bg-teal-700 transition-colors"
                 >
-                  <h4 className="text-xl font-bold mb-2">Snorkeling Experience</h4>
-                  <p>Combine SUP with underwater exploration</p>
+                  <h4 className="text-xl font-bold mb-2">Snorkelervaring</h4>
+                  <p>Combineer SUP met onderwater ontdekkingen</p>
                 </Link>
                 <Link 
                   href="/boat-trips"
                   className="block bg-gray-800 text-white p-6 rounded-lg hover:bg-gray-700 transition-colors"
                 >
-                  <h4 className="text-xl font-bold mb-2">All Boat Trips</h4>
-                  <p>Explore all our water adventures</p>
+                  <h4 className="text-xl font-bold mb-2">Alle boottochten</h4>
+                  <p>Bekijk al onze wateravonturen</p>
                 </Link>
               </div>
             </div>

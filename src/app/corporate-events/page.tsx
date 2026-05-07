@@ -14,31 +14,31 @@ export const metadata = pageMetadata({
 // --- Data Definitions (to be passed to client) --- 
 
 const corporateHighlights = [
-  { icon: FiBriefcase, title: "Unique & Memorable Venue", description: "Escape the office and impress clients or colleagues with an exclusive setting on the Mediterranean."}, 
-  { icon: GiTeamIdea, title: "Boost Team Morale", description: "Foster collaboration and connection in a relaxed, inspiring environment with shared activities."}, 
-  { icon: FiAward, title: "Ideal for Incentives", description: "Reward your top performers with a luxurious and unforgettable day out on the water."}, 
-  { icon: FiCheckCircle, title: "Professional & Private", description: "Our experienced crew ensures a smooth, discreet, and professional experience for your group."}, 
+  { icon: FiBriefcase, title: "Unieke locatie op zee", description: "Weg van kantoor — indruk maken op klanten of collega's met een exclusieve setting op de Middellandse Zee."}, 
+  { icon: GiTeamIdea, title: "Teamgevoel versterken", description: "Samenwerken en verbinden in een ontspannen omgeving met gedeelde activiteiten."}, 
+  { icon: FiAward, title: "Ideaal voor incentives", description: "Beloon toppresteerders met een luxe en onvergetelijke dag op het water."}, 
+  { icon: FiCheckCircle, title: "Professioneel & privé", description: "Ervaren bemanning zorgt voor een vlotte, discrete en professionele ervaring."}, 
 ];
 
 const idealForItems = [
-  { icon: FiUsers, title: "Team Building Days", description: "Activities and relaxation to strengthen bonds.", color: "text-blue-500" },
-  { icon: FiBriefcase, title: "Client Entertainment", description: "Host meetings or thank clients in style.", color: "text-purple-500" },
-  { icon: FiAward, title: "Incentive Trips", description: "Motivate and reward achievements.", color: "text-yellow-500" },
-  { icon: GiPartyPopper, title: "Company Celebrations", description: "Milestones, successes, or corporate parties.", color: "text-pink-500" },
-  { icon: FiSun, title: "Executive Retreats", description: "Combine business with pleasure in a private setting.", color: "text-orange-500" },
+  { icon: FiUsers, title: "Teambuildingdagen", description: "Activiteiten en ontspanning om banden te versterken.", color: "text-blue-500" },
+  { icon: FiBriefcase, title: "Klantenentertainment", description: "Meetings of dankjewel-momenten in stijl.", color: "text-purple-500" },
+  { icon: FiAward, title: "Incentive-reizen", description: "Motiveren en belonen.", color: "text-yellow-500" },
+  { icon: GiPartyPopper, title: "Bedrijfsfeesten", description: "Mijlpalen, successen of bedrijfsfeesten.", color: "text-pink-500" },
+  { icon: FiSun, title: "Executive retreats", description: "Zakelijk combineren met ontspanning — privé.", color: "text-orange-500" },
 ];
 
 const includedFeatures = [
-  { name: "Exclusive 4-Hour Charter", description: "Private use of Salvador Ibiza (up to 35 guests)" },
-  { name: "Captain & Professional Crew", description: "Ensuring smooth sailing and service" },
-  { name: "Standard Open Bar", description: "Soft drinks, beer, wine, cava, sangria, water" },
-  { name: "Light Spanish Tapas & Fruit", description: "Complimentary catering included" },
-  { name: "Water Activities Equipment", description: "Paddleboards, kayaks, snorkeling gear" },
-  { name: "Onboard Sound System", description: "Bluetooth enabled for your choice of music" },
-  { name: "Customizable Route Options", description: "Tailor the journey (weather permitting)" },
+  { name: "Exclusieve 4-uurs charter", description: "Privégebruik van de Salvador Ibiza (tot 35 gasten)" },
+  { name: "Kapitein & bemanning", description: "Vlotte vaart en service" },
+  { name: "Standaard open bar", description: "Frisdrank, bier, wijn, cava, sangría, water" },
+  { name: "Lichte Spaanse tapas & fruit", description: "Catering inbegrepen" },
+  { name: "Watersportuitrusting", description: "Paddleboards, kajaks, snorkelspullen" },
+  { name: "Geluidssysteem aan boord", description: "Bluetooth voor jullie eigen muziek" },
+  { name: "Aanpasbare route", description: "Op maat (weerpermitterend)" },
   {
-    name: "Optional Onboard Photographer",
-    description: "Capture memories! Photos available for optional purchase afterwards."
+    name: "Optioneel: fotograaf aan boord",
+    description: "Herinneringen vastleggen — foto's eventueel apart te koop."
   }
 ];
 

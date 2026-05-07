@@ -13,88 +13,88 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs';
 // Updated trip data to match FeaturedTripsSection
 const middayTrip = {
   imageUrl: "/images/optimized/salvador-ibiza-boat-aerial-view.webp",
-  imageAlt: "Salvador Ibiza Day Boat Trip - Premium Sea Adventure",
-  title: "Daytime Experience",
-  description: "Sun, sea, and adventure await.",
+  imageAlt: "Salvador Ibiza dagboottocht — premium zee-avontuur",
+  title: "Dagelijkse ervaring",
+  description: "Zon, zee en avontuur wachten op je.",
   isPopular: true,
-  badgeText: "2:00 PM - 5:00 PM",
+  badgeText: "14:00 – 17:00",
   badgeBgColor: "bg-blue-500",
   features: [
-    "15 Premium Paddle Boards & 2 Kayaks",
-    "Snorkeling Equipment",
-    "Swimming in Crystal Clear Waters",
-    "Premium Open Bar & Fresh Sangria",
-    "Spanish Tapas & Fresh Fruit",
-    "Premium Sound System"
+    "15 premium paddleboards & 2 kajaks",
+    "Snorkeluitrusting",
+    "Zwemmen in kraakhelder water",
+    "Premium open bar & verse sangría",
+    "Spaanse tapas & vers fruit",
+    "Premium geluidssysteem"
   ],
-  price: "€80 per adult",
-  priceSubtext: "Children 6-12: €45 | Under 6: Complimentary",
+  price: "€80 per volwassene",
+  priceSubtext: "Kinderen 6–12: €45 | Jonger dan 6: gratis",
   priceColor: "text-blue-600",
   ctaHref: "/boat-trips/day-trip#booking-widget",
   ctaBgColor: "bg-blue-600",
   ctaHoverBgColor: "hover:bg-blue-700",
   detailsHref: "/boat-trips/day-trip",
-  detailsText: "Explore Details"
+  detailsText: "Meer info"
 };
 
 const sunsetTrip = {
   imageUrl: "/images/sunset.png",
-  imageAlt: "Salvador Ibiza Sunset Boat Trip - Sunset & Sea Adventure",
-  title: "Sunset Voyage",
-  description: "Experience Ibiza's iconic sunset from the sea.",
-  badgeText: "6:30 PM - 9:30 PM",
+  imageAlt: "Salvador Ibiza zonsondergangboottocht",
+  title: "Zonsondergangtocht",
+  description: "Ervaar Ibiza's iconische zonsondergang vanaf zee.",
+  badgeText: "18:30 – 21:30",
   badgeBgColor: "bg-orange-500",
   features: [
-    "Sunset Swimming at Hidden Coves",
-    "15 Paddle Boards & 2 Kayaks",
-    "Snorkeling Equipment",
-    "Premium Bar & Unlimited Cava",
-    "Spanish Tapas Selection",
-    "Sunset at Café Mambo"
+    "Zonsondergangzwemmen bij verborgen baaien",
+    "15 paddleboards & 2 kajaks",
+    "Snorkeluitrusting",
+    "Premium bar & onbeperkt cava",
+    "Selectie Spaanse tapas",
+    "Zonsondergang bij Café Mambo"
   ],
-  price: "€80 per adult",
-  priceSubtext: "Children 6-12: €45 | Under 6: Complimentary",
+  price: "€80 per volwassene",
+  priceSubtext: "Kinderen 6–12: €45 | Jonger dan 6: gratis",
   priceColor: "text-orange-600",
   ctaHref: "/boat-trips/sunset-trip#booking-widget",
   ctaBgColor: "bg-orange-500",
   ctaHoverBgColor: "hover:bg-orange-600",
   detailsHref: "/boat-trips/sunset-trip",
-  detailsText: "Explore Details"
+  detailsText: "Meer info"
 };
 
 // Define included features data with Lucide icons
 const includedFeatures = [
   {
     icon: Anchor,
-    title: "Expert Captain & Crew",
-    description: "Professional service ensuring safety and local insights"
+    title: "Ervaren kapitein & bemanning",
+    description: "Professionele service met veiligheid en lokale tips"
   },
   {
     icon: Coffee, // Represents drinks/snacks
-    title: "All-Inclusive Service",
-    description: "Unlimited premium drinks, gourmet snacks, and fresh fruit"
+    title: "All-inclusive service",
+    description: "Onbeperkte premium drankjes, hapjes en vers fruit"
   },
   {
     icon: Music,
-    title: "Premium Sound System",
-    description: "High-quality audio with Bluetooth connectivity"
+    title: "Premium geluidssysteem",
+    description: "Hoge kwaliteit audio met Bluetooth"
   },
   {
     icon: Camera, // Represents photo opportunities
-    title: "Unforgettable Views",
-    description: "Capture stunning moments against Ibiza's iconic backdrop"
+    title: "Onvergetelijke uitzichten",
+    description: "Leg spectaculaire momenten vast bij Ibiza's iconische kust"
   }
 ];
 
 const galleryImages = [
-  { src: "/images/boat/chicaspasandolomuybien.webp", alt: "Friends enjoying drinks and laughing on a Salvador Ibiza boat trip" },
-  { src: "/images/boat/chicosdisfrutandoenproa.webp", alt: "Group of friends having fun at the bow of the Salvador boat in Ibiza" },
-  { src: "/images/boat/chicasensupencueva.webp", alt: "Girls exploring Ibiza caves on paddleboards during a boat tour" },
-  { src: "/images/boat/doschicasfelicesenproa.webp", alt: "Two friends enjoying the sun on a boat trip in Ibiza" },
-  { src: "/images/boat/parejasnorkeling.webp", alt: "Couple snorkeling in crystal clear Ibiza waters on a boat tour" },
-  { src: "/images/optimized/toasting-drinks-ibiza-boat.webp", alt: "Friends toasting at the boat's bar during an Ibiza excursion" },
-  { src: "/images/optimized/salvador-ibiza-boat-aerial-view.webp", alt: "The Salvador charter yacht in beautiful turquoise waters of Ibiza" },
-  { src: "/images/boat/4chicasparadasentablaxxl.webp", alt: "Group of friends on a large paddleboard during a Salvador Ibiza boat excursion" }
+  { src: "/images/boat/chicaspasandolomuybien.webp", alt: "Vrienden genieten van drankjes tijdens een boottocht met Salvador Ibiza" },
+  { src: "/images/boat/chicosdisfrutandoenproa.webp", alt: "Groep vrienden aan de voorplecht van de Salvador in Ibiza" },
+  { src: "/images/boat/chicasensupencueva.webp", alt: "Paddleboarden bij grotten tijdens een boottocht in Ibiza" },
+  { src: "/images/boat/doschicasfelicesenproa.webp", alt: "Twee vriendinnen genieten van de zon op zee bij Ibiza" },
+  { src: "/images/boat/parejasnorkeling.webp", alt: "Stel snorkelt in kristalhelder water tijdens een boottocht" },
+  { src: "/images/optimized/toasting-drinks-ibiza-boat.webp", alt: "Vrienden proosten aan de bar tijdens een excursie in Ibiza" },
+  { src: "/images/optimized/salvador-ibiza-boat-aerial-view.webp", alt: "De Salvador in turquoise wateren voor de kust van Ibiza" },
+  { src: "/images/boat/4chicasparadasentablaxxl.webp", alt: "Groep op een grote paddleboard tijdens een Salvador-boottocht" }
 ];
 
 export default function BoatTripsClientPage() {
@@ -146,7 +146,7 @@ export default function BoatTripsClientPage() {
         >
           <Image
             src="/images/optimized/salvador-ibiza-boat-drone-view.webp"
-            alt="Aerial drone view of the Salvador charter boat in Ibiza, ready for a boat trip"
+            alt="Dronebeeld van de Salvador charterboot in Ibiza, klaar voor een boottocht"
             fill
             priority
             className="object-cover object-center brightness-75"
@@ -162,10 +162,10 @@ export default function BoatTripsClientPage() {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 drop-shadow-xl leading-tight">
-            Your Perfect Ibiza <span className="text-cyan-400">Boat Trip</span>
+            Jouw perfecte Ibiza <span className="text-cyan-400">boottocht</span>
           </h1>
           <p className="text-lg md:text-xl max-w-3xl mx-auto opacity-95 mb-8 drop-shadow-md">
-            Choose between our all-inclusive <span className="font-semibold text-cyan-300">3-hour</span> Daytime Experience or the magical Sunset Voyage.
+            Kies uit onze all-inclusive <span className="font-semibold text-cyan-300">3 uur durende</span> dagervaring of de magische zonsondergangtocht.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <motion.button
@@ -175,7 +175,7 @@ export default function BoatTripsClientPage() {
               className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 hover:bg-black/50 transition"
             >
               <FiSun className="text-orange-300" />
-              <span>Daytime Experience</span>
+              <span>Dagelijkse ervaring</span>
             </motion.button>
             <motion.button
               onClick={() => scrollToTrip('sunset-trip-card')}
@@ -184,7 +184,7 @@ export default function BoatTripsClientPage() {
               className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 hover:bg-black/50 transition"
             >
               <FiMoon className="text-indigo-300" />
-              <span>Sunset Voyage</span>
+              <span>Zonsondergangtocht</span>
             </motion.button>
           </div>
         </motion.div>
@@ -213,13 +213,13 @@ export default function BoatTripsClientPage() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Our Signature Boat Trips: Day or Sunset
+              Onze boottochten: overdag of bij zonsondergang
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              Embark on the ultimate <strong>Ibiza boat trip</strong> with Salvador. We offer two distinct, unforgettable <strong>boat tours</strong> for you to choose your perfect sea adventure. Whether you prefer basking in the daytime sun or witnessing a magical sunset, every trip is a premium, all-inclusive experience.
+              Ga mee op de ultieme <strong>boottocht in Ibiza</strong> met Salvador. We bieden twee onvergetelijke <strong>bootrondvaarten</strong> zodat je jouw perfecte zee-avondreis kiest. Of je nu geniet van de middagzon of van een magische zonsondergang — elke tocht is premium en all-inclusive.
             </p>
             <p className="text-md text-gray-600">
-              Our <strong>boat trips</strong> are expertly crafted to showcase the stunning Ibiza coastline. Discover hidden coves, swim in turquoise waters, and enjoy thrilling activities like paddle boarding, kayaking, and snorkeling. All this while you unwind with great music, a premium open bar, and freshly prepared Spanish tapas.
+              Onze <strong>boottochten</strong> laten de mooiste kanten van de Ibizaanse kust zien. Ontdek verborgen baaien, zwem in turquoise water en geniet van paddleboarden, kajakken en snorkelen — onder begeleiding van goede muziek, een premium open bar en vers bereide Spaanse tapas.
             </p>
           </motion.div>
 
@@ -257,10 +257,10 @@ export default function BoatTripsClientPage() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-              Moments Aboard Salvador
+              Momenten aan boord van de Salvador
             </h2>
             <p className="text-lg text-gray-700">
-              Explore snapshots from our unforgettable Daytime & Sunset trips.
+              Sfeerbeelden van onze onvergetelijke dag- en zonsondergangtochten.
             </p>
           </motion.div>
           <ImageGallery images={galleryImages} className="max-w-6xl mx-auto" />
@@ -277,10 +277,10 @@ export default function BoatTripsClientPage() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-              Included in Every Trip
+              Inbegrepen bij elke tocht
             </h2>
             <p className="text-lg text-gray-600">
-              Relax and enjoy, we've taken care of the details.
+              Ontspan en geniet — wij hebben aan alles gedacht.
             </p>
           </motion.div>
 
@@ -316,10 +316,10 @@ export default function BoatTripsClientPage() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Explore Our Specialized <span className="text-blue-600">Boat Trips</span>
+              Ontdek onze <span className="text-blue-600">boottochten</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Discover the perfect boat trip for your needs. From romantic sunsets to family adventures, we have something special for everyone.
+              Van romantische zonsondergangen tot gezinsavonturen — voor ieder wat wils.
             </p>
           </motion.div>
 
@@ -336,10 +336,10 @@ export default function BoatTripsClientPage() {
               >
                 <div className="flex items-center mb-4">
                   <FiSun className="w-6 h-6 mr-3" />
-                  <h3 className="text-xl font-bold">Sunset Trips</h3>
+                  <h3 className="text-xl font-bold">Zonsondergangtochten</h3>
                 </div>
-                <p className="mb-4 opacity-90">Experience Ibiza's legendary sunsets from the sea. Magical golden hour cruises.</p>
-                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">620 searches/month</span>
+                <p className="mb-4 opacity-90">Ibiza's legendarische zonsondergang vanaf zee — gouden uur op het water.</p>
+                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">620 zoekopdr./mnd</span>
               </Link>
             </motion.div>
 
@@ -355,10 +355,10 @@ export default function BoatTripsClientPage() {
               >
                 <div className="flex items-center mb-4">
                   <FiMapPin className="w-6 h-6 mr-3" />
-                  <h3 className="text-xl font-bold">San Antonio Departures</h3>
+                  <h3 className="text-xl font-bold">Vertrek San Antonio</h3>
                 </div>
-                <p className="mb-4 opacity-90">Convenient departures from San Antonio Bay. Explore the stunning west coast.</p>
-                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">240 searches/month</span>
+                <p className="mb-4 opacity-90">Handige vertrekken vanuit de baai van San Antonio — verken de westkust.</p>
+                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">240 zoekopdr./mnd</span>
               </Link>
             </motion.div>
 
@@ -374,10 +374,10 @@ export default function BoatTripsClientPage() {
               >
                 <div className="flex items-center mb-4">
                   <FiSun className="w-6 h-6 mr-3" />
-                  <h3 className="text-xl font-bold">Day Trips</h3>
+                  <h3 className="text-xl font-bold">Dagtochten</h3>
                 </div>
-                <p className="mb-4 opacity-90">Perfect daytime adventures with swimming, snorkeling, and water sports.</p>
-                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">50 searches/month</span>
+                <p className="mb-4 opacity-90">Ideaal voor overdag: zwemmen, snorkelen en watersport.</p>
+                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">50 zoekopdr./mnd</span>
               </Link>
             </motion.div>
 
@@ -393,10 +393,10 @@ export default function BoatTripsClientPage() {
               >
                 <div className="flex items-center mb-4">
                   <FiUsers className="w-6 h-6 mr-3" />
-                  <h3 className="text-xl font-bold">Family Trips</h3>
+                  <h3 className="text-xl font-bold">Gezinstochten</h3>
                 </div>
-                <p className="mb-4 opacity-90">Safe, fun, and educational boat trips perfect for families with children.</p>
-                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">40 searches/month</span>
+                <p className="mb-4 opacity-90">Veilig, leuk en geschikt voor gezinnen met kinderen.</p>
+                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">40 zoekopdr./mnd</span>
               </Link>
             </motion.div>
 
@@ -412,10 +412,10 @@ export default function BoatTripsClientPage() {
               >
                 <div className="flex items-center mb-4">
                   <FiGift className="w-6 h-6 mr-3" />
-                  <h3 className="text-xl font-bold">All-Inclusive</h3>
+                  <h3 className="text-xl font-bold">All-inclusive</h3>
                 </div>
-                <p className="mb-4 opacity-90">Everything included: drinks, food, equipment, and entertainment.</p>
-                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">10 searches/month</span>
+                <p className="mb-4 opacity-90">Alles inbegrepen: drankjes, eten, uitrusting en entertainment.</p>
+                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">10 zoekopdr./mnd</span>
               </Link>
             </motion.div>
 
@@ -431,10 +431,10 @@ export default function BoatTripsClientPage() {
               >
                 <div className="flex items-center mb-4">
                   <FiAnchor className="w-6 h-6 mr-3" />
-                  <h3 className="text-xl font-bold">Private Charters</h3>
+                  <h3 className="text-xl font-bold">Privécharters</h3>
                 </div>
-                <p className="mb-4 opacity-90">Exclusive boat just for your group. Ultimate privacy and luxury.</p>
-                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">100 searches/month</span>
+                <p className="mb-4 opacity-90">Exclusief voor jouw groep — maximaal privacy en comfort.</p>
+                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">100 zoekopdr./mnd</span>
               </Link>
             </motion.div>
           </div>

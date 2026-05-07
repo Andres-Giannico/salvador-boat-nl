@@ -10,43 +10,43 @@ import TurbnbWidget from '@/components/booking/TurbnbWidget';
 const highlights = [
   {
     icon: <FiSun className="w-6 h-6 text-orange-500" />,
-    title: "Magical Golden Hour",
-    description: "Witness Ibiza's legendary sunsets from the best viewpoint - the sea"
+    title: "Magisch gouden uur",
+    description: "Ibiza's legendarische zonsondergangen — het beste uitzicht is vanaf zee"
   },
   {
     icon: <FiClock className="w-6 h-6 text-blue-500" />,
-    title: "Perfect 3-Hour Duration",
-    description: "Timed perfectly to catch the golden hour and sunset spectacle"
+    title: "Perfecte duur: 3 uur",
+    description: "Precies getimed op gouden uur en het zonsondergangsspektakel"
   },
   {
     icon: <FiUsers className="w-6 h-6 text-green-500" />,
-    title: "Intimate Group Experience",
-    description: "Share this magical moment with fellow sunset lovers"
+    title: "Gezellige groepservaring",
+    description: "Deel dit moment met andere liefhebbers van de zonsondergang"
   },
   {
     icon: <FiMapPin className="w-6 h-6 text-red-500" />,
-    title: "Premium Locations",
-    description: "Visit the best sunset viewing spots around Ibiza's coast"
+    title: "Toplocaties",
+    description: "De mooiste plekken om de zon te zien zakken langs de kust"
   },
   {
     icon: <FiCamera className="w-6 h-6 text-purple-500" />,
-    title: "Instagram-Worthy Moments",
-    description: "Capture stunning photos with the Mediterranean sunset backdrop"
+    title: "Foto-waardige momenten",
+    description: "Prachtige beelden met de Middellandse Zee als decor"
   },
   {
     icon: <FiHeart className="w-6 h-6 text-pink-500" />,
-    title: "Romantic Atmosphere",
-    description: "Perfect for couples, proposals, and special celebrations"
+    title: "Romantische sfeer",
+    description: "Ideaal voor koppels, aanzoeken en bijzondere momenten"
   }
 ];
 
 const galleryImages = [
-  { src: "/images/optimized/friends-ibiza-sunset-boat.webp", alt: "Group enjoying sunset during boat trip in Ibiza" },
-  { src: "/images/optimized/drinks-cave-sunset-ibiza.webp", alt: "Cava glass during magical sunset cruise in Ibiza" },
-  { src: "/images/boat/doschicassupsunset.webp", alt: "Two girls paddleboarding during sunset boat trip" },
-  { src: "/images/sunset.png", alt: "Beautiful Ibiza sunset from Salvador boat" },
-  { src: "/images/optimized/es-vedra-island-ibiza-background.webp", alt: "Sunset view with Es Vedra island in background" },
-  { src: "/images/optimized/sunset-sailing-cruise-ibiza.webp", alt: "Sunset sailing experience in Ibiza waters" }
+  { src: "/images/optimized/friends-ibiza-sunset-boat.webp", alt: "Groep geniet van zonsondergang op boot Ibiza" },
+  { src: "/images/optimized/drinks-cave-sunset-ibiza.webp", alt: "Cava tijdens magische zonsondergangcruise Ibiza" },
+  { src: "/images/boat/doschicassupsunset.webp", alt: "Twee gasten op paddleboard tijdens zonsondergangtocht" },
+  { src: "/images/sunset.png", alt: "Zonsondergang Ibiza vanaf boot Salvador" },
+  { src: "/images/optimized/es-vedra-island-ibiza-background.webp", alt: "Zonsondergang met eiland Es Vedrà op de achtergrond" },
+  { src: "/images/optimized/sunset-sailing-cruise-ibiza.webp", alt: "Zeilen bij zonsondergang in het water rond Ibiza" }
 ];
 
 export default function SunsetBoatTripsClientPage() {
@@ -79,7 +79,7 @@ export default function SunsetBoatTripsClientPage() {
         >
           <Image
             src="/images/optimized/sunset-sailing-cruise-ibiza.webp"
-            alt="Magical sunset boat trip in Ibiza with Salvador"
+            alt="Magische zonsondergangboottocht Ibiza met Salvador"
             fill
             priority
             className="object-cover object-center filter brightness-75"
@@ -99,15 +99,15 @@ export default function SunsetBoatTripsClientPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
-            Magical Sunsets
+            Magische zonsondergangen
           </motion.span>
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 drop-shadow-xl leading-tight">
-            Sunset Boat Trips <span className="text-orange-400">Ibiza</span>
+            Zonsondergangboottochten <span className="text-orange-400">Ibiza</span>
           </h1>
           <p className="text-lg md:text-xl max-w-3xl mx-auto opacity-95 mb-8 drop-shadow-md">
-            Experience the magic of <span className="font-semibold text-orange-300">3-hour</span> sunset cruises. 
-            Watch Ibiza's legendary sunsets from the best viewpoint - the Mediterranean Sea.
+            Beleef <span className="font-semibold text-orange-300">3 uur</span> op zee tijdens de gouden uren. 
+            Ibiza's zonsondergang — het mooiste vanaf de Middellandse Zee.
           </p>
           
           {/* Badges */}
@@ -122,14 +122,14 @@ export default function SunsetBoatTripsClientPage() {
               whileHover={{ scale: 1.05 }}
             >
               <FiClock className="mr-2 text-orange-300" />
-              <span>6:00 PM - 9:00 PM</span>
+              <span>18:00 – 21:00 (circa)</span>
             </motion.div>
             <motion.div 
               className="flex items-center bg-black/40 backdrop-blur-sm px-5 py-2.5 rounded-full text-sm md:text-base border border-white/10 shadow-lg"
               whileHover={{ scale: 1.05 }}
             >
               <FiUsers className="mr-2 text-orange-300" />
-              <span>€80 per person</span>
+              <span>€80 p.p.</span>
             </motion.div>
           </motion.div>
           
@@ -143,7 +143,7 @@ export default function SunsetBoatTripsClientPage() {
               href="#booking"
               className="inline-block bg-gradient-to-r from-orange-500 to-pink-600 hover:from-orange-400 hover:to-pink-500 text-white font-bold py-4 px-8 rounded-lg shadow-[0_10px_25px_-5px_rgba(251,146,60,0.5)] transition duration-300 text-lg"
             >
-              Book Your Sunset Trip
+              Boek je zonsondergangtocht
             </Link>
           </motion.div>
         </motion.div>
@@ -168,15 +168,15 @@ export default function SunsetBoatTripsClientPage() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-              Ibiza's Most Magical <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-pink-500">Sunset Experience</span>
+              Ibiza's mooiste <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-pink-500">zonsondergangervaring</span>
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              Join Salvador Ibiza for an unforgettable <strong>sunset boat trip</strong> that showcases the island's legendary golden hour. 
-              Our <strong>sunset boat tours</strong> are perfectly timed to capture the most breathtaking moments as the sun sets over the Mediterranean.
+              Vaar mee met Salvador Ibiza voor een onvergetelijke <strong>zonsondergangboottocht</strong> tijdens het gouden uur. 
+              Onze <strong>zonsondergangtochten</strong> zijn zo gepland dat je de indrukwekkendste momenten meemaakt als de zon boven de zee zakt.
             </p>
             <p className="text-md text-gray-600">
-              From our departure point in <strong>San Antonio</strong>, we'll cruise to the best sunset viewing locations around Ibiza's coast. 
-              Watch the sky transform into a canvas of oranges, pinks, and purples while enjoying premium drinks, Spanish tapas, and the gentle sound of waves.
+              Vanuit <strong>San Antonio</strong> varen we naar de beste plekken aan de kust. 
+              Zie de lucht kleuren in oranje, roze en paars, met premium drankjes, Spaanse tapas en het zachte geluid van de golven.
             </p>
           </motion.div>
 
@@ -221,7 +221,7 @@ export default function SunsetBoatTripsClientPage() {
             transition={{ duration: 0.8 }}
           >
             <h3 className="text-3xl font-bold text-center text-gray-800 mb-12">
-              Sunset Moments Gallery
+              Galerij zonsondergangmomenten
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {galleryImages.map((image, index) => (
@@ -257,10 +257,10 @@ export default function SunsetBoatTripsClientPage() {
             transition={{ duration: 0.8 }}
           >
             <h3 className="text-3xl md:text-4xl font-bold mb-6">
-              Book Your Sunset Adventure
+              Boek je zonsondergangavontuur
             </h3>
             <p className="text-xl mb-8 opacity-90">
-              Don't miss Ibiza's most magical moments. Reserve your sunset boat trip today!
+              Mis Ibiza's meest magische momenten niet. Reserveer vandaag nog je sunset trip!
             </p>
             
             {/* Widget Container */}
@@ -273,14 +273,16 @@ export default function SunsetBoatTripsClientPage() {
                customProperties={{
                  "displayBillingTerm": true,
                  "showQuantity": true,
+                 "quantity": "Gasten",
                  "titleVariant": "Modern",
-                 "bookNow": "BOOK SUNSET TRIP",
-                 "confirmReservationAndPay": "CONFIRM & PAY",
-                 "selectTimeLabel": "Select Sunset Time",
-                 "selectExperienceLabel": "Sunset Experience",
-                 "addonsLabel": "Add-ons",
-                 "childrenAge": "6 to 12 Years",
-                 "infantAge": "0 to 5 Years"
+                 "bookNow": "ZONSONDERGANG BOEKEN",
+                 "confirmReservationAndPay": "BEVESTIGEN & BETALEN",
+                 "selectTimeLabel": "Kies tijd zonsondergang",
+                 "selectExperienceLabel": "Zonsondergangervaring",
+                 "addonsLabel": "Extra's",
+                 "childrenAge": "6 tot 12 jaar",
+                 "infantAge": "0 tot 5 jaar",
+                 "depositObservation": "Na je boeking ontvang je een bevestiging met ontmoetingspunt en tijd. Controleer of telefoon en e-mail kloppen. Aanbetaling €20 per persoon; het restant aan boord."
                }}
              />
             </div>
@@ -299,23 +301,23 @@ export default function SunsetBoatTripsClientPage() {
             transition={{ duration: 0.8 }}
           >
             <h4 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-              Ready for Your Sunset Boat Trip in Ibiza?
+              Klaar voor je zonsondergangboottocht op Ibiza?
             </h4>
             <p className="text-lg text-gray-600 mb-8">
-              Join us for an unforgettable evening on the Mediterranean. Every sunset is unique, every moment is magical.
+              Een onvergetelijke avond op zee. Elke zonsondergang is uniek.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/boat-trips"
                 className="inline-block bg-gray-800 text-white font-semibold py-3 px-8 rounded-lg hover:bg-gray-700 transition-colors"
               >
-                View All Boat Trips
+                Alle boottochten
               </Link>
               <Link
                 href="/contact"
                 className="inline-block border-2 border-gray-800 text-gray-800 font-semibold py-3 px-8 rounded-lg hover:bg-gray-800 hover:text-white transition-colors"
               >
-                Contact Us
+                Contact
               </Link>
             </div>
           </motion.div>

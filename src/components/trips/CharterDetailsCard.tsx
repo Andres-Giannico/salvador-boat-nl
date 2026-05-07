@@ -26,19 +26,19 @@ const CharterDetailsCard = ({ onBookNowClick }: CharterDetailsCardProps) => {
             <path d="M19 13V19.4C19 19.7314 18.7314 20 18.4 20H5.6C5.26863 20 5 19.7314 5 19.4V13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </span>
-        Charter Details & Booking
+        Charterdetails & boeken
       </h3>
       <div className="space-y-3 text-sm border-t border-b border-gray-200 py-4 mb-5">
-        <p className="flex items-center justify-between"><FiClock className="mr-2 w-4 h-4 text-blue-600"/> <strong>Duration:</strong> <span>4 Hours (+ Extra Available)</span></p>
-        <p className="flex items-center justify-between"><FiUsers className="mr-2 w-4 h-4 text-blue-600"/> <strong>Capacity:</strong> <span>Up to 35 Guests</span></p>
+        <p className="flex items-center justify-between"><FiClock className="mr-2 w-4 h-4 text-blue-600"/> <strong>Duur:</strong> <span>4 uur (+ extra mogelijk)</span></p>
+        <p className="flex items-center justify-between"><FiUsers className="mr-2 w-4 h-4 text-blue-600"/> <strong>Capaciteit:</strong> <span>Tot 35 gasten</span></p>
         <div className="pt-3 mt-3">
           <p className="flex items-center font-semibold text-gray-800 mb-1"><FiDollarSign className="mr-2 w-4 h-4 text-blue-600"/> 
-            <span>Pricing (4 Hours):</span>
+            <span>Prijzen (4 uur):</span>
           </p>
           <ul className="text-xs pl-6 space-y-1 text-gray-600 list-disc list-inside">
-            <li>Low Season: €1350 + €30/PP Bar </li>
-            <li>High Season: €1650 + €30/PP Bar </li>
-            <li>Extra Hour: €500</li>
+            <li>Laagseizoen: €1350 + €30 p.p. bar </li>
+            <li>Hoogseizoen: €1650 + €30 p.p. bar </li>
+            <li>Extra uur: €500</li>
           </ul>
         </div>
       </div>
@@ -48,11 +48,11 @@ const CharterDetailsCard = ({ onBookNowClick }: CharterDetailsCardProps) => {
         whileHover={{ scale: 1.03, boxShadow: "0 10px 25px -5px rgba(59,130,246,0.5)" }}
         whileTap={{ scale: 0.98 }}
       >
-        Book Your Charter Now
+        Boek nu je charter
       </motion.button>
       <p className="text-xs text-center text-gray-500 mt-3">
-        Excludes 21% VAT. Full day & custom quotes available.
-        <Link href="/contact?subject=Charter+Question" className="text-blue-600 hover:underline ml-1">Contact for questions</Link>
+        Exclusief 21% btw. Hele dag & op maat op aanvraag.
+        <Link href="/contact?subject=Charter+Question" className="text-blue-600 hover:underline ml-1">Contact voor vragen</Link>
       </p>
     </motion.div>
   );

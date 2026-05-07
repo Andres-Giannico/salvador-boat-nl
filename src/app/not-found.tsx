@@ -7,24 +7,24 @@ export default function NotFound() {
       <div className="relative w-40 h-40 mb-8">
         <Image
           src="/images/optimized/salvador-ibiza-boat-trips-logo.webp"
-          alt="Salvador Ibiza Logo"
+          alt="Logo Salvador Ibiza"
           fill
           className="object-contain"
         />
       </div>
       
-      <h1 className="text-4xl font-display font-bold text-gray-900 mb-4">Page Not Found</h1>
+      <h1 className="text-4xl font-display font-bold text-gray-900 mb-4">Pagina niet gevonden</h1>
       
       <p className="text-xl text-gray-600 max-w-md mb-8">
-        Sorry, we couldn&apos;t find the page you were looking for.
+        Sorry, we konden de pagina die je zoekt niet vinden.
       </p>
       
       <div className="flex flex-col sm:flex-row gap-4">
         <Link href="/" className="bg-[#1E88E5] text-white hover:bg-[#1976D2] py-3 px-8 rounded-lg transition-all font-medium">
-          Back to Home
+          Terug naar home
         </Link>
         <Link href="/boat-trips" className="border border-[#1E88E5] text-[#1E88E5] hover:bg-[#1E88E5]/5 py-3 px-8 rounded-lg transition-all font-medium">
-          View Boat Trips
+          Boottochten bekijken
         </Link>
       </div>
     </div>

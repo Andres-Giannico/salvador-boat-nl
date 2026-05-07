@@ -16,73 +16,72 @@ import ReviewsSection from '@/components/trips/ReviewsSection';
 import FAQ from '@/components/trips/FAQ';
 import TurbnbWidget from '@/components/booking/TurbnbWidget';
 import { TURBNB_WIDGET_CSS } from '@/lib/turbnb-widget-assets';
-import { GoogleReview } from '@/services/googlePlaces'; // Import type
-
+import { getSiteUrl } from '@/config/site';
 // Galería de imágenes para el viaje - Ampliada con fotos aéreas
 const images = [
-  { src: "/images/boat/chicaspasandolomuybien.webp", alt: "Friends having fun on Salvador Ibiza boat deck" },
-  { src: "/images/boat/parejaensup.webp", alt: "Couple paddleboarding near Salvador Ibiza" },
-  { src: "/images/optimized/salvador-ibiza-boat-aerial-view.webp", alt: "Aerial view of Salvador Ibiza boat" },
-  { src: "/images/boat/chicasensupencueva.webp", alt: "Exploring caves on paddleboards" },
-  { src: "/images/boat/gente-en-suo.webp", alt: "Group paddleboarding in clear water" },
-  { src: "/images/boat/familiaensup.webp", alt: "Family enjoying paddleboarding together" },
-  { src: "/images/boat/aereabarco2.webp", alt: "Another aerial view of Salvador Ibiza boat" },
-  { src: "/images/boat/parejasnorkeling.webp", alt: "Couple snorkeling in the turquoise sea" },
-  { src: "/images/boat/chicasenproamuyfelicdes.webp", alt: "Happy friends on the bow of the boat" },
-  { src: "/images/boat/doschicasfelicesenproa.webp", alt: "Two friends enjoying the sun on the boat" },
-  { src: "/images/boat/chicosdisfrutandoenproa.webp", alt: "Group enjoying the views from the front of the boat" },
-  { src: "/images/boat/chicaensupparada.webp", alt: "Woman standing on a paddleboard" },
-  { src: "/images/boat/4chicasparadasentablaxxl.webp", alt: "Four friends posing on a large paddleboard" },
-  { src: "/images/boat/dos-chica-disfrutand.webp", alt: "Friends laughing and enjoying the boat trip" },
+  { src: "/images/boat/chicaspasandolomuybien.webp", alt: "Vrienden lachen op het dek van de Salvador Ibiza" },
+  { src: "/images/boat/parejaensup.webp", alt: "Stel op paddleboards bij Salvador Ibiza" },
+  { src: "/images/optimized/salvador-ibiza-boat-aerial-view.webp", alt: "Luchtfoto van de boot Salvador Ibiza" },
+  { src: "/images/boat/chicasensupencueva.webp", alt: "Grotten verkennen op paddleboards" },
+  { src: "/images/boat/gente-en-suo.webp", alt: "Groep paddleboardt in helder water" },
+  { src: "/images/boat/familiaensup.webp", alt: "Gezin geniet samen van paddleboarden" },
+  { src: "/images/boat/aereabarco2.webp", alt: "Nog een luchtbeeld van de Salvador Ibiza" },
+  { src: "/images/boat/parejasnorkeling.webp", alt: "Stel snorkelt in turquoise zee" },
+  { src: "/images/boat/chicasenproamuyfelicdes.webp", alt: "Blije vrienden op de boeg" },
+  { src: "/images/boat/doschicasfelicesenproa.webp", alt: "Twee vriendinnen genieten van de zon op zee" },
+  { src: "/images/boat/chicosdisfrutandoenproa.webp", alt: "Groep aan de voorplecht met uitzicht" },
+  { src: "/images/boat/chicaensupparada.webp", alt: "Vrouw staat op een paddleboard" },
+  { src: "/images/boat/4chicasparadasentablaxxl.webp", alt: "Vier vriendinnen op een grote paddleboard" },
+  { src: "/images/boat/dos-chica-disfrutand.webp", alt: "Vriendinnen lachen tijdens de boottocht" },
 ];
 
 // Aspectos destacados del viaje
 const tripHighlights = [
   {
     icon: <FiCompass className="w-6 h-6 text-blue-600" />,
-    title: "Flexible Routes",
-    description: "Our captain chooses the best route based on weather conditions, ensuring an optimal experience every time."
+    title: "Flexibele routes",
+    description: "Onze kapitein kiest de beste route op basis van weer en zee — elke tocht optimaal afgestemd."
   },
   {
     icon: <GiWaterSplash className="w-6 h-6 text-cyan-600" />,
-    title: "Water Activities",
-    description: "Enjoy paddle surfing, kayaking, snorkeling, and swimming in crystal-clear waters."
+    title: "Activiteiten op het water",
+    description: "Paddleboarden, kajakken, snorkelen en zwemmen in kraakhelder water."
   },
   {
     icon: <GiPartyPopper className="w-6 h-6 text-orange-500" />,
-    title: "Premium Service",
-    description: "Spanish tapas, fresh fruit, and unlimited drinks including sangria, beer, wine, and cava."
+    title: "Premium service",
+    description: "Spaanse tapas, vers fruit en onbeperkte drankjes waaronder sangría, bier, wijn en cava."
   },
   {
     icon: <FiMusic className="w-6 h-6 text-purple-600" />,
-    title: "Ultimate Comfort",
-    description: "Lounge beds, shaded areas, wet bar, clean facilities, and premium Fusion sound system."
+    title: "Maximaal comfort",
+    description: "Ligbedden, schaduwplekken, bar, nette faciliteiten en een premium Fusion-geluidssysteem."
   }
 ];
 
 // Preguntas frecuentes específicas para este viaje
 const tripFAQs = [
   {
-    question: "What time does the tour depart?",
-    answer: "The Mixed Daytime Tour departs at 14:00 (2:00 PM) from San Antonio Port. Please arrive at least 30 minutes before departure time. Note that departure times may vary depending on the month."
+    question: "Hoe laat vertrekt de tocht?",
+    answer: "De gemengde dagtour vertrekt om 14:00 uur vanaf de haven van San Antonio. Kom minstens 30 minuten voor vertrek. Vertrektijden kunnen per maand iets verschillen."
   },
   {
-    question: "What's included in the price?",
-    answer: "Your experience includes unlimited drinks (sangria, beer, wine, cava, soft drinks, water), Spanish tapas and fresh fruit, use of paddle boards, kayaks, snorkeling gear, access to lounge beds, shaded areas, and premium MB Quart sound system."
+    question: "Wat zit er in de prijs?",
+    answer: "Je ervaart onbeperkt drankjes (sangría, bier, wijn, cava, frisdrank, water), Spaanse tapas en vers fruit, gebruik van paddleboards en kajaks, snorkeluitrusting, ligbedden, schaduwplekken en ons premium MB Quart-geluidssysteem."
   },
   {
-    question: "What are the prices and age policies?",
-    answer: "Adults: €80, Children (6-12 years): €45, Children under 6: Free. The tour is perfect for all ages, and we provide life vests in all sizes for your safety."
+    question: "Wat zijn de prijzen en leeftijdsregels?",
+    answer: "Volwassenen: €80, kinderen 6–12 jaar: €45, kinderen jonger dan 6: gratis. Geschikt voor alle leeftijden; we hebben reddingsvesten in alle maten."
   },
   {
-    question: "What should I bring?",
-    answer: "Please bring swimwear, a towel, sunscreen, sunglasses, and a hat. We recommend bringing a camera or waterproof phone case to capture the moments. Note that outside food and drinks are not allowed onboard."
+    question: "Wat moet ik meenemen?",
+    answer: "Zwemkleding, handdoek, zonnebrand, zonnebril en een pet. Een camera of waterdichte telefoonhoes is handig. Eigen eten en drinken aan boord is niet toegestaan."
   },
   {
-    question: "What is the route?",
+    question: "Hoe is de route?",
     answer: (
       <>
-        Our standard Day Trip route explores the stunning west coast of Ibiza, including stops at Cala Bassa and Cala Conta, known for their crystal-clear waters. However, the captain may adjust the route based on weather conditions for optimal safety and enjoyment. 
+        Onze standaard dagtocht volgt de westkust van Ibiza met onder meer Cala Bassa en Cala Conta — beroemd om helder water. De kapitein kan de route aanpassen aan weer en zee voor veiligheid en comfort.{" "}
         <Link href="/routes" className="text-blue-600 hover:underline font-medium ml-1">
           Meer over onze routes.
         </Link>
@@ -92,18 +91,11 @@ const tripFAQs = [
 ];
 
 // Assuming a list/section displaying features exists
-const featuresList = [
-  "Complete snorkeling equipment",
-  "Fresh fruit & snacks included"
-];
-
 // Interface for props received from the server component - REMOVED props
-interface DayTripClientPageProps {
-  // initialReviews: GoogleReview[]; // Removed
-  // error: string | null; // Removed
-}
+interface DayTripClientPageProps {}
 
 export default function DayTripClientPage({}: DayTripClientPageProps) {
+  const siteUrl = getSiteUrl();
   
   // Initialize the booking widget when the component mounts
   useEffect(() => {
@@ -124,14 +116,14 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
               customProperties: {
                 displayBillingTerm: true,
                 showQuantity: true,
-                quantity: "Quantity",
+                quantity: "Aantal gasten",
                 titleVariant: "Modern",
-                bookNow: "RESERVE NOW ",
-                confirmReservationAndPay: "CLICK TO PAY",
-                selectTimeLabel: "Time Selection",
-                selectExperienceLabel: "Experience Type",
-                addonsLabel: "Adicionales",
-                depositObservation: "After completing your booking, you will receive a confirmation voucher with all the details including meeting point and time. Please ensure your contact information (phone and email) is correct as we may need to reach you regarding your booking. A deposit of €20 per person is required to secure your reservation, with the remaining balance paid in cash onboard."
+                bookNow: "NU RESERVEREN ",
+                confirmReservationAndPay: "GA DOOR NAAR BETALING",
+                selectTimeLabel: "Tijdstip kiezen",
+                selectExperienceLabel: "Soort ervaring",
+                addonsLabel: "Extra's",
+                depositObservation: "Na je boeking ontvang je een bevestiging met alle details, inclusief ontmoetingspunt en tijd. Controleer telefoon en e-mail — we kunnen je moeten bereiken. Een aanbetaling van €20 per persoon bevestigt je reservering; het restbedrag betaal je contant aan boord op de dag van de tocht."
               }
             });
           } catch (error) {
@@ -166,7 +158,7 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/optimized/salvador-ibiza-boat-aerial-view.webp"
-            alt="Salvador Ibiza Day Trip Experience"
+            alt="Salvador Ibiza — gemengde dagtocht"
             fill
             priority
             className="object-cover object-center"
@@ -181,15 +173,15 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
           className="relative z-10 container mx-auto px-4 text-white text-center pt-20"
         >
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 drop-shadow-md">
-            Mixed Daytime <span className="text-blue-400">Boat Tour</span>
+            Gemengde <span className="text-blue-400">dagtocht</span>
           </h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto mb-8 drop-shadow-sm">
-            Experience the authentic Mediterranean vibes aboard our traditional Balearic wooden boat
+            Authentieke Mediterrane sferen aan boord van onze traditionele Balearen-houten boot
           </p>
           <div className="flex flex-wrap justify-center gap-4 mb-8">
             <div className="flex items-center bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full">
               <FiClock className="mr-2 text-blue-400" />
-              <span>3 Hours</span>
+              <span>3 uur</span>
             </div>
             <div className="flex items-center bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full">
               <FiMapPin className="mr-2 text-blue-400" />
@@ -197,7 +189,7 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
             </div>
             <div className="flex items-center bg-black/30 backdrop-blur-sm px-4 py-2 rounded-full">
               <FiDollarSign className="mr-2 text-blue-400" />
-              <span>All-Inclusive</span>
+              <span>All-inclusive</span>
             </div>
           </div>
           <Link href="#booking-widget">
@@ -206,7 +198,7 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
               whileTap={{ scale: 0.95 }}
               className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition duration-300"
             >
-              Book Your Trip
+              Boek je tocht
             </motion.span>
           </Link>
         </motion.div>
@@ -224,18 +216,18 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Your Perfect Mediterranean Adventure</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Jouw perfecte Middellandse Zee-avontuur</h2>
               <div className="prose prose-lg text-gray-600 mb-8 max-w-none">
                  <p>
-                  Welcome aboard Salvador Ibiza, your gateway to the <strong>most authentic boat tour in Ibiza</strong>. Our traditional wooden boat provides the perfect setting for our Mixed Daytime Tour, designed for travelers of all ages ready to experience the island's beauty from the sea.
+                  Welkom aan boord van Salvador Ibiza — jouw toegang tot de <strong>meest authentieke boottocht van Ibiza</strong>. Onze traditionele houten boot is de ideale setting voor onze gemengde dagtocht, voor reizigers van alle leeftijden die het eiland vanaf zee willen ontdekken.
                 </p>
-                <h3 className="text-2xl font-bold text-gray-800 mt-8 mb-4">Explore Ibiza's Stunning Coastline</h3>
+                <h3 className="text-2xl font-bold text-gray-800 mt-8 mb-4">Ontdek Ibiza's kustlijn</h3>
                 <p>
-                  Every day is a new adventure. Our <strong>expert local captain</strong> assesses the weather and sea conditions to select the ideal route. We'll either navigate north towards the beautiful coves of <strong>Cala Salada and Punta Galera</strong>, or head west to explore the famous beaches of <strong>Cala Bassa and Cala Conta</strong>. This ensures you always get the best possible journey on the day of your trip.
+                  Elke dag is een nieuw avontuur. Onze <strong>ervaren lokale kapitein</strong> beoordeelt weer en zee en kiest de best passende route — noordwaarts naar <strong>Cala Salada en Punta Galera</strong> of westwaarts naar <strong>Cala Bassa en Cala Conta</strong>. Zo krijg je altijd de beste ervaring op jouw vaardag.
                 </p>
-                <h3 className="text-2xl font-bold text-gray-800 mt-8 mb-4">All-Inclusive Fun for Everyone</h3>
+                <h3 className="text-2xl font-bold text-gray-800 mt-8 mb-4">All-inclusive plezier voor iedereen</h3>
                 <p>
-                  This is more than just a boat trip; it's a complete <strong>3-hour Mediterranean experience</strong>. Perfect for solo travelers, couples, families, and friends, our tour includes everything you need. Dive into crystal-clear waters for a swim, try <strong>paddle boarding and snorkeling</strong>, or simply relax on deck. All while enjoying our <strong>all-inclusive open bar</strong>, delicious Spanish tapas, and a fantastic soundtrack.
+                  Meer dan alleen varen: een volledige <strong>3 uur durende Middellandse Zee-ervaring</strong>. Solo, stel, gezin of vriendengroep — alles is geregeld. Duik in helder water, probeer <strong>paddleboarden en snorkelen</strong>, of ontspan op het dek. Ondertussen geniet je van een <strong>all-inclusive open bar</strong>, heerlijke Spaanse tapas en de juiste muziek.
                 </p>
               </div>
             </motion.div>
@@ -250,7 +242,7 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
             >
               <TripGallery 
                 images={images}
-                title="Day Trip Highlights Gallery" 
+                title="Impressies van de dagtocht" 
               />
             </motion.div>
           </div>
@@ -259,56 +251,56 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
           <div className="lg:col-span-1">
             <div className="sticky top-28 bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
               <div className="bg-blue-600 text-white p-6">
-                <h3 className="text-2xl font-bold mb-2">Trip Details</h3>
-                <p className="opacity-90">All-inclusive daytime adventure</p>
+                <h3 className="text-2xl font-bold mb-2">Tochtinformatie</h3>
+                <p className="opacity-90">All-inclusive dagavontuur</p>
               </div>
               <div className="p-6 space-y-4">
                 <div className="flex items-start">
                   <FiClock className="mt-1 mr-3 text-blue-600 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-800">Duration</h4>
-                    <p className="text-gray-600">3 hours (14:00 - 17:00)</p>
+                    <h4 className="font-semibold text-gray-800">Duur</h4>
+                    <p className="text-gray-600">3 uur (14:00 – 17:00)</p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <FiMapPin className="mt-1 mr-3 text-blue-600 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-800">Departure</h4>
-                    <p className="text-gray-600">San Antonio Port, Ibiza</p>
+                    <h4 className="font-semibold text-gray-800">Vertrek</h4>
+                    <p className="text-gray-600">Haven San Antonio, Ibiza</p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <FiUsers className="mt-1 mr-3 text-blue-600 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-800">Capacity</h4>
-                    <p className="text-gray-600">Up to 35 passengers</p>
+                    <h4 className="font-semibold text-gray-800">Capaciteit</h4>
+                    <p className="text-gray-600">Tot 35 passagiers</p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <GiPartyPopper className="mt-1 mr-3 text-blue-600 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-800">Season</h4>
-                    <p className="text-gray-600">May to October</p>
+                    <h4 className="font-semibold text-gray-800">Seizoen</h4>
+                    <p className="text-gray-600">Mei t/m oktober</p>
                   </div>
                 </div>
                 <div className="border-t border-gray-100 pt-4 mt-6">
                   <div className="flex justify-between items-end mb-4">
                     <div>
-                      <span className="block text-sm text-gray-500">Price per person</span>
+                      <span className="block text-sm text-gray-500">Prijs per persoon</span>
                       <span className="text-3xl font-bold text-gray-900">€80</span>
                     </div>
                     <div className="text-right">
-                      <span className="block text-sm text-gray-500">Children (4-12)</span>
+                      <span className="block text-sm text-gray-500">Kinderen (6–12)</span>
                       <span className="text-xl font-semibold text-gray-700">€45</span>
                     </div>
                   </div>
                   <Link href="#booking-widget" className="block w-full">
                     <span className="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg shadow transition duration-300">
-                      Book This Trip
+                      Boek deze tocht
                     </span>
                   </Link>
                   <p className="text-center text-sm text-gray-500 mt-3">
-                    Limited spaces available daily
+                    Beperkt aantal plaatsen per dag
                   </p>
                 </div>
               </div>
@@ -318,13 +310,13 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
 
         {/* Highlights Section */}
         <div className="mb-20">
-          <TripHighlights items={tripHighlights} title="What Makes This Trip Special" />
+          <TripHighlights items={tripHighlights} title="Wat deze tocht bijzonder maakt" />
         </div>
 
        
         {/* FAQs Section */}
         <div className="mb-20">
-          <FAQ items={tripFAQs} title="Day Trip FAQs" />
+          <FAQ items={tripFAQs} title="Veelgestelde vragen — dagtocht" />
         </div>
 
         {/* Direct Booking Section */}
@@ -337,7 +329,7 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
               transition={{ duration: 0.5 }}
               className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-8"
             >
-              Reserve Your <span className="text-blue-600">Day Trip</span> Now
+              Reserveer nu je <span className="text-blue-600">dagtocht</span>
             </motion.h2>
             
             {/* Booking Trust Badges */}
@@ -350,17 +342,17 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-800 mb-4">Booking Guarantees</h3>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-4">Boekingsgaranties</h3>
                   <ul className="space-y-3 text-gray-600">
                     {[
-                      "Quick and easy reservation",
-                      "Instant confirmation",
-                      "Flexible cancellation policy",
-                      "All-inclusive experiences",
-                      "Expert guides and personalized attention",
-                      "Partial online payment (20€ per person to reserve), the rest is paid onboard on the day of the trip."
+                      "Snel en eenvoudig reserveren",
+                      "Directe bevestiging",
+                      "Flexibel annuleringsbeleid",
+                      "All-inclusive ervaringen",
+                      "Ervaren team en persoonlijke aandacht",
+                      "Gedeeltelijke online betaling (€20 p.p. om te reserveren); het restbedrag contant aan boord op de vaardag."
                     ].map((item, index) => {
-                      const isPartialPayment = item.startsWith("Partial online payment");
+                      const isPartialPayment = item.startsWith("Gedeeltelijke online betaling");
                       return (
                         <motion.li
                           key={index}
@@ -369,8 +361,8 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
                           <span className="flex-shrink-0 h-5 w-5 text-green-500 mr-2">✓</span>
                           {isPartialPayment ? (
                             <span className="text-gray-700">
-                              <strong className="font-semibold">Partial online payment</strong>
-                              <span className="text-sm text-gray-500 ml-1">(20€ per person to reserve), the rest is paid onboard on the day of the trip.</span>
+                              <strong className="font-semibold">Gedeeltelijke online betaling</strong>
+                              <span className="text-sm text-gray-500 ml-1">(€20 p.p. om te reserveren); het restbedrag contant aan boord op de vaardag.</span>
                             </span>
                           ) : (
                             <span className="text-gray-700">{item}</span>
@@ -381,12 +373,12 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
                   </ul>
                 </div>
                 <div className="p-6 border-t border-gray-200 md:border-t-0 md:border-l">
-                  <h3 className="text-xl font-semibold text-gray-800 mb-4">Payment Methods</h3>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-4">Betaalmethoden</h3>
                   <div className="bg-gray-100 p-4 rounded-lg text-sm text-gray-700">
-                    <p className="font-medium mb-1">Secure payment through major credit cards, Apple Pay, and Google Pay.</p>
-                    <p>All transactions are securely processed by Stripe.</p>
+                    <p className="font-medium mb-1">Veilig betalen met gangbare creditcards, Apple Pay en Google Pay.</p>
+                    <p>Transacties worden veilig verwerkt via Stripe.</p>
                     <div className="mt-3 flex justify-center">
-                      <Image src="/images/cards.webp" alt="Payment methods accepted" width={280} height={40} className="object-contain" />
+                      <Image src="/images/cards.webp" alt="Geaccepteerde betaalmethoden" width={280} height={40} className="object-contain" />
                     </div>
                   </div>
                 </div>
@@ -403,19 +395,19 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
             >
               {/* Age Information */}
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-                <h4 className="font-semibold text-gray-800 mb-2">Age Groups & Pricing</h4>
+                <h4 className="font-semibold text-gray-800 mb-2">Leeftijden & prijzen</h4>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
                   <div className="flex items-center">
                     <span className="w-3 h-3 bg-blue-500 rounded-full mr-2"></span>
-                    <span><strong>Adults:</strong> €80 per person</span>
+                    <span><strong>Volwassenen:</strong> €80 p.p.</span>
                   </div>
                   <div className="flex items-center">
                     <span className="w-3 h-3 bg-green-500 rounded-full mr-2"></span>
-                    <span><strong>Children (6-12 years):</strong> €45</span>
+                    <span><strong>Kinderen (6–12 jaar):</strong> €45</span>
                   </div>
                   <div className="flex items-center">
                     <span className="w-3 h-3 bg-yellow-500 rounded-full mr-2"></span>
-                    <span><strong>Infants (0-5 years):</strong> Free</span>
+                    <span><strong>Baby’s (0–5 jaar):</strong> gratis</span>
                   </div>
                 </div>
               </div>
@@ -430,16 +422,16 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
                 customProperties={{
                   displayBillingTerm: true,
                   showQuantity: true,
-                  quantity: "Guests",
+                  quantity: "Gasten",
                   titleVariant: "Modern",
-                  bookNow: "BOOK DAY TRIP",
-                  confirmReservationAndPay: "CONFIRM & PAY",
-                  selectTimeLabel: "Select Time",
-                  selectExperienceLabel: "Day Experience",
-                  addonsLabel: "Add-ons",
-                  childrenAge: "6 to 12 Years",
-                  infantAge: "0 to 6 Years",
-                  depositObservation: "After completing your booking, you will receive a confirmation voucher with all the details including meeting point and time. Please ensure your contact information (phone and email) is correct as we may need to reach you regarding your booking. A deposit of €20 per person is required to secure your reservation, with the remaining balance paid in cash onboard."
+                  bookNow: "DAGTOCHT BOEKEN",
+                  confirmReservationAndPay: "BEVESTIGEN & BETALEN",
+                  selectTimeLabel: "Kies tijd",
+                  selectExperienceLabel: "Dagervaring",
+                  addonsLabel: "Extra's",
+                  childrenAge: "6 tot 12 jaar",
+                  infantAge: "0 tot 6 jaar",
+                  depositObservation: "Na je boeking ontvang je een bevestiging met alle details, inclusief ontmoetingspunt en tijd. Controleer telefoon en e-mail. Een aanbetaling van €20 per persoon bevestigt je reservering; het restbedrag betaal je contant aan boord."
                 }}
               />
             </motion.div>
@@ -457,10 +449,11 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
                 </div>
                 <div className="ml-3">
                   <p className="text-sm md:text-base text-yellow-800">
-                    <span className="font-medium">Looking for a magical evening experience?</span> Don't miss our popular{' '}
+                    <span className="font-medium">Op zoek naar een magische avond?</span> Mis onze populaire{" "}
                     <Link href="/boat-trips/sunset-trip" className="font-bold underline text-yellow-900 hover:text-yellow-600 transition-colors">
-                      Sunset Boat Trip
-                    </Link> — experience Ibiza's legendary sunset from the sea with unlimited drinks and Spanish tapas!
+                      zonsondergangboottocht
+                    </Link>{" "}
+                    niet — Ibiza's legende vanaf zee, met onbeperkte drankjes en Spaanse tapas!
                   </p>
                 </div>
               </div>
@@ -476,14 +469,14 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
         <div className="bg-gradient-to-r from-blue-600 to-cyan-500 rounded-2xl overflow-hidden shadow-xl my-12">
           <div className="relative px-6 py-16 md:p-12 text-white text-center md:text-left md:flex items-center justify-between">
             <div className="md:max-w-xl mb-8 md:mb-0">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready for an Unforgettable Day?</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Klaar voor een onvergetelijke dag?</h2>
               <p className="text-blue-100 text-lg">
-                Book your spot now and experience the magic of Ibiza from the sea.
+                Boek nu je plek en ervaar de magie van Ibiza vanaf zee.
               </p>
             </div>
             <Link href="#booking-widget">
               <span className="inline-block bg-white text-blue-600 hover:bg-blue-50 font-bold py-3 px-8 rounded-lg shadow-md transition duration-300 transform hover:scale-105">
-                Book Your Adventure
+                Boek je avontuur
               </span>
             </Link>
           </div>
@@ -501,10 +494,10 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Explore More <span className="text-blue-600">Ibiza Adventures</span>
+              Meer <span className="text-blue-600">Ibiza-avonturen</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Discover other amazing boat experiences we offer around the beautiful island of Ibiza
+              Ontdek andere spectaculaire bootervaringen rond het eiland
             </p>
           </motion.div>
 
@@ -521,10 +514,10 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
               >
                 <div className="flex items-center mb-4">
                   <FiSun className="w-6 h-6 mr-3" />
-                  <h3 className="text-xl font-bold">Sunset Boat Trip</h3>
+                  <h3 className="text-xl font-bold">Zonsondergangboottocht</h3>
                 </div>
-                <p className="mb-4 opacity-90">Experience Ibiza's legendary sunsets from the sea with our magical evening cruise.</p>
-                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">Same price: €80</span>
+                <p className="mb-4 opacity-90">Ibiza's iconische zonsondergang vanaf zee — magische avondcruise.</p>
+                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">Zelfde prijs: €80</span>
               </Link>
             </motion.div>
 
@@ -540,10 +533,10 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
               >
                 <div className="flex items-center mb-4">
                   <FiAnchor className="w-6 h-6 mr-3" />
-                  <h3 className="text-xl font-bold">Private Charter</h3>
+                  <h3 className="text-xl font-bold">Privécharter</h3>
                 </div>
-                <p className="mb-4 opacity-90">Enjoy an exclusive boat experience tailored just for you and your group.</p>
-                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">From €1,350</span>
+                <p className="mb-4 opacity-90">Exclusief voor jouw groep — volledig op maat.</p>
+                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">Vanaf €1.350</span>
               </Link>
             </motion.div>
 
@@ -559,10 +552,10 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
               >
                 <div className="flex items-center mb-4">
                   <FiUsers className="w-6 h-6 mr-3" />
-                  <h3 className="text-xl font-bold">Family Adventures</h3>
+                  <h3 className="text-xl font-bold">Gezinsavonturen</h3>
                 </div>
-                <p className="mb-4 opacity-90">Perfect family-friendly boat trips designed for all ages with safety first.</p>
-                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">Kids discounts</span>
+                <p className="mb-4 opacity-90">Gezinsvriendelijke tochten voor alle leeftijden — veiligheid voorop.</p>
+                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">Kinderkorting</span>
               </Link>
             </motion.div>
           </div>
@@ -578,7 +571,7 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
               href="/boat-trips"
               className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition duration-300"
             >
-              View All Boat Trips
+              Alle boottochten bekijken
             </Link>
           </motion.div>
         </div>
@@ -588,59 +581,51 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
       <Script
         id="day-trip-schema"
         type="application/ld+json"
-      >
-        {`{
-          "@context": "https://schema.org",
-          "@type": "Product",
-          "name": "Mixed Daytime Boat Tour",
-          "description": "Experience the authentic Mediterranean vibes aboard our traditional Balearic wooden boat. Enjoy paddle surfing, kayaking, snorkeling, and swimming in crystal-clear waters. Spanish tapas, fresh fruit, and unlimited drinks including sangria, beer, wine, and cava. Lounge beds, shaded areas, wet bar, clean facilities, and premium Fusion sound system.",
-          "brand": {
-            "@type": "Brand",
-            "name": "Salvador Ibiza Boat Tours"
-          },
-          "offers": {
-            "@type": "Offer",
-            "price": "80",
-            "priceCurrency": "EUR",
-            "availability": "https://schema.org/InStock",
-            "validFrom": "2023-05-01T00:00:00+02:00",
-            "validThrough": "2023-10-31T23:59:59+02:00",
-            "seller": {
-              "@type": "Organization",
-              "name": "Salvador Ibiza Boat Tours"
-            }
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.5",
-            "reviewCount": "120"
-          },
-          "review": {
-            "@type": "Review",
-            "reviewRating": {
-              "@type": "Rating",
-              "ratingValue": "4.5"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Product',
+            name: 'Gemengde dagtocht — Salvador Ibiza',
+            description:
+              'Authentieke Mediterrane dagboottocht op een traditionele Balearen-houten boot. Paddleboarden, kajakken, snorkelen en zwemmen; Spaanse tapas, vers fruit en onbeperkte drankjes; ligbedden, schaduw en premium geluid.',
+            brand: { '@type': 'Brand', name: 'Salvador Ibiza Boottochten' },
+            offers: {
+              '@type': 'Offer',
+              price: '80',
+              priceCurrency: 'EUR',
+              availability: 'https://schema.org/InStock',
+              validFrom: '2026-05-01T00:00:00+02:00',
+              validThrough: '2026-10-31T23:59:59+02:00',
+              seller: { '@type': 'Organization', name: 'Salvador Ibiza Boottochten' },
             },
-            "author": {
-              "@type": "Person",
-              "name": "TripAdvisor"
+            aggregateRating: {
+              '@type': 'AggregateRating',
+              ratingValue: '4.5',
+              reviewCount: '120',
             },
-            "reviewBody": "A fantastic day trip experience! The captain was friendly and knowledgeable, and the boat was comfortable. The all-inclusive open bar was a great touch. Highly recommend!"
-          },
-          "category": "Boat Tour",
-          "audience": "All Ages",
-          "keywords": "boat tour, ibiza, sunset, family, private charter, paddle boarding, kayaking, snorkeling",
-          "inLanguage": "en-ES",
-          "url": "https://www.salvadoribizaboattours.com/boat-trips/day-trip",
-          "image": "https://www.salvadoribizaboattours.com/images/optimized/salvador-ibiza-boat-aerial-view.webp",
-          "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://www.salvadoribizaboattours.com/boat-trips/day-trip"
-          },
-          "datePublished": "2023-05-01T00:00:00+02:00",
-          "dateModified": "2023-09-20T10:00:00+02:00"
-        }`}
-      </Script>
+            review: {
+              '@type': 'Review',
+              reviewRating: { '@type': 'Rating', ratingValue: '4.5' },
+              author: { '@type': 'Person', name: 'TripAdvisor' },
+              reviewBody:
+                'Fantastische dagtocht — vriendelijke kapitein, comfortabele boot en een fijne all-inclusive bar.',
+            },
+            category: 'Boottocht',
+            audience: 'Alle leeftijden',
+            keywords:
+              'boottocht, ibiza, dagtocht, familie, paddleboard, kajak, snorkelen',
+            inLanguage: 'nl-NL',
+            url: `${siteUrl}/boat-trips/day-trip`,
+            image: `${siteUrl}/images/optimized/salvador-ibiza-boat-aerial-view.webp`,
+            mainEntityOfPage: {
+              '@type': 'WebPage',
+              '@id': `${siteUrl}/boat-trips/day-trip`,
+            },
+            datePublished: '2023-05-01T00:00:00+02:00',
+            dateModified: '2026-05-07T10:00:00+02:00',
+          }),
+        }}
+      />
       <link href={TURBNB_WIDGET_CSS} rel="stylesheet" />
     </div>
   );

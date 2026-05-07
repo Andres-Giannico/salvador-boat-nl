@@ -75,9 +75,9 @@ export default function BlogClientPage({ posts }: BlogClientPageProps) {
                   <Link 
                     href={`/blog/${post.slug}`} 
                     className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium group/link"
-                    aria-label={`Read more about ${post.title}`}
+                    aria-label={`Lees meer over ${post.title}`}
                   >
-                    Read More 
+                    Lees meer 
                     <FiArrowRight className="ml-1 w-3.5 h-3.5 group-hover/link:translate-x-0.5 transition-transform" />
                   </Link>
                 </div>

@@ -18,22 +18,22 @@ const westStopsData = [
   { 
     icon: FiAnchor, 
     title: "Port des Torrent", 
-    description: "A calm, family-friendly beach with shallow waters – a great warm-up before heading to more remote locations."
+    description: "Rustig strand, kindvriendelijk en ondiep water — ideaal om te acclimatiseren voor verder naar zee."
   },
   { 
-    icon: GiFamilyHouse, // Representing the Beach Club vibe
+    icon: GiFamilyHouse,
     title: "Cala Bassa", 
-    description: "Known for soft white sand and pine surroundings. Home to the famous Cala Bassa Beach Club (CBbC), offering an upscale but relaxed vibe."
+    description: "Wit zand en dennenbomen. Bekend om Cala Bassa Beach Club — ontspannen en stijlvol."
   },
   { 
-    icon: FiCompass, // Representing the historical viewpoint
+    icon: FiCompass,
     title: "Torre d'en Rovira", 
-    description: "A 17th-century watchtower offering panoramic views over the sea and islets. A stunning sight from the water."
+    description: "17e-eeuwse wachttoren met panorama over zee en eilandjes — indrukwekkend vanaf het water."
   },
   { 
     icon: GiWaterSplash, 
     title: "Cala Conta (Cala Comte)", 
-    description: "Arguably one of Ibiza's most beautiful beaches. Boasts shallow turquoise waters, fine sand, and legendary sunset views."
+    description: "Een van Ibiza's mooiste stranden: ondiep turquoise water, fijn zand en iconische zonsondergangen."
   },
 ];
 
@@ -41,28 +41,24 @@ const northStopsData = [
   { 
     icon: FiAnchor, 
     title: "Cala Gració & Cala Gracioneta", 
-    description: "Charming coves near San Antonio, perfect for a quick swim and snorkel."
+    description: "Charmante baaien bij San Antonio — perfect voor een duik en snorkel."
   },
   { 
-    icon: FiMapPin, // Representing a notable point passed
+    icon: FiMapPin,
     title: "Cala Salada", 
-    description: "Cruise past this famous picturesque cove known for its clear waters and rustic boathouses."
+    description: "Langs dit beroemde baaitje met helder water en authentieke boothuisjes varen."
   },
   { 
     icon: GiWaterSplash, 
     title: "Cap Blanc (Aquarium)", 
-    description: "View the rugged coastline home to a natural aquarium sea cave."
+    description: "Ruige kustlijn met een natuurlijke ‘aquarium’-zee-grot."
   },
   { 
-    icon: FiAnchor, // Representing the anchor/destination spot
-    title: "Sa Foradada Area", 
-    description: "Anchor near this iconic rock formation, enjoying crystal-clear waters in a peaceful, natural setting."
+    icon: FiAnchor,
+    title: "Sa Foradada", 
+    description: "Ankeren bij dit iconische rotsformatie — rustig, natuurlijk en kraakhelder water."
   },
 ];
-
-// Make descriptions shorter for brevity in this example
-westStopsData.forEach(s => { s.description = s.description.substring(0, 70) + '...'; });
-northStopsData.forEach(s => { s.description = s.description.substring(0, 70) + '...'; });
 
 // Type for passing props to client (ensure IconType is handled correctly if needed)
 // For simplicity, we might pass icon names as strings if IconType causes issues across boundaries
@@ -89,10 +85,10 @@ export default async function RoutesPage() {
   // --- Structured Data Definitions --- 
   const faqQuestion: Question = {
     '@type': 'Question',
-    name: "How is the route decided each day?",
+    name: "Hoe wordt de route elke dag gekozen?",
     acceptedAnswer: { 
       '@type': 'Answer',
-      text: "Depending on sea and wind conditions on the day, our experienced captain will choose the most enjoyable and safest route (West or North) for your tour. Both routes offer incredible scenery and swim stops!"
+      text: "Afhankelijk van zee en wind kiest onze ervaren kapitein de prettigste en veiligste route (west of noord). Beide routes bieden spectaculaire kustlijn en zwemstops."
     }
   };
 

@@ -24,7 +24,7 @@ interface TestimonialSliderProps {
 
 const TestimonialSlider: React.FC<TestimonialSliderProps> = ({
   testimonials,
-  title = "What Our Guests Say",
+  title = "Wat gasten zeggen",
   autoplay = true,
 }: TestimonialSliderProps) => {
   const [current, setCurrent] = useState(0);

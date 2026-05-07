@@ -52,49 +52,47 @@ interface CorporateClientPageProps {
 
 // Placeholder gallery images
 const galleryImages = [
-  // Original images from Corporate Events
-  { src: "/images/optimized/salvador-ibiza-boat-deck.webp", alt: "Corporate group enjoying drinks on Salvador Ibiza" },
-  { src: "/images/optimized/salvador-ibiza-boat-drone-photo.webp", alt: "Aerial view of Salvador Ibiza, perfect for corporate events" }, // Manteniendo el espacio si así estaba originalmente
-  { src: "/images/optimized/salvador-ibiza-boat-aerial-view.webp", alt: "Spacious deck area for corporate gatherings" },
-  { src: "/images/optimized/salvador-ibiza-luxury-boat.webp", alt: "Team building activities in crystal clear waters" },
-  { src: "/images/optimized/salvador-ibiza-boat-interior.webp", alt: "Relaxed corporate networking atmosphere" },
-  { src: "/images/optimized/es-vedra-island-ibiza-background.webp", alt: "Stunning backdrop for corporate photos" },
-  // Nuevas imágenes de la carpeta /images/boat/private-new/
-  { src: "/images/boat/private-new/tapasycavapopabarco_1.webp", alt: "Tapas and cava served on the boat stern" },
-  { src: "/images/boat/private-new/tapasenbarco_1.webp", alt: "Selection of tapas on the boat" },
-  { src: "/images/boat/private-new/sushiycavapopa_1.webp", alt: "Sushi and cava on the boat stern" },
-  { src: "/images/boat/private-new/interiorbarcosalvador_1.webp", alt: "Interior view of the Salvador boat" },
-  { src: "/images/boat/private-new/Frutasenbarra_1.webp", alt: "Fresh fruits platter at the boat bar" },
-  { src: "/images/boat/private-new/retretebarcoomg_1.webp", alt: "Modern toilet facilities on the boat (OMG view)" },
-  { src: "/images/boat/private-new/tapasyfrutasenbarco_1.webp", alt: "Tapas and fruits platter on the boat" },
-  { src: "/images/boat/private-new/retretebarco_1.webp", alt: "Clean and modern boat bathroom" },
-  { src: "/images/boat/private-new/popabarcosalvador_1.webp", alt: "Stern view of the Salvador boat with lifebuoy" },
-  { src: "/images/boat/private-new/barcosalvadorinterior_1.webp", alt: "Another interior view of the Salvador boat seating" },
-  { src: "/images/boat/private-new/cavaenbarco_1.webp", alt: "Cava bottle and glasses on the boat" },
-  { src: "/images/boat/private-new/interiorbarcocubierta_1.webp", alt: "View of the covered deck area of the boat" }
+  { src: "/images/optimized/salvador-ibiza-boat-deck.webp", alt: "Zakelijke groep aan boord van Salvador Ibiza" },
+  { src: "/images/optimized/salvador-ibiza-boat-drone-photo.webp", alt: "Luchtfoto van de Salvador — ideaal voor zakelijke events" },
+  { src: "/images/optimized/salvador-ibiza-boat-aerial-view.webp", alt: "Ruim dek voor zakelijke bijeenkomsten" },
+  { src: "/images/optimized/salvador-ibiza-luxury-boat.webp", alt: "Teambuilding in helder water" },
+  { src: "/images/optimized/salvador-ibiza-boat-interior.webp", alt: "Ontspannen netwerken aan boord" },
+  { src: "/images/optimized/es-vedra-island-ibiza-background.webp", alt: "Spectaculair decor voor zakelijke foto's" },
+  { src: "/images/boat/private-new/tapasycavapopabarco_1.webp", alt: "Tapas en cava op de achterplecht" },
+  { src: "/images/boat/private-new/tapasenbarco_1.webp", alt: "Selectie tapas op de boot" },
+  { src: "/images/boat/private-new/sushiycavapopa_1.webp", alt: "Sushi en cava op de achterplecht" },
+  { src: "/images/boat/private-new/interiorbarcosalvador_1.webp", alt: "Interieur van de Salvador" },
+  { src: "/images/boat/private-new/Frutasenbarra_1.webp", alt: "Vers fruit aan de bar" },
+  { src: "/images/boat/private-new/retretebarcoomg_1.webp", alt: "Moderne sanitaire ruimte aan boord" },
+  { src: "/images/boat/private-new/tapasyfrutasenbarco_1.webp", alt: "Tapas en fruit op de boot" },
+  { src: "/images/boat/private-new/retretebarco_1.webp", alt: "Nette badkamer aan boord" },
+  { src: "/images/boat/private-new/popabarcosalvador_1.webp", alt: "Achterplecht van de Salvador met reddingsboei" },
+  { src: "/images/boat/private-new/barcosalvadorinterior_1.webp", alt: "Zitgedeelte aan boord" },
+  { src: "/images/boat/private-new/cavaenbarco_1.webp", alt: "Cava en glazen aan boord" },
+  { src: "/images/boat/private-new/interiorbarcocubierta_1.webp", alt: "Overdekt dekgedeelte" }
 ];
 
 // --- NEW: FAQ Data ---
 const corporateFaqs = [
   {
-    question: "What is included in the corporate event?",
-    answer: "We include exclusive use of the boat, captain and crew, standard fuel, a standard open bar (soft drinks, beer, wine, cava, sangria, water), light snacks and fresh fruit, plus equipment for water activities like paddle surfing, kayaks, and snorkeling."
+    question: "Wat zit er in het zakelijke pakket?",
+    answer: "Exclusief gebruik van de boot, kapitein en bemanning, standaard brandstof, standaard open bar (frisdrank, bier, wijn, cava, sangría, water), lichte hapjes en vers fruit, plus uitrusting voor paddleboarden, kajakken en snorkelen."
   },
   {
-    question: "Can the activities be customized?",
-    answer: "Yes! We can tailor activities to your event's goals, from specific team-building dynamics to simply offering free time for the group to relax and enjoy. Contact us to discuss your ideas."
+    question: "Kunnen activiteiten op maat?",
+    answer: "Ja. We stemmen het programma af op jullie doelen — van teambuilding tot vrije tijd. Neem contact op voor de mogelijkheden."
   },
   {
-    question: "How many people can attend the event?",
-    answer: "The Salvador boat has capacity for up to 35 guests plus crew, offering a comfortable and spacious setting for corporate events."
+    question: "Hoeveel personen?",
+    answer: "De Salvador biedt plaats aan tot 35 gasten plus bemanning — ruim en comfortabel."
   },
   {
-    question: "Is it necessary to book in advance?",
-    answer: "Yes, we highly recommend booking in advance, especially during high season (June-September), to ensure availability on your desired date for your event."
+    question: "Vroeg boeken?",
+    answer: "Sterk aanbevolen, vooral hoogseizoen (juni–september), om jullie gewenste datum vast te leggen."
   },
   {
-    question: "What happens if the weather prevents the trip?",
-    answer: "Safety is our priority. In case of adverse weather conditions preventing a safe departure, we will work with you to reschedule the event for another available date or, if that's not possible, offer a full refund."
+    question: "Wat bij slecht weer?",
+    answer: "Veiligheid voorop. Bij onveilige omstandigheden plannen we een andere datum of — indien niet mogelijk — volledige terugbetaling."
   },
 ];
 
@@ -120,7 +118,7 @@ export default function CorporateEventsClientPage({
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/optimized/salvador-ibiza-boat-aerial-view.webp" // Choose a professional/impressive hero image
-            alt="Corporate Event Charter on Salvador Ibiza Boat"
+            alt="Zakelijke charter op de Salvador Ibiza"
             fill
             priority
             className="object-cover object-center filter brightness-75"
@@ -137,18 +135,18 @@ export default function CorporateEventsClientPage({
             variants={fadeIn}
             className="text-4xl md:text-6xl lg:text-7xl font-display font-extrabold mb-5 leading-tight tracking-tight drop-shadow-lg"
           >
-            Elevate Your <span className="text-cyan-300">Corporate Event</span>
+            Geef je <span className="text-cyan-300">zakelijke event</span> een lift
           </motion.h1>
           <motion.p 
             variants={fadeIn} 
             className="text-lg md:text-2xl max-w-3xl mx-auto mb-10 text-blue-100 drop-shadow-md"
           >
-            Host unforgettable team-building days, client meetings, or incentive trips aboard the stunning Salvador Ibiza.
+            Onvergetelijke teamdagen, klantenmeetings of incentives aan boord van de Salvador Ibiza.
           </motion.p>
           <motion.div variants={fadeIn}>
             <Link href="/private-boat-trips#direct-booking-section">
               <span className="inline-block bg-white text-teal-600 font-semibold py-3 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300">
-                Book a Private Charter
+                Privécharter boeken
               </span>
             </Link>
           </motion.div>
@@ -166,13 +164,13 @@ export default function CorporateEventsClientPage({
           className="text-center mb-20 md:mb-28 max-w-4xl mx-auto"
         >
             <motion.h2 variants={fadeIn} className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Motivation & Team Cohesion at Sea
+              Motivatie & teambuilding op zee
             </motion.h2>
             <motion.p variants={fadeIn} className="text-lg text-gray-600 mb-6">
-              Organize an unforgettable corporate event outside the office. Whether for team building, employee incentives, or client appreciation, our boat trips are the perfect option to strengthen team bonds in a unique and inspiring setting.
+              Organiseer een onvergetelijk bedrijfsuitje buiten kantoor — voor teambuilding, incentives of klantenrelaties. Onze boottochten zijn de perfecte setting om verbinding te versterken.
             </motion.p>
             <motion.p variants={fadeIn} className="text-lg text-gray-600">
-              Escape the routine and offer your team a day of connection and enjoyment in an incomparable environment. We take care of every detail, from punctuality to customization, to ensure a smooth and successful experience.
+              Breek de routine en geef je team een dag van ontspanning en energie. Wij regelen de details — van tijd tot maatwerk — voor een soepele ervaring.
             </motion.p>
         </motion.section>
 
@@ -184,8 +182,8 @@ export default function CorporateEventsClientPage({
           viewport={{ once: true, amount: 0.2 }}
           className="text-center mb-20 md:mb-28 max-w-4xl mx-auto"
         >
-          <motion.h2 variants={fadeIn} className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">An Inspiring Environment for Your Team</motion.h2>
-          <motion.p variants={fadeIn} className="text-lg text-gray-600 mb-12">We offer a professional yet relaxed setting with all the amenities to make your team feel comfortable and enjoy the experience.</motion.p>
+          <motion.h2 variants={fadeIn} className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Een inspirerende omgeving voor je team</motion.h2>
+          <motion.p variants={fadeIn} className="text-lg text-gray-600 mb-12">Professioneel en tegelijk ontspannen — met alle comfort om van de dag te genieten.</motion.p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10">
             {highlights.map((item, index) => {
               const IconComponent = iconMap[item.icon] || FiHelpCircle;
@@ -215,7 +213,7 @@ export default function CorporateEventsClientPage({
           viewport={{ once: true, amount: 0.2 }}
           className="mb-20 md:mb-28"
         >
-           <PerfectForCard items={idealFor} title="Perfect For Your Corporate Needs" />
+           <PerfectForCard items={idealFor} title="Perfect voor jullie zakelijke behoeften" />
         </motion.section>
         
         {/* Included Features Section */}
@@ -225,7 +223,7 @@ export default function CorporateEventsClientPage({
           viewport={{ once: true, amount: 0.2 }}
           className="bg-gradient-to-br from-teal-50 via-white to-emerald-50 p-8 md:p-12 rounded-2xl shadow-lg border border-gray-100 mb-20 md:mb-28"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-teal-800 mb-10">Standard Corporate Charter Package</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-teal-800 mb-10">Standaard zakelijk charterpakket</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 max-w-4xl mx-auto">
             {included.map((item, index) => (
               <motion.div 
@@ -251,10 +249,10 @@ export default function CorporateEventsClientPage({
               className="text-center mt-10 pt-6 border-t border-teal-200/60"
             > 
               <p className="text-teal-700 mb-3">
-                Need more? Enhance your event with premium catering, spirits, or extended hours.
+                Meer nodig? Denk aan premium catering, sterke drank of verlengde vaartijd.
               </p>
               <Link href="/contact" className="font-medium text-teal-800 hover:text-teal-600 underline transition-colors">
-                Contact us to discuss customization
+                Neem contact op voor maatwerk
               </Link>
            </motion.div>
         </motion.section>
@@ -266,7 +264,7 @@ export default function CorporateEventsClientPage({
           viewport={{ once: true, amount: 0.1 }}
           className="mb-20 md:mb-28"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">Your Exclusive Venue at Sea</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">Jullie exclusieve locatie op zee</h2>
           <TripGallery images={galleryImages} title="" /> {/* Title removed as heading exists */}
         </motion.section>
 
@@ -277,7 +275,7 @@ export default function CorporateEventsClientPage({
           viewport={{ once: true, amount: 0.1 }}
           className="mb-20 md:mb-28"
         >
-           <FAQ items={corporateFaqs} title="Frequently Asked Questions" />
+           <FAQ items={corporateFaqs} title="Veelgestelde vragen — zakelijk" />
         </motion.section>
 
         {/* Final CTA / Booking Section */}
@@ -287,16 +285,16 @@ export default function CorporateEventsClientPage({
           viewport={{ once: true, amount: 0.3 }}
           className="text-center bg-white p-10 md:p-16 rounded-2xl shadow-xl border border-gray-100"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Ready to Impress?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Klaar om te imponeren?</h2>
           <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-            Book Salvador Ibiza for your next corporate event and provide an experience your team or clients won't forget.
+            Boek de Salvador Ibiza voor je volgende event — een ervaring die team en klanten niet vergeten.
           </p>
           <Link href="/private-boat-trips#direct-booking-section"> 
             <span className="inline-block bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white font-bold py-4 px-10 rounded-lg shadow-xl text-lg transition duration-300 transform hover:scale-105">
-               Check Availability & Book
+               Beschikbaarheid & boeken
             </span>
           </Link>
-          <p className="mt-6 text-sm text-gray-500">Or <Link href="/contact" className="underline hover:text-blue-600">contact us</Link> with any questions.</p>
+          <p className="mt-6 text-sm text-gray-500">Of <Link href="/contact" className="underline hover:text-blue-600">neem contact op</Link> bij vragen.</p>
         </motion.section>
 
       </div>

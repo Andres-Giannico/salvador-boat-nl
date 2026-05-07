@@ -60,15 +60,15 @@ const getIconName = (icon: any): string => {
 };
 
 const perfectForItems = [
-  { icon: getIconName(FiUsers), title: "Groups & Families", description: "Spacious deck for everyone.", color: "text-blue-500" },
-  { icon: getIconName(FiGift), title: "Celebrations", description: "Birthdays, anniversaries, special days.", color: "text-pink-500" },
-  { icon: getIconName(FiStar), title: "Special Occasions", description: "Proposals, unique events.", color: "text-yellow-500" },
-  { icon: getIconName(FiCamera), title: "Photo Shoots", description: "Stunning backdrops guaranteed.", color: "text-purple-500" },
-  { icon: getIconName(FiCalendar), title: "Pre/Post Wedding Parties", description: "Relax before or after the big day.", color: "text-orange-500", href: "/weddings" },
+  { icon: getIconName(FiUsers), title: "Groepen & gezinnen", description: "Ruim dek voor iedereen.", color: "text-blue-500" },
+  { icon: getIconName(FiGift), title: "Feesten", description: "Verjaardagen, jubilea, bijzondere dagen.", color: "text-pink-500" },
+  { icon: getIconName(FiStar), title: "Speciale gelegenheden", description: "Huwelijksaanzoek, unieke events.", color: "text-yellow-500" },
+  { icon: getIconName(FiCamera), title: "Fotoshoots", description: "Garantie op spectaculair decor.", color: "text-purple-500" },
+  { icon: getIconName(FiCalendar), title: "Pre-/post-bruiloft", description: "Ontspan voor of na de grote dag.", color: "text-orange-500", href: "/weddings" },
   { 
     icon: getIconName(FiBriefcase), 
-    title: "Corporate Events", 
-    description: "Team building, client entertainment.", 
+    title: "Zakelijke events", 
+    description: "Teambuilding, klantenentertainment.", 
     color: "text-teal-500", 
     href: "/corporate-events" 
   },
