@@ -259,7 +259,7 @@ export default function EarlyBirdPromoModal() {
                 Maybe later
               </button>
               <Link
-                href="/book-now"
+                href="/boat-trips"
                 onClick={() => {
                   pushDataLayer('salvador_promo_book_now_click', {
                     promo_type: promo.kind,
