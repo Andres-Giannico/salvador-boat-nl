@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { absoluteUrl, pageAlternates } from "@/config/site";
 
-export function enPageMetadata(opts: {
+export function pageMetadata(opts: {
   title: string;
   description: string;
   path: string;
@@ -38,6 +38,8 @@ export function enPageMetadata(opts: {
       title: ogTitle ?? title,
       description: ogDescription ?? description,
       url: absoluteUrl(path),
+      locale: "nl_NL",
+      alternateLocale: ["en_US", "es_ES"],
       images: [
         {
           url: ogImage,

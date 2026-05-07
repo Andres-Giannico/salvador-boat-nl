@@ -1,42 +1,41 @@
 "use client";
 
+import type { ReactNode } from "react";
 import Link from "next/link";
 import { FiHelpCircle, FiAnchor, FiDollarSign } from 'react-icons/fi';
 import { GiWaveSurfer, GiSailboat } from 'react-icons/gi';
 import { motion } from 'framer-motion';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
-// Importamos nuestro componente reutilizable
 import FAQ from "@/components/trips/FAQ";
 
-// Categorías de preguntas frecuentes
 const generalFaqs = [
   {
-    question: "What kind of boat trips do you offer?",
+    question: "Welke boottochten bieden jullie aan?",
     answer: (
       <>
-        We offer vibrant shared trips like our <Link href='/boat-trips/day-trip' className='text-cyan-600 hover:underline font-medium'>Mixed Daytime Tour</Link> and the magical <Link href='/boat-trips/sunset-trip' className='text-orange-600 hover:underline font-medium'>Mixed Sunset Tour</Link>. We also specialize in fully customizable <Link href='/private-boat-trips' className='text-purple-600 hover:underline font-medium'>Private Trips</Link>.
+        We bieden levendige gedeelde trips zoals onze <Link href='/boat-trips/day-trip' className='text-cyan-600 hover:underline font-medium'>gemengde dagtocht</Link> en de magische <Link href='/boat-trips/sunset-trip' className='text-orange-600 hover:underline font-medium'>zonsondergangtrip</Link>. Daarnaast volledig aanpasbare <Link href='/private-boat-trips' className='text-purple-600 hover:underline font-medium'>privétochten</Link>.
       </>
     ),
   },
   {
-    question: "How long do the trips last?",
+    question: "Hoe lang duren de trips?",
     answer:
-      "Our Day Trips usually last around 3 hours, and Sunset Trips are also about 3 hours. The duration of Private Charters can be tailored to your preferences (minimum 3 hours).",
+      "Dag- en zonsondergangtrips duren ongeveer 3 uur. Privécharters zijn op maat (minimaal 3 uur).",
   },
   {
-    question: "What routes do you usually take?",
+    question: "Welke routes varen jullie?",
     answer: (
       <>
-        Our shared tours explore the stunning West Coast (towards Cala Conta) or North Coast (towards Sa Foradada), showcasing beautiful coves and beaches like Cala Gració and Cala Salada. The captain chooses the best route daily based on conditions. See our <Link href='/routes' className='text-blue-600 hover:underline font-medium'>Routes Page</Link> for details. On <Link href='/private-boat-trips' className='text-purple-600 hover:underline font-medium'>Private Trips</Link>, the route is fully customizable within our operational range.
+        Onze gedeelde tours gaan naar de westkust (richting Cala Conta) of noordkust (richting Sa Foradada), langs cala’s zoals Cala Gració en Cala Salada. De kapitein kiest dagelijks de beste route. Zie onze <Link href='/routes' className='text-blue-600 hover:underline font-medium'>routepagina</Link>. Bij <Link href='/private-boat-trips' className='text-purple-600 hover:underline font-medium'>privé</Link> is de route bespreekbaar.
       </>
     ),
   },
   {
-    question: "Where is the meeting point?",
+    question: "Waar is het meetingpoint?",
     answer: (
       <>
-        Our meeting point is always at the port of San Antonio. You can find the exact location and directions on our <Link href='/contact' className='text-blue-600 hover:underline font-medium'>contact page with interactive map</Link>. We'll confirm the boarding time once your booking is confirmed.
+        De haven van San Antonio. Exacte locatie op onze <Link href='/contact' className='text-blue-600 hover:underline font-medium'>contactpagina met kaart</Link>. Instaptijd bevestigen we na boeking.
       </>
     ),
   },
@@ -44,129 +43,130 @@ const generalFaqs = [
 
 const pricingFaqs = [
   {
-    question: "What's included in the price?",
+    question: "Wat zit er in de prijs?",
     answer: (
       <>
-        Shared trips (Day/Sunset) typically include the captain, crew, fuel, unlimited standard open bar (soft drinks, beer, wine, cava, sangria, water), Spanish tapas & fresh fruit, and use of paddleboards, kayaks & snorkel gear. <Link href='/private-boat-trips' className='text-purple-600 hover:underline font-medium'>Private Trips</Link> have similar base inclusions but offer upgrade options (premium tapas, spirits). Always check the specific trip page!
+        Gedeelde trips: kapitein, bemanning, brandstof, unlimited open bar, Spaanse tapas & fruit, paddleboards, kajaks & snorkelen. <Link href='/private-boat-trips' className='text-purple-600 hover:underline font-medium'>Privé</Link> heeft vergelijkbare basis met upgrades. Check altijd de specifieke trip-pagina.
       </>
     ),
   },
   {
-    question: "Can we bring our own food and drinks?",
+    question: "Mag eigen eten en drinken?",
     answer: (
       <>
-        You are welcome to bring your own food onboard, especially on <Link href='/private-boat-trips' className='text-purple-600 hover:underline font-medium'>Private Trips</Link>. However, <strong>outside drinks are strictly not permitted on any trip</strong>, as we provide a generous complimentary open bar (soft drinks, beer, wine, cava, sangria, water). Specific requests like birthday cakes for charters can be discussed when booking.
+        Eigen eten mag, vooral bij <Link href='/private-boat-trips' className='text-purple-600 hover:underline font-medium'>privé</Link>. <strong>Eigen drank is niet toegestaan</strong> — wij voorzien een ruime open bar. Verzoeken zoals taart voor charter in overleg.
       </>
     ),
   },
   {
-    question: "How can I book a trip?",
+    question: "Hoe boek ik?",
     answer: (
       <>
-        <Link href='/book-now' className='text-blue-600 hover:underline font-medium'>Booking online through our website</Link> is highly recommended! Use the secure booking widgets with live availability on the <Link href='/boat-trips/day-trip' className='text-cyan-600 hover:underline font-medium'>Day Trip</Link>, <Link href='/boat-trips/sunset-trip' className='text-orange-600 hover:underline font-medium'>Sunset Trip</Link>, and <Link href='/private-boat-trips' className='text-purple-600 hover:underline font-medium'>Private Trips</Link> pages. After completing your booking, you will receive a confirmation voucher with all the details, including the exact meeting point and time.
+        <Link href='/book-now' className='text-blue-600 hover:underline font-medium'>Online boeken</Link> via de widgets met live beschikbaarheid op <Link href='/boat-trips/day-trip' className='text-cyan-600 hover:underline font-medium'>dagtrip</Link>, <Link href='/boat-trips/sunset-trip' className='text-orange-600 hover:underline font-medium'>zonsondergang</Link> en <Link href='/private-boat-trips' className='text-purple-600 hover:underline font-medium'>privé</Link>. Je ontvangt een voucher met details.
       </>
     ),
   },
   {
-    question: "What's the cancellation policy?",
+    question: "Wat is het annuleringsbeleid?",
     answer:
-      "Our cancellation policy varies depending on the trip type and notice period. Generally, we offer full or partial refunds if you cancel sufficiently in advance. Check our terms and conditions or contact us for specific details.",
+      "Het beleid verschilt per trip en termijn. Meestal restitutie bij tijdige annulering. Zie algemene voorwaarden of neem contact op.",
   },
 ];
 
 const onboardFaqs = [
   {
-    question: "What's the maximum capacity of the boat?",
-    answer:
-      "Please refer to our <Link href='/boat-trips' className='text-blue-600 hover:underline font-medium'>Trips</Link> or <Link href='/private-boat-trips' className='text-purple-600 hover:underline font-medium'>Private Trips</Link> pages for the maximum number of passengers allowed.",
+    question: "Wat is de maximale capaciteit?",
+    answer: (
+      <>
+        Zie onze <Link href='/boat-trips' className='text-blue-600 hover:underline font-medium'>trips</Link> of <Link href='/private-boat-trips' className='text-purple-600 hover:underline font-medium'>privé</Link>-pagina voor het maximaal aantal passagiers.
+      </>
+    ),
   },
   {
-    question: "Is there a toilet on board?",
+    question: "Is er een toilet aan boord?",
     answer:
-      "Yes, our boats are equipped with a marine toilet (WC) for your comfort.",
+      "Ja, er zijn scheepstoiletten (WC).",
   },
   {
-    question: "Is there shade on the boat?",
+    question: "Is er schaduw op de boot?",
     answer:
-      "Yes, all our boats have a canopy (bimini top) that provides ample shade to protect you from the sun.",
+      "Ja, alle boten hebben een bimini voor schaduw.",
   },
   {
-    question: "Is there music on board?",
+    question: "Is er muziek?",
     answer:
-      "Yes, our boats have sound systems with Bluetooth connectivity, so you can play your own music and set the perfect vibe.",
+      "Ja, bluetooth-geluidssysteem om je eigen muziek af te spelen.",
   },
 ];
 
 const safetyFaqs = [
   {
-    question: "Do we need any prior boating experience?",
+    question: "Heb ik vaarervaring nodig?",
     answer:
-      "Not at all! Our trips include an expert captain, so all you need to do is relax and enjoy the ride.",
+      "Nee. Onze kapitein vaart; jij ontspant.",
   },
   {
-    question: "Is it safe for children?",
+    question: "Is het veilig voor kinderen?",
     answer:
-      "Absolutely! Our boats are safe for families and children. We have life jackets in different sizes. Just let us know the children's ages when booking.",
+      "Ja. Verschillende maten reddingsvesten; geef leeftijden door bij boeking.",
   },
   {
-    question: "What should we bring?",
+    question: "Wat moet ik meenemen?",
     answer:
-      "We recommend bringing swimwear, a towel, sunscreen, a hat, sunglasses, and your camera to capture those unforgettable moments. If you're prone to seasickness, consider taking preventive medication beforehand.",
+      "Zwemkleding, handdoek, zonnebrand, pet, zonnebril, camera. Bij zeeziekte: voorbereiden.",
   },
   {
-    question: "What happens if there's bad weather?",
+    question: "Wat bij slecht weer?",
     answer:
-      "Safety is our top priority. If weather conditions are unsafe for sailing (decision made by the captain), we'll try to reschedule your trip for another day. If that's not possible, we'll offer a full refund.",
+      "Veiligheid eerst. Bij onveilige omstandigheden (kapitein) proberen we te verzetten; anders volledige terugbetaling.",
   },
 ];
 
 const activityFaqs = [
   {
-    question: "Can we do watersports?",
+    question: "Zijn watersporten inbegrepen?",
     answer: (
       <>
-        Yes! All our trips include the use of paddleboards (we have 15!), kayaks (2 available), and complete snorkeling equipment for everyone to enjoy during our swim stops.
+        Ja: paddleboards, 2 kajaks en snorkelset tijdens zwemstops.
       </>
     ),
   },
   {
-    question: "Are pets allowed on board?",
+    question: "Zijn huisdieren toegestaan?",
     answer: (
       <>
-        For the comfort of all guests, pets are not permitted on our shared Day or Sunset trips. On <Link href='/private-boat-trips' className='text-purple-600 hover:underline font-medium'>Private Trips</Link>, well-behaved pets may be considered upon prior request – please discuss this with us when booking.
+        Niet op gedeelde dag-/zonsondergangtrips. Bij <Link href='/private-boat-trips' className='text-purple-600 hover:underline font-medium'>privé</Link> soms na overleg.
       </>
     ),
   },
   {
-    question: "Do you speak languages other than English?",
+    question: "Welke talen spreekt de bemanning?",
     answer:
-      "Yes, our crew speaks fluent Spanish, and often other languages like Italian or French. Don't hesitate to ask!",
+      "O.a. Nederlands, Engels en Spaans; vaak ook Italiaans of Frans.",
   },
   {
-    question: "What makes Salvador Ibiza so special?",
+    question: "Wat maakt Salvador bijzonder?",
     answer: (
       <>
-        It's the combination of our beautiful, traditional wooden boat, the stunning routes, the generous inclusions (drinks, food, activities), and most importantly, our friendly, professional crew dedicated to providing an authentic and unforgettable Ibiza experience. Read more <Link href='/about' className='text-blue-600 hover:underline font-medium'>About Us</Link>!
+        Traditionele houten boot, prachtige routes, royale inclusions en een vriendelijke bemanning. Lees meer <Link href='/about' className='text-blue-600 hover:underline font-medium'>over ons</Link>.
       </>
     ),
   },
 ];
 
-// Refined Category Icon component
-function CategoryIcon({ 
-  icon, 
-  title, 
-  className = "" 
-}: { 
-  icon: React.ReactNode; 
-  title: string; 
-  className?: string; 
+function CategoryIcon({
+  icon,
+  title,
+  className = ""
+}: {
+  icon: ReactNode;
+  title: string;
+  className?: string;
 }) {
   return (
-    // Added group for hover effects, refined styling
     <div className={`group flex flex-col items-center text-center p-3 rounded-lg hover:bg-blue-50 transition-colors duration-200 ${className}`}>
       <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center mb-3 shadow-sm group-hover:shadow-md transition-shadow duration-200">
-        {icon} 
+        {icon}
       </div>
       <h3 className="text-base md:text-lg font-semibold text-gray-800 group-hover:text-blue-700 transition-colors duration-200">{title}</h3>
     </div>
@@ -174,25 +174,21 @@ function CategoryIcon({
 }
 
 export default function FAQClientPage() {
-  // Animation for Hero section
   const heroAnimation = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" as const } }
   };
-  
-  // Animation for Category Icons wrapper
+
   const categoriesAnimation = {
     initial: { opacity: 0 },
     animate: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.2 } }
   };
 
-  // Animation for individual Category Icons
   const iconAnimation = {
     initial: { opacity: 0, scale: 0.9 },
     animate: { opacity: 1, scale: 1, transition: { duration: 0.4, ease: "easeOut" as const } }
   };
 
-  // Animation for FAQ sections
   const sectionAnimation = {
     initial: { opacity: 0, y: 30 },
     animate: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" as const } }
@@ -200,16 +196,13 @@ export default function FAQClientPage() {
 
   return (
     <div className="bg-gradient-to-b from-white via-sky-50 to-blue-50">
-      {/* Breadcrumbs */}
       <div className="bg-gray-50 border-b border-gray-200">
         <div className="container mx-auto px-4 py-4">
           <Breadcrumbs />
         </div>
       </div>
 
-      {/* Hero Section - Refined styling */}
       <section className="relative py-24 md:py-32 text-center overflow-hidden">
-        {/* Soft background gradient elements */}
         <div className="absolute inset-0 overflow-hidden z-0 pointer-events-none">
           <div className="absolute w-full h-full bg-gradient-to-b from-white via-sky-50/50 to-transparent"></div>
           <div className="absolute w-[50vw] h-[50vh] rounded-full bg-cyan-200/20 -top-1/4 -left-1/4 blur-3xl opacity-70"></div>
@@ -223,64 +216,61 @@ export default function FAQClientPage() {
             className="max-w-3xl mx-auto"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-5">
-              <span className="text-gray-900">Frequently Asked</span>{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Questions</span>
+              <span className="text-gray-900">Veelgestelde</span>{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">vragen</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-              Find answers to your questions about our boat trips, bookings, and services.
+              Antwoorden over boottochten, boekingen en service.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Main Content Section */}
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4">
-          {/* Category Navigation - Added animation */}
-          <motion.div 
+          <motion.div
             variants={categoriesAnimation}
             initial="initial"
             animate="animate"
             className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:gap-6 mb-16 md:mb-20 max-w-5xl mx-auto"
           >
             <motion.div variants={iconAnimation}>
-              <CategoryIcon 
-                icon={<GiSailboat className="w-8 h-8 text-blue-600" />} 
-                title="General" 
+              <CategoryIcon
+                icon={<GiSailboat className="w-8 h-8 text-blue-600" />}
+                title="Algemeen"
               />
             </motion.div>
             <motion.div variants={iconAnimation}>
-              <CategoryIcon 
-                icon={<FiDollarSign className="w-7 h-7 text-green-600" />} 
-                title="Pricing" 
-              />
-             </motion.div>
-             <motion.div variants={iconAnimation}>
-              <CategoryIcon 
-                icon={<FiAnchor className="w-7 h-7 text-cyan-600" />} 
-                title="On Board" 
+              <CategoryIcon
+                icon={<FiDollarSign className="w-7 h-7 text-green-600" />}
+                title="Prijzen"
               />
             </motion.div>
             <motion.div variants={iconAnimation}>
-              <CategoryIcon 
-                icon={<FiHelpCircle className="w-7 h-7 text-orange-600" />} 
-                title="Safety" 
+              <CategoryIcon
+                icon={<FiAnchor className="w-7 h-7 text-cyan-600" />}
+                title="Aan boord"
               />
             </motion.div>
-             <motion.div variants={iconAnimation}>
-              <CategoryIcon 
-                icon={<GiWaveSurfer className="w-8 h-8 text-purple-600" />} 
-                title="Activities" 
+            <motion.div variants={iconAnimation}>
+              <CategoryIcon
+                icon={<FiHelpCircle className="w-7 h-7 text-orange-600" />}
+                title="Veiligheid"
+              />
+            </motion.div>
+            <motion.div variants={iconAnimation}>
+              <CategoryIcon
+                icon={<GiWaveSurfer className="w-8 h-8 text-purple-600" />}
+                title="Activiteiten"
               />
             </motion.div>
           </motion.div>
 
-          {/* FAQs by Category - Refined section headers */}
           <div className="space-y-16 max-w-4xl mx-auto">
             <motion.section variants={sectionAnimation} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.2 }}>
               <div className="flex items-center mb-6 pb-2 border-b border-gray-200">
                 <GiSailboat className="w-6 h-6 text-blue-600 mr-3 flex-shrink-0" />
-                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">General Questions</h2>
+                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Algemeen</h2>
               </div>
               <FAQ items={generalFaqs} />
             </motion.section>
@@ -288,15 +278,15 @@ export default function FAQClientPage() {
             <motion.section variants={sectionAnimation} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.2 }}>
               <div className="flex items-center mb-6 pb-2 border-b border-gray-200">
                 <FiDollarSign className="w-5 h-5 text-green-600 mr-3 flex-shrink-0" />
-                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Pricing & Booking</h2>
+                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Prijzen & boeken</h2>
               </div>
               <FAQ items={pricingFaqs} />
             </motion.section>
 
-             <motion.section variants={sectionAnimation} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.2 }}>
+            <motion.section variants={sectionAnimation} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.2 }}>
               <div className="flex items-center mb-6 pb-2 border-b border-gray-200">
                 <FiAnchor className="w-5 h-5 text-cyan-600 mr-3 flex-shrink-0" />
-                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">On Board Experience</h2>
+                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Aan boord</h2>
               </div>
               <FAQ items={onboardFaqs} />
             </motion.section>
@@ -304,22 +294,21 @@ export default function FAQClientPage() {
             <motion.section variants={sectionAnimation} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.2 }}>
               <div className="flex items-center mb-6 pb-2 border-b border-gray-200">
                 <FiHelpCircle className="w-5 h-5 text-orange-600 mr-3 flex-shrink-0" />
-                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Safety & Preparation</h2>
+                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Veiligheid & voorbereiding</h2>
               </div>
               <FAQ items={safetyFaqs} />
             </motion.section>
 
-             <motion.section variants={sectionAnimation} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.2 }}>
+            <motion.section variants={sectionAnimation} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.2 }}>
               <div className="flex items-center mb-6 pb-2 border-b border-gray-200">
                 <GiWaveSurfer className="w-6 h-6 text-purple-600 mr-3 flex-shrink-0" />
-                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Activities & More</h2>
+                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Activiteiten & meer</h2>
               </div>
               <FAQ items={activityFaqs} />
             </motion.section>
           </div>
-          
-          {/* CTA Section - Refined design */}
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
@@ -327,23 +316,22 @@ export default function FAQClientPage() {
             className="mt-20 md:mt-28 max-w-4xl mx-auto"
           >
             <div className="relative bg-gradient-to-r from-blue-600 to-cyan-500 rounded-xl overflow-hidden shadow-lg p-8 md:p-12">
-               {/* Subtle background pattern */}
-               <div 
-                 className="absolute inset-0 opacity-10 pointer-events-none" 
-                 style={{
-                   backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath fill='%23ffffff' fill-opacity='0.4' d='M0 0h10v10H0V0zm10 10h10v10H10V10z'/%3E%3C/svg%3E")`
-                 }}
-               ></div>
+              <div
+                className="absolute inset-0 opacity-10 pointer-events-none"
+                style={{
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath fill='%23ffffff' fill-opacity='0.4' d='M0 0h10v10H0V0zm10 10h10v10H10V10z'/%3E%3C/svg%3E")`
+                }}
+              ></div>
               <div className="relative z-10 text-center md:flex items-center justify-between">
                 <div className="md:max-w-lg mb-6 md:mb-0 md:text-left">
-                  <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">Still have questions?</h2>
+                  <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">Nog vragen?</h2>
                   <p className="text-blue-100 text-base md:text-lg leading-relaxed">
-                    We&apos;re here to help! Contact us directly for personalized assistance.
+                    Neem gerust contact op voor persoonlijk advies.
                   </p>
                 </div>
                 <Link href="/contact">
                   <span className="inline-flex items-center justify-center bg-white text-blue-700 hover:bg-blue-50 font-semibold py-3 px-6 rounded-lg shadow hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5">
-                    Contact Us
+                    Contact
                     <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                   </span>
                 </Link>
@@ -354,4 +342,4 @@ export default function FAQClientPage() {
       </section>
     </div>
   );
-} 
+}

@@ -67,7 +67,7 @@ const tripFAQs = [
       <>
         The captain selects the best route based on weather, heading either north (Cala Salada, Punta Galera) or west (Cala Bassa, Cala Conta). We always position ourselves in front of Café Mambo and Café del Mar for the sunset.
         <Link href="/routes" className="text-blue-600 hover:underline font-medium ml-1">
-          Learn more about our routes.
+          Meer over onze routes.
         </Link>
       </>
     )

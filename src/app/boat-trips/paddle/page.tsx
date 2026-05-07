@@ -3,17 +3,17 @@ import Link from 'next/link';
 import TurbnbWidget from '@/components/booking/TurbnbWidget';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import { absoluteUrl, publicAssetUrl } from '@/config/site';
-import { enPageMetadata } from '@/lib/page-meta';
+import { pageMetadata } from '@/lib/page-meta';
 
-export const metadata = enPageMetadata({
-  title: 'Paddle Boarding Boat Trips Ibiza (3 hours) | SUP Adventures',
-  description: 'Amazing paddle boarding boat trips in Ibiza with 15 premium SUP boards included. Explore hidden coves and crystal-clear waters on your paddle board adventure.',
+export const metadata = pageMetadata({
+  title: 'SUP & paddle boottochten Ibiza (3 uur)',
+  description: 'Paddleboarden op Ibiza: 15 premium SUP-boards inbegrepen, verborgen cala’s en helder water.',
   path: '/boat-trips/paddle',
-  keywords: 'paddle boarding Ibiza, SUP boat trips, paddle board rental Ibiza, stand up paddle boarding, SUP adventure Ibiza, paddle board tours',
-  ogTitle: 'Paddle Boarding Boat Trips Ibiza | SUP Adventures',
-  ogDescription: 'Amazing paddle boarding boat trips in Ibiza with 15 premium SUP boards included. Explore hidden coves and crystal-clear waters.',
+  keywords: 'paddleboard Ibiza, SUP boottocht Ibiza, stand up paddle Ibiza',
+  ogTitle: 'SUP boottochten Ibiza',
+  ogDescription: '15 paddleboards, ontdek cala’s en snorkelplekken.',
   ogImage: '/images/boat/chicasentablasup.png',
-  ogImageAlt: 'Woman paddle boarding during Ibiza boat trip',
+  ogImageAlt: 'Paddleboarden tijdens boottrip Ibiza',
 });
 
 // JSON-LD structured data for paddle boarding boat trips

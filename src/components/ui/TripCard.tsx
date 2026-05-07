@@ -42,7 +42,7 @@ const TripCard: React.FC<TripCardProps> = ({
   ctaBgColor,
   ctaHoverBgColor,
   detailsHref,
-  detailsText = 'Learn More',
+  detailsText = 'Meer info',
   isPopular = false,
   description,
   delay = 0,
@@ -72,7 +72,7 @@ const TripCard: React.FC<TripCardProps> = ({
     >
       {isPopular && (
         <div className="absolute top-3 right-3 bg-yellow-400 text-yellow-900 text-xs font-semibold px-2.5 py-0.5 rounded z-10 shadow-sm">
-          Most Popular
+          Populair
         </div>
       )}
       <Link href={detailsHref} className="block relative w-full aspect-[4/3] overflow-hidden">
@@ -118,7 +118,7 @@ const TripCard: React.FC<TripCardProps> = ({
             href={ctaHref} 
             className={`block w-full text-center ${ctaBgColor} ${ctaHoverBgColor} text-white font-semibold py-2.5 px-4 rounded-lg transition-colors duration-300 shadow-sm hover:shadow-md`}
           >
-            Book Now
+            Boek nu
           </Link>
         </div>
       </div>

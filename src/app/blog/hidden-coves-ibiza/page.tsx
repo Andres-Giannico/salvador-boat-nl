@@ -1,16 +1,16 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import Breadcrumbs from '@/components/ui/Breadcrumbs'
-import { enPageMetadata } from '@/lib/page-meta'
+import { pageMetadata } from '@/lib/page-meta'
 
-export const metadata = enPageMetadata({
+export const metadata = pageMetadata({
   title:
-    "Hidden Coves of Ibiza: Discover the Island's Best-Kept Secrets by Boat",
+    "Verborgen cala's van Ibiza per boot",
   description:
-    "Explore Ibiza's secret hidden coves and secluded beaches only accessible by boat. Discover untouched natural beauty with Salvador Ibiza boat trips.",
+    "Ontdek afgelegen cala's en stranden die je alleen per boot bereikt — met Salvador Ibiza.",
   path: '/blog/hidden-coves-ibiza',
   keywords:
-    'hidden coves Ibiza, secret beaches Ibiza, secluded coves, boat accessible beaches, Ibiza hidden gems, private swimming spots',
+    'verborgen cala Ibiza, geheime stranden Ibiza, boot strand Ibiza',
 })
 
 export default function HiddenCovesPage() {

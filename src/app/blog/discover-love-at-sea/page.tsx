@@ -1,15 +1,15 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
-import { enPageMetadata } from '@/lib/page-meta';
+import { pageMetadata } from '@/lib/page-meta';
 
-export const metadata = enPageMetadata({
-  title: 'Romantic Boat Charters in Ibiza: Discover Love at Sea',
+export const metadata = pageMetadata({
+  title: 'Romantisch varen op Ibiza: liefde op zee',
   description:
-    'Create unforgettable romantic memories with private boat charters in Ibiza. Perfect for proposals, anniversaries, and intimate escapes. Book your romantic cruise today.',
+    'Romantische privé-momenten op het water — aanzoek, jubileum of intieme escape. Boek je cruise met Salvador.',
   path: '/blog/discover-love-at-sea',
   keywords:
-    'romantic boat charter Ibiza, romantic cruise Ibiza, proposal boat trip, anniversary celebration, couples boat trip, private romantic charter',
+    'romantische boot Ibiza, sunset privé, stelletjes boottrip Ibiza',
 });
 
 export default function DiscoverLoveAtSeaPage() {

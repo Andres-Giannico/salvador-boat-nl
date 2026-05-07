@@ -24,7 +24,7 @@ export default function Hero() {
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/optimized/es-vedra-island-ibiza-background.webp" 
-          alt="Salvador Ibiza Luxury Experience"
+          alt="Luxury bootervaring Salvador Ibiza"
           fill
           priority
           className="object-cover object-center brightness-[0.65] z-0"
@@ -45,7 +45,7 @@ export default function Hero() {
           className="mb-12 md:mb-16"
         >
           <p className="px-6 py-2 rounded-full bg-white/10 backdrop-blur-sm text-white text-sm tracking-widest font-light border border-white/10">
-            SALVADOR BOAT EXPERIENCE
+            SALVADOR BOOTERVARING
           </p>
         </motion.div>
         
@@ -57,14 +57,14 @@ export default function Hero() {
           className="max-w-5xl mb-6 md:mb-8"
         >
           <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold text-white mb-6 md:mb-8 leading-[1.1] tracking-tight">
-            SALVADOR BOAT
+            SALVADOR BOOT
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/80">
               TRIP IBIZA
             </span>
           </h1>
           <p className="text-lg md:text-xl lg:text-2xl text-white/80 font-light max-w-3xl mx-auto tracking-wide">
-            Discover Ibiza by sea - Experience the Mediterranean&apos;s finest waters aboard the iconic Salvador boat
+            Ontdek Ibiza vanaf zee — geniet van het helderste water van de Middellandse Zee aan boord van de iconische Salvador
           </p>
         </motion.div>
 
@@ -86,7 +86,7 @@ export default function Hero() {
                 ))}
               </div>
               <div className="text-white/90 font-light text-sm md:text-base">
-                <span className="font-medium">4.9</span> on Google
+                <span className="font-medium">4.9</span> op Google
               </div>
             </div>
 
@@ -102,7 +102,7 @@ export default function Hero() {
                 ))}
               </div>
               <div className="text-white/90 font-light text-sm md:text-base">
-                <span className="font-medium">4.9</span> on Tripadvisor
+                <span className="font-medium">4.9</span> op Tripadvisor
               </div>
             </div>
           </div>
@@ -114,7 +114,7 @@ export default function Hero() {
           >
             <Image
               src="/images/optimized/tripadvisor-salvador-ibiza-2024.webp"
-              alt="Tripadvisor Traveller's Choice 2024"
+              alt="Tripadvisor Travellers&apos; Choice 2024"
               width={100}
               height={100}
               className="object-contain md:w-[120px] md:h-[120px]"
@@ -129,11 +129,11 @@ export default function Hero() {
           animate="visible"
           className="flex flex-col md:flex-row justify-center gap-2 md:gap-x-8 mb-8 md:mb-12 text-white/90"
         >
-          <span className="font-light tracking-wider text-sm md:text-base">LUXURY BOAT TRIPS</span>
+          <span className="font-light tracking-wider text-sm md:text-base">LUXE BOOTTOCHTEN</span>
           <span className="hidden md:block text-white/40">|</span>
-          <span className="font-light tracking-wider text-sm md:text-base">CRYSTAL CLEAR WATERS</span>
+          <span className="font-light tracking-wider text-sm md:text-base">KRISTALHELDER WATER</span>
           <span className="hidden md:block text-white/40">|</span>
-          <span className="font-light tracking-wider text-sm md:text-base">UNFORGETTABLE MOMENTS</span>
+          <span className="font-light tracking-wider text-sm md:text-base">ONVERGETELIJKE MOMENTEN</span>
         </motion.div>
 
         {/* Scroll Indicator */}

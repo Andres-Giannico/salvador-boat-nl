@@ -1,11 +1,11 @@
 import BookTripsQrClient from './page.client';
-import { enPageMetadata } from '@/lib/page-meta';
+import { pageMetadata } from '@/lib/page-meta';
 
 export const metadata = {
-  ...enPageMetadata({
-    title: 'Book Your Boat Trip - Caseta QR',
+  ...pageMetadata({
+    title: 'Boek je trip — QR caseta',
     description:
-      'Book your Salvador Ibiza boat trip from our caseta. Choose between daytime adventures or magical sunset voyages from San Antonio Port.',
+      'Boek je Salvador Ibiza boottrip vanaf onze caseta: dag- of zonsondergangtrip, haven San Antonio.',
     path: '/book/trips',
     robots: { index: false, follow: false },
   }),

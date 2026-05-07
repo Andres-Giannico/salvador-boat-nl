@@ -17,7 +17,7 @@ interface FAQProps {
   className?: string;
 }
 
-const FAQ = ({ items, title = "Frequently Asked Questions", compact = false, className = "" }: FAQProps) => {
+const FAQ = ({ items, title = "Veelgestelde vragen", compact = false, className = "" }: FAQProps) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const toggleAccordion = (index: number) => {

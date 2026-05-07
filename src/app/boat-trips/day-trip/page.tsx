@@ -1,7 +1,7 @@
 import DayTripClientPage from './page.client';
 import Script from 'next/script';
 import { absoluteUrl, publicAssetUrl } from '@/config/site';
-import { enPageMetadata } from '@/lib/page-meta';
+import { pageMetadata } from '@/lib/page-meta';
 // Remove imports related to review fetching
 // import { GoogleReview } from '@/services/googlePlaces';
 // import { getReviews } from '@/services/getReviews'; // Assuming a function like this existed
@@ -9,11 +9,11 @@ import { enPageMetadata } from '@/lib/page-meta';
 const dayTripJsonLd = {
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "All inclusive boat trip and tours in Ibiza - Salvador Ibiza",
+  "name": "All-inclusive dagtrip Ibiza — Salvador Ibiza",
+  "description": "All-inclusive dagboottocht van 3 uur met kapitein, catering, drankjes, paddleboards en snorkel.",
   "image": [
     publicAssetUrl("/images/boat/aereabarco1.jpg")
   ],
-  "description": "All-inclusive day boat trip in Ibiza with captain. Enjoy 3 hours of navigation with catering, drinks, paddle surf and snorkel included.",
   "brand": {
     "@type": "Organization",
     "name": "Salvador Ibiza"
@@ -57,12 +57,12 @@ const dayTripJsonLd = {
 //   }
 // }
 
-export const metadata = enPageMetadata({
-  title: 'All-Inclusive Day Boat Trip Ibiza | Salvador',
-  description: '⛵ Ultimate Ibiza day adventure! 3-hour all-inclusive boat trip with 15 paddle boards, snorkeling, unlimited drinks & Spanish tapas. From €80 - Book now!',
+export const metadata = pageMetadata({
+  title: 'All-inclusive dagtrip Ibiza | Salvador',
+  description: '⛵ 3 uur all-inclusive dagtrip: paddleboards, snorkelen, unlimited drankjes & Spaanse tapas. Vanaf €80.',
   path: '/boat-trips/day-trip',
-  ogTitle: 'All-Inclusive Day Boat Trip Ibiza | Salvador',
-  ogDescription: '⛵ Ultimate Ibiza day adventure! 3-hour all-inclusive boat trip with paddle boards, snorkeling, unlimited drinks & Spanish tapas.',
+  ogTitle: 'All-inclusive dagtrip Ibiza',
+  ogDescription: '⛵ Dagtrip met 15 paddleboards, snorkelen, open bar en tapas.',
   ogImage: '/images/optimized/salvador-ibiza-boat-aerial-view.webp',
 });
 

@@ -3,17 +3,17 @@ import Link from 'next/link';
 import TurbnbWidget from '@/components/booking/TurbnbWidget';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import { absoluteUrl, publicAssetUrl } from '@/config/site';
-import { enPageMetadata } from '@/lib/page-meta';
+import { pageMetadata } from '@/lib/page-meta';
 
-export const metadata = enPageMetadata({
-  title: 'Group Boat Trips Ibiza (3 hours) | Perfect for Large Groups',
-  description: 'Ideal group boat trips in Ibiza for friends, celebrations, and corporate events. Accommodates large groups with special rates and customized experiences.',
+export const metadata = pageMetadata({
+  title: 'Groepsboottochten Ibiza (3 uur)',
+  description: 'Boottochten voor grote groepen: vrienden, feesten en zakelijke uitjes. Maatwerk en scherpe tarieven.',
   path: '/boat-trips/groups',
-  keywords: 'group boat trips Ibiza, large group boat tour, friends boat trip Ibiza, corporate boat events, group discounts Ibiza, party boat Ibiza',
-  ogTitle: 'Group Boat Trips Ibiza | Perfect for Large Groups',
-  ogDescription: 'Perfect group boat trips in Ibiza for friends, celebrations, and corporate events. Special rates and customized experiences for large groups.',
+  keywords: 'groep boot Ibiza, grote groep boot, zakelijk varen Ibiza, bootfeest Ibiza',
+  ogTitle: 'Groepsboottochten Ibiza',
+  ogDescription: 'Ideaal voor groepen en events op Ibiza.',
   ogImage: '/images/boat/chicasmuyfelices.webp',
-  ogImageAlt: 'Happy group of friends enjoying boat trip in Ibiza',
+  ogImageAlt: 'Vrolijke groep op boot Ibiza',
 });
 
 // JSON-LD structured data for group boat trips

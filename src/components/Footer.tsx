@@ -5,7 +5,6 @@ import { FiMail, FiMapPin, FiPhone, FiArrowRight } from 'react-icons/fi';
 
 const Footer = () => {
   const year = new Date().getFullYear();
-  const currentLocale = 'en';
 
   // Updated phone numbers
   const phone1 = "+34 871 181 393"; 
@@ -36,10 +35,10 @@ const Footer = () => {
         <div className="container mx-auto px-6 lg:px-8">
           {/* Top section with logo and socials */}
           <div className="flex flex-col md:flex-row justify-between items-center mb-12 pb-8 border-b border-gray-200">
-            <Link href={currentLocale === 'en' ? '/' : `/${currentLocale}`} className="mb-6 md:mb-0">
+            <Link href="/" className="mb-6 md:mb-0">
               <Image
                 src="/images/optimized/salvador-ibiza-footer-logo-alt.webp"
-                alt="Salvador Ibiza Footer Logo"
+                alt="Salvador Ibiza footerlogo"
                 width={60}
                 height={18}
                 loading="lazy"
@@ -65,42 +64,42 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8">
             {/* About column */}
             <div className="lg:pr-8">
-              <h3 className="text-lg font-bold mb-4 text-gray-800">About Us</h3>
+              <h3 className="text-lg font-bold mb-4 text-gray-800">Over ons</h3>
               <p className="text-gray-600 leading-relaxed mb-6">
-                Experience Ibiza from a different perspective with our premium boat trips. Unforgettable moments, crystal-clear waters, and the magic of the Mediterranean.
+                Beleef Ibiza vanaf het water met onze premium boottochten. Onvergetelijke momenten, helder water en de magie van de Middellandse Zee.
               </p>
               <Link href="/about" className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium group">
-                Learn more about us <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                Meer over ons <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
 
             {/* Explore column */}
             <div>
-              <h3 className="text-lg font-bold mb-4 text-gray-800">Explore</h3>
+              <h3 className="text-lg font-bold mb-4 text-gray-800">Ontdek</h3>
               <ul className="space-y-3">
                 <li>
                   <Link href="/boat-trips" className="text-gray-600 hover:text-blue-600 transition duration-300">
-                    ⟡ Boat Trips
+                    ⟡ Boottochten
                   </Link>
                 </li>
                 <li>
                   <Link href="/private-boat-trips" className="text-gray-600 hover:text-blue-600 transition duration-300">
-                    ⟡ Private Trips
+                    ⟡ Privétochten
                   </Link>
                 </li>
                 <li>
                   <Link href="/corporate-events" className="text-gray-600 hover:text-blue-600 transition duration-300">
-                    ⟡ Corporate Events
+                    ⟡ Zakelijke events
                   </Link>
                 </li>
                 <li>
                   <Link href="/weddings" className="text-gray-600 hover:text-blue-600 transition duration-300">
-                    ⟡ Weddings
+                    ⟡ Bruiloften
                   </Link>
                 </li>
                 <li>
                   <Link href="/gallery" className="text-gray-600 hover:text-blue-600 transition duration-300">
-                    ⟡ Gallery
+                    ⟡ Galerij
                   </Link>
                 </li>
                 <li>
@@ -118,11 +117,11 @@ const Footer = () => {
 
             {/* Legal/Company column - ADD Contact Link Here */}
             <div>
-              <h3 className="text-lg font-bold mb-4 text-gray-800">Company</h3>
+              <h3 className="text-lg font-bold mb-4 text-gray-800">Bedrijf</h3>
               <ul className="space-y-3">
                 <li>
                   <Link href="/about" className="text-gray-600 hover:text-blue-600 transition duration-300">
-                    ⟡ About Us
+                    ⟡ Over ons
                   </Link>
                 </li>
                 <li>
@@ -130,20 +129,19 @@ const Footer = () => {
                     ⟡ Partners
                   </Link>
                 </li>
-                {/* Add Contact Us Link */}
                 <li>
                   <Link href="/contact" className="text-gray-600 hover:text-blue-600 transition duration-300">
-                    ⟡ Contact Us
+                    ⟡ Contact
                   </Link>
                 </li>
                 <li>
                   <Link href="/privacy-policy" className="text-gray-600 hover:text-blue-600 transition duration-300">
-                    ⟡ Privacy Policy
+                    ⟡ Privacybeleid
                   </Link>
                 </li>
                 <li>
                   <Link href="/terms-of-service" className="text-gray-600 hover:text-blue-600 transition duration-300">
-                    ⟡ Terms of Service
+                    ⟡ Algemene voorwaarden
                   </Link>
                 </li>
               </ul>
@@ -193,7 +191,7 @@ const Footer = () => {
                     rel="noopener noreferrer"
                     className="hover:text-green-600 transition duration-300"
                   >
-                    WhatsApp Us
+                    WhatsApp
                   </a>
                 </li>
               </ul>
@@ -206,11 +204,11 @@ const Footer = () => {
       <div className="py-4 bg-white border-t border-gray-100">
         <div className="container mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-gray-500 mb-4 md:mb-0">
-            &copy; {year} <span className="font-medium">Salvador Ibiza</span>. All rights reserved.
+            &copy; {year} <span className="font-medium">Salvador Ibiza</span>. Alle rechten voorbehouden.
           </p>
           <div className="flex space-x-8">
             <a href="#top" className="text-sm text-gray-500 hover:text-blue-600 transition duration-300">
-              Back to top
+              Naar boven
             </a>
             <span className="text-sm text-gray-500">
               Made with ❤️ from MDQ & IBZ 

@@ -2,15 +2,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 import TurbnbWidget from '@/components/booking/TurbnbWidget';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
-import { enPageMetadata } from '@/lib/page-meta';
+import { pageMetadata } from '@/lib/page-meta';
 
-export const metadata = enPageMetadata({
-  title: 'Day Boat Trips Ibiza (3 hours) | Family-Friendly Adventures',
+export const metadata = pageMetadata({
+  title: 'Dag boottochten Ibiza (3 uur) | Gezinsvriendelijk',
   description:
-    'Perfect day boat trips in Ibiza for families and friends. 3-hour cruises with swimming, snorkeling, and paddleboarding. Book your daytime adventure today.',
+    'Ideale dagtrips op Ibiza voor families en vrienden: 3 uur zwemmen, snorkelen en paddleboarden.',
   path: '/boat-trips/day',
   keywords:
-    'day boat trips Ibiza, family boat trips, daytime cruise Ibiza, boat tour Ibiza day, swimming excursion',
+    'dag boottocht Ibiza, familie boot, dagcruise Ibiza, boottocht overdag',
 });
 
 export default function DayBoatTripsPage() {

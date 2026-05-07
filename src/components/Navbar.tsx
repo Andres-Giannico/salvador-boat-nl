@@ -6,14 +6,17 @@ import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const EN_SITE_BASE = (
+  process.env.NEXT_PUBLIC_SITE_URL_EN || 'https://www.salvadoribiza.com'
+).replace(/\/+$/, '');
+
 const ES_SITE_BASE = (
   process.env.NEXT_PUBLIC_SITE_URL_ES || 'https://www.salvadoribiza.es'
 ).replace(/\/+$/, '');
 
-/** Misma ruta que la página EN actual, en el dominio español */
-function spanishAlternateHref(pathname: string): string {
-  if (!pathname || pathname === '/') return `${ES_SITE_BASE}/`;
-  return `${ES_SITE_BASE}${pathname}`;
+function absoluteOnBase(base: string, pathname: string): string {
+  if (!pathname || pathname === '/') return `${base}/`;
+  return `${base}${pathname}`;
 }
 
 export default function Navbar() {
@@ -22,9 +25,9 @@ export default function Navbar() {
 
   const links = [
     { href: '/', label: 'HOME' },
-    { href: '/boat-trips', label: 'BOAT TRIPS' },
-    { href: '/private-boat-trips', label: 'PRIVATE TRIPS' },
-    { href: '/gallery', label: 'GALLERY' },
+    { href: '/boat-trips', label: 'BOOTTOCHTEN' },
+    { href: '/private-boat-trips', label: 'PRIVÉ' },
+    { href: '/gallery', label: 'GALERIJ' },
     { href: '/faq', label: 'FAQ' },
   ];
 
@@ -39,17 +42,26 @@ export default function Navbar() {
   const logoHeight = 'h-16 md:h-20';
 
   const langSwitcher = (
-    <div className="flex items-center gap-2 border border-gray-200 rounded-full px-2 py-1 bg-white/80">
+    <div className="flex flex-wrap items-center justify-end gap-1 border border-gray-200 rounded-full px-2 py-1 bg-white/80 max-w-[220px] sm:max-w-none">
       <span
-        className="text-sm px-2 py-1 rounded-full bg-gradient-to-r from-blue-50 to-cyan-50 font-medium text-gray-900"
-        title="You are on the English site"
+        className="text-xs sm:text-sm px-2 py-1 rounded-full bg-gradient-to-r from-blue-50 to-cyan-50 font-medium text-gray-900"
+        title="Nederlandse site"
       >
-        <span aria-hidden>🇬🇧</span> EN
+        <span aria-hidden>🇳🇱</span> NL
       </span>
       <a
-        href={spanishAlternateHref(pathname)}
-        className="text-sm px-2 py-1 rounded-full hover:bg-gray-50 text-gray-700 font-medium transition-colors"
-        title={`Spanish version of this page — ${new URL(spanishAlternateHref(pathname)).hostname}`}
+        href={absoluteOnBase(EN_SITE_BASE, pathname)}
+        className="text-xs sm:text-sm px-2 py-1 rounded-full hover:bg-gray-50 text-gray-700 font-medium transition-colors"
+        title={`Engelse versie — ${new URL(`${EN_SITE_BASE}/`).hostname}`}
+        rel="alternate"
+        hrefLang="en"
+      >
+        <span aria-hidden>🇬🇧</span> EN
+      </a>
+      <a
+        href={absoluteOnBase(ES_SITE_BASE, pathname)}
+        className="text-xs sm:text-sm px-2 py-1 rounded-full hover:bg-gray-50 text-gray-700 font-medium transition-colors"
+        title={`Spaanse versie — ${new URL(`${ES_SITE_BASE}/`).hostname}`}
         rel="alternate"
         hrefLang="es"
       >
@@ -75,7 +87,7 @@ export default function Navbar() {
             <Link href="/">
               <Image
                 src="/images/optimized/salvador-ibiza-boat-trips-logo.webp"
-                alt="Salvador Ibiza Logo"
+                alt="Salvador Ibiza logo"
                 width={200}
                 height={90}
                 className={`object-contain ${logoHeight} w-auto hover:scale-105 transition-transform duration-300`}
@@ -115,7 +127,7 @@ export default function Navbar() {
               className="ml-2"
             >
               <Link href="/book-now">
-                <span className={ctaClass}>BOOK NOW</span>
+                <span className={ctaClass}>NU BOEKEN</span>
               </Link>
             </motion.div>
           </div>
@@ -129,7 +141,7 @@ export default function Navbar() {
               aria-controls="mobile-menu"
               aria-expanded={isOpen}
             >
-              <span className="sr-only">Open main menu</span>
+              <span className="sr-only">Menu openen</span>
               <motion.div
                 animate={isOpen ? 'open' : 'closed'}
                 variants={{
@@ -163,10 +175,25 @@ export default function Navbar() {
           >
             <div className="px-4 pt-3 pb-4 space-y-2">
               <p className="px-4 text-xs text-gray-600 pb-1">
-                Prefer Spanish? Open the same page on{' '}
-                <a href={spanishAlternateHref(pathname)} className="text-blue-600 font-medium underline">
-                  {new URL(`${ES_SITE_BASE}/`).hostname}
+                Dezelfde pagina in het{' '}
+                <a
+                  href={absoluteOnBase(EN_SITE_BASE, pathname)}
+                  className="text-blue-600 font-medium underline"
+                  hrefLang="en"
+                  rel="alternate"
+                >
+                  Engels
+                </a>{' '}
+                of{' '}
+                <a
+                  href={absoluteOnBase(ES_SITE_BASE, pathname)}
+                  className="text-blue-600 font-medium underline"
+                  hrefLang="es"
+                  rel="alternate"
+                >
+                  Spaans
                 </a>
+                .
               </p>
               {links.map((link) => {
                 const isActive =
@@ -191,7 +218,7 @@ export default function Navbar() {
                     whileHover={{ scale: 1.02 }}
                     className="block text-center py-3 px-4 rounded-xl font-medium bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-lg hover:shadow-xl transition-all duration-300"
                   >
-                    BOOK NOW
+                    NU BOEKEN
                   </motion.span>
                 </Link>
               </div>

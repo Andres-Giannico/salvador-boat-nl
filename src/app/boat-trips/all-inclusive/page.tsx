@@ -3,17 +3,17 @@ import Link from 'next/link';
 import TurbnbWidget from '@/components/booking/TurbnbWidget';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import { absoluteUrl, publicAssetUrl } from '@/config/site';
-import { enPageMetadata } from '@/lib/page-meta';
+import { pageMetadata } from '@/lib/page-meta';
 
-export const metadata = enPageMetadata({
-  title: 'All-Inclusive Boat Trips Ibiza (3 hours) | Everything Included',
-  description: 'Ultimate all-inclusive boat trips in Ibiza with everything included: premium drinks, gourmet food, water sports, and professional crew. No hidden costs, pure relaxation.',
+export const metadata = pageMetadata({
+  title: 'All-inclusive boottochten Ibiza (3 uur)',
+  description: 'All-inclusive boottrips op Ibiza: premium drankjes, tapas, watersport en professionele bemanning — zonder verborgen kosten.',
   path: '/boat-trips/all-inclusive',
-  keywords: 'all inclusive boat trips Ibiza, everything included boat tour, premium boat trip Ibiza, luxury boat experience, all inclusive cruise Ibiza',
-  ogTitle: 'All-Inclusive Boat Trips Ibiza | Everything Included',
-  ogDescription: 'Ultimate all-inclusive boat trips in Ibiza with premium drinks, gourmet food, water sports, and professional crew. No hidden costs.',
+  keywords: 'all inclusive boot Ibiza, luxe boottocht Ibiza, boottocht alles inbegrepen',
+  ogTitle: 'All-inclusive boottochten Ibiza',
+  ogDescription: 'Alles inbegrepen: drankjes, eten, watersport en bemanning.',
   ogImage: '/images/optimized/salvador-ibiza-boat-aerial-view.webp',
-  ogImageAlt: 'All-inclusive boat trip in Ibiza with Salvador - premium experience',
+  ogImageAlt: 'All-inclusive boottocht Ibiza met Salvador',
 });
 
 // JSON-LD structured data for all-inclusive boat trips

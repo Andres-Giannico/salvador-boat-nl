@@ -59,7 +59,7 @@ export default function HomePage() {
               "https://www.instagram.com/salvadoribiza",
               "https://www.facebook.com/salvadoribiza"
             ],
-            "description": "Boat trips and private charter rentals in Ibiza. Experience unique adventures at sea with day trips, sunset cruises, and private services for groups.",
+            "description": "Boottochten en privé charter op Ibiza. Unieke avonturen op zee: dagtrips, zonsondergangen en privéservices voor groepen.",
             "paymentAccepted": "Cash, Credit Card, Bizum"
           })
         }}

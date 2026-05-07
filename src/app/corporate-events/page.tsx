@@ -1,13 +1,13 @@
 import CorporateEventsClientPage from './page.client';
 import { FiBriefcase, FiUsers, FiSun, FiCheckCircle, FiAward, FiCoffee, FiHelpCircle } from 'react-icons/fi';
 import { GiPartyPopper, GiTeamIdea } from 'react-icons/gi';
-import { enPageMetadata } from '@/lib/page-meta';
+import { pageMetadata } from '@/lib/page-meta';
 
 // --- Metadata --- 
-export const metadata = enPageMetadata({
-  title: 'Corporate Events & Boat Charters in Ibiza',
+export const metadata = pageMetadata({
+  title: 'Zakelijke events & boot charter op Ibiza',
   description:
-    'Host unforgettable corporate events, team building activities, client entertainment, or incentive trips aboard Salvador Ibiza, a stunning traditional boat in San Antonio.',
+    'Onvergetelijke bedrijfsuitjes, teambuilding, klantenentertainment of incentives aan boord van Salvador Ibiza in San Antonio.',
   path: '/corporate-events',
 });
 

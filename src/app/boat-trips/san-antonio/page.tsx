@@ -1,23 +1,23 @@
 import SanAntonioBoatTripsClientPage from './page.client';
 import { absoluteUrl, publicAssetUrl } from '@/config/site';
-import { enPageMetadata } from '@/lib/page-meta';
+import { pageMetadata } from '@/lib/page-meta';
 
-export const metadata = enPageMetadata({
-  title: 'Boat Trips San Antonio Ibiza | Departing from San Antonio Bay',
-  description: 'Join our boat trips departing from San Antonio Ibiza. Explore the best of Ibiza\'s west coast with our premium boat tours from San Antonio Bay. Day and sunset trips available.',
+export const metadata = pageMetadata({
+  title: 'Boottochten San Antonio Ibiza',
+  description: 'Vertrek vanuit de baai van San Antonio: premium dag- en zonsondergangtrips langs de westkust van Ibiza.',
   path: '/boat-trips/san-antonio',
-  keywords: 'boat trips san antonio ibiza, boat trips in ibiza san antonio, ibiza boat trips from san antonio, boat trips from san antonio ibiza, san antonio boat trips ibiza, boat tour san antonio ibiza, sunset boat trip ibiza san antonio',
-  ogTitle: 'Boat Trips San Antonio Ibiza | Premium Departures from San Antonio Bay',
-  ogDescription: 'Discover the best boat trips departing from San Antonio Ibiza. Premium day and sunset cruises exploring Ibiza\'s stunning west coast.',
+  keywords: 'boottocht san antonio ibiza, sunset san antonio, haven san antonio boot',
+  ogTitle: 'Boottochten vanuit San Antonio',
+  ogDescription: 'Dag- en avondtrips vanuit San Antonio met Salvador.',
   ogImage: '/images/optimized/salvador-ibiza-boat-drone-view.webp',
-  ogImageAlt: 'Salvador boat trip departing from San Antonio Ibiza',
+  ogImageAlt: 'Boot Salvador vertrekkend in San Antonio',
 });
 
 // JSON-LD structured data for San Antonio boat trips
 const sanAntonioBoatTripsJsonLd = {
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "Boat Trips from San Antonio Ibiza by Salvador",
+  "name": "Boottochten vanuit San Antonio — Salvador",
   "description": "Premium boat trips departing from San Antonio Ibiza. Explore the west coast with our day and sunset cruises including drinks, tapas, and water sports.",
   "image": publicAssetUrl("/images/barcodesdedron.jpg"),
   "brand": {

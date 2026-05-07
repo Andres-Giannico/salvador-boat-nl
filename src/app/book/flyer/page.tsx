@@ -1,18 +1,18 @@
 import BookTripsQrFlyerClient from './page.client';
-import { enPageMetadata } from '@/lib/page-meta';
+import { pageMetadata } from '@/lib/page-meta';
 
 export const metadata = {
-  ...enPageMetadata({
-    title: 'Book Your Boat Trip - Quick Booking',
-    description: 'Book your Salvador Ibiza boat trip quickly and easily. Choose between daytime adventures or magical sunset voyages from San Antonio Port.',
+  ...pageMetadata({
+    title: 'Snel je boottrip boeken',
+    description: 'Boek snel je Salvador Ibiza trip: dag of zonsondergang, vertrek haven San Antonio.',
     path: '/book/flyer',
     keywords:
-      'book boat trip Ibiza, Salvador Ibiza booking, boat reservation, sunset cruise booking, day trip booking',
-    ogTitle: 'Book Your Boat Trip - Salvador Ibiza',
+      'boottocht boeken Ibiza, Salvador boeking, reserveren boot Ibiza',
+    ogTitle: 'Boottrip boeken — Salvador Ibiza',
     ogDescription:
-      'Quick and easy boat trip booking in Ibiza. All-inclusive experiences with instant confirmation.',
+      'Snel en eenvoudig boeken met directe bevestiging.',
     ogImage: '/images/optimized/salvador-ibiza-boat-aerial-view.webp',
-    ogImageAlt: 'Salvador Ibiza Boat Trip Booking',
+    ogImageAlt: 'Boottrip boeken Salvador Ibiza',
     robots: { index: false, follow: false },
   }),
 };

@@ -1,16 +1,16 @@
 import SunsetTripClientPage from './page.client';
 import Script from 'next/script';
 import { absoluteUrl, publicAssetUrl } from '@/config/site';
-import { enPageMetadata } from '@/lib/page-meta';
+import { pageMetadata } from '@/lib/page-meta';
 
 const sunsetTripJsonLd = {
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "Sunset Boat Trip in Ibiza - Salvador Ibiza",
+  "name": "Zonsondergang boottrip Ibiza — Salvador Ibiza",
+  "description": "All-inclusive zonsondergang-trip van 3 uur met kapitein, catering, drankjes, paddleboards en snorkelen.",
   "image": [
     publicAssetUrl("/images/boat/sunset.png")
   ],
-  "description": "All-inclusive sunset boat trip in Ibiza with captain. Enjoy 3 hours of navigation with catering, drinks, paddle surf and snorkel included.",
   "brand": {
     "@type": "Organization",
     "name": "Salvador Ibiza"
@@ -43,12 +43,12 @@ const sunsetTripJsonLd = {
   }
 };
 
-export const metadata = enPageMetadata({
-  title: 'Ibiza Sunset Boat Trip (All-Inclusive) | Salvador',
-  description: '🌅 Experience Ibiza\'s legendary sunset from the sea! 3-hour all-inclusive cruise with unlimited drinks, Spanish tapas & paddle boards. Book now from €80!',
+export const metadata = pageMetadata({
+  title: 'Zonsondergang boottrip (all-inclusive) | Salvador',
+  description: '🌅 Ibiza’s legende zonsondergang vanaf zee — 3 uur all-inclusive met drankjes, tapas en paddleboards. Vanaf €80.',
   path: '/boat-trips/sunset-trip',
-  ogTitle: 'Ibiza Sunset Boat Trip (All-Inclusive) | Salvador',
-  ogDescription: '🌅 Experience Ibiza\'s legendary sunset from the sea! 3-hour all-inclusive cruise with unlimited drinks, Spanish tapas & paddle boards.',
+  ogTitle: 'Zonsondergang boottrip Ibiza',
+  ogDescription: '🌅 All-inclusive avondtrip met open bar en tapas.',
   ogImage: '/images/optimized/sunset-sailing-cruise-ibiza.webp',
 });
 

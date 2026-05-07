@@ -3,13 +3,13 @@ import { JsonLd } from 'react-schemaorg';
 import RoutesClientPage from './page.client'; // Import the new client component
 import { FiMapPin, FiAnchor, FiCompass } from 'react-icons/fi'; // Keep icons needed for data
 import { GiWaterSplash, GiFamilyHouse } from 'react-icons/gi'; // Keep icons needed for data
-import { enPageMetadata } from '@/lib/page-meta';
+import { pageMetadata } from '@/lib/page-meta';
 
 // Metadata for the page (can be moved to page.tsx if refactored to Server Component)
-export const metadata = enPageMetadata({
-  title: 'Our Boat Routes - Explore Ibiza\'s West & North Coasts',
+export const metadata = pageMetadata({
+  title: 'Onze vaarroutes — west- & noordkust Ibiza',
   description:
-    'Discover Salvador Ibiza\'s stunning West Coast (Cala Conta) and North Coast (Sa Foradada) boat routes departing from San Antonio. Captain chooses best route daily.',
+    'Ontdek de westkust (Cala Conta) en noordkust (Sa Foradada) met vertrek in San Antonio. De kapitein kiest dagelijks de beste route.',
   path: '/routes',
 });
 

@@ -74,29 +74,29 @@ export default function CookieConsentBanner() {
         <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full mx-4 border border-gray-200 overflow-hidden">
           {/* Header */}
           <div className="bg-gradient-to-r from-blue-600 to-cyan-500 p-6 text-white">
-            <h3 className="text-xl font-bold mb-2">🍪 Cookie Preferences</h3>
-            <p className="text-blue-100 text-sm">We respect your privacy</p>
+            <h3 className="text-xl font-bold mb-2">🍪 Cookies</h3>
+            <p className="text-blue-100 text-sm">We respecteren je privacy</p>
           </div>
           
           {/* Content */}
           <div className="p-6">
             <p className="text-gray-700 mb-4 leading-relaxed">
-              We use cookies to enhance your browsing experience, analyze site traffic, and provide personalized content. 
-              By accepting, you help us improve our services and provide you with the best possible experience.
+              We gebruiken cookies om je browse-ervaring te verbeteren, verkeer te analyseren en inhoud te personaliseren.
+              Door te accepteren help je ons de site te verbeteren.
             </p>
             
             <div className="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6 rounded-r-lg">
               <p className="text-sm text-blue-800">
-                <strong>Analytics:</strong> Help us understand how visitors interact with our website to improve your experience.
+                <strong>Analytics:</strong> Inzicht in hoe bezoekers de site gebruiken, zodat we kunnen verbeteren.
               </p>
             </div>
             
             <p className="text-xs text-gray-500 mb-6">
-              You can change your preferences at any time. Read our{' '}
+              Je kunt je keuze later wijzigen. Lees ons{' '}
               <a href="/privacy-policy" className="text-blue-600 hover:text-blue-700 underline font-medium">
-                Privacy Policy
+                privacybeleid
               </a>{' '}
-              for more details.
+              voor meer informatie.
             </p>
             
             {/* Buttons */}
@@ -105,13 +105,13 @@ export default function CookieConsentBanner() {
                 onClick={() => handleConsent(false)} 
                 className="flex-1 px-6 py-3 rounded-lg border-2 border-gray-300 text-gray-700 hover:bg-gray-50 font-medium transition-all duration-200 hover:border-gray-400"
               >
-                Decline All
+                Alles weigeren
               </button>
               <button 
                 onClick={() => handleConsent(true)} 
                 className="flex-1 px-6 py-3 rounded-lg bg-gradient-to-r from-blue-600 to-cyan-500 text-white hover:from-blue-700 hover:to-cyan-600 font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-[1.02]"
               >
-                Accept All
+                Alles accepteren
               </button>
             </div>
           </div>

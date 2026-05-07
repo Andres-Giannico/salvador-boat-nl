@@ -1,9 +1,10 @@
 import BoatTripsClientPage from './page.client';
-import { enPageMetadata } from '@/lib/page-meta';
+import { pageMetadata } from '@/lib/page-meta';
 
-export const metadata = enPageMetadata({
-  title: 'Ibiza Boat Trips - Day & Sunset Boat Tours',
-  description: 'Discover the best boat trips in Ibiza with Salvador. Choose our all-inclusive daytime boat tour or the magical sunset cruise. Enjoy paddle boarding, snorkeling, an open bar, and the iconic Ibiza sunset. Book your unforgettable boat tour today!',
+export const metadata = pageMetadata({
+  title: 'Boottochten Ibiza — dag- & zonsondergangtrips',
+  description:
+    'De beste boottochten op Ibiza met Salvador: all-inclusive dagtrip of magische zonsondergang. Paddleboards, snorkelen, open bar en iconische sunsets. Boek nu!',
   path: '/boat-trips',
 });
 

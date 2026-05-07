@@ -1,28 +1,28 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { enPageMetadata } from '@/lib/page-meta'
+import { pageMetadata } from '@/lib/page-meta'
 
-const metaBase = enPageMetadata({
-  title: "Ibiza's Midday Magic: The Unforgettable Day Trip",
+const metaBase = pageMetadata({
+  title: "Midday magic: waarom een dagtrip op Ibiza telt",
   description:
-    "Discover why a midday boat trip in Ibiza offers a unique and magical experience. Sunshine, crystal clear waters, and vibrant energy await you.",
+    "Zon, helder water en energie — ontdek de charme van een dagtrip met Salvador.",
   path: '/blog/ibiza-midday-magic-boat-trip',
   keywords:
-    'Ibiza day boat trip, midday boat tour Ibiza, best daytime excursions Ibiza, Salvador Ibiza blog, Ibiza boat activities',
-  ogTitle: "Ibiza's Midday Magic: The Unforgettable Day Trip",
-  ogDescription: 'Explore the unique charm of a daytime boat adventure in Ibiza with Salvador.',
+    'dagtrip Ibiza boot, middag boottocht Ibiza, Salvador blog',
+  ogTitle: "Midday magic op Ibiza",
+  ogDescription: 'Dagbootavontuur met Salvador Ibiza.',
   ogImage: '/images/blog/midday-magic-placeholder.webp',
-  ogImageAlt: 'Enjoying a sunny midday boat trip in Ibiza',
+  ogImageAlt: 'Zonnige dagtrip op Ibiza',
 })
 
 export const metadata: Metadata = {
   ...metaBase,
   twitter: {
     card: 'summary_large_image',
-    title: "Ibiza's Midday Magic: The Unforgettable Day Trip",
+    title: "Midday magic: dagtrip Ibiza",
     description:
-      'Discover why a midday boat trip in Ibiza offers a unique and magical experience. Sunshine, crystal clear waters, and vibrant energy await you.',
+      'Zon, water en sfeer — waarom een dagtrip onvergetelijk is.',
     images: ['/images/blog/midday-magic-placeholder.webp'],
   },
 }

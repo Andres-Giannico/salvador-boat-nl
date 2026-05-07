@@ -84,7 +84,7 @@ const tripFAQs = [
       <>
         Our standard Day Trip route explores the stunning west coast of Ibiza, including stops at Cala Bassa and Cala Conta, known for their crystal-clear waters. However, the captain may adjust the route based on weather conditions for optimal safety and enjoyment. 
         <Link href="/routes" className="text-blue-600 hover:underline font-medium ml-1">
-          Learn more about our routes.
+          Meer over onze routes.
         </Link>
       </>
     )

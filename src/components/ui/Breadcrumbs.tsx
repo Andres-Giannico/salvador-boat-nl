@@ -16,25 +16,25 @@ interface BreadcrumbsProps {
 
 // Mapeo de rutas a nombres más amigables
 const routeLabels: Record<string, string> = {
-  'boat-trips': 'Boat Trips',
-  'day-trip': 'Day Trip',
-  'sunset-trip': 'Sunset Trip',
-  'private-boat-trips': 'Private Trips',
-  'private-charter': 'Private Charter',
-  'corporate-events': 'Corporate Events',
-  'about': 'About Us',
+  'boat-trips': 'Boottochten',
+  'day-trip': 'Dagtrip',
+  'sunset-trip': 'Zonsondergangtrip',
+  'private-boat-trips': 'Privétochten',
+  'private-charter': 'Privé charter',
+  'corporate-events': 'Zakelijke events',
+  'about': 'Over ons',
   'contact': 'Contact',
   'partners': 'Partners',
-  'weddings': 'Weddings',
-  'gallery': 'Gallery',
+  'weddings': 'Bruiloften',
+  'gallery': 'Galerij',
   'blog': 'Blog',
   'faq': 'FAQ',
-  'book-now': 'Book Now',
+  'book-now': 'Boek nu',
   'routes': 'Routes',
-  'discover-love-at-sea': 'Discover Love at Sea',
-  'hidden-coves-ibiza': 'Hidden Coves of Ibiza',
-  'sunset-sailing-ibiza': 'Sunset Sailing in Ibiza',
-  'ibiza-midday-magic-boat-trip': 'Ibiza Midday Magic',
+  'discover-love-at-sea': 'Liefde op zee',
+  'hidden-coves-ibiza': 'Verborgen cala’s',
+  'sunset-sailing-ibiza': 'Sunset zeilen Ibiza',
+  'ibiza-midday-magic-boat-trip': 'Midday magic',
 };
 
 export default function Breadcrumbs({ items, className = '' }: BreadcrumbsProps) {
@@ -47,7 +47,7 @@ export default function Breadcrumbs({ items, className = '' }: BreadcrumbsProps)
         <Link
           href="/"
           className="flex items-center text-gray-500 hover:text-blue-600 transition-colors"
-          aria-label="Home"
+          aria-label="Startpagina"
         >
           <FiHome className="w-4 h-4" />
         </Link>
@@ -97,7 +97,7 @@ export default function Breadcrumbs({ items, className = '' }: BreadcrumbsProps)
       <Link
         href="/"
         className="flex items-center text-gray-500 hover:text-blue-600 transition-colors"
-        aria-label="Home"
+        aria-label="Startpagina"
       >
         <FiHome className="w-4 h-4" />
       </Link>

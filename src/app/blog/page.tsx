@@ -1,6 +1,6 @@
 import BlogClientPage from './page.client'
 import { absoluteUrl, publicAssetUrl } from '@/config/site'
-import { enPageMetadata } from '@/lib/page-meta'
+import { pageMetadata } from '@/lib/page-meta'
 // Import the type correctly assuming it might be exported, 
 // or remove if the type definition is intended to be passed implicitly or duplicated.
 // For now, let's assume the type definition is available/passed via BlogClientPage props.
@@ -17,10 +17,10 @@ interface BlogPost {
   category: string;
 }
 
-export const metadata = enPageMetadata({
-  title: 'Salvador Ibiza Blog | Luxury Boat Experiences & Island Tips',
+export const metadata = pageMetadata({
+  title: 'Salvador Ibiza blog | bootervaringen & tips',
   description:
-    'Explore our latest stories about luxury boat experiences, hidden coves, sunset sailing, and life in Ibiza. Discover insider tips and inspiration for your next adventure.',
+    'Verhalen over luxe bootervaringen, verborgen cala’s, zonsondergangen en het leven op Ibiza. Tips en inspiratie voor je volgende trip.',
   path: '/blog',
 })
 
@@ -28,39 +28,39 @@ export const metadata = enPageMetadata({
 const blogPosts: BlogPost[] = [
   {
     slug: 'discover-love-at-sea',
-    title: "Discover Love at Sea: A Romantic Sunset Trip",
-    excerpt: "Experience the magic of an Ibiza sunset with your loved one aboard Salvador. Perfect for romantic getaways and creating unforgettable memories.",
+    title: "Liefde op zee: romantische zonsondergang",
+    excerpt: "Beleef de magie van een Ibiza-zonsondergang samen aan boord van Salvador. Perfect voor romantisch uitje.",
     date: "April 25, 2025",
     author: "Salvador Team",
     imageUrl: "/images/blog/discover-love-at-sea.webp",
-    category: "Romantic Trips"
+    category: "Romantiek"
   },
   {
     slug: 'hidden-coves-ibiza',
-    title: "Explore Ibiza's Hidden Coves by Boat",
-    excerpt: "Venture beyond the popular beaches and discover secret spots only accessible by sea. Your guide to the best hidden gems and secluded bays.",
+    title: "Verborgen cala’s van Ibiza per boot",
+    excerpt: "Ontdek afgelegen baaitjes die je alleen vanaf zee bereikt. Onze favoriete verborgen parels.",
     date: "April 20, 2025",
     author: "Captain Alex",
     imageUrl: "/images/blog/hidden-cove.webp",
-    category: "Exploration"
+    category: "Ontdekking"
   },
   {
     slug: 'sunset-sailing-ibiza',
-    title: "Why a Sunset Sailing Trip is a Must-Do in Ibiza",
-    excerpt: "Unwind and witness the breathtaking beauty of an Ibiza sunset from the best viewpoint – the deck of Salvador. An essential island experience.",
+    title: "Waarom een sunset trip op Ibiza een must is",
+    excerpt: "Ontspan en geniet van de zonsondergang vanaf het dek van Salvador — dé Ibiza-ervaring.",
     date: "April 15, 2025",
     author: "Guest Writer",
     imageUrl: "/images/optimized/sunset-sailing-cruise-ibiza.webp",
-    category: "Experiences"
+    category: "Ervaringen"
   },
   {
     slug: 'ibiza-midday-magic-boat-trip',
-    title: "Ibiza's Midday Magic: Why a Day Trip is an Unforgettable Experience",
-    excerpt: "Discover the unique charm of a daytime boat adventure in Ibiza. Sunshine, crystal clear waters, and vibrant energy await you with Salvador Ibiza.",
+    title: "Midday magic: waarom een dagtrip onvergetelijk is",
+    excerpt: "Zon, helder water en energie — ontdek de charme van een dagtrip met Salvador Ibiza.",
     date: "May 28, 2024",
     author: "Salvador Team",
     imageUrl: "/images/blog/midday-magic-placeholder.webp",
-    category: "Experiences"
+    category: "Ervaringen"
   },
 ];
 

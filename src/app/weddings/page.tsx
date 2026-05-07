@@ -1,24 +1,24 @@
 import WeddingsClientPage from './page.client';
 import { getSiteUrl } from '@/config/site';
-import { enPageMetadata } from '@/lib/page-meta';
+import { pageMetadata } from '@/lib/page-meta';
 
-export const metadata = enPageMetadata({
-  title: 'Ibiza Boat Weddings | Unforgettable Ceremonies at Sea',
-  description: '💒 Dream wedding at sea in Ibiza! Intimate ceremonies aboard our traditional boat with stunning sunsets, all-inclusive packages from €1,500. Book your perfect day!',
+export const metadata = pageMetadata({
+  title: 'Bruiloften op zee op Ibiza',
+  description: '💒 Droombruiloft op zee: ceremonie aan boord van de traditionele Salvador, zonsondergang en pakketten vanaf €1.500.',
   path: '/weddings',
-  keywords: 'Ibiza wedding, boat wedding, sea wedding ceremony, romantic wedding Ibiza, elopement Ibiza, wedding packages, intimate wedding, sunset wedding, luxury boat charter, Salvador Ibiza, wedding at sea, destination wedding',
-  ogTitle: 'Ibiza Boat Weddings | Dream Ceremonies at Sea',
-  ogDescription: '💒 Create your perfect wedding at sea in Ibiza! Intimate ceremonies with stunning sunsets and all-inclusive packages.',
+  keywords: 'Ibiza bruiloft, boot bruiloft, ceremonie op zee, bruiloft San Antonio, Salvador Ibiza, sunset wedding',
+  ogTitle: 'Bruiloften op zee | Salvador Ibiza',
+  ogDescription: '💒 Romantische ceremonie op zee met zonsondergang en all-inclusive opties.',
   ogImage: '/images/boat/private-new/tapasycavapopabarco_1.webp',
-  ogImageAlt: 'Elegant wedding setup with champagne and catering on Salvador Ibiza boat',
+  ogImageAlt: 'Bruiloftssetup met catering op boot Salvador Ibiza',
 });
 
 // Wedding Schema for better SEO
 const weddingSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "name": "Ibiza Boat Wedding Ceremonies",
-  "description": "Romantic wedding ceremonies and celebrations aboard Salvador Ibiza traditional wooden boat. Intimate packages for elopements and luxury weddings at sea.",
+  "name": "Bootbruiloften Ibiza",
+  "description": "Romantische ceremonies en feesten aan boord van de houten boot Salvador Ibiza.",
   "provider": {
     "@type": "LocalBusiness",
     "name": "Salvador Ibiza",

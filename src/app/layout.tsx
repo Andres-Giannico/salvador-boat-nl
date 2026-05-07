@@ -33,7 +33,7 @@ const localBusinessSchema = {
   "@id": `${siteBase}/#organization`,
   "name": "Salvador Ibiza",
   "alternateName": "Salvador Boat Trips Ibiza",
-  "description": "Premium boat trips and private charters in Ibiza. All-inclusive excursions with professional crew, equipment, and unforgettable experiences.",
+  "description": "Premium boottochten en privé-charters op Ibiza. All-inclusive excursies met professionele bemanning, materiaal en onvergetelijke belevingen.",
   "url": siteBase,
   "telephone": "+34-871 181 393", // TODO: Add real phone number
   "email": "info@salvadoribiza.com", // TODO: Verify email
@@ -91,14 +91,14 @@ const localBusinessSchema = {
   },
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "Salvador Ibiza Services",
+    "name": "Salvador Ibiza-diensten",
     "itemListElement": [
       {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Day Boat Trips",
-          "description": "3-hour all-inclusive day boat trips with swimming, snorkeling, and refreshments"
+          "name": "Dagelijkse boottochten",
+          "description": "3 uur all-inclusive dagtochten met zwemmen, snorkelen en versnaperingen"
         },
         "price": "80",
         "priceCurrency": "EUR"
@@ -107,8 +107,8 @@ const localBusinessSchema = {
         "@type": "Offer", 
         "itemOffered": {
           "@type": "Service",
-          "name": "Sunset Boat Trips",
-          "description": "3-hour sunset cruises with premium drinks and magical golden hour experience"
+          "name": "Zonsondergang boottochten",
+          "description": "3 uur zonsondergang op zee met premium drankjes en gouden uur"
         },
         "price": "80",
         "priceCurrency": "EUR"
@@ -117,8 +117,8 @@ const localBusinessSchema = {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service", 
-          "name": "Private Boat Charter",
-          "description": "Exclusive private boat charters with customized itinerary and premium service"
+          "name": "Privéboot charter",
+          "description": "Exclusieve privécharters met maatwerkroute en premium service"
         },
         "price": "1350",
         "priceCurrency": "EUR"
@@ -145,33 +145,36 @@ export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
   alternates: pageAlternates('/'),
   title: {
-    default: "Salvador Ibiza - Boat Trips & Private Charter",
+    default: "Salvador Ibiza - Boottochten & privé charter",
     template: "%s | Salvador Ibiza",
   },
-  description: "Experience the best boat trips and private charters in Ibiza with Salvador. All-inclusive excursions, stunning sunsets, and unforgettable memories.",
-  keywords: "Salvador Ibiza, boat trips, private charter, Ibiza excursions, boat party, sunset cruise, Es Vedrà, boat rental",
+  description:
+    "De beste boottochten en privé-charters op Ibiza met Salvador. All-inclusive excursies, magische zonsondergangen en herinneringen voor het leven.",
+  keywords:
+    "Salvador Ibiza, boottochten Ibiza, privé charter, excursies Ibiza, sunset cruise, Es Vedrà, boot huren Ibiza",
   authors: [{ name: "Salvador Ibiza Team" }],
   creator: "Salvador Ibiza",
   openGraph: {
-    title: "Salvador Ibiza - Boat Trips & Private Charter",
-    description: "All-inclusive boat trips and private charters in Ibiza.",
+    title: "Salvador Ibiza - Boottochten & privé charter",
+    description: "All-inclusive boottochten en privé-charters op Ibiza.",
     url: getSiteUrl(),
     siteName: "Salvador Ibiza",
-    locale: 'en_US',
+    locale: "nl_NL",
+    alternateLocale: ["en_US", "es_ES"],
     type: 'website',
     images: [
       {
         url: '/images/optimized/salvador-ibiza-boat-drone-view.webp',
         width: 1200,
         height: 630,
-        alt: 'Salvador Ibiza Boat',
+        alt: 'Boot Salvador Ibiza',
       }
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Salvador Ibiza - Boat Trips & Private Charter',
-    description: 'All-inclusive boat trips and private charters in Ibiza.',
+    title: 'Salvador Ibiza - Boottochten & privé charter',
+    description: 'All-inclusive boottochten en privé-charters op Ibiza.',
     images: ['/images/optimized/salvador-ibiza-boat-drone-view.webp'],
   },
   robots: {
@@ -188,7 +191,7 @@ export default function RootLayout({
   const gaMeasurementId = 'G-SP4LMTQT3E';
 
   return (
-    <html lang="en" className={`${inter.variable} ${montserrat.variable}`}>
+    <html lang="nl" className={`${inter.variable} ${montserrat.variable}`}>
       <head>
         {/* LocalBusiness Schema */}
         <script
@@ -274,9 +277,9 @@ export default function RootLayout({
               "logo": `${siteBase}/images/logo-salvador.png`,
               "contactPoint": {
                 "@type": "ContactPoint",
-                "telephone": "+34-XXX-XXX-XXX",
+                "telephone": "+34-871-181-393",
                 "contactType": "customer service",
-                "availableLanguage": ["English", "Spanish"]
+                "availableLanguage": ["Dutch", "English", "Spanish"]
               }
             }),
           }}

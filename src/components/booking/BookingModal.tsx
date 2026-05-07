@@ -27,7 +27,7 @@ const BookingModal: React.FC<BookingModalProps> = ({
     "displayBillingTerm": true,
     "showQuantity": false,
     "titleVariant": "Modern",
-    "bookNow": "Book Now", // Generic default title
+    "bookNow": "Boek nu",
     "confirmReservationAndPay": "Confirm & Pay",
     "selectTimeLabel": "Select Time",
     "selectExperienceLabel": "Select Experience",
