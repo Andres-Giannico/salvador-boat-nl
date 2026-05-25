@@ -39,7 +39,7 @@ export function pageMetadata(opts: {
       description: ogDescription ?? description,
       url: absoluteUrl(path),
       locale: "nl_NL",
-      alternateLocale: ["en_US", "es_ES"],
+      alternateLocale: ["en_US", "es_ES", "fr_FR"],
       images: [
         {
           url: ogImage,

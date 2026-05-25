@@ -14,6 +14,10 @@ const ES_SITE_BASE = (
   process.env.NEXT_PUBLIC_SITE_URL_ES || 'https://www.salvadoribiza.es'
 ).replace(/\/+$/, '');
 
+const FR_SITE_BASE = (
+  process.env.NEXT_PUBLIC_SITE_URL_FR || 'https://www.salvadoribiza.fr'
+).replace(/\/+$/, '');
+
 function absoluteOnBase(base: string, pathname: string): string {
   if (!pathname || pathname === '/') return `${base}/`;
   return `${base}${pathname}`;
@@ -66,6 +70,15 @@ export default function Navbar() {
         hrefLang="es"
       >
         <span aria-hidden>🇪🇸</span> ES
+      </a>
+      <a
+        href={absoluteOnBase(FR_SITE_BASE, pathname)}
+        className="text-xs sm:text-sm px-2 py-1 rounded-full hover:bg-gray-50 text-gray-700 font-medium transition-colors"
+        title={`Franse versie — ${new URL(`${FR_SITE_BASE}/`).hostname}`}
+        rel="alternate"
+        hrefLang="fr"
+      >
+        <span aria-hidden>🇫🇷</span> FR
       </a>
     </div>
   );
