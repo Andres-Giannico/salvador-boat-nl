@@ -620,7 +620,7 @@ export default function WeddingsClientPage() {
               </div>
               
               {/* Widget container */}
-              <div id="turbnb-booking-wedding" className="min-h-[400px] w-full bg-white rounded-lg shadow-xl overflow-hidden border border-gray-200"></div>
+              <div id="turbnb-booking-wedding" className="turbnb-widget-host min-h-[400px] w-full min-w-0 bg-white rounded-lg shadow-xl border border-gray-200"></div>
 
               {/* Wedding upgrade note */}
               <motion.div

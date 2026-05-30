@@ -386,7 +386,7 @@ export default function SunsetTripClientPage({}: SunsetTripClientPageProps) {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="bg-white rounded-xl shadow-lg p-6 md:p-8 border border-gray-100"
+              className="bg-white rounded-xl shadow-lg p-3 sm:p-6 md:p-8 border border-gray-100"
             >
               {/* Age Information */}
               <div className="bg-orange-50 border border-orange-200 rounded-lg p-4 mb-6">

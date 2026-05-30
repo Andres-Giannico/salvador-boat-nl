@@ -10,7 +10,7 @@ const DEPOSIT_NL =
 
 export default function BookTripsQrClient() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-100 via-white to-orange-100/50 py-6 md:py-16 px-2 md:px-4">
+    <div className="min-h-screen bg-gradient-to-b from-blue-100 via-white to-orange-100/50 py-6 md:py-16 px-1 sm:px-2 md:px-4">
       <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
         <div className="relative h-24 md:h-32 w-full">
           <Image
@@ -23,7 +23,7 @@ export default function BookTripsQrClient() {
           <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
         </div>
 
-        <div className="p-4 md:p-8">
+        <div className="p-3 sm:p-4 md:p-8">
           <h1 className="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-3">
             Boek je <span className="text-cyan-600">boottocht</span>
           </h1>
@@ -88,8 +88,8 @@ export default function BookTripsQrClient() {
 
           <hr className="my-6 md:my-8 border-gray-200" />
 
-          <div className="bg-gradient-to-br from-gray-100 to-cyan-50/50 rounded-lg p-2 md:p-6 border border-gray-200 shadow-inner">
-            <h2 className="text-xl md:text-2xl font-semibold text-center text-gray-800 mb-3">
+          <div className="bg-gradient-to-br from-gray-100 to-cyan-50/50 rounded-lg p-0 sm:p-3 md:p-6 sm:border sm:border-gray-200 sm:shadow-inner">
+            <h2 className="text-xl md:text-2xl font-semibold text-center text-gray-800 mb-3 px-2 pt-3 sm:pt-0">
               Nu online boeken
             </h2>
 

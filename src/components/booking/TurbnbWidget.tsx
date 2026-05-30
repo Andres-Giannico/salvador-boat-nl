@@ -81,7 +81,9 @@ export default function TurbnbWidget({
 
   return (
     <>
-      <div id={id} className={`w-full ${className}`}></div>
+      <div className={`turbnb-widget-host w-full min-w-0 ${className}`}>
+        <div id={id} className="w-full min-w-0" />
+      </div>
       
       <Script
         src={TURBNB_WIDGET_JS}

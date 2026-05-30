@@ -163,3 +163,50 @@ a, button, input, select, textarea {
     @apply bg-background text-foreground;
   }
 }
+
+/* TurboBooking widget — mobile width & padding fixes */
+.turbnb-widget-host {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 639px) {
+  .turbnb-widget-host .turbnb-widgets {
+    max-width: 100% !important;
+  }
+
+  .turbnb-widget-host .turbnb-widgets .max-w-md,
+  .turbnb-widget-host .turbnb-widgets .max-w-lg,
+  .turbnb-widget-host .turbnb-widgets .max-w-2xl,
+  .turbnb-widget-host .turbnb-widgets .max-w-4xl {
+    max-width: 100% !important;
+  }
+
+  .turbnb-widget-host .turbnb-widgets .p-4,
+  .turbnb-widget-host .turbnb-widgets .p-5,
+  .turbnb-widget-host .turbnb-widgets .p-6,
+  .turbnb-widget-host .turbnb-widgets .p-8 {
+    padding: 8px !important;
+  }
+
+  .turbnb-widget-host .turbnb-widgets .px-4,
+  .turbnb-widget-host .turbnb-widgets .px-5,
+  .turbnb-widget-host .turbnb-widgets .px-6,
+  .turbnb-widget-host .turbnb-widgets .px-8 {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+
+  .turbnb-widget-host .turbnb-widgets .overflow-hidden {
+    overflow-x: auto !important;
+  }
+
+  .turbnb-widget-host .turbnb-widgets table {
+    width: 100%;
+    font-size: 0.8125rem;
+  }
+}
+

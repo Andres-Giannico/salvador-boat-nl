@@ -554,7 +554,7 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
                 </div>
                 
                 {/* This is the widget container */}
-                <div id="turbnb-booking-3" className="min-h-[400px] w-full bg-white rounded-lg shadow-xl overflow-hidden border border-gray-200"></div>
+                <div id="turbnb-booking-3" className="turbnb-widget-host min-h-[400px] w-full min-w-0 bg-white rounded-lg shadow-xl border border-gray-200"></div>
 
                 {/* Premium Upgrade Note - NUEVA UBICACIÓN */}
                 <motion.div
