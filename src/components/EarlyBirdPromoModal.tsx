@@ -16,7 +16,7 @@ const COOKIE_CONSENT_KEY = 'cookie_consent_status';
  */
 const EARLYBIRD: { start: Date; end: Date } = {
   start: new Date(2026, 3, 10, 0, 0, 0, 0),
-  end: new Date(2026, 4, 30, 23, 59, 59, 999),
+  end: new Date(2026, 5, 20, 23, 59, 59, 999),
 };
 
 /**
@@ -69,7 +69,7 @@ function getActivePromo(now: Date): ActivePromo | null {
       primaryCtaLabel: 'Boek nu',
       kicker: 'Exclusief · Vroege boeker (Early Bird)',
       validityText:
-        'Geldig voor boekingen van 10 apr – 30 mei 2026. Daarna eindigt deze actie.',
+        'Geldig voor boekingen van 10 apr – 20 jun 2026. Daarna eindigt deze actie.',
     };
   }
   return null;
