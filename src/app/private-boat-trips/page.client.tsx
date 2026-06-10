@@ -36,10 +36,10 @@ interface PrivateBoatTripsClientPageProps {
 
 // Combinar imágenes originales y nuevas de la carpeta /images/boat/ y /images/boat/private-new/
 const galleryImages = [
-  { src: "/images/optimized/salvador-ibiza-boat-aerial-view.webp", alt: "Luxe privécharter — groep ontspant aan boord" }, 
+  { src: "/images/optimized/salvador-ibiza-cala-comte-wide-aerial-view.webp", alt: "Brede luchtdrone-opname van Salvador Ibiza privécharter in Cala Comte" },
   { src: "/images/optimized/salvador-ibiza-luxury-boat.webp", alt: "Uitzicht vanaf de Salvador Ibiza" },
-  { src: "/images/optimized/salvador-ibiza-boat-aerial-drone.webp", alt: "Luchtfoto van de Salvador Ibiza" },
-  { src: "/images/optimized/es-vedra-island-ibiza-background.webp", alt: "Zonsondergang bij Es Vedrà" },
+  { src: "/images/optimized/salvador-ibiza-cala-comte-red-deck-aerial.webp", alt: "Luchtdrone-foto van Salvador Ibiza met rood dek in Cala Comte" },
+  { src: "/images/optimized/salvador-ibiza-cala-comte-paddleboard-flower.webp", alt: "Dronebeeld van paddleboards rond Salvador Ibiza in Cala Comte" },
   { src: "/images/optimized/salvador-ibiza-boat-deck.webp", alt: "Drankjes aan boord van de Salvador" },
   { src: "/images/optimized/salvador-ibiza-boat-cave-exploration.webp", alt: "Vanuit een zee-grot op de Salvador" },
   { src: "/images/optimized/friends-ibiza-sunset-boat.webp", alt: "Groep geniet van de zonsondergang op de Salvador" },
@@ -369,8 +369,8 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
             }}
           >
             <Image
-              src="/images/optimized/salvador-ibiza-boat-aerial-view.webp"
-              alt="Luxe privécharter op zee bij Ibiza"
+              src="/images/optimized/salvador-ibiza-cala-comte-wide-aerial-view.webp"
+              alt="Luxe privé bootcharter in het kristalheldere water van Cala Comte, Ibiza"
               fill
               priority
               className="object-cover object-center filter brightness-70"
@@ -416,15 +416,15 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
                 </svg>
               </motion.div>
               
-              <span className="relative z-10"> 
-                Jouw exclusieve Ibiza<br className="hidden md:block" /> 
+              <span className="relative z-10 block">
+                <span className="block">Jouw exclusieve Ibiza</span>
                 <motion.span 
-                  className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-300"
+                  className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-300"
                   variants={floatingAnimation}
                   initial="initial"
                   animate="animate"
                 >
-                  privé bootcharter
+                  privé boot charter
                 </motion.span>
               </span>
             </motion.h1>

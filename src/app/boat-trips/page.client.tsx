@@ -12,7 +12,7 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 // Updated trip data to match FeaturedTripsSection
 const middayTrip = {
-  imageUrl: "/images/optimized/salvador-ibiza-boat-aerial-view.webp",
+  imageUrl: "/images/optimized/salvador-ibiza-cala-comte-guests-paddleboarding.webp",
   imageAlt: "Salvador Ibiza dagboottocht — premium zee-avontuur",
   title: "Dagelijkse ervaring",
   description: "Zon, zee en avontuur wachten op je.",
@@ -93,7 +93,7 @@ const galleryImages = [
   { src: "/images/boat/doschicasfelicesenproa.webp", alt: "Twee vriendinnen genieten van de zon op zee bij Ibiza" },
   { src: "/images/boat/parejasnorkeling.webp", alt: "Stel snorkelt in kristalhelder water tijdens een boottocht" },
   { src: "/images/optimized/toasting-drinks-ibiza-boat.webp", alt: "Vrienden proosten aan de bar tijdens een excursie in Ibiza" },
-  { src: "/images/optimized/salvador-ibiza-boat-aerial-view.webp", alt: "De Salvador in turquoise wateren voor de kust van Ibiza" },
+  { src: "/images/optimized/salvador-ibiza-cala-comte-red-deck-aerial.webp", alt: "Luchtdrone-opname van de Salvador charterboot in het turquoise water van Cala Comte, Ibiza" },
   { src: "/images/boat/4chicasparadasentablaxxl.webp", alt: "Groep op een grote paddleboard tijdens een Salvador-boottocht" }
 ];
 

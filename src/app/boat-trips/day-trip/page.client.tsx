@@ -21,12 +21,13 @@ import { getSiteUrl } from '@/config/site';
 const images = [
   { src: "/images/boat/chicaspasandolomuybien.webp", alt: "Vrienden lachen op het dek van de Salvador Ibiza" },
   { src: "/images/boat/parejaensup.webp", alt: "Stel op paddleboards bij Salvador Ibiza" },
-  { src: "/images/optimized/salvador-ibiza-boat-aerial-view.webp", alt: "Luchtfoto van de boot Salvador Ibiza" },
+  { src: "/images/optimized/salvador-ibiza-cala-comte-guests-paddleboarding.webp", alt: "Salvador Ibiza in Cala Comte met gasten die paddleboarden en kajakken" },
   { src: "/images/boat/chicasensupencueva.webp", alt: "Grotten verkennen op paddleboards" },
   { src: "/images/boat/gente-en-suo.webp", alt: "Groep paddleboardt in helder water" },
   { src: "/images/boat/familiaensup.webp", alt: "Gezin geniet samen van paddleboarden" },
-  { src: "/images/boat/aereabarco2.webp", alt: "Nog een luchtbeeld van de Salvador Ibiza" },
+  { src: "/images/optimized/salvador-ibiza-cala-comte-drone-sup-kayaks.webp", alt: "Luchtdrone-opname van Salvador Ibiza voor anker in Cala Comte met paddleboards en kajaks" },
   { src: "/images/boat/parejasnorkeling.webp", alt: "Stel snorkelt in turquoise zee" },
+  { src: "/images/optimized/salvador-ibiza-cala-comte-clear-water-shadows.webp", alt: "Dronebeeld van Salvador Ibiza in Cala Comte met turquoise water en schaduwen van paddleboards" },
   { src: "/images/boat/chicasenproamuyfelicdes.webp", alt: "Blije vrienden op de boeg" },
   { src: "/images/boat/doschicasfelicesenproa.webp", alt: "Twee vriendinnen genieten van de zon op zee" },
   { src: "/images/boat/chicosdisfrutandoenproa.webp", alt: "Groep aan de voorplecht met uitzicht" },
@@ -157,8 +158,8 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
       <section className="relative h-[80vh] min-h-[600px] flex items-center justify-center">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/optimized/salvador-ibiza-boat-aerial-view.webp"
-            alt="Salvador Ibiza — gemengde dagtocht"
+            src="/images/optimized/salvador-ibiza-cala-comte-guests-paddleboarding.webp"
+            alt="Dagtrip Salvador Ibiza met gasten op paddleboard in Cala Comte"
             fill
             priority
             className="object-cover object-center"
@@ -616,7 +617,7 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
               'boottocht, ibiza, dagtocht, familie, paddleboard, kajak, snorkelen',
             inLanguage: 'nl-NL',
             url: `${siteUrl}/boat-trips/day-trip`,
-            image: `${siteUrl}/images/optimized/salvador-ibiza-boat-aerial-view.webp`,
+            image: `${siteUrl}/images/optimized/salvador-ibiza-cala-comte-guests-paddleboarding.webp`,
             mainEntityOfPage: {
               '@type': 'WebPage',
               '@id': `${siteUrl}/boat-trips/day-trip`,

@@ -11,8 +11,8 @@ export const metadata = pageMetadata({
   keywords: 'private boottocht Ibiza, boot charter Ibiza, privé boot Ibiza, exclusieve boottocht, Salvador Ibiza',
   ogTitle: 'Privé boottochten Ibiza — Salvador',
   ogDescription: '🛥️ Exclusieve privé charter: tot 35 gasten, route op maat, premium service.',
-  ogImage: '/images/boat/aereabarco2.webp',
-  ogImageAlt: 'Luchtfoto van boot Salvador Ibiza tijdens privétrip',
+  ogImage: '/images/optimized/salvador-ibiza-cala-comte-wide-aerial-view.webp',
+  ogImageAlt: 'Luchtdrone-opname van boot Salvador Ibiza tijdens privétrip in Cala Comte.',
 });
 
 // --- Data Definitions (to be passed to client) --- 
@@ -23,7 +23,7 @@ const privateBoatTripsJsonLd = {
   "@type": "Product",
   "name": "Privé boottochten Ibiza bij Salvador",
   "description": "Exclusieve privé trips op Ibiza tot 35 gasten. Inclusief kapitein, open bar, hapjes en watersport.",
-  "image": publicAssetUrl("/images/boat/aereabarco2.webp"),
+  "image": publicAssetUrl("/images/optimized/salvador-ibiza-cala-comte-wide-aerial-view.webp"),
   "brand": {
     "@type": "Brand",
     "name": "Salvador Ibiza"

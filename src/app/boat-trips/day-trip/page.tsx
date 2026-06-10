@@ -12,7 +12,7 @@ const dayTripJsonLd = {
   "name": "All-inclusive dagtrip Ibiza — Salvador Ibiza",
   "description": "All-inclusive dagboottocht van 3 uur met kapitein, catering, drankjes, paddleboards en snorkel.",
   "image": [
-    publicAssetUrl("/images/boat/aereabarco1.jpg")
+    publicAssetUrl("/images/optimized/salvador-ibiza-cala-comte-guests-paddleboarding.webp")
   ],
   "brand": {
     "@type": "Organization",
@@ -63,7 +63,7 @@ export const metadata = pageMetadata({
   path: '/boat-trips/day-trip',
   ogTitle: 'All-inclusive dagtrip Ibiza',
   ogDescription: '⛵ Dagtrip met 15 paddleboards, snorkelen, open bar en tapas.',
-  ogImage: '/images/optimized/salvador-ibiza-boat-aerial-view.webp',
+  ogImage: '/images/optimized/salvador-ibiza-cala-comte-guests-paddleboarding.webp',
 });
 
 export default function DayTripPage() {

@@ -29,8 +29,8 @@ const fadeIn = (delay = 0) => ({
 
 const tripData = {
   middayTrip: {
-    imageUrl: "/images/optimized/salvador-ibiza-boat-from-above.webp",
-    imageAlt: "Salvador Ibiza dagtocht op zee",
+    imageUrl: "/images/optimized/salvador-ibiza-cala-comte-guests-paddleboarding.webp",
+    imageAlt: "Salvador Ibiza dagtocht — premium zee-avontuur",
     title: "Dagervaring",
     description: "Zon, zee en avontuur.",
     isPopular: true,
@@ -76,8 +76,8 @@ const tripData = {
     detailsText: "Meer over deze trip"
   },
   privateCharter: {
-    imageUrl: "/images/optimized/aereabarco2.webp",
-    imageAlt: "Salvador Ibiza privé charter",
+    imageUrl: "/images/optimized/salvador-ibiza-cala-comte-wide-aerial-view.webp",
+    imageAlt: "Salvador Ibiza privé charter — exclusieve zee-ervaring",
     title: "Privé ervaring",
     description: "Jouw eigen avontuur op maat.",
     badgeText: "4 uur",
