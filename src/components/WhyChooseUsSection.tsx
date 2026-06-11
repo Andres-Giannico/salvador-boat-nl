@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Ship, MapPin, Sparkles, Users } from 'lucide-react';
 
@@ -83,6 +84,11 @@ export default function WhyChooseUsSection() {
             </motion.div>
           ))}
         </div>
+        <motion.div variants={fadeInUp} className="text-center mt-12">
+          <Link href="/book-now" className="inline-flex items-center justify-center min-h-[48px] px-8 py-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-full font-semibold hover:from-blue-700 hover:to-cyan-600 transition-all duration-300 shadow-lg hover:shadow-xl">
+            Boek je ervaring
+          </Link>
+        </motion.div>
       </div>
     </motion.section>
   );

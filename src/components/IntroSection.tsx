@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 const fadeInUp = {
@@ -31,9 +32,9 @@ export default function IntroSection() {
         <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-10">
           Vaar met ons mee op het kraakheldere water rond Ibiza. Onze all-inclusive boottochten zijn de perfecte manier om dit magische eiland te ontdekken.
         </p>
-        <div className="flex justify-center">
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full"></div>
-        </div>
+        <Link href="/book-now" className="inline-flex items-center justify-center min-h-[48px] px-8 py-3 bg-gradient-to-r from-blue-600 to-cyan-500 text-white rounded-full font-semibold hover:from-blue-700 hover:to-cyan-600 transition-all duration-300 shadow-lg hover:shadow-xl">
+          Online boeken
+        </Link>
       </div>
     </motion.section>
   );

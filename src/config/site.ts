@@ -104,3 +104,56 @@ export function pageAlternates(path: string): {
     },
   };
 }
+
+export interface PostalAddress {
+  streetAddress: string;
+  addressLocality: string;
+  addressRegion: string;
+  postalCode: string;
+  addressCountry: string;
+}
+
+export const businessContact = {
+  name: "Salvador Ibiza",
+  alternateName: "Salvador Boat Trips Ibiza",
+  email: "info@salvadoribiza.com",
+  phones: ["+34 871 181 393", "+34 681 611 598"] as const,
+  whatsappNumber: "34871181393",
+  registeredAddress: {
+    streetAddress: "Avinguda del Doctor Fleming",
+    addressLocality: "Sant Antoni de Portmany",
+    addressRegion: "Illes Balears",
+    postalCode: "07820",
+    addressCountry: "ES",
+  } satisfies PostalAddress,
+  boardingPoint: {
+    streetAddress: "Puerto de San Antonio",
+    addressLocality: "San Antonio",
+    addressRegion: "Ibiza",
+    postalCode: "07820",
+    addressCountry: "ES",
+  } satisfies PostalAddress,
+  geo: { latitude: "38.9804", longitude: "1.3026" },
+  openingHours: { opens: "09:00", closes: "21:00" },
+  aggregateRating: {
+    ratingValue: "4.9",
+    reviewCount: "278",
+    bestRating: "5",
+    worstRating: "1",
+  },
+  social: {
+    instagram: "https://www.instagram.com/boatstripsinibiza/",
+    facebook: "https://www.facebook.com/SalvadoIbizaBoat",
+    tripadvisor:
+      "https://www.tripadvisor.com/Attraction_Review-g652116-d6835309-Reviews-Salvador_Ibiza-Sant_Antoni_de_Portmany_Ibiza_Balearic_Islands.html",
+    youtube: "https://www.youtube.com/watch?v=0SN3YMMwUEk",
+    tiktok: "https://www.tiktok.com/@salvadoribiza",
+  },
+  priceRange: "€€",
+  paymentAccepted: "Cash, Credit Card, Bizum",
+} as const;
+
+export function formatRegisteredAddress(): string {
+  const a = businessContact.registeredAddress;
+  return `${a.streetAddress}, ${a.postalCode} ${a.addressLocality}, ${a.addressRegion}`;
+}

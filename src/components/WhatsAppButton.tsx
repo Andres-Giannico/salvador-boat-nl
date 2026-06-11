@@ -1,9 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { businessContact } from '@/config/site';
 
 const WhatsAppButton = () => {
-  const phoneNumber = '34871181393'; // Número actualizado
+  const phoneNumber = businessContact.whatsappNumber; // Número actualizado
 
   return (
     <motion.a

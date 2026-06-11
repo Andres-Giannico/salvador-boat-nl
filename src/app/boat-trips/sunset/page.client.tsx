@@ -55,7 +55,7 @@ const galleryImages = [
   { src: "/images/optimized/friends-ibiza-sunset-boat.webp", alt: "Groep geniet van zonsondergang op boot Ibiza" },
   { src: "/images/optimized/drinks-cave-sunset-ibiza.webp", alt: "Cava tijdens magische zonsondergangcruise Ibiza" },
   { src: "/images/boat/doschicassupsunset.webp", alt: "Twee gasten op paddleboard tijdens zonsondergangtocht" },
-  { src: "/images/sunset.png", alt: "Zonsondergang Ibiza vanaf boot Salvador" },
+  { src: "/images/optimized/ibiza-sunset-boat-trip-salvador.webp", alt: "Zonsondergang Ibiza vanaf boot Salvador" },
   { src: "/images/optimized/es-vedra-island-ibiza-background.webp", alt: "Zonsondergang met eiland Es Vedrà op de achtergrond" },
   { src: "/images/optimized/sunset-sailing-cruise-ibiza.webp", alt: "Zeilen bij zonsondergang in het water rond Ibiza" }
 ];

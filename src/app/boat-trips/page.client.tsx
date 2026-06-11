@@ -47,7 +47,7 @@ const middayTrip = {
 };
 
 const sunsetTrip = {
-  imageUrl: "/images/sunset.png",
+  imageUrl: "/images/optimized/ibiza-sunset-boat-trip-salvador.webp",
   imageAlt: "Salvador Ibiza zonsondergangboottocht",
   title: "Zonsondergangtocht",
   description: "Ervaar Ibiza's iconische zonsondergang vanaf zee.",

@@ -150,7 +150,7 @@ export default function Navbar() {
             <button
               onClick={() => setIsOpen(!isOpen)}
               type="button"
-              className="p-2 rounded-full hover:bg-gray-50 transition-colors duration-300 focus:outline-none"
+              className="p-2 rounded-full hover:bg-gray-50 transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
               aria-controls="mobile-menu"
               aria-expanded={isOpen}
             >

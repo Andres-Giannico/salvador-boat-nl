@@ -9,6 +9,12 @@ import { Toaster } from 'sonner';
 import CookieConsentBanner from "@/components/CookieConsentBanner";
 import EarlyBirdPromoModal from "@/components/EarlyBirdPromoModal";
 import { getSiteUrl, pageAlternates } from "@/config/site";
+import {
+  buildLocalBusinessSchema,
+  buildOrganizationSchema,
+  buildTouristAttractionSchema,
+  buildWebsiteSchema,
+} from "@/lib/business-schema";
 
 // Configuración de fuentes
 const inter = Inter({
@@ -25,156 +31,10 @@ const montserrat = Montserrat({
 });
 
 const siteBase = getSiteUrl();
-
-// LocalBusiness + TourOperator schema for SEO and AI discoverability
-const localBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "TourOperator"],
-  "@id": `${siteBase}/#organization`,
-  "name": "Salvador Ibiza",
-  "alternateName": "Salvador Boat Trips Ibiza",
-  "description": "Premium boottochten en privé-charters op Ibiza. All-inclusive excursies met professionele bemanning, materiaal en onvergetelijke belevingen.",
-  "url": siteBase,
-  "telephone": "+34 871 181 393",
-  "email": "info@salvadoribiza.com",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Puerto de San Antonio",
-    "addressLocality": "San Antonio",
-    "addressRegion": "Ibiza",
-    "postalCode": "07820",
-    "addressCountry": "ES"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": "38.9804",
-    "longitude": "1.3026"
-  },
-  "openingHoursSpecification": [
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday", 
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday"
-      ],
-      "opens": "09:00",
-      "closes": "21:00"
-    }
-  ],
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "278",
-    "bestRating": "5",
-    "worstRating": "1"
-  },
-  "priceRange": "€€",
-  "currenciesAccepted": "EUR",
-  "paymentAccepted": "Cash, Credit Card",
-  "areaServed": {
-    "@type": "Place",
-    "name": "Ibiza, Balearic Islands, Spain"
-  },
-  "serviceArea": {
-    "@type": "GeoCircle",
-    "geoMidpoint": {
-      "@type": "GeoCoordinates",
-      "latitude": "38.9804",
-      "longitude": "1.3026"
-    },
-    "geoRadius": "50000"
-  },
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Salvador Ibiza-diensten",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Dagelijkse boottochten",
-          "description": "3 uur all-inclusive dagtochten met zwemmen, snorkelen en versnaperingen"
-        },
-        "price": "80",
-        "priceCurrency": "EUR"
-      },
-      {
-        "@type": "Offer", 
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Zonsondergang boottochten",
-          "description": "3 uur zonsondergang op zee met premium drankjes en gouden uur"
-        },
-        "price": "80",
-        "priceCurrency": "EUR"
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service", 
-          "name": "Privéboot charter",
-          "description": "Exclusieve privécharters met maatwerkroute en premium service"
-        },
-        "price": "1350",
-        "priceCurrency": "EUR"
-      }
-    ]
-  },
-  "sameAs": [
-    "https://www.instagram.com/boatstripsinibiza/",
-    "https://www.facebook.com/SalvadoIbizaBoat"
-  ],
-  "logo": {
-    "@type": "ImageObject",
-    "url": `${siteBase}/images/logo-salvador.png`,
-    "width": "300",
-    "height": "100"
-  },
-  "image": [
-    `${siteBase}/images/optimized/salvador-ibiza-boat-drone-view.webp`,
-    `${siteBase}/images/optimized/salvador-ibiza-boat-aerial-view.webp`
-  ]
-};
-
-const touristAttractionSchema = {
-  "@context": "https://schema.org",
-  "@type": "TouristAttraction",
-  "@id": `${siteBase}/#tourist-attraction`,
-  "name": "Salvador Ibiza Boottochten",
-  "description": "Traditionele houten boot dagtochten en zonsondergangcruises op Ibiza. All-inclusive excursies met zwemmen, paddleboarden, kajakken en snorkelen vanuit de haven van San Antonio.",
-  "url": siteBase,
-  "image": `${siteBase}/images/optimized/salvador-ibiza-boat-drone-view.webp`,
-  "touristType": ["Gezinnen", "Koppels", "Groepen"],
-  "isAccessibleForFree": false,
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Puerto de San Antonio",
-    "addressLocality": "San Antonio",
-    "addressRegion": "Ibiza",
-    "postalCode": "07820",
-    "addressCountry": "ES"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": "38.9804",
-    "longitude": "1.3026"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "278",
-    "bestRating": "5",
-    "worstRating": "1"
-  },
-  "provider": {
-    "@id": `${siteBase}/#organization`
-  }
-};
+const localBusinessSchema = buildLocalBusinessSchema(siteBase);
+const touristAttractionSchema = buildTouristAttractionSchema(siteBase);
+const websiteSchema = buildWebsiteSchema(siteBase);
+const organizationSchema = buildOrganizationSchema(siteBase);
 
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
@@ -241,7 +101,7 @@ export default function RootLayout({
         {/* Google Tag Manager */}
         <Script
           id="google-tag-manager-head"
-          strategy="beforeInteractive" // Cargar GTM lo antes posible
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -287,41 +147,14 @@ export default function RootLayout({
           id="website-schema"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'WebSite',
-              'name': 'Salvador Ibiza',
-              'url': siteBase,
-              'potentialAction': {
-                '@type': 'SearchAction',
-                'target': {
-                  '@type': 'EntryPoint',
-                  'urlTemplate': `${siteBase}/search?q={search_term_string}`,
-                },
-                'query-input': 'required name=search_term_string',
-              },
-            }),
+            __html: JSON.stringify(websiteSchema),
           }}
         />
-        {/* Structured Data for Organization */}
         <Script
           id="organization-schema"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "Salvador Ibiza",
-              "url": siteBase,
-              "logo": `${siteBase}/images/logo-salvador.png`,
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "+34 871 181 393",
-                "email": "info@salvadoribiza.com",
-                "contactType": "customer service",
-                "availableLanguage": ["Dutch", "English", "Spanish"]
-              }
-            }),
+            __html: JSON.stringify(organizationSchema),
           }}
         />
       </head>
