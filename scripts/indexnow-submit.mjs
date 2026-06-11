@@ -101,13 +101,13 @@ async function main() {
     if (status === 200 || status === 202) {
       console.log(`[indexnow] OK ${status} ${statusText} (${batch.length} URLs)`);
     } else {
-      console.error(`[indexnow] Failed ${status} ${statusText}`);
-      process.exitCode = 1;
+      console.warn(
+        `[indexnow] Failed ${status} ${statusText} — deploy continues (verify key at ${getSiteUrl()}/${INDEXNOW_KEY}.txt)`
+      );
     }
   }
 }
 
 main().catch((err) => {
-  console.error("[indexnow] Error:", err.message);
-  process.exitCode = 1;
+  console.warn("[indexnow] Error:", err.message, "— deploy continues");
 });
