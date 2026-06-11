@@ -54,7 +54,7 @@ const tripData = {
     ctaText: "Reserveer dagtrip — €80",
   },
   sunsetTrip: {
-    imageUrl: "/images/sunset.png",
+    imageUrl: "/images/optimized/ibiza-sunset-heart-gesture-salvador.webp",
     imageAlt: "Salvador Ibiza zonsondergang op zee",
     title: "Zonsondergang",
     description: "De iconische Ibiza-zonsondergang vanaf zee.",

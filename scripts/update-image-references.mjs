@@ -27,6 +27,7 @@ const imageMapping = {
   '/images/barco dron .jpg': '/images/optimized/salvador-ibiza-boat-drone-photo.webp',
   
   // Actividades del barco
+  '/images/sunset.png': '/images/optimized/ibiza-sunset-heart-gesture-salvador.webp',
   '/images/boat/sunset.png': '/images/optimized/ibiza-sunset-boat-trip-salvador.webp',
   '/images/boat/aereabarco.png': '/images/optimized/salvador-ibiza-boat-aerial-shot.webp',
   '/images/boat/aereabarco1.jpg': '/images/optimized/salvador-ibiza-boat-from-above.webp',
