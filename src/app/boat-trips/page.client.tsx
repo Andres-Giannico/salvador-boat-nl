@@ -9,6 +9,15 @@ import TripCard from '@/components/ui/TripCard';
 import ImageGallery from '@/components/gallery/ImageGallery';
 import CallToActionSection from '@/components/CallToActionSection';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import FAQ from '@/components/trips/FAQ';
+import BoatTripComparisonTable from '@/components/trips/BoatTripComparisonTable';
+import { generalBoatTripComparison } from '@/lib/boat-trip-comparison';
+import { generalBoatTripFaqs } from '@/lib/topic-faqs';
+
+const generalFaqItems = generalBoatTripFaqs.map((faq) => ({
+  question: faq.question,
+  answer: faq.answer,
+}));
 
 // Updated trip data to match FeaturedTripsSection
 const middayTrip = {
@@ -244,6 +253,65 @@ export default function BoatTripsClientPage() {
               <TripCard {...sunsetTrip} delay={0.3} />
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-20 bg-white">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+              Wat is de beste boottocht op Ibiza?
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Dat hangt af van je groep. Salvador Ibiza is ideaal als je een <strong>all-inclusive</strong>,
+              ontspannen ervaring wilt op een <strong>traditionele houten boot</strong> met snorkelen, paddleboards,
+              kajaks, tapas en open bar — zonder partyboot-sfeer. Kies onze dagtocht voor gezinnen en avontuur, of onze
+              zonsondergangtrip voor magie tijdens het gouden uur.
+            </p>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="bg-gray-50 rounded-2xl p-6 md:p-10 shadow-sm border border-gray-100 mb-12"
+          >
+            <BoatTripComparisonTable
+              rows={generalBoatTripComparison}
+              title="Salvador Ibiza vs partyboten vs catamarans"
+            />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <FAQ items={generalFaqItems} title="Je Ibiza boottocht kiezen" />
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center"
+          >
+            <Link href="/boat-trips/family" className="p-4 rounded-xl bg-green-50 border border-green-100 hover:bg-green-100 transition-colors">
+              <span className="font-semibold text-green-800">Gezinstochten →</span>
+            </Link>
+            <Link href="/boat-trips/sunset" className="p-4 rounded-xl bg-orange-50 border border-orange-100 hover:bg-orange-100 transition-colors">
+              <span className="font-semibold text-orange-800">Zonsondergang →</span>
+            </Link>
+            <Link href="/boat-trips/snorkeling" className="p-4 rounded-xl bg-cyan-50 border border-cyan-100 hover:bg-cyan-100 transition-colors">
+              <span className="font-semibold text-cyan-800">Snorkelen →</span>
+            </Link>
+          </motion.div>
         </div>
       </section>
 

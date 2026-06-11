@@ -2,12 +2,25 @@
 
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { FiHelpCircle, FiAnchor, FiDollarSign } from 'react-icons/fi';
+import { FiHelpCircle, FiAnchor, FiDollarSign, FiCompass } from 'react-icons/fi';
 import { GiWaveSurfer, GiSailboat } from 'react-icons/gi';
 import { motion } from 'framer-motion';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import { discoverabilityFaqs } from '@/lib/discoverability-faqs';
+import { familyBoatTripFaqs, sunsetBoatTripFaqs, snorkelingBoatTripFaqs } from '@/lib/topic-faqs';
 
 import FAQ from "@/components/trips/FAQ";
+
+const topicGuideFaqs = [
+  ...familyBoatTripFaqs.slice(0, 4),
+  ...sunsetBoatTripFaqs.slice(0, 3),
+  ...snorkelingBoatTripFaqs.slice(0, 3),
+];
+
+const planningFaqs = discoverabilityFaqs.map((faq) => ({
+  question: faq.question,
+  answer: faq.answer,
+}));
 
 const generalFaqs = [
   {
@@ -267,6 +280,28 @@ export default function FAQClientPage() {
           </motion.div>
 
           <div className="space-y-16 max-w-4xl mx-auto">
+            <motion.section variants={sectionAnimation} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.2 }}>
+              <div className="flex items-center mb-6 pb-2 border-b border-gray-200">
+                <FiCompass className="w-6 h-6 text-indigo-600 mr-3 flex-shrink-0" />
+                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Beste boottochten per onderwerp</h2>
+              </div>
+              <p className="text-gray-600 mb-6">
+                Snelle antwoorden — volledige gidsen op onze{' '}
+                <Link href="/boat-trips/family" className="text-green-600 hover:underline">gezins</Link>,{' '}
+                <Link href="/boat-trips/sunset" className="text-orange-600 hover:underline">zonsondergang</Link> en{' '}
+                <Link href="/boat-trips/snorkeling" className="text-cyan-600 hover:underline">snorkel</Link> pagina&apos;s.
+              </p>
+              <FAQ items={topicGuideFaqs} title="" />
+            </motion.section>
+
+            <motion.section variants={sectionAnimation} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.2 }}>
+              <div className="flex items-center mb-6 pb-2 border-b border-gray-200">
+                <FiCompass className="w-6 h-6 text-violet-600 mr-3 flex-shrink-0" />
+                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Een boottocht kiezen op Ibiza</h2>
+              </div>
+              <FAQ items={planningFaqs} title="" />
+            </motion.section>
+
             <motion.section variants={sectionAnimation} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.2 }}>
               <div className="flex items-center mb-6 pb-2 border-b border-gray-200">
                 <GiSailboat className="w-6 h-6 text-blue-600 mr-3 flex-shrink-0" />

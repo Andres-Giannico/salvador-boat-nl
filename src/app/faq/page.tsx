@@ -1,11 +1,13 @@
 import { Metadata } from "next";
 import FAQClientPage from "./page.client";
 import { pageAlternates } from "@/config/site";
+import { discoverabilityFaqs } from "@/lib/discoverability-faqs";
+import { familyBoatTripFaqs, sunsetBoatTripFaqs, snorkelingBoatTripFaqs } from "@/lib/topic-faqs";
 
 export const metadata: Metadata = {
-  title: "Veelgestelde vragen",
+  title: "Veelgestelde vragen | Boottochten Ibiza",
   description:
-    "Antwoorden op veelgestelde vragen over boottochten, boekingen en service van Salvador Ibiza op Ibiza.",
+    "Antwoorden over de beste boottochten op Ibiza voor gezinnen, zonsondergangcruises, traditionele houten bootervaringen en boekingen bij Salvador Ibiza.",
   alternates: pageAlternates("/faq"),
   robots: {
     index: true,
@@ -38,7 +40,7 @@ const faqSchema = {
       "name": "Welke routes varen jullie?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Westkust (richting Cala Conta) of noordkust (richting Sa Foradada) met cala’s zoals Cala Gració en Cala Salada. De kapitein kiest de beste route. Privé: route in overleg."
+        "text": "Westkust (richting Cala Conta) of noordkust (richting Sa Foradada) met cala's zoals Cala Gració en Cala Salada. De kapitein kiest de beste route. Privé: route in overleg."
       }
     },
     {
@@ -78,7 +80,7 @@ const faqSchema = {
       "name": "Wat is de maximale capaciteit?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Tot 35 passagiers op gedeelde trips; zie de specifieke trip-pagina’s."
+        "text": "Tot 35 passagiers op gedeelde trips; zie de specifieke trip-pagina's."
       }
     },
     {
@@ -136,7 +138,30 @@ const faqSchema = {
         "@type": "Answer",
         "text": "Seizoen mei–oktober; voor juli–augustus ruim vooraf boeken."
       }
-    }
+    },
+    ...discoverabilityFaqs.map((faq) => ({
+      "@type": "Question" as const,
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer" as const,
+        "text": faq.answer,
+      },
+    })),
+    ...familyBoatTripFaqs.slice(0, 5).map((faq) => ({
+      "@type": "Question" as const,
+      "name": faq.question,
+      "acceptedAnswer": { "@type": "Answer" as const, "text": faq.answer },
+    })),
+    ...sunsetBoatTripFaqs.slice(0, 3).map((faq) => ({
+      "@type": "Question" as const,
+      "name": faq.question,
+      "acceptedAnswer": { "@type": "Answer" as const, "text": faq.answer },
+    })),
+    ...snorkelingBoatTripFaqs.slice(0, 3).map((faq) => ({
+      "@type": "Question" as const,
+      "name": faq.question,
+      "acceptedAnswer": { "@type": "Answer" as const, "text": faq.answer },
+    })),
   ]
 };
 

@@ -6,6 +6,17 @@ import Link from 'next/link';
 import { FiSun, FiClock, FiUsers, FiMapPin, FiCamera, FiHeart } from 'react-icons/fi';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import TurbnbWidget from '@/components/booking/TurbnbWidget';
+import FAQ from '@/components/trips/FAQ';
+import BoatTripComparisonTable from '@/components/trips/BoatTripComparisonTable';
+import TestimonialSlider from '@/components/trips/TestimonialSlider';
+import { sunsetBoatTripComparison } from '@/lib/boat-trip-comparison';
+import { sunsetBoatTripFaqs } from '@/lib/topic-faqs';
+import { sunsetReviews } from '@/lib/topic-reviews';
+
+const sunsetFaqItems = sunsetBoatTripFaqs.map((faq) => ({
+  question: faq.question,
+  answer: faq.answer,
+}));
 
 const highlights = [
   {
@@ -180,6 +191,41 @@ export default function SunsetBoatTripsClientPage() {
             </p>
           </motion.div>
 
+          <motion.div
+            className="max-w-4xl mx-auto mb-16 bg-gradient-to-r from-orange-50 to-pink-50 rounded-2xl p-8 border border-orange-100"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">
+              Wat maakt de beste zonsondergangboottocht op Ibiza?
+            </h2>
+            <p className="text-gray-600 leading-relaxed mb-4">
+              De beste zonsondergangboottochten op Ibiza vertrekken op het juiste moment voor het gouden uur, volgen
+              schilderachtige kustroutes met vrij uitzicht naar het westen, en bieden een comfortabele sfeer — of je nu
+              romantiek, fotografie of een ontspannen avond met vrienden wilt.
+            </p>
+            <p className="text-gray-600 leading-relaxed">
+              Salvador Ibiza&apos;s 3 uur zonsondergangcruise vanuit San Antonio omvat een open bar, tapas, zwemstops in
+              mooie cala's en routes richting Cala Comte of Es Vedrà afhankelijk van de omstandigheden. Het is een
+              traditionele houten boot — ontspannen en authentiek, geen luide partyboot.
+            </p>
+          </motion.div>
+
+          <motion.section
+            className="max-w-4xl mx-auto mb-16 bg-white rounded-2xl shadow-lg p-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <BoatTripComparisonTable
+              rows={sunsetBoatTripComparison}
+              title="Zonsondergangboottocht: Salvador Ibiza vs partyboot vs catamaran"
+            />
+          </motion.section>
+
           {/* Highlights Grid */}
           <motion.div 
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
@@ -246,6 +292,29 @@ export default function SunsetBoatTripsClientPage() {
               ))}
             </div>
           </motion.div>
+
+          <motion.section
+            className="mb-16 max-w-4xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <FAQ items={sunsetFaqItems} title="Veelgestelde vragen zonsondergangboottochten" />
+          </motion.section>
+
+          <motion.section
+            className="mb-16 py-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <TestimonialSlider
+              testimonials={sunsetReviews}
+              title="Wat gasten zeggen over onze zonsondergangtochten"
+            />
+          </motion.section>
 
           {/* Booking Section */}
           <motion.div

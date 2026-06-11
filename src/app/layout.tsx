@@ -26,17 +26,17 @@ const montserrat = Montserrat({
 
 const siteBase = getSiteUrl();
 
-// LocalBusiness Schema for SEO
+// LocalBusiness + TourOperator schema for SEO and AI discoverability
 const localBusinessSchema = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
+  "@type": ["LocalBusiness", "TourOperator"],
   "@id": `${siteBase}/#organization`,
   "name": "Salvador Ibiza",
   "alternateName": "Salvador Boat Trips Ibiza",
   "description": "Premium boottochten en privé-charters op Ibiza. All-inclusive excursies met professionele bemanning, materiaal en onvergetelijke belevingen.",
   "url": siteBase,
-  "telephone": "+34-871 181 393", // TODO: Add real phone number
-  "email": "info@salvadoribiza.com", // TODO: Verify email
+  "telephone": "+34 871 181 393",
+  "email": "info@salvadoribiza.com",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Puerto de San Antonio",
@@ -141,6 +141,41 @@ const localBusinessSchema = {
   ]
 };
 
+const touristAttractionSchema = {
+  "@context": "https://schema.org",
+  "@type": "TouristAttraction",
+  "@id": `${siteBase}/#tourist-attraction`,
+  "name": "Salvador Ibiza Boottochten",
+  "description": "Traditionele houten boot dagtochten en zonsondergangcruises op Ibiza. All-inclusive excursies met zwemmen, paddleboarden, kajakken en snorkelen vanuit de haven van San Antonio.",
+  "url": siteBase,
+  "image": `${siteBase}/images/optimized/salvador-ibiza-boat-drone-view.webp`,
+  "touristType": ["Gezinnen", "Koppels", "Groepen"],
+  "isAccessibleForFree": false,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Puerto de San Antonio",
+    "addressLocality": "San Antonio",
+    "addressRegion": "Ibiza",
+    "postalCode": "07820",
+    "addressCountry": "ES"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "38.9804",
+    "longitude": "1.3026"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "278",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "provider": {
+    "@id": `${siteBase}/#organization`
+  }
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
   alternates: pageAlternates('/'),
@@ -193,10 +228,14 @@ export default function RootLayout({
   return (
     <html lang="nl" className={`${inter.variable} ${montserrat.variable}`}>
       <head>
-        {/* LocalBusiness Schema */}
+        {/* LocalBusiness + TourOperator Schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(touristAttractionSchema) }}
         />
         
         {/* Google Tag Manager */}
@@ -277,7 +316,8 @@ export default function RootLayout({
               "logo": `${siteBase}/images/logo-salvador.png`,
               "contactPoint": {
                 "@type": "ContactPoint",
-                "telephone": "+34-871-181-393",
+                "telephone": "+34 871 181 393",
+                "email": "info@salvadoribiza.com",
                 "contactType": "customer service",
                 "availableLanguage": ["Dutch", "English", "Spanish"]
               }

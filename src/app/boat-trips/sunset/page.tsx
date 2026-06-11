@@ -1,16 +1,18 @@
 import SunsetBoatTripsClientPage from './page.client';
 import { absoluteUrl, publicAssetUrl } from '@/config/site';
 import { pageMetadata } from '@/lib/page-meta';
+import { buildFaqPageSchema } from '@/lib/faq-schema';
+import { sunsetBoatTripFaqs } from '@/lib/topic-faqs';
 
 export const metadata = pageMetadata({
-  title: 'Zonsondergang boottochten Ibiza',
-  description: 'Magische zonsondergang op zee met Salvador: avondcruise, premium drankjes en vergezichten over de Middellandse Zee.',
+  title: 'Beste zonsondergangboottochten Ibiza | Magische avondcruises',
+  description: 'Beleef magische zonsondergangboottochten op Ibiza met Salvador. Avondcruises met adembenemende sunsets, premium drankjes en onvergetelijke herinneringen op de Middellandse Zee.',
   path: '/boat-trips/sunset',
-  keywords: 'zonsondergang boot Ibiza, sunset cruise Ibiza, avond boottocht Ibiza',
-  ogTitle: 'Zonsondergang boottochten Ibiza',
-  ogDescription: 'Avondtrips met drankjes, tapas en iconische sunsets.',
+  keywords: 'ibiza zonsondergang boottocht, sunset boot Ibiza, avond boottocht Ibiza, zonsondergang vanaf boot, boottocht zonsondergang san antonio ibiza',
+  ogTitle: 'Zonsondergang boottochten Ibiza | Magische avondcruises',
+  ogDescription: 'Magische zonsondergangboottochten op Ibiza met Salvador. Premium avondcruises met drankjes, tapas en adembenemende mediterrane sunsets.',
   ogImage: '/images/optimized/sunset-sailing-cruise-ibiza.webp',
-  ogImageAlt: 'Zonsondergang tijdens boottrip Ibiza',
+  ogImageAlt: 'Prachtige zonsondergang tijdens boottocht op Ibiza met Salvador',
 });
 
 // JSON-LD structured data for sunset boat trips
@@ -45,12 +47,18 @@ const sunsetBoatTripsJsonLd = {
   "duration": "PT3H"
 };
 
+const sunsetFaqSchema = buildFaqPageSchema(sunsetBoatTripFaqs);
+
 export default function SunsetBoatTripsPage() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(sunsetBoatTripsJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(sunsetFaqSchema) }}
       />
       <SunsetBoatTripsClientPage />
     </>

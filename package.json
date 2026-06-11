@@ -5,9 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "next-sitemap",
+    "postbuild": "next-sitemap && node scripts/indexnow-submit.mjs",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "indexnow": "INDEXNOW_FORCE=1 node scripts/indexnow-submit.mjs"
   },
   "dependencies": {
     "@googlemaps/google-maps-services-js": "^3.4.1",
