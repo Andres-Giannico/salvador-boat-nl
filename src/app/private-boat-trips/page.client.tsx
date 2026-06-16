@@ -17,7 +17,11 @@ import WhatsIncluded from '@/components/trips/WhatsIncluded';
 import PerfectForCard from '@/components/trips/PerfectForCard';
 import WhyChooseUsCard from '@/components/trips/WhyChooseUsCard';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
-import { TURBNB_WIDGET_CSS, TURBNB_WIDGET_JS } from '@/lib/turbnb-widget-assets';
+import {
+  mergeTurboBookingCustomProperties,
+  TURBNB_WIDGET_CSS,
+  TURBNB_WIDGET_JS,
+} from '@/lib/turbnb-widget-assets';
 
 // --- Define Type for PerfectFor Items ---
 type PerfectForItem = {
@@ -148,14 +152,27 @@ const includedItems = [
   }
 ];
 
+const charterWidgetStrings = {
+  bookNow: 'PRIVÉCHARTER BOEKEN',
+  quantity: 'Deelnemers',
+  confirmReservationAndPay: 'BEVESTIGEN & BETALEN',
+  selectTimeLabel: 'Kies tijd',
+  selectExperienceLabel: 'Charteroptie',
+  addonsLabel: 'Optionele upgrades (o.a. extra uren)',
+  depositObservation:
+    'Controleer het aantal gasten — prijs is per persoon. Na reservering ontvang je een voucher met locatie- en boekingsdetails.',
+} as const;
+
 // --- Componente Principal de la Página Cliente ---
 export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTripsClientPageProps) {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [showDirectWidget, setShowDirectWidget] = useState(false);
   
-  // Carga dinámica del CSS del widget
+  // Carga dinámica del CSS del widget (solo v1)
   useEffect(() => {
+    if (!TURBNB_WIDGET_CSS) return;
+
     const linkId = 'turbnb-widget-css';
     if (!document.getElementById(linkId)) {
       const link = document.createElement('link');
@@ -240,18 +257,12 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
             companyId: 2,
             productId: 3,
             channelId: 11,
-            customProperties: {
-              "displayBillingTerm": true, 
-              "showQuantity": false, 
-              "titleVariant": "Modern",
-              "bookNow": "NU INFORMATIE AANVRAGEN",
-              "confirmReservationAndPay": "BEVESTIG AANBETALING VAN ",
-              "selectTimeLabel": "Voorkeurstijd",
-              "selectExperienceLabel": "Charteroptie",
-              "addonsLabel": "Optionele upgrades (o.a. extra uren)",
-              "depositObservation": "Controleer het aantal gasten — prijs is per persoon. Na reservering ontvang je een voucher met locatie- en boekingsdetails."
-
-            }
+            customProperties: mergeTurboBookingCustomProperties({
+              displayBillingTerm: true,
+              showQuantity: false,
+              titleVariant: 'Modern',
+              ...charterWidgetStrings,
+            }),
           });
           console.log('Direct Charter Widget Initialized');
         } catch (error) {
@@ -286,17 +297,12 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
                      companyId: 2,
                      productId: 3,
                      channelId: 11,
-                     customProperties: {
-                      "displayBillingTerm": true,
-                      "showQuantity": false,
-                      "titleVariant": "Modern",
-                      "bookNow": "PRIVÉCHARTER BOEKEN",
-                      "confirmReservationAndPay": "BEVESTIGEN & BETALEN",
-                      "selectTimeLabel": "Kies tijd",
-                      "selectExperienceLabel": "Kies charter",
-                      "addonsLabel": "Extra's",
-                      "depositObservation": "Aanbetaling en betalingsinstructies volgen na reservering."
-                    }
+                     customProperties: mergeTurboBookingCustomProperties({
+                      displayBillingTerm: true,
+                      showQuantity: false,
+                      titleVariant: 'Modern',
+                      ...charterWidgetStrings,
+                    }),
                    });
                    console.log('TurboBooking widget initialized directly in page on script load');
                  } catch (error) {
@@ -789,17 +795,15 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
             isOpen={isBookingModalOpen}
             onClose={closeBookingModal}
             productId={3} // ID específico para Private Charter
-            customProperties={{
-              "displayBillingTerm": true,
-              "showQuantity": false,
-              "titleVariant": "Modern",
-              "bookNow": "PRIVÉCHARTER BOEKEN",
-              "confirmReservationAndPay": "BEVESTIGEN & BETALEN",
-              "selectTimeLabel": "Kies tijd",
-              "selectExperienceLabel": "Kies charter",
-              "addonsLabel": "Extra's",
-              "depositObservation": "Aanbetaling en betalingsinstructies volgen na reservering."
-            }} // Propiedades customizadas según usuario
+            customProperties={mergeTurboBookingCustomProperties({
+              displayBillingTerm: true,
+              showQuantity: false,
+              titleVariant: 'Modern',
+              ...charterWidgetStrings,
+              selectExperienceLabel: 'Kies charter',
+              addonsLabel: "Extra's",
+              depositObservation: 'Aanbetaling en betalingsinstructies volgen na reservering.',
+            })}
           />
         )}
       </AnimatePresence>

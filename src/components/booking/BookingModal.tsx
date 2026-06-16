@@ -5,7 +5,12 @@ import Head from 'next/head';
 import Script from 'next/script';
 import Link from 'next/link';
 import { Dialog, DialogContent, DialogOverlay } from "@/components/ui/dialog";
-import { TURBNB_WIDGET_CSS, TURBNB_WIDGET_JS } from '@/lib/turbnb-widget-assets';
+import {
+  mergeTurboBookingCustomProperties,
+  TURBNB_NL_WIDGET_DEFAULTS,
+  TURBNB_WIDGET_CSS,
+  TURBNB_WIDGET_JS,
+} from '@/lib/turbnb-widget-assets';
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -14,27 +19,24 @@ interface BookingModalProps {
   companyId?: number;
   channelId?: number;
   customProperties?: Record<string, unknown>;
-  widgetContainerId?: string; // Optional ID for the container
+  widgetContainerId?: string;
 }
 
 const BookingModal: React.FC<BookingModalProps> = ({
   isOpen,
   onClose,
   productId,
-  companyId = 2, // Default company ID
-  channelId = 11, // Default channel ID
+  companyId = 2,
+  channelId = 11,
   customProperties = {
-    "displayBillingTerm": true,
-    "showQuantity": false,
-    "titleVariant": "Modern",
-    "bookNow": "Boek nu",
-    "confirmReservationAndPay": "Bevestigen & betalen",
-    "selectTimeLabel": "Kies tijd",
-    "selectExperienceLabel": "Kies ervaring",
-    "addonsLabel": "Extra's",
-    "depositObservation": "Na boeking ontvang je instructies voor aanbetaling en betaling.\n\n\n"
+    ...TURBNB_NL_WIDGET_DEFAULTS,
+    showQuantity: false,
+    bookNow: 'Boek nu',
+    confirmReservationAndPay: 'Bevestigen & betalen',
+    selectExperienceLabel: 'Kies ervaring',
+    depositObservation: 'Na boeking ontvang je instructies voor aanbetaling en betaling.\n\n\n',
   },
-  widgetContainerId = `turbnb-booking-widget-container-${productId}` // Unique ID per product
+  widgetContainerId = `turbnb-booking-widget-container-${productId}`
 }) => {
   const widgetInitialized = useRef(false);
   const widgetContainerRef = useRef<HTMLDivElement>(null);
@@ -44,21 +46,21 @@ const BookingModal: React.FC<BookingModalProps> = ({
     if (scriptLoaded && isOpen && widgetContainerRef.current && !widgetInitialized.current) {
       try {
         console.log(`Attempting to initialize TurboBooking for productId: ${productId} in container: #${widgetContainerId}`);
-        
+
         if (typeof window.TurboBooking === 'undefined') {
           console.warn("TurboBooking class not found on window. Retrying initialization shortly...");
           setTimeout(initializeWidget, 300);
           return;
         }
-        
+
         const turboInstance = new window.TurboBooking();
         if (widgetContainerRef.current) {
-          widgetContainerRef.current.innerHTML = ''; 
+          widgetContainerRef.current.innerHTML = '';
           turboInstance.run(widgetContainerRef.current, {
             companyId,
             productId,
             channelId,
-            customProperties,
+            customProperties: mergeTurboBookingCustomProperties(customProperties),
           });
           widgetInitialized.current = true;
           console.log(`TurboBooking initialized successfully for productId: ${productId}`);
@@ -76,7 +78,7 @@ const BookingModal: React.FC<BookingModalProps> = ({
   useEffect(() => {
     if (!isOpen) {
       widgetInitialized.current = false;
-      if(widgetContainerRef.current) {
+      if (widgetContainerRef.current) {
         widgetContainerRef.current.innerHTML = 'Boekingsopties laden...';
       }
     }
@@ -84,25 +86,27 @@ const BookingModal: React.FC<BookingModalProps> = ({
 
   return (
     <>
-      <Head>
-        <link href={TURBNB_WIDGET_CSS} rel="stylesheet" />
-      </Head>
-      <Script 
+      {TURBNB_WIDGET_CSS ? (
+        <Head>
+          <link href={TURBNB_WIDGET_CSS} rel="stylesheet" />
+        </Head>
+      ) : null}
+      <Script
         src={TURBNB_WIDGET_JS}
         strategy="lazyOnload"
         onReady={() => {
           console.log("TurboBooking script ready (onReady).");
           if (typeof window.TurboBooking !== 'undefined') {
-             setScriptLoaded(true);
+            setScriptLoaded(true);
           } else {
             console.warn("onReady fired, but window.TurboBooking not yet defined. Waiting...");
             setTimeout(() => {
-                if (typeof window.TurboBooking !== 'undefined') {
-                    console.log("window.TurboBooking defined after timeout.")
-                    setScriptLoaded(true);
-                } else {
-                    console.error("window.TurboBooking still not defined after timeout.")
-                }
+              if (typeof window.TurboBooking !== 'undefined') {
+                console.log("window.TurboBooking defined after timeout.")
+                setScriptLoaded(true);
+              } else {
+                console.error("window.TurboBooking still not defined after timeout.")
+              }
             }, 500)
           }
         }}
@@ -110,11 +114,10 @@ const BookingModal: React.FC<BookingModalProps> = ({
           console.error('Error loading TurboBooking script:', e);
         }}
       />
-      
+
       <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
         <DialogOverlay className="bg-black/60 backdrop-blur-sm" />
         <DialogContent className="max-w-5xl w-[90vw] p-0 overflow-hidden border-0 shadow-2xl rounded-lg">
-          {/* Mensaje aclaratorio */}
           <div className="bg-blue-50 border-l-4 border-blue-500 p-4 m-4 rounded-md">
             <div className="flex">
               <div className="flex-shrink-0">
@@ -124,8 +127,8 @@ const BookingModal: React.FC<BookingModalProps> = ({
               </div>
               <div className="ml-3">
                 <p className="text-sm text-blue-800">
-                  <span className="font-medium">Let op:</span> Je boekt een <strong>privécharter (hele groep)</strong>. 
-                  Zoek je losse tickets voor onze gedeelde tochten, ga dan naar onze 
+                  <span className="font-medium">Let op:</span> Je boekt een <strong>privécharter (hele groep)</strong>.
+                  Zoek je losse tickets voor onze gedeelde tochten, ga dan naar onze
                   <Link href="/boat-trips" className="font-medium underline ml-1 hover:text-blue-600">
                     boottochten-pagina
                   </Link>.
@@ -133,13 +136,13 @@ const BookingModal: React.FC<BookingModalProps> = ({
               </div>
             </div>
           </div>
-          
-          <div 
-            id={widgetContainerId} 
-            ref={widgetContainerRef} 
+
+          <div
+            id={widgetContainerId}
+            ref={widgetContainerRef}
             className="turbnb-widget-host min-h-[60vh] max-h-[80vh] overflow-y-auto bg-white"
           >
-            <div className="p-6 text-center text-gray-500">Boekingsopties laden...</div> 
+            <div className="p-6 text-center text-gray-500">Boekingsopties laden...</div>
           </div>
         </DialogContent>
       </Dialog>
@@ -147,4 +150,4 @@ const BookingModal: React.FC<BookingModalProps> = ({
   );
 };
 
-export default BookingModal; 
+export default BookingModal;

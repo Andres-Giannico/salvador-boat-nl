@@ -2,7 +2,12 @@
 
 import { useEffect } from 'react';
 import Script from 'next/script';
-import { TURBNB_WIDGET_CSS, TURBNB_WIDGET_JS } from '@/lib/turbnb-widget-assets';
+import {
+  mergeTurboBookingCustomProperties,
+  TURBNB_NL_WIDGET_DEFAULTS,
+  TURBNB_WIDGET_CSS,
+  TURBNB_WIDGET_JS,
+} from '@/lib/turbnb-widget-assets';
 
 interface TurbnbWidgetProps {
   id?: string;
@@ -34,19 +39,7 @@ export default function TurbnbWidget({
   billingTermIds,
   channelId,
   className = '',
-  customProperties = {
-    displayBillingTerm: true,
-    showQuantity: true,
-    quantity: "Aantal gasten",
-    titleVariant: "Modern",
-    bookNow: "NU RESERVEREN",
-    confirmReservationAndPay: "GA DOOR NAAR BETALING",
-    selectTimeLabel: "Tijdstip kiezen",
-    selectExperienceLabel: "Soort ervaring",
-    addonsLabel: "Extra's",
-    depositObservation:
-      "Na je boeking ontvang je een bevestiging met ontmoetingspunt en tijd. Controleer telefoon en e-mail. Aanbetaling €20 p.p.; het restbedrag contant aan boord.",
-  }
+  customProperties = { ...TURBNB_NL_WIDGET_DEFAULTS },
 }: TurbnbWidgetProps) {
   useEffect(() => {
     const initializeWidget = () => {
@@ -60,7 +53,7 @@ export default function TurbnbWidget({
               productId,
               billingTermIds,
               channelId,
-              customProperties
+              customProperties: mergeTurboBookingCustomProperties(customProperties),
             });
           } catch (error) {
             console.error("Error initializing booking widget:", error);
@@ -69,11 +62,9 @@ export default function TurbnbWidget({
       }
     };
 
-    // If TurboBooking is loaded, initialize widget
     if (typeof window !== 'undefined' && typeof window.TurboBooking !== 'undefined') {
       initializeWidget();
     } else if (typeof window !== 'undefined') {
-      // If not loaded yet, wait for script to load
       window.addEventListener('turbnbLoaded', initializeWidget);
       return () => window.removeEventListener('turbnbLoaded', initializeWidget);
     }
@@ -84,7 +75,7 @@ export default function TurbnbWidget({
       <div className={`turbnb-widget-host w-full min-w-0 ${className}`}>
         <div id={id} className="w-full min-w-0" />
       </div>
-      
+
       <Script
         src={TURBNB_WIDGET_JS}
         strategy="afterInteractive"
@@ -94,7 +85,9 @@ export default function TurbnbWidget({
           }
         }}
       />
-      <link href={TURBNB_WIDGET_CSS} rel="stylesheet" />
+      {TURBNB_WIDGET_CSS ? (
+        <link href={TURBNB_WIDGET_CSS} rel="stylesheet" />
+      ) : null}
     </>
   );
-} 
+}

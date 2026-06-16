@@ -2,26 +2,15 @@
 
 import Link from 'next/link';
 import TurbnbWidget from '@/components/booking/TurbnbWidget';
+import { TURBNB_NL_DEPOSIT_DEFAULT, TURBNB_NL_WIDGET_DEFAULTS } from '@/lib/turbnb-widget-assets';
 import { FiInfo, FiSun, FiMoon } from 'react-icons/fi';
 import { motion } from 'framer-motion';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
-const DEPOSIT_NL =
-  'Na je boeking ontvang je een bevestiging met ontmoetingspunt en tijd. Controleer of telefoon en e-mail kloppen. Aanbetaling €20 per persoon; het restant aan boord.';
-
 const WIDGET_NL = {
-  displayBillingTerm: true,
-  showQuantity: true,
+  ...TURBNB_NL_WIDGET_DEFAULTS,
   quantity: 'Gasten',
-  titleVariant: 'Modern',
-  bookNow: 'NU RESERVEREN',
-  confirmReservationAndPay: 'BEVESTIGEN & BETALEN',
-  selectTimeLabel: 'Kies tijd',
-  selectExperienceLabel: 'Soort ervaring',
-  addonsLabel: "Extra's",
-  childrenAge: '6 tot 12 jaar',
-  infantAge: '0 tot 5 jaar',
-  depositObservation: DEPOSIT_NL,
+  depositObservation: TURBNB_NL_DEPOSIT_DEFAULT,
 } as const;
 
 export default function BookNowClientPage() {

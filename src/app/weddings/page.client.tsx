@@ -10,7 +10,11 @@ import { GiWineBottle } from 'react-icons/gi';
 import TripGallery from '@/components/trips/TripGallery';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import BookingModal from '@/components/booking/BookingModal';
-import { TURBNB_WIDGET_CSS, TURBNB_WIDGET_JS } from '@/lib/turbnb-widget-assets';
+import {
+  mergeTurboBookingCustomProperties,
+  TURBNB_WIDGET_CSS,
+  TURBNB_WIDGET_JS,
+} from '@/lib/turbnb-widget-assets';
 
 // Placeholder for wedding features
 const weddingFeatures = [
@@ -19,6 +23,16 @@ const weddingFeatures = [
   { icon: FiAnchor, text: 'Bijzondere setting op zee' },
   { icon: FiUsers, text: 'Persoonlijke service & planning' },
 ];
+
+const weddingWidgetStrings = {
+  bookNow: 'NU RESERVEREN',
+  quantity: 'Deelnemers',
+  confirmReservationAndPay: 'BEVESTIGEN & BETALEN',
+  selectTimeLabel: 'Kies tijd',
+  selectExperienceLabel: 'Bruiloftscharter',
+  addonsLabel: "Extra's bruiloft",
+  depositObservation: 'Bevestiging van je bruiloftsboeking',
+} as const;
 
 // Imágenes para la galería de Bodas
 const galleryImages = [
@@ -39,8 +53,10 @@ export default function WeddingsClientPage() {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [showDirectWidget, setShowDirectWidget] = useState(false);
   
-  // Load widget CSS dynamically
+  // Load widget CSS dynamically (v1 only)
   useEffect(() => {
+    if (!TURBNB_WIDGET_CSS) return;
+
     const linkId = 'turbnb-widget-css';
     if (!document.getElementById(linkId)) {
       const link = document.createElement('link');
@@ -89,17 +105,12 @@ export default function WeddingsClientPage() {
             companyId: 2,
             productId: 3, // Same as private charter
             channelId: 11,
-            customProperties: {
-              "displayBillingTerm": true, 
-              "showQuantity": false, 
-              "titleVariant": "Modern",
-              "bookNow": "NU INFORMATIE AANVRAGEN",
-              "confirmReservationAndPay": "BEVESTIG AANBETALING VAN ",
-              "selectTimeLabel": "Voorkeurstijd",
-              "selectExperienceLabel": "Bruiloftscharter",
-              "addonsLabel": "Optionele upgrades",
-              "depositObservation": "Controleer het aantal gasten voor je bruiloft. Na reservering ontvang je een voucher met locatie- en boekingsdetails."
-            }
+            customProperties: mergeTurboBookingCustomProperties({
+              displayBillingTerm: true,
+              showQuantity: false,
+              titleVariant: 'Modern',
+              ...weddingWidgetStrings,
+            }),
           });
           console.log('Wedding Widget Initialized');
         } catch (error) {
@@ -131,17 +142,12 @@ export default function WeddingsClientPage() {
                   companyId: 2,
                   productId: 3,
                   channelId: 11,
-                  customProperties: {
-                    "displayBillingTerm": true,
-                    "showQuantity": false,
-                    "titleVariant": "Modern",
-                    "bookNow": "NU RESERVEREN",
-                    "confirmReservationAndPay": "BEVESTIGEN & BETALEN",
-                    "selectTimeLabel": "Kies tijd",
-                    "selectExperienceLabel": "Bruiloftscharter",
-                    "addonsLabel": "Extra's bruiloft",
-                    "depositObservation": "Bevestiging van je bruiloftsboeking"
-                  }
+                  customProperties: mergeTurboBookingCustomProperties({
+                    displayBillingTerm: true,
+                    showQuantity: false,
+                    titleVariant: 'Modern',
+                    ...weddingWidgetStrings,
+                  }),
                 });
                 console.log('Wedding widget initialized on script load');
               } catch (error) {
@@ -647,17 +653,12 @@ export default function WeddingsClientPage() {
           isOpen={isBookingModalOpen}
           onClose={closeBookingModal}
           productId={3} // Same as private charter
-          customProperties={{
-            "displayBillingTerm": true,
-            "showQuantity": false,
-            "titleVariant": "Modern",
-            "bookNow": "NU RESERVEREN",
-            "confirmReservationAndPay": "BEVESTIGEN & BETALEN",
-            "selectTimeLabel": "Kies tijd",
-            "selectExperienceLabel": "Bruiloftscharter",
-            "addonsLabel": "Extra's bruiloft",
-            "depositObservation": "Bevestiging van je bruiloftsboeking"
-          }}
+          customProperties={mergeTurboBookingCustomProperties({
+            displayBillingTerm: true,
+            showQuantity: false,
+            titleVariant: 'Modern',
+            ...weddingWidgetStrings,
+          })}
         />
       )}
     </AnimatePresence>

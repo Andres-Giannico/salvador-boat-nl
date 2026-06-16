@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FiClock, FiUsers, FiMapPin, FiDollarSign, FiMusic, FiCompass, FiInfo, FiCamera, FiSun, FiAnchor } from 'react-icons/fi';
@@ -15,7 +14,6 @@ import TripHighlights from '@/components/trips/TripHighlights';
 import ReviewsSection from '@/components/trips/ReviewsSection';
 import FAQ from '@/components/trips/FAQ';
 import TurbnbWidget from '@/components/booking/TurbnbWidget';
-import { TURBNB_WIDGET_CSS } from '@/lib/turbnb-widget-assets';
 import { getSiteUrl } from '@/config/site';
 // Galería de imágenes para el viaje - Ampliada con fotos aéreas
 const images = [
@@ -97,53 +95,6 @@ interface DayTripClientPageProps {}
 
 export default function DayTripClientPage({}: DayTripClientPageProps) {
   const siteUrl = getSiteUrl();
-  
-  // Initialize the booking widget when the component mounts
-  useEffect(() => {
-    // Function to initialize the widget
-    const initializeWidget = () => {
-      if (typeof window !== 'undefined' && typeof window.TurboBooking !== 'undefined') {
-        const element = document.getElementById('turbnb-booking-3');
-        if (element) {
-          try {
-            // Type is now globally available
-            const turbo3 = new window.TurboBooking();
-            // Remove type assertion
-            turbo3.run(element, {
-              companyId: 2,
-              productId: 2,
-              billingTermIds: [20],
-              channelId: 11,
-              customProperties: {
-                displayBillingTerm: true,
-                showQuantity: true,
-                quantity: "Aantal gasten",
-                titleVariant: "Modern",
-                bookNow: "NU RESERVEREN ",
-                confirmReservationAndPay: "GA DOOR NAAR BETALING",
-                selectTimeLabel: "Tijdstip kiezen",
-                selectExperienceLabel: "Soort ervaring",
-                addonsLabel: "Extra's",
-                depositObservation: "Na je boeking ontvang je een bevestiging met alle details, inclusief ontmoetingspunt en tijd. Controleer telefoon en e-mail — we kunnen je moeten bereiken. Een aanbetaling van €20 per persoon bevestigt je reservering; het restbedrag betaal je contant aan boord op de dag van de tocht."
-              }
-            });
-          } catch (error) {
-            console.error("Error initializing booking widget:", error);
-          }
-        }
-      }
-    };
-
-    // Check if TurboBooking is already loaded
-    if (typeof window !== 'undefined' && typeof window.TurboBooking !== 'undefined') {
-      initializeWidget();
-    } else if (typeof window !== 'undefined') {
-      // If not loaded yet, set up event listener for when script loads
-      window.addEventListener('turbnbLoaded', initializeWidget);
-      // Cleanup
-      return () => window.removeEventListener('turbnbLoaded', initializeWidget);
-    }
-  }, []);
 
   return (
     <div className="bg-gray-50">
@@ -627,7 +578,6 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
           }),
         }}
       />
-      <link href={TURBNB_WIDGET_CSS} rel="stylesheet" />
     </div>
   );
-} 
+}
