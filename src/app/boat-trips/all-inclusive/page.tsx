@@ -196,8 +196,6 @@ export default function AllInclusiveBoatTripsPage() {
                   quantity: "Gasten",
                   titleVariant: "Modern",
                   bookNow: "NU RESERVEREN",
-                  confirmReservationAndPay: "BEVESTIGEN & BETALEN",
-                  selectTimeLabel: "Kies tijd",
                   selectExperienceLabel: "Soort ervaring",
                   addonsLabel: "Extra's",
                   childrenAge: "0 tot 5 jaar",

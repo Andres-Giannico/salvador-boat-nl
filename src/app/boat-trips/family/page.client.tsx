@@ -209,8 +209,6 @@ export default function FamilyBoatTripsClientPage() {
                 quantity: "Gasten",
                 titleVariant: "Modern",
                 bookNow: "GEZINSTOCHT BOEKEN",
-                confirmReservationAndPay: "BEVESTIGEN & BETALEN",
-                selectTimeLabel: "Kies tijd",
                 selectExperienceLabel: "Gezinservaring",
                 addonsLabel: "Extra's",
                 childrenAge: "6 tot 12 jaar",

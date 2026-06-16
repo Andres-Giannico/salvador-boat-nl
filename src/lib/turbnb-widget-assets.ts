@@ -6,9 +6,6 @@
  *
  * Fuente única del bundle: repo `salvador-boat` → desplegar .com para actualizar.
  *
- * Holandés: el widget 2.0 no tiene UI completa en nl → `locale: "en"` + textos NL
- * en customProperties (como en v1).
- *
  * Rollback: `USE_TURBNB_WIDGET_V2 = false` y despliega .nl
  */
 
@@ -25,27 +22,8 @@ const V1_BUNDLE = 'turbnb.booking.1.0.31.min';
 const v1Js = `${SALVADOR_WIDGET_CDN}/${V1_BUNDLE}.js`;
 const v1Css = `${SALVADOR_WIDGET_CDN}/${V1_BUNDLE}.css`;
 
-/** Widget 2.0 sin UI nl completa — base en inglés, textos vía customProperties */
-export const TURBNB_DEFAULT_LOCALE = 'en';
-
-export const TURBNB_NL_DEPOSIT_DEFAULT =
-  'Na je boeking ontvang je een bevestiging met ontmoetingspunt en tijd. Controleer of telefoon en e-mail kloppen. Aanbetaling €20 per persoon; het restant aan boord.';
-
-/** Textos holandeses por defecto para el widget (sin locale nl en v2) */
-export const TURBNB_NL_WIDGET_DEFAULTS = {
-  displayBillingTerm: true,
-  showQuantity: true,
-  quantity: 'Aantal gasten',
-  titleVariant: 'Modern',
-  bookNow: 'NU RESERVEREN',
-  confirmReservationAndPay: 'BEVESTIGEN & BETALEN',
-  selectTimeLabel: 'Kies tijd',
-  selectExperienceLabel: 'Soort ervaring',
-  addonsLabel: "Extra's",
-  childrenAge: '6 tot 12 jaar',
-  infantAge: '0 tot 5 jaar',
-  depositObservation: TURBNB_NL_DEPOSIT_DEFAULT,
-} as const;
+/** Idioma por defecto del widget en este sitio (holandés) */
+export const TURBNB_DEFAULT_LOCALE = 'nl';
 
 export const TURBNB_WIDGET_JS = USE_TURBNB_WIDGET_V2 ? TURBNB_WIDGET_V2_CDN_URL : v1Js;
 

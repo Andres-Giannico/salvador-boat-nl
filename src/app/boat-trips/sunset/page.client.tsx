@@ -345,8 +345,6 @@ export default function SunsetBoatTripsClientPage() {
                  "quantity": "Gasten",
                  "titleVariant": "Modern",
                  "bookNow": "ZONSONDERGANG BOEKEN",
-                 "confirmReservationAndPay": "BEVESTIGEN & BETALEN",
-                 "selectTimeLabel": "Kies tijd zonsondergang",
                  "selectExperienceLabel": "Zonsondergangervaring",
                  "addonsLabel": "Extra's",
                  "childrenAge": "6 tot 12 jaar",

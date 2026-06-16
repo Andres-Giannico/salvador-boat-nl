@@ -207,8 +207,6 @@ export default function GroupBoatTripsPage() {
                   quantity: "Gasten",
                   titleVariant: "Modern",
                   bookNow: "GROEPSTOCHT BOEKEN",
-                  confirmReservationAndPay: "BEVESTIGEN & BETALEN",
-                  selectTimeLabel: "Kies tijd",
                   selectExperienceLabel: "Groepservaring",
                   addonsLabel: "Extra's",
                   childrenAge: "6 tot 12 jaar",

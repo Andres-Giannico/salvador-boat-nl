@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 import Script from 'next/script';
 import {
   mergeTurboBookingCustomProperties,
-  TURBNB_NL_WIDGET_DEFAULTS,
   TURBNB_WIDGET_CSS,
   TURBNB_WIDGET_JS,
 } from '@/lib/turbnb-widget-assets';
@@ -22,8 +21,6 @@ interface TurbnbWidgetProps {
     quantity?: string;
     titleVariant?: string;
     bookNow?: string;
-    confirmReservationAndPay?: string;
-    selectTimeLabel?: string;
     selectExperienceLabel?: string;
     addonsLabel?: string;
     childrenAge?: string;
@@ -39,7 +36,17 @@ export default function TurbnbWidget({
   billingTermIds,
   channelId,
   className = '',
-  customProperties = { ...TURBNB_NL_WIDGET_DEFAULTS },
+  customProperties = {
+    displayBillingTerm: true,
+    showQuantity: true,
+    quantity: 'Aantal gasten',
+    titleVariant: 'Modern',
+    bookNow: 'NU RESERVEREN',
+    selectExperienceLabel: 'Soort ervaring',
+    addonsLabel: "Extra's",
+    depositObservation:
+      'Na je boeking ontvang je een bevestiging met ontmoetingspunt en tijd. Controleer telefoon en e-mail. Aanbetaling €20 per persoon; het restant aan boord.',
+  },
 }: TurbnbWidgetProps) {
   useEffect(() => {
     const initializeWidget = () => {
@@ -56,7 +63,7 @@ export default function TurbnbWidget({
               customProperties: mergeTurboBookingCustomProperties(customProperties),
             });
           } catch (error) {
-            console.error("Error initializing booking widget:", error);
+            console.error('Error initializing booking widget:', error);
           }
         }
       }

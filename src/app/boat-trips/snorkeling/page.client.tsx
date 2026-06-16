@@ -180,8 +180,6 @@ export default function SnorkelingBoatTripsClientPage() {
                 quantity: "Gasten",
                 titleVariant: "Modern",
                 bookNow: "SNORKELTOCHT BOEKEN",
-                confirmReservationAndPay: "BEVESTIGEN & BETALEN",
-                selectTimeLabel: "Kies tijd",
                 selectExperienceLabel: "Snorkelervaring",
                 addonsLabel: "Extra's",
                 childrenAge: "6 tot 12 jaar",

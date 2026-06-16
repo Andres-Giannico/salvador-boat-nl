@@ -27,8 +27,6 @@ const weddingFeatures = [
 const weddingWidgetStrings = {
   bookNow: 'NU RESERVEREN',
   quantity: 'Deelnemers',
-  confirmReservationAndPay: 'BEVESTIGEN & BETALEN',
-  selectTimeLabel: 'Kies tijd',
   selectExperienceLabel: 'Bruiloftscharter',
   addonsLabel: "Extra's bruiloft",
   depositObservation: 'Bevestiging van je bruiloftsboeking',

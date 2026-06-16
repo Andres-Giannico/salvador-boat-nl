@@ -180,8 +180,6 @@ export default function SanAntonioBoatTripsClient() {
               quantity: "Gasten",
               titleVariant: "Modern",
               bookNow: "SAN ANTONIO BOEKEN",
-              confirmReservationAndPay: "BEVESTIGEN & BETALEN",
-              selectTimeLabel: "Kies tijd",
               selectExperienceLabel: "Ervaring San Antonio",
               addonsLabel: "Extra's",
               childrenAge: "6 tot 12 jaar",

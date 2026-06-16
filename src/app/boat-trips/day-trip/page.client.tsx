@@ -377,8 +377,6 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
                   quantity: "Gasten",
                   titleVariant: "Modern",
                   bookNow: "DAGTOCHT BOEKEN",
-                  confirmReservationAndPay: "BEVESTIGEN & BETALEN",
-                  selectTimeLabel: "Kies tijd",
                   selectExperienceLabel: "Dagervaring",
                   addonsLabel: "Extra's",
                   childrenAge: "6 tot 12 jaar",

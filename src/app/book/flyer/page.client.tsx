@@ -121,8 +121,6 @@ export default function BookTripsQrFlyerClient() {
                 quantity: 'Gasten',
                 titleVariant: 'Modern',
                 bookNow: 'NU RESERVEREN',
-                confirmReservationAndPay: 'BEVESTIGEN & BETALEN',
-                selectTimeLabel: 'Kies datum',
                 childrenAge: '6 tot 12 jaar',
                 infantAge: '0 tot 5 jaar',
                 depositObservation: DEPOSIT_NL,

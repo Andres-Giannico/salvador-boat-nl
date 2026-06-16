@@ -7,7 +7,6 @@ import Link from 'next/link';
 import { Dialog, DialogContent, DialogOverlay } from "@/components/ui/dialog";
 import {
   mergeTurboBookingCustomProperties,
-  TURBNB_NL_WIDGET_DEFAULTS,
   TURBNB_WIDGET_CSS,
   TURBNB_WIDGET_JS,
 } from '@/lib/turbnb-widget-assets';
@@ -29,11 +28,12 @@ const BookingModal: React.FC<BookingModalProps> = ({
   companyId = 2,
   channelId = 11,
   customProperties = {
-    ...TURBNB_NL_WIDGET_DEFAULTS,
+    displayBillingTerm: true,
     showQuantity: false,
+    titleVariant: 'Modern',
     bookNow: 'Boek nu',
-    confirmReservationAndPay: 'Bevestigen & betalen',
     selectExperienceLabel: 'Kies ervaring',
+    addonsLabel: "Extra's",
     depositObservation: 'Na boeking ontvang je instructies voor aanbetaling en betaling.\n\n\n',
   },
   widgetContainerId = `turbnb-booking-widget-container-${productId}`

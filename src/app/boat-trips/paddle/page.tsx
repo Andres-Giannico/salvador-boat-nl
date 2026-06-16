@@ -218,8 +218,6 @@ export default function PaddleBoatTripsPage() {
                   quantity: "Gasten",
                   titleVariant: "Modern",
                   bookNow: "SUP-TOCHT BOEKEN",
-                  confirmReservationAndPay: "BEVESTIGEN & BETALEN",
-                  selectTimeLabel: "Kies tijd",
                   selectExperienceLabel: "SUP-ervaring",
                   addonsLabel: "Extra's",
                   childrenAge: "6 tot 12 jaar",

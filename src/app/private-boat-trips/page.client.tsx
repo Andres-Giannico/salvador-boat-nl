@@ -155,8 +155,6 @@ const includedItems = [
 const charterWidgetStrings = {
   bookNow: 'PRIVÉCHARTER BOEKEN',
   quantity: 'Deelnemers',
-  confirmReservationAndPay: 'BEVESTIGEN & BETALEN',
-  selectTimeLabel: 'Kies tijd',
   selectExperienceLabel: 'Charteroptie',
   addonsLabel: 'Optionele upgrades (o.a. extra uren)',
   depositObservation:

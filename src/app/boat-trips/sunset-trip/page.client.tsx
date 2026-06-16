@@ -420,8 +420,6 @@ export default function SunsetTripClientPage({}: SunsetTripClientPageProps) {
                   showQuantity: true,
                   titleVariant: "Modern",
                   bookNow: "ZONSONDERGANG BOEKEN",
-                  confirmReservationAndPay: "BEVESTIGEN & BETALEN",
-                  selectTimeLabel: "Kies zonsondergangtijd",
                   selectExperienceLabel: "Zonsondergangervaring",
                   addonsLabel: "Extra's",
                   childrenAge: "6 tot 12 jaar",
