@@ -40,7 +40,7 @@ const influencerFeatures = [
   }
 ];
 
-// Features for Business Partners (Turbookings)
+// Features for Business Partners (Turvok)
 const businessFeatures = [
   {
     icon: <FiClock className="w-6 h-6 text-blue-500" />,
@@ -229,7 +229,7 @@ export default function PartnersClientPage() {
                <FiBriefcase className="inline mr-2 mb-1"/> Voor bedrijven: versterk je aanbod
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Partner via Turbookings en bied Salvador Ibiza direct aan je klanten aan (hotels, conciërges, agentschappen, websites).
+              Partner via Turvok en bied Salvador Ibiza direct aan je klanten aan (hotels, conciërges, agentschappen, websites).
             </p>
           </motion.div>
           
@@ -260,7 +260,7 @@ export default function PartnersClientPage() {
               viewport={{ once: true }}
               className="space-y-6"
             >
-              <h3 className="text-2xl font-bold text-gray-800">De Turbookings-widget</h3>
+              <h3 className="text-2xl font-bold text-gray-800">De Turvok-widget</h3>
               <p className="text-gray-600">
                 Integreer ons reserveringssysteem direct op je website:
               </p>
@@ -280,7 +280,7 @@ export default function PartnersClientPage() {
               <div className="bg-gradient-to-r from-blue-200 to-purple-200 rounded-2xl p-1 shadow-lg">
                 <Image
                   src="/images/optimized/turbobookings-salvador-ibiza.webp"
-                  alt="Turbookings-widget integratie Salvador Ibiza"
+                  alt="Turvok-widget integratie Salvador Ibiza"
                   width={600}
                   height={400}
                   className="rounded-xl shadow-2xl"
@@ -328,7 +328,7 @@ export default function PartnersClientPage() {
             transition={{ delay: 0.2 }}
           >
             <a 
-              href="https://wa.me/34871181393?text=Hoi!%20Ik%20wil%20meer%20weten%20over%20het%20Turbookings%20bedrijfspartnerprogramma."
+              href="https://wa.me/34871181393?text=Hoi!%20Ik%20wil%20meer%20weten%20over%20het%20Turvok%20bedrijfspartnerprogramma."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block px-10 py-5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-bold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-xl hover:shadow-2xl text-xl transform hover:scale-105"

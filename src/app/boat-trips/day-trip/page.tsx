@@ -1,61 +1,7 @@
 import DayTripClientPage from './page.client';
 import Script from 'next/script';
-import { absoluteUrl, publicAssetUrl } from '@/config/site';
 import { pageMetadata } from '@/lib/page-meta';
-// Remove imports related to review fetching
-// import { GoogleReview } from '@/services/googlePlaces';
-// import { getReviews } from '@/services/getReviews'; // Assuming a function like this existed
-
-const dayTripJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "All-inclusive dagtrip Ibiza — Salvador Ibiza",
-  "description": "All-inclusive dagboottocht van 3 uur met kapitein, catering, drankjes, paddleboards en snorkel.",
-  "image": [
-    publicAssetUrl("/images/optimized/salvador-ibiza-cala-comte-guests-paddleboarding.webp")
-  ],
-  "brand": {
-    "@type": "Organization",
-    "name": "Salvador Ibiza"
-  },
-  "offers": {
-    "@type": "Offer",
-    "url": absoluteUrl("/boat-trips/day-trip"),
-    "priceCurrency": "EUR",
-    "price": "80.00",
-    "itemCondition": "https://schema.org/NewCondition",
-    "availability": "https://schema.org/InStock",
-    "validFrom": "2025-06-25"
-  },
-  "review": {
-    "@type": "Review",
-    "reviewRating": {
-      "@type": "Rating",
-      "ratingValue": "4.9",
-      "bestRating": "5"
-    },
-    "author": {
-      "@type": "Person",
-      "name": "Verified Customer"
-    }
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "1198"
-  }
-};
-
-// Remove data fetching logic
-// async function getData() {
-//   try {
-//     const reviewsData = await getReviews(); // Or fetch('/api/reviews')
-//     return { initialReviews: reviewsData.reviews || [], error: null };
-//   } catch (error) {
-//     console.error("Error fetching reviews for Day Trip build:", error);
-//     return { initialReviews: [], error: "Failed to load reviews data." };
-//   }
-// }
+import { buildProductSchema } from '@/lib/product-schema';
 
 export const metadata = pageMetadata({
   title: 'All-inclusive dagtrip Ibiza | Salvador',
@@ -66,8 +12,16 @@ export const metadata = pageMetadata({
   ogImage: '/images/optimized/salvador-ibiza-cala-comte-guests-paddleboarding.webp',
 });
 
-export default function DayTripPage() {
-  // const { initialReviews, error } = await getData(); // Remove data fetching call
+export default async function DayTripPage() {
+  const dayTripJsonLd = await buildProductSchema({
+    name: "All-inclusive dagboottocht Ibiza — Salvador Ibiza",
+    description:
+      "All-inclusive dagboottocht van 3 uur met kapitein, catering, drankjes, paddleboards en snorkelen.",
+    path: "/boat-trips/day-trip",
+    price: "80.00",
+    image: "/images/optimized/salvador-ibiza-cala-comte-guests-paddleboarding.webp",
+    includeRating: true,
+  });
 
   return (
     <>
@@ -76,7 +30,7 @@ export default function DayTripPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(dayTripJsonLd) }}
       />
-      <DayTripClientPage /* initialReviews={initialReviews} error={error} */ />
+      <DayTripClientPage />
     </>
   );
-} 
+}

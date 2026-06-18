@@ -1,47 +1,7 @@
 import SunsetTripClientPage from './page.client';
 import Script from 'next/script';
-import { absoluteUrl, publicAssetUrl } from '@/config/site';
 import { pageMetadata } from '@/lib/page-meta';
-
-const sunsetTripJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Zonsondergang boottrip Ibiza — Salvador Ibiza",
-  "description": "All-inclusive zonsondergang-trip van 3 uur met kapitein, catering, drankjes, paddleboards en snorkelen.",
-  "image": [
-    publicAssetUrl("/images/boat/sunset.png")
-  ],
-  "brand": {
-    "@type": "Organization",
-    "name": "Salvador Ibiza"
-  },
-  "offers": {
-    "@type": "Offer",
-    "url": absoluteUrl("/boat-trips/sunset-trip"),
-    "priceCurrency": "EUR",
-    "price": "80.00",
-    "itemCondition": "https://schema.org/NewCondition",
-    "availability": "https://schema.org/InStock",
-    "validFrom": "2025-06-25"
-  },
-  "review": {
-    "@type": "Review",
-    "reviewRating": {
-      "@type": "Rating",
-      "ratingValue": "4.9",
-      "bestRating": "5"
-    },
-    "author": {
-      "@type": "Person",
-      "name": "Verified Customer"
-    }
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "1198"
-  }
-};
+import { buildProductSchema } from '@/lib/product-schema';
 
 export const metadata = pageMetadata({
   title: 'Zonsondergang boottrip (all-inclusive) | Salvador',
@@ -52,15 +12,25 @@ export const metadata = pageMetadata({
   ogImage: '/images/optimized/sunset-sailing-cruise-ibiza.webp',
 });
 
-export default function SunsetTripPage() {
+export default async function SunsetTripPage() {
+  const sunsetTripJsonLd = await buildProductSchema({
+    name: "Zonsondergang boottrip Ibiza — Salvador Ibiza",
+    description:
+      "All-inclusive zonsondergang-trip van 3 uur met kapitein, catering, drankjes, paddleboards en snorkelen.",
+    path: "/boat-trips/sunset-trip",
+    price: "80.00",
+    image: "/images/boat/sunset.png",
+    includeRating: true,
+  });
+
   return (
     <>
-       <Script
+      <Script
         id="sunset-trip-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(sunsetTripJsonLd) }}
       />
       <SunsetTripClientPage />
     </>
-  )
-} 
+  );
+}

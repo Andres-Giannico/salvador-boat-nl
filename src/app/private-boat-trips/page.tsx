@@ -1,8 +1,8 @@
 import Script from 'next/script';
 import PrivateBoatTripsClientPage from './page.client';
 import { FiUsers, FiGift, FiStar, FiCamera, FiCalendar, FiHelpCircle, FiBriefcase } from 'react-icons/fi';
-import { absoluteUrl, publicAssetUrl } from '@/config/site';
 import { pageMetadata } from '@/lib/page-meta';
+import { buildProductSchema } from '@/lib/product-schema';
 
 export const metadata = pageMetadata({
   title: 'Privé boottochten Ibiza — exclusief met Salvador',
@@ -15,48 +15,14 @@ export const metadata = pageMetadata({
   ogImageAlt: 'Luchtdrone-opname van boot Salvador Ibiza tijdens privétrip in Cala Comte.',
 });
 
-// --- Data Definitions (to be passed to client) --- 
-
-// JSON-LD structured data for private boat trips
-const privateBoatTripsJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Privé boottochten Ibiza bij Salvador",
-  "description": "Exclusieve privé trips op Ibiza tot 35 gasten. Inclusief kapitein, open bar, hapjes en watersport.",
-  "image": publicAssetUrl("/images/optimized/salvador-ibiza-cala-comte-wide-aerial-view.webp"),
-  "brand": {
-    "@type": "Brand",
-    "name": "Salvador Ibiza"
-  },
-  "offers": {
-    "@type": "Offer",
-    "url": absoluteUrl("/private-boat-trips"),
-    "priceCurrency": "EUR",
-    "price": "1350",
-    "priceSpecification": {
-      "@type": "PriceSpecification",
-      "price": "1350",
-      "priceCurrency": "EUR",
-      "valueAddedTaxIncluded": "false"
-    },
-    "availability": "https://schema.org/InStock"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5",
-    "reviewCount": "278"
-  }
-};
-
-// Helper to get icon name as string
-const getIconName = (icon: any): string => {
+const getIconName = (icon: typeof FiUsers): string => {
   if (icon === FiUsers) return 'FiUsers';
   if (icon === FiGift) return 'FiGift';
   if (icon === FiStar) return 'FiStar';
   if (icon === FiCamera) return 'FiCamera';
   if (icon === FiCalendar) return 'FiCalendar';
   if (icon === FiBriefcase) return 'FiBriefcase';
-  return 'FiHelpCircle'; // Default icon name
+  return 'FiHelpCircle';
 };
 
 const perfectForItems = [
@@ -65,25 +31,33 @@ const perfectForItems = [
   { icon: getIconName(FiStar), title: "Speciale gelegenheden", description: "Huwelijksaanzoek, unieke events.", color: "text-yellow-500" },
   { icon: getIconName(FiCamera), title: "Fotoshoots", description: "Garantie op spectaculair decor.", color: "text-purple-500" },
   { icon: getIconName(FiCalendar), title: "Pre-/post-bruiloft", description: "Ontspan voor of na de grote dag.", color: "text-orange-500", href: "/weddings" },
-  { 
-    icon: getIconName(FiBriefcase), 
-    title: "Zakelijke events", 
-    description: "Teambuilding, klantenentertainment.", 
-    color: "text-teal-500", 
-    href: "/corporate-events" 
+  {
+    icon: getIconName(FiBriefcase),
+    title: "Zakelijke events",
+    description: "Teambuilding, klantenentertainment.",
+    color: "text-teal-500",
+    href: "/corporate-events"
   },
 ];
 
-// --- Server Component --- 
-export default function PrivateBoatTripsPage() {
+export default async function PrivateBoatTripsPage() {
+  const productSchema = await buildProductSchema({
+    name: "Privé boottochten Ibiza bij Salvador",
+    description:
+      "Exclusieve privé trips op Ibiza tot 35 gasten. Inclusief kapitein, open bar, hapjes en watersport.",
+    path: "/private-boat-trips",
+    price: "1350",
+    image: "/images/optimized/salvador-ibiza-cala-comte-wide-aerial-view.webp",
+  });
+
   return (
     <>
       <Script
         id="private-boat-trips-schema"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(privateBoatTripsJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
       />
       <PrivateBoatTripsClientPage perfectFor={perfectForItems} />
     </>
   );
-} 
+}

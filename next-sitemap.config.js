@@ -33,10 +33,42 @@ function absoluteForPath(base, pathname) {
   return `${base}${p}`;
 }
 
+const LEGAL_PATHS = new Set([
+  '/privacy-policy',
+  '/terms-of-service',
+  '/terms',
+  '/cookie-policy',
+  '/legal-notice',
+]);
+
+const PRIMARY_PRODUCT_PATHS = new Set([
+  '/boat-trips/day-trip',
+  '/boat-trips/sunset-trip',
+  '/private-boat-trips',
+]);
+
+function sitemapMetaForPath(path) {
+  const rel = !path || path === '' ? '/' : path.startsWith('/') ? path : `/${path}`;
+
+  if (rel === '/') {
+    return { priority: 1.0, changefreq: 'weekly' };
+  }
+  if (PRIMARY_PRODUCT_PATHS.has(rel)) {
+    return { priority: 0.9, changefreq: 'weekly' };
+  }
+  if (LEGAL_PATHS.has(rel)) {
+    return { priority: 0.3, changefreq: 'yearly' };
+  }
+  if (rel === '/blog' || rel.startsWith('/blog/')) {
+    return { priority: 0.6, changefreq: 'monthly' };
+  }
+  return { priority: 0.8, changefreq: 'weekly' };
+}
+
 module.exports = {
   siteUrl,
-  generateRobotsTxt: true,
-  /** QR / flyer: noindex */
+  generateRobotsTxt: false,
+  /** QR / flyer: noindex — no deben aparecer en sitemap */
   exclude: ['/book/trips', '/book/flyer'],
   robotsTxtOptions: {
     additionalSitemaps: [
@@ -53,10 +85,12 @@ module.exports = {
     const es = absoluteForPath(spanishSiteUrl, rel);
     const fr = absoluteForPath(frenchSiteUrl, rel);
     const xDefault = absoluteForPath(xDefaultBase, rel);
+    const { priority, changefreq } = sitemapMetaForPath(rel);
+
     return {
-      loc: path,
-      changefreq: config.changefreq,
-      priority: config.priority,
+      loc: nl,
+      changefreq,
+      priority,
       lastmod: config.autoLastmod ? new Date().toISOString() : undefined,
       alternateRefs: [
         { href: nl, hreflang: 'nl', hrefIsAbsolute: true },

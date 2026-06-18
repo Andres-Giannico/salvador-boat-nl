@@ -60,7 +60,7 @@ export default function HiddenCovesPage() {
             </p>
             <div className="text-center">
               <Link
-                href="/boat-trips/day"
+                href="/boat-trips/day-trip"
                 className="inline-block bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-400 hover:to-blue-500 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition duration-300"
               >
                 Ontdek verborgen cala's

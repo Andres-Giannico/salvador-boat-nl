@@ -70,7 +70,7 @@ export default function SunsetSailingPage() {
             </p>
             <div className="text-center">
               <Link
-                href="/boat-trips/sunset"
+                href="/boat-trips/sunset-trip"
                 className="inline-block bg-gradient-to-r from-orange-500 to-pink-600 hover:from-orange-400 hover:to-pink-500 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition duration-300"
               >
                 Boek je zonsondergangtocht

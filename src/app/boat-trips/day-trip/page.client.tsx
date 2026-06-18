@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { FiClock, FiUsers, FiMapPin, FiDollarSign, FiMusic, FiCompass, FiInfo, FiCamera, FiSun, FiAnchor } from 'react-icons/fi';
 import { GiWaterSplash, GiPartyPopper } from 'react-icons/gi';
 import { motion } from 'framer-motion';
-import Script from 'next/script';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 // Importamos nuestros componentes reutilizables
@@ -14,7 +13,6 @@ import TripHighlights from '@/components/trips/TripHighlights';
 import ReviewsSection from '@/components/trips/ReviewsSection';
 import FAQ from '@/components/trips/FAQ';
 import TurbnbWidget from '@/components/booking/TurbnbWidget';
-import { getSiteUrl } from '@/config/site';
 // Galería de imágenes para el viaje - Ampliada con fotos aéreas
 const images = [
   { src: "/images/boat/chicaspasandolomuybien.webp", alt: "Vrienden lachen op het dek van de Salvador Ibiza" },
@@ -94,8 +92,6 @@ const tripFAQs = [
 interface DayTripClientPageProps {}
 
 export default function DayTripClientPage({}: DayTripClientPageProps) {
-  const siteUrl = getSiteUrl();
-
   return (
     <div className="bg-gray-50">
       {/* Breadcrumbs */}
@@ -150,7 +146,7 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
               whileTap={{ scale: 0.95 }}
               className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition duration-300"
             >
-              Boek je tocht
+              Bekijk live beschikbaarheid
             </motion.span>
           </Link>
         </motion.div>
@@ -526,56 +522,6 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
           </motion.div>
         </div>
       </section>
-
-      {/* JSON-LD Schema */}
-      <Script
-        id="day-trip-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'Product',
-            name: 'Gemengde dagtocht — Salvador Ibiza',
-            description:
-              'Authentieke Mediterrane dagboottocht op een traditionele Balearen-houten boot. Paddleboarden, kajakken, snorkelen en zwemmen; Spaanse tapas, vers fruit en onbeperkte drankjes; ligbedden, schaduw en premium geluid.',
-            brand: { '@type': 'Brand', name: 'Salvador Ibiza Boottochten' },
-            offers: {
-              '@type': 'Offer',
-              price: '80',
-              priceCurrency: 'EUR',
-              availability: 'https://schema.org/InStock',
-              validFrom: '2026-05-01T00:00:00+02:00',
-              validThrough: '2026-10-31T23:59:59+02:00',
-              seller: { '@type': 'Organization', name: 'Salvador Ibiza Boottochten' },
-            },
-            aggregateRating: {
-              '@type': 'AggregateRating',
-              ratingValue: '4.5',
-              reviewCount: '120',
-            },
-            review: {
-              '@type': 'Review',
-              reviewRating: { '@type': 'Rating', ratingValue: '4.5' },
-              author: { '@type': 'Person', name: 'TripAdvisor' },
-              reviewBody:
-                'Fantastische dagtocht — vriendelijke kapitein, comfortabele boot en een fijne all-inclusive bar.',
-            },
-            category: 'Boottocht',
-            audience: 'Alle leeftijden',
-            keywords:
-              'boottocht, ibiza, dagtocht, familie, paddleboard, kajak, snorkelen',
-            inLanguage: 'nl-NL',
-            url: `${siteUrl}/boat-trips/day-trip`,
-            image: `${siteUrl}/images/optimized/salvador-ibiza-cala-comte-guests-paddleboarding.webp`,
-            mainEntityOfPage: {
-              '@type': 'WebPage',
-              '@id': `${siteUrl}/boat-trips/day-trip`,
-            },
-            datePublished: '2023-05-01T00:00:00+02:00',
-            dateModified: '2026-05-07T10:00:00+02:00',
-          }),
-        }}
-      />
     </div>
   );
 }

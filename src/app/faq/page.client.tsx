@@ -288,7 +288,7 @@ export default function FAQClientPage() {
               <p className="text-gray-600 mb-6">
                 Snelle antwoorden — volledige gidsen op onze{' '}
                 <Link href="/boat-trips/family" className="text-green-600 hover:underline">gezins</Link>,{' '}
-                <Link href="/boat-trips/sunset" className="text-orange-600 hover:underline">zonsondergang</Link> en{' '}
+                <Link href="/boat-trips/sunset-trip" className="text-orange-600 hover:underline">zonsondergang</Link> en{' '}
                 <Link href="/boat-trips/snorkeling" className="text-cyan-600 hover:underline">snorkel</Link> pagina&apos;s.
               </p>
               <FAQ items={topicGuideFaqs} title="" />

@@ -1,4 +1,9 @@
 import { businessContact, getSiteUrl, publicAssetUrl } from "@/config/site";
+import {
+  getGoogleAggregateRating,
+  toSchemaAggregateRating,
+  type AggregateRatingData,
+} from "@/lib/google-aggregate-rating";
 
 const WEEKDAYS = [
   "Monday",
@@ -21,7 +26,16 @@ function postalAddress(address: typeof businessContact.registeredAddress) {
   };
 }
 
-export function buildLocalBusinessSchema(siteBase: string = getSiteUrl()) {
+function resolveAggregateRating(rating: AggregateRatingData) {
+  return toSchemaAggregateRating(rating);
+}
+
+export async function buildLocalBusinessSchema(
+  siteBase: string = getSiteUrl(),
+  rating?: AggregateRatingData
+) {
+  const resolved = rating ?? (await getGoogleAggregateRating());
+
   return {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "TourOperator"],
@@ -57,13 +71,7 @@ export function buildLocalBusinessSchema(siteBase: string = getSiteUrl()) {
         closes: businessContact.openingHours.closes,
       },
     ],
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: businessContact.aggregateRating.ratingValue,
-      reviewCount: businessContact.aggregateRating.reviewCount,
-      bestRating: businessContact.aggregateRating.bestRating,
-      worstRating: businessContact.aggregateRating.worstRating,
-    },
+    aggregateRating: resolveAggregateRating(resolved),
     priceRange: businessContact.priceRange,
     currenciesAccepted: "EUR",
     paymentAccepted: businessContact.paymentAccepted,
@@ -137,7 +145,12 @@ export function buildLocalBusinessSchema(siteBase: string = getSiteUrl()) {
   };
 }
 
-export function buildTouristAttractionSchema(siteBase: string = getSiteUrl()) {
+export async function buildTouristAttractionSchema(
+  siteBase: string = getSiteUrl(),
+  rating?: AggregateRatingData
+) {
+  const resolved = rating ?? (await getGoogleAggregateRating());
+
   return {
     "@context": "https://schema.org",
     "@type": "TouristAttraction",
@@ -155,13 +168,7 @@ export function buildTouristAttractionSchema(siteBase: string = getSiteUrl()) {
       latitude: businessContact.geo.latitude,
       longitude: businessContact.geo.longitude,
     },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: businessContact.aggregateRating.ratingValue,
-      reviewCount: businessContact.aggregateRating.reviewCount,
-      bestRating: businessContact.aggregateRating.bestRating,
-      worstRating: businessContact.aggregateRating.worstRating,
-    },
+    aggregateRating: resolveAggregateRating(resolved),
     provider: {
       "@id": `${siteBase}/#organization`,
     },
@@ -174,14 +181,6 @@ export function buildWebsiteSchema(siteBase: string = getSiteUrl()) {
     "@type": "WebSite",
     name: businessContact.name,
     url: siteBase,
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: `${siteBase}/search?q={search_term_string}`,
-      },
-      "query-input": "required name=search_term_string",
-    },
   };
 }
 

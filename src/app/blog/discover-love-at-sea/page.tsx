@@ -145,7 +145,7 @@ export default function DiscoverLoveAtSeaPage() {
                 Privé charter
               </Link>
               <Link
-                href="/boat-trips/sunset"
+                href="/boat-trips/sunset-trip"
                 className="inline-block bg-white border-2 border-orange-500 text-orange-600 hover:bg-orange-50 font-bold py-3 px-8 rounded-lg transition duration-300"
               >
                 Zonsondergangtocht

@@ -133,11 +133,18 @@ export const businessContact = {
     postalCode: "07820",
     addressCountry: "ES",
   } satisfies PostalAddress,
-  geo: { latitude: "38.9804", longitude: "1.3026" },
-  openingHours: { opens: "09:00", closes: "21:00" },
+  geo: {
+    latitude: "38.9804",
+    longitude: "1.3026",
+  },
+  openingHours: {
+    opens: "09:00",
+    closes: "21:00",
+  },
+  /** Fallback estático; en runtime se refresca vía Places API (getGoogleAggregateRating). */
   aggregateRating: {
     ratingValue: "4.9",
-    reviewCount: "278",
+    reviewCount: "1604",
     bestRating: "5",
     worstRating: "1",
   },

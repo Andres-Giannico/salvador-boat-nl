@@ -2,53 +2,31 @@ import Image from 'next/image';
 import Link from 'next/link';
 import TurbnbWidget from '@/components/booking/TurbnbWidget';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
-import { absoluteUrl, publicAssetUrl } from '@/config/site';
 import { pageMetadata } from '@/lib/page-meta';
+import { buildProductSchema } from '@/lib/product-schema';
 
 export const metadata = pageMetadata({
   title: 'SUP & paddle boottochten Ibiza (3 uur)',
-  description: 'Paddleboarden op Ibiza: 15 premium SUP-boards inbegrepen, verborgen cala’s en helder water.',
+  description: "Paddleboarden op Ibiza: 15 premium SUP-boards inbegrepen, verborgen cala's en helder water.",
   path: '/boat-trips/paddle',
   keywords: 'paddleboard Ibiza, SUP boottocht Ibiza, stand up paddle Ibiza',
   ogTitle: 'SUP boottochten Ibiza',
-  ogDescription: '15 paddleboards, ontdek cala’s en snorkelplekken.',
+  ogDescription: "15 paddleboards, ontdek cala's en snorkelplekken.",
   ogImage: '/images/boat/chicasentablasup.png',
   ogImageAlt: 'Paddleboarden tijdens boottrip Ibiza',
 });
 
-// JSON-LD structured data for paddle boarding boat trips
-const paddleBoatTripsJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "SUP-boottochten Ibiza met Salvador",
-  "description": "SUP-boottochten op Ibiza met 15 premium paddleboards inbegrepen. Verken verborgen cala's en helder water.",
-  "image": publicAssetUrl("/images/boat/chicasentablasup.png"),
-  "brand": {
-    "@type": "Brand",
-    "name": "Salvador Ibiza"
-  },
-  "offers": {
-    "@type": "Offer",
-    "url": absoluteUrl("/boat-trips/paddle"),
-    "priceCurrency": "EUR",
-    "price": "80",
-    "priceSpecification": {
-      "@type": "PriceSpecification",
-      "price": "80",
-      "priceCurrency": "EUR",
-      "valueAddedTaxIncluded": "true"
-    },
-    "availability": "https://schema.org/InStock"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5",
-    "reviewCount": "278"
-  },
-  "duration": "PT3H"
-};
+export default async function PaddleBoatTripsPage() {
+  const paddleBoatTripsJsonLd = await buildProductSchema({
+    name: "SUP-boottochten Ibiza met Salvador",
+    description:
+      "SUP-boottochten op Ibiza met 15 premium paddleboards inbegrepen. Verken verborgen cala's en helder water.",
+    path: "/boat-trips/paddle",
+    price: "80",
+    image: "/images/boat/chicasentablasup.png",
+    duration: "PT3H",
+  });
 
-export default function PaddleBoatTripsPage() {
   return (
     <>
       <script
@@ -252,4 +230,4 @@ export default function PaddleBoatTripsPage() {
       </div>
     </>
   );
-} 
+}

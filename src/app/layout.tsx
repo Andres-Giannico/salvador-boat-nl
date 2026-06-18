@@ -16,7 +16,6 @@ import {
   buildWebsiteSchema,
 } from "@/lib/business-schema";
 
-// Configuración de fuentes
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
@@ -29,12 +28,6 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
   weight: ["400", "500", "600", "700", "800"],
 });
-
-const siteBase = getSiteUrl();
-const localBusinessSchema = buildLocalBusinessSchema(siteBase);
-const touristAttractionSchema = buildTouristAttractionSchema(siteBase);
-const websiteSchema = buildWebsiteSchema(siteBase);
-const organizationSchema = buildOrganizationSchema(siteBase);
 
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
@@ -78,17 +71,20 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const gaMeasurementId = 'G-SP4LMTQT3E';
+  const siteBase = getSiteUrl();
+  const localBusinessSchema = await buildLocalBusinessSchema(siteBase);
+  const touristAttractionSchema = await buildTouristAttractionSchema(siteBase);
+  const websiteSchema = buildWebsiteSchema(siteBase);
+  const organizationSchema = buildOrganizationSchema(siteBase);
 
   return (
     <html lang="nl" className={`${inter.variable} ${montserrat.variable}`}>
       <head>
-        {/* LocalBusiness + TourOperator Schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
@@ -98,7 +94,6 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(touristAttractionSchema) }}
         />
         
-        {/* Google Tag Manager */}
         <Script
           id="google-tag-manager-head"
           strategy="afterInteractive"
@@ -112,7 +107,6 @@ export default function RootLayout({
             `,
           }}
         />
-        {/* Fin Google Tag Manager */}
 
         <Script
           id="google-analytics-consent"
@@ -122,7 +116,6 @@ export default function RootLayout({
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               
-              // Establecer consentimiento predeterminado ANTES de cualquier otra cosa
               gtag('consent', 'default', {
                 'analytics_storage': 'denied',
                 'ad_storage': 'denied',
@@ -131,17 +124,12 @@ export default function RootLayout({
                 'wait_for_update': 500
               });
               
-              // Cargar GTM ya gestiona la carga de gtag.js, así que solo definimos lo necesario.
-              // La configuración de GA ('config') se debe hacer desde GTM.
               gtag('js', new Date());
-              gtag('config', '${gaMeasurementId}', {
-                page_path: window.location.pathname,
-              });
             `,
           }}
         />
         
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/images/favicon.ico" sizes="any" />
         <Script
           id="website-schema"
@@ -159,10 +147,8 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.className} bg-white text-gray-800`}>
-        {/* Google Tag Manager (noscript) */}
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MZR67SFF"
         height="0" width="0" style={{display:'none',visibility:'hidden'}}></iframe></noscript>
-        {/* Fin Google Tag Manager (noscript) */}
         <div id="top" className="flex flex-col min-h-screen">
           <Navbar />
           <Toaster position="top-center" richColors />

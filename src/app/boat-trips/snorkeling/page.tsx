@@ -1,7 +1,7 @@
-import { absoluteUrl, publicAssetUrl } from "@/config/site";
 import { pageMetadata } from "@/lib/page-meta";
 import { buildFaqPageSchema } from "@/lib/faq-schema";
 import { snorkelingBoatTripFaqs } from "@/lib/topic-faqs";
+import { buildProductSchema } from "@/lib/product-schema";
 import SnorkelingBoatTripsClientPage from "./page.client";
 
 export const metadata = pageMetadata({
@@ -18,46 +18,24 @@ export const metadata = pageMetadata({
   ogImageAlt: "Stel snorkelt in kristalhelder water tijdens boottocht Ibiza",
 });
 
-const snorkelingBoatTripsJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  name: "Snorkelboottochten Ibiza — Salvador",
-  description:
-    "Ontdek Ibiza's onderwaterwereld met professionele snorkeluitrusting en begeleiding. Geschikt voor alle niveaus in kristalhelder mediterrane water.",
-  image: publicAssetUrl("/images/boat/parejasnorkeling.webp"),
-  brand: {
-    "@type": "Brand",
-    name: "Salvador Ibiza",
-  },
-  offers: {
-    "@type": "Offer",
-    url: absoluteUrl("/boat-trips/snorkeling"),
-    priceCurrency: "EUR",
-    price: "80",
-    priceSpecification: {
-      "@type": "PriceSpecification",
-      price: "80",
-      priceCurrency: "EUR",
-      valueAddedTaxIncluded: "true",
-    },
-    availability: "https://schema.org/InStock",
-  },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "5",
-    reviewCount: "278",
-  },
-  duration: "PT3H",
-};
-
 const faqSchema = buildFaqPageSchema(snorkelingBoatTripFaqs);
 
-export default function SnorkelingBoatTripsPage() {
+export default async function SnorkelingBoatTripsPage() {
+  const productSchema = await buildProductSchema({
+    name: "Snorkelboottochten Ibiza — Salvador",
+    description:
+      "Ontdek Ibiza's onderwaterwereld met professionele snorkeluitrusting en begeleiding. Geschikt voor alle niveaus in kristalhelder mediterrane water.",
+    path: "/boat-trips/snorkeling",
+    price: "80",
+    image: "/images/boat/parejasnorkeling.webp",
+    duration: "PT3H",
+  });
+
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(snorkelingBoatTripsJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
       />
       <script
         type="application/ld+json"

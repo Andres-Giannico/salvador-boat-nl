@@ -2,53 +2,31 @@ import Image from 'next/image';
 import Link from 'next/link';
 import TurbnbWidget from '@/components/booking/TurbnbWidget';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
-import { absoluteUrl, publicAssetUrl } from '@/config/site';
 import { pageMetadata } from '@/lib/page-meta';
+import { buildProductSchema } from '@/lib/product-schema';
 
 export const metadata = pageMetadata({
-  title: 'Groepsboottochten Ibiza (3 uur)',
-  description: 'Boottochten voor grote groepen: vrienden, feesten en zakelijke uitjes. Maatwerk en scherpe tarieven.',
+  title: 'Groepsboottochten Ibiza (3 uur) | Vrienden & feesten',
+  description: 'Ideale groepsboottochten op Ibiza voor vrienden, verjaardagen, vrijgezellenfeesten en reüniés. Tot 35 gasten, all-inclusive drankjes, tapas en watersport vanuit San Antonio.',
   path: '/boat-trips/groups',
-  keywords: 'groep boot Ibiza, grote groep boot, zakelijk varen Ibiza, bootfeest Ibiza',
-  ogTitle: 'Groepsboottochten Ibiza',
-  ogDescription: 'Ideaal voor groepen en events op Ibiza.',
+  keywords: 'groep boot Ibiza, vrienden boottocht Ibiza, verjaardag bootfeest Ibiza, vrijgezellenfeest boot Ibiza, grote groep boottocht Ibiza',
+  ogTitle: 'Groepsboottochten Ibiza | Vrienden & feesten',
+  ogDescription: 'Boek een groepsboottocht op Ibiza voor vrienden en feesten. All-inclusive 3 uur cruises met drankjes, tapas en watersport voor tot 35 gasten.',
   ogImage: '/images/boat/chicasmuyfelices.webp',
   ogImageAlt: 'Vrolijke groep op boot Ibiza',
 });
 
-// JSON-LD structured data for group boat trips
-const groupBoatTripsJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Groepsboottochten Ibiza met Salvador",
-  "description": "Boottochten voor grote groepen op Ibiza. Speciale tarieven en maatwerk voor vrienden, feesten en zakelijke events.",
-  "image": publicAssetUrl("/images/boat/chicasmuyfelices.webp"),
-  "brand": {
-    "@type": "Brand",
-    "name": "Salvador Ibiza"
-  },
-  "offers": {
-    "@type": "Offer",
-    "url": absoluteUrl("/boat-trips/groups"),
-    "priceCurrency": "EUR",
-    "price": "80",
-    "priceSpecification": {
-      "@type": "PriceSpecification",
-      "price": "80",
-      "priceCurrency": "EUR",
-      "valueAddedTaxIncluded": "true"
-    },
-    "availability": "https://schema.org/InStock"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5",
-    "reviewCount": "278"
-  },
-  "duration": "PT3H"
-};
+export default async function GroupBoatTripsPage() {
+  const groupBoatTripsJsonLd = await buildProductSchema({
+    name: "Groepsboottochten Ibiza met Salvador",
+    description:
+      "Ideale boottochten voor vrienden en feesten op Ibiza. Speciale tarieven en all-inclusive ervaringen voor verjaardagen, vrijgezellenfeesten en groepsreüniés.",
+    path: "/boat-trips/groups",
+    price: "80",
+    image: "/images/boat/chicasmuyfelices.webp",
+    duration: "PT3H",
+  });
 
-export default function GroupBoatTripsPage() {
   return (
     <>
       <script
@@ -57,7 +35,6 @@ export default function GroupBoatTripsPage() {
       />
       <div className="min-h-screen bg-gradient-to-b from-purple-50 to-white py-16">
         <div className="container mx-auto px-4">
-          {/* Breadcrumbs */}
           <div className="bg-white border-b border-gray-200 -mx-4 px-4 py-4 mb-8">
             <Breadcrumbs />
           </div>
@@ -68,12 +45,12 @@ export default function GroupBoatTripsPage() {
             </h1>
             
             <p className="text-xl text-gray-600 text-center mb-12 leading-relaxed">
-              Ideale <strong>groepsboottochten op Ibiza</strong> voor vrienden, feesten en zakelijke uitjes. 
-              Onvergetelijke momenten samen op zee.
+              Ideale <strong>groepsboottochten op Ibiza</strong> voor vrienden, verjaardagen, vrijgezellenfeesten en reüniés.
+              Creëer onvergetelijke herinneringen samen op de Middellandse Zee.
             </p>
 
             <div className="bg-white rounded-2xl shadow-lg p-8 mb-12">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">Voor elke groepsgelegenheid</h2>
+              <h2 className="text-2xl font-bold text-gray-800 mb-6">Perfect voor vrienden & feesten</h2>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 <div className="flex items-start space-x-4">
@@ -98,11 +75,11 @@ export default function GroupBoatTripsPage() {
 
                 <div className="flex items-start space-x-4">
                   <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <span className="text-purple-600 font-bold">🏢</span>
+                    <span className="text-purple-600 font-bold">🥂</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Zakelijke events</h3>
-                    <p className="text-gray-600">Teambuilding, bedrijfsuitjes en zakelijke ontspanning in een unieke setting.</p>
+                    <h3 className="font-semibold text-gray-800 mb-2">Vrienden & reüniés</h3>
+                    <p className="text-gray-600">Ideaal voor vakantiegroepen, reüniés en vrienden die samen een dag op zee willen beleven.</p>
                   </div>
                 </div>
 
@@ -145,7 +122,7 @@ export default function GroupBoatTripsPage() {
                     </li>
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
-                      <strong>Zakelijke teambuilding</strong>
+                      <strong>Groepsvakanties</strong>
                     </li>
                   </ul>
                   <ul className="space-y-2 text-gray-700">
@@ -155,22 +132,21 @@ export default function GroupBoatTripsPage() {
                     </li>
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
-                      <strong>Groepsvakanties</strong>
-                    </li>
-                    <li className="flex items-center">
-                      <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
                       <strong>Studentenuitstappen</strong>
                     </li>
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
-                      <strong>Teamfeesten</strong>
+                      <strong>Sportteamfeesten</strong>
+                    </li>
+                    <li className="flex items-center">
+                      <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
+                      <strong>Hen- & vrijgezellenfeesten</strong>
                     </li>
                   </ul>
                 </div>
               </div>
             </div>
 
-            {/* Image Gallery */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
               <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden">
                 <Image
@@ -190,7 +166,6 @@ export default function GroupBoatTripsPage() {
               </div>
             </div>
 
-            {/* Booking Widget */}
             <div className="bg-white rounded-2xl shadow-lg p-8 mb-12" id="booking-widget">
               <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
                 Boek je groepsavontuur
@@ -216,16 +191,22 @@ export default function GroupBoatTripsPage() {
               />
             </div>
 
-            {/* Additional Options */}
             <div className="text-center">
               <h3 className="text-2xl font-bold text-gray-800 mb-4">Meer groepsopties</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <Link 
                   href="/private-boat-trips"
                   className="block bg-purple-600 text-white p-6 rounded-lg hover:bg-purple-700 transition-colors"
                 >
                   <h4 className="text-xl font-bold mb-2">Privégroepscharter</h4>
                   <p>Exclusief de boot voor jouw groep met route op maat</p>
+                </Link>
+                <Link 
+                  href="/corporate-events"
+                  className="block bg-teal-600 text-white p-6 rounded-lg hover:bg-teal-700 transition-colors"
+                >
+                  <h4 className="text-xl font-bold mb-2">Zakelijke events</h4>
+                  <p>Teambuilding en zakelijke entertainment op zee</p>
                 </Link>
                 <Link 
                   href="/boat-trips"
@@ -241,4 +222,4 @@ export default function GroupBoatTripsPage() {
       </div>
     </>
   );
-} 
+}

@@ -10,6 +10,7 @@ import TestimonialSlider from "@/components/trips/TestimonialSlider";
 import { familyBoatTripComparison } from "@/lib/boat-trip-comparison";
 import { familyBoatTripFaqs } from "@/lib/topic-faqs";
 import { familyReviews } from "@/lib/topic-reviews";
+import { businessContact } from "@/config/site";
 
 const familyFaqItems = familyBoatTripFaqs.map((faq) => ({
   question: faq.question,
@@ -68,7 +69,7 @@ export default function FamilyBoatTripsClientPage() {
               <p>
                 In tegenstelling tot partyboten draaien we geen nightclubmuziek af en beperken we kinderen niet. Onze
                 professionele bemanning verwelkomt dagelijks gezinnen en kiest de rustigste cala's om te zwemmen op basis
-                van de omstandigheden. Met een score van 4,9/5 uit 278+ reviews vertrouwen gezinnen uit heel Europa op
+                van de omstandigheden. Met een score van {businessContact.aggregateRating.ratingValue}/5 uit {businessContact.aggregateRating.reviewCount}+ Google-reviews vertrouwen gezinnen uit heel Europa op
                 Salvador Ibiza.
               </p>
             </div>

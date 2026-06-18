@@ -8,7 +8,7 @@ const activities = [
   {
     title: 'Zonsondergangtrip',
     description: 'De mooiste zonsondergangen van Ibiza vanaf zee',
-    href: '/boat-trips/sunset',
+    href: '/boat-trips/sunset-trip',
     icon: Sunset,
     color: 'from-orange-500 to-pink-500'
   },
@@ -43,14 +43,14 @@ const activities = [
   {
     title: 'All-inclusive',
     description: 'Alles inbegrepen, zorgeloos genieten',
-    href: '/boat-trips/all-inclusive',
+    href: '/boat-trips/day-trip',
     icon: Star,
     color: 'from-yellow-500 to-orange-500'
   },
   {
     title: 'Dagtrip',
     description: 'Ontdek de beste plekken op zee',
-    href: '/boat-trips/day',
+    href: '/boat-trips/day-trip',
     icon: Sun,
     color: 'from-amber-500 to-yellow-500'
   },

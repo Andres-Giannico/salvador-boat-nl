@@ -305,7 +305,7 @@ export default function BoatTripsClientPage() {
             <Link href="/boat-trips/family" className="p-4 rounded-xl bg-green-50 border border-green-100 hover:bg-green-100 transition-colors">
               <span className="font-semibold text-green-800">Gezinstochten →</span>
             </Link>
-            <Link href="/boat-trips/sunset" className="p-4 rounded-xl bg-orange-50 border border-orange-100 hover:bg-orange-100 transition-colors">
+            <Link href="/boat-trips/sunset-trip" className="p-4 rounded-xl bg-orange-50 border border-orange-100 hover:bg-orange-100 transition-colors">
               <span className="font-semibold text-orange-800">Zonsondergang →</span>
             </Link>
             <Link href="/boat-trips/snorkeling" className="p-4 rounded-xl bg-cyan-50 border border-cyan-100 hover:bg-cyan-100 transition-colors">
@@ -399,7 +399,7 @@ export default function BoatTripsClientPage() {
               transition={{ duration: 0.6, delay: 0.1 }}
             >
               <Link
-                href="/boat-trips/sunset"
+                href="/boat-trips/sunset-trip"
                 className="block bg-gradient-to-br from-orange-500 to-pink-600 text-white p-6 rounded-xl hover:shadow-xl transition-all duration-300 transform hover:scale-105"
               >
                 <div className="flex items-center mb-4">
@@ -437,7 +437,7 @@ export default function BoatTripsClientPage() {
               transition={{ duration: 0.6, delay: 0.3 }}
             >
               <Link
-                href="/boat-trips/day"
+                href="/boat-trips/day-trip"
                 className="block bg-gradient-to-br from-green-500 to-teal-600 text-white p-6 rounded-xl hover:shadow-xl transition-all duration-300 transform hover:scale-105"
               >
                 <div className="flex items-center mb-4">
@@ -475,7 +475,7 @@ export default function BoatTripsClientPage() {
               transition={{ duration: 0.6, delay: 0.5 }}
             >
               <Link
-                href="/boat-trips/all-inclusive"
+                href="/boat-trips/day-trip"
                 className="block bg-gradient-to-br from-yellow-500 to-orange-600 text-white p-6 rounded-xl hover:shadow-xl transition-all duration-300 transform hover:scale-105"
               >
                 <div className="flex items-center mb-4">

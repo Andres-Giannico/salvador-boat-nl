@@ -1,6 +1,6 @@
 import SanAntonioBoatTripsClientPage from './page.client';
-import { absoluteUrl, publicAssetUrl } from '@/config/site';
 import { pageMetadata } from '@/lib/page-meta';
+import { buildProductSchema } from '@/lib/product-schema';
 
 export const metadata = pageMetadata({
   title: 'Boottochten San Antonio Ibiza',
@@ -13,56 +13,24 @@ export const metadata = pageMetadata({
   ogImageAlt: 'Boot Salvador vertrekkend in San Antonio',
 });
 
-// JSON-LD structured data for San Antonio boat trips
-const sanAntonioBoatTripsJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Boottochten vanuit San Antonio — Salvador",
-  "description": "Premium boat trips departing from San Antonio Ibiza. Explore the west coast with our day and sunset cruises including drinks, tapas, and water sports.",
-  "image": publicAssetUrl("/images/barcodesdedron.jpg"),
-  "brand": {
-    "@type": "Brand",
-    "name": "Salvador Ibiza"
-  },
-  "offers": {
-    "@type": "Offer",
-    "url": absoluteUrl("/boat-trips/san-antonio"),
-    "priceCurrency": "EUR",
-    "price": "80",
-    "priceSpecification": {
-      "@type": "PriceSpecification",
-      "price": "80",
-      "priceCurrency": "EUR",
-      "valueAddedTaxIncluded": "true"
-    },
-    "availability": "https://schema.org/InStock"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5",
-    "reviewCount": "278"
-  },
-  "duration": "PT3H",
-  "location": {
-    "@type": "Place",
-    "name": "San Antonio Bay, Ibiza",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "San Antonio",
-      "addressRegion": "Ibiza",
-      "addressCountry": "Spain"
-    }
-  }
-};
+export default async function SanAntonioBoatTripsPage() {
+  const productSchema = await buildProductSchema({
+    name: "Boottochten vanuit San Antonio — Salvador",
+    description:
+      "Premium boottochten vanuit San Antonio Ibiza. Verken de westkust met onze dag- en zonsondergangcruises inclusief drankjes, tapas en watersport.",
+    path: "/boat-trips/san-antonio",
+    price: "80",
+    image: "/images/barcodesdedron.jpg",
+    duration: "PT3H",
+  });
 
-export default function SanAntonioBoatTripsPage() {
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(sanAntonioBoatTripsJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
       />
       <SanAntonioBoatTripsClientPage />
     </>
   );
-} 
+}
