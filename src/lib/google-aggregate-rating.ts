@@ -58,7 +58,7 @@ async function fetchGoogleAggregateRating(): Promise<AggregateRatingData> {
 export const getGoogleAggregateRating = unstable_cache(
   fetchGoogleAggregateRating,
   ["google-aggregate-rating", PLACE_ID],
-  { revalidate: 3600, tags: ["google-rating"] }
+  { revalidate: 86_400, tags: ["google-rating"] } // 24h — reviews change slowly
 );
 
 export function toSchemaAggregateRating(rating: AggregateRatingData) {

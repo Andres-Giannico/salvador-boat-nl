@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { Client, Language } from "@googlemaps/google-maps-services-js";
 import { getGoogleAggregateRating } from "@/lib/google-aggregate-rating";
 
-export const revalidate = 3600;
+export const revalidate = 86_400; // 24h
 
 export async function GET() {
   const apiKey = process.env.GOOGLE_MAPS_API_KEY;
