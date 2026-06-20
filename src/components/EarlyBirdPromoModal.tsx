@@ -10,8 +10,18 @@ const COOKIE_CONSENT_KEY = 'cookie_consent_status';
 
 /**
  * ---------------------------------------------------------------------------
+ * Champion 10 CHAMPION10 (€10 p.p.) — WK-promo 15 dagen
+ * Heeft prioriteit boven alle andere acties zolang deze loopt.
+ * ---------------------------------------------------------------------------
+ */
+const CHAMPION10: { start: Date; end: Date } = {
+  start: new Date(2026, 5, 20, 0, 0, 0, 0),
+  end: new Date(2026, 6, 4, 23, 59, 59, 999),
+};
+
+/**
+ * ---------------------------------------------------------------------------
  * Early Bird 5 (€5) — boekingen tussen deze datums (lokale tijd)
- * Na het Super Promo-blok wordt Early Bird getoond zolang deze nog geldig is.
  * ---------------------------------------------------------------------------
  */
 const EARLYBIRD: { start: Date; end: Date } = {
@@ -22,7 +32,6 @@ const EARLYBIRD: { start: Date; end: Date } = {
 /**
  * ---------------------------------------------------------------------------
  * Super-actie SUPERPROMO (€10 p.p.) — 7-daagse juni-flash
- * Heeft prioriteit boven Early Bird binnen deze periode.
  * ---------------------------------------------------------------------------
  */
 const SUPER_PROMO: { start: Date; end: Date } = {
@@ -31,7 +40,7 @@ const SUPER_PROMO: { start: Date; end: Date } = {
 };
 
 type ActivePromo = {
-  kind: 'super' | 'earlybird';
+  kind: 'champion' | 'super' | 'earlybird';
   code: string;
   eur: number;
   labelShort: string;
@@ -45,7 +54,24 @@ function inRange(now: Date, start: Date, end: Date): boolean {
   return now >= start && now <= end;
 }
 
+function isFlashPromo(kind: ActivePromo['kind']): boolean {
+  return kind === 'champion' || kind === 'super';
+}
+
 function getActivePromo(now: Date): ActivePromo | null {
+  if (inRange(now, CHAMPION10.start, CHAMPION10.end)) {
+    return {
+      kind: 'champion',
+      code: 'CHAMPION10',
+      eur: 10,
+      labelShort: 'Champion 10',
+      headline: 'WK-special — €10 korting per gast',
+      primaryCtaLabel: 'Pak €10 korting — boek nu',
+      kicker: 'Champion 10 · 15 dagen · Webboekingen',
+      validityText:
+        'Geldig voor online boekingen van 20 jun – 4 jul 2026 (23:59, jouw lokale tijd). €10 korting per gast met CHAMPION10 op Salvador Boat Mix (dagtocht of zonsondergang). Deze WK-aanbieding eindigt op 4 juli.',
+    };
+  }
   if (inRange(now, SUPER_PROMO.start, SUPER_PROMO.end)) {
     return {
       kind: 'super',
@@ -76,11 +102,18 @@ function getActivePromo(now: Date): ActivePromo | null {
 }
 
 function storageKeyFor(promo: ActivePromo['kind']): string {
+  if (promo === 'champion') return 'salvador_champion10_2026_worldcup_dismissed';
   if (promo === 'super') return 'salvador_superpromo_2026_june_7day_dismissed';
   return 'salvador_earlybird5_promo_dismissed_2026';
 }
 
 const PROMO_HERO: Record<ActivePromo['kind'], { src: string; alt: string; className: string; overlay: string }> = {
+  champion: {
+    src: '/images/optimized/champion10-salvador-ibiza-world-cup-promo.webp',
+    alt: 'Salvador Ibiza — WK-special: €10 korting per persoon bij boeken op de web, code CHAMPION10, tot 4 juli',
+    className: 'object-cover object-center',
+    overlay: '',
+  },
   super: {
     src: '/images/optimized/superpromo-salvador-ibiza-flash-deal.webp',
     alt: 'Salvador Ibiza — 7-daagse flash: €10 korting per persoon bij boeken op de web, code SUPERPROMO, tot 17 juni',
@@ -176,7 +209,7 @@ export default function EarlyBirdPromoModal() {
         >
           <div
             className={
-              promo.kind === 'super'
+              isFlashPromo(promo.kind)
                 ? 'relative h-48 w-full shrink-0 sm:h-52'
                 : 'relative h-44 w-full shrink-0 sm:h-48'
             }
@@ -189,9 +222,11 @@ export default function EarlyBirdPromoModal() {
               sizes="(max-width: 28rem) 100vw, 28rem"
               priority
             />
-            <div
-              className={`absolute inset-0 bg-gradient-to-t ${PROMO_HERO[promo.kind].overlay}`}
-            />
+            {PROMO_HERO[promo.kind].overlay ? (
+              <div
+                className={`absolute inset-0 bg-gradient-to-t ${PROMO_HERO[promo.kind].overlay}`}
+              />
+            ) : null}
             {promo.kind === 'super' ? (
               <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent px-3 pb-3 pt-10 sm:px-4 sm:pb-3.5">
                 <div className="flex flex-wrap items-center justify-center gap-2">
@@ -229,7 +264,17 @@ export default function EarlyBirdPromoModal() {
               {promo.headline}
             </h2>
             <p id="earlybird-promo-desc" className="mt-3 text-sm leading-relaxed text-gray-600">
-              {promo.kind === 'super' ? (
+              {promo.kind === 'champion' ? (
+                <>
+                  <strong className="text-gray-800">WK-special:</strong>{' '}
+                  <strong className="text-[#1a7f37]">€10 korting per persoon</strong> op{' '}
+                  <strong>Salvador Boat Mix</strong> (dagtocht of zonsondergang) wanneer je je{' '}
+                  <strong>boeking via onze website</strong> voltooit. Voer{' '}
+                  <strong className="font-mono text-gray-800">CHAMPION10</strong> bij het afrekenen in —
+                  deze <strong className="text-gray-800">15-daagse aanbieding</strong> eindigt op{' '}
+                  <strong className="text-gray-800">4 juli</strong>.
+                </>
+              ) : promo.kind === 'super' ? (
                 <>
                   <strong className="text-gray-800">Super-actie:</strong>{' '}
                   <strong className="text-[#1a7f37]">€10 korting per persoon</strong> op{' '}
@@ -251,7 +296,7 @@ export default function EarlyBirdPromoModal() {
 
             <div
               className={
-                promo.kind === 'super'
+                isFlashPromo(promo.kind)
                   ? 'mt-4 rounded-xl border-2 border-emerald-500/80 bg-gradient-to-br from-emerald-50/90 to-[#f6fff8] p-3.5 shadow-sm ring-1 ring-emerald-500/10'
                   : 'mt-4 rounded-xl border-2 border-[#28a745] bg-[#f6fff8] p-3'
               }
@@ -276,7 +321,7 @@ export default function EarlyBirdPromoModal() {
               </div>
               <p className="mt-2 text-xs text-[#1a7f37]">
                 ✓ €{promo.eur} korting per gast · Salvador Boat Mix (dag of zonsondergang) ·{' '}
-                {promo.kind === 'super'
+                {isFlashPromo(promo.kind)
                   ? 'toegepast bij afrekenen op de web'
                   : 'invoeren bij het boeken'}
               </p>
