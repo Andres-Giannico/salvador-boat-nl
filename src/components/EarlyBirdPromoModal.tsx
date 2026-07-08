@@ -1,147 +1,35 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { toast } from 'sonner';
-import { X, Copy, Check, Timer } from 'lucide-react';
+import { X, Copy, Check, Timer, Sun } from 'lucide-react';
+import {
+  getActivePromo,
+  getPromoHeroAlt,
+  isFlashPromo,
+  PROMO_HERO,
+  storageKeyFor,
+  type ActivePromo,
+} from '@/lib/active-promo';
+import { getPromoUi } from '@/lib/promo-i18n';
+import { PromoModalDescription } from '@/components/promo/PromoModalDescription';
+import { pushPromoDataLayer } from '@/lib/promo-analytics';
+import { getClientSiteLocale, siteLocaleLang } from '@/lib/site-locale';
 
 const COOKIE_CONSENT_KEY = 'cookie_consent_status';
 
-/**
- * ---------------------------------------------------------------------------
- * Champion 10 CHAMPION10 (€10 p.p.) — WK-promo 15 dagen
- * Heeft prioriteit boven alle andere acties zolang deze loopt.
- * ---------------------------------------------------------------------------
- */
-const CHAMPION10: { start: Date; end: Date } = {
-  start: new Date(2026, 5, 20, 0, 0, 0, 0),
-  end: new Date(2026, 6, 4, 23, 59, 59, 999),
-};
-
-/**
- * ---------------------------------------------------------------------------
- * Early Bird 5 (€5) — boekingen tussen deze datums (lokale tijd)
- * ---------------------------------------------------------------------------
- */
-const EARLYBIRD: { start: Date; end: Date } = {
-  start: new Date(2026, 3, 10, 0, 0, 0, 0),
-  end: new Date(2026, 5, 20, 23, 59, 59, 999),
-};
-
-/**
- * ---------------------------------------------------------------------------
- * Super-actie SUPERPROMO (€10 p.p.) — 7-daagse juni-flash
- * ---------------------------------------------------------------------------
- */
-const SUPER_PROMO: { start: Date; end: Date } = {
-  start: new Date(2026, 5, 11, 0, 0, 0, 0),
-  end: new Date(2026, 5, 17, 23, 59, 59, 999),
-};
-
-type ActivePromo = {
-  kind: 'champion' | 'super' | 'earlybird';
-  code: string;
-  eur: number;
-  labelShort: string;
-  headline: string;
-  primaryCtaLabel: string;
-  validityText: string;
-  kicker: string;
-};
-
-function inRange(now: Date, start: Date, end: Date): boolean {
-  return now >= start && now <= end;
-}
-
-function isFlashPromo(kind: ActivePromo['kind']): boolean {
-  return kind === 'champion' || kind === 'super';
-}
-
-function getActivePromo(now: Date): ActivePromo | null {
-  if (inRange(now, CHAMPION10.start, CHAMPION10.end)) {
-    return {
-      kind: 'champion',
-      code: 'CHAMPION10',
-      eur: 10,
-      labelShort: 'Champion 10',
-      headline: 'WK-special — €10 korting per gast',
-      primaryCtaLabel: 'Pak €10 korting — boek nu',
-      kicker: 'Champion 10 · 15 dagen · Webboekingen',
-      validityText:
-        'Geldig voor online boekingen van 20 jun – 4 jul 2026 (23:59, jouw lokale tijd). €10 korting per gast met CHAMPION10 op Salvador Boat Mix (dagtocht of zonsondergang). Deze WK-aanbieding eindigt op 4 juli.',
-    };
-  }
-  if (inRange(now, SUPER_PROMO.start, SUPER_PROMO.end)) {
-    return {
-      kind: 'super',
-      code: 'SUPERPROMO',
-      eur: 10,
-      labelShort: 'Super-actie',
-      headline: '7-daagse flash — €10 korting per gast',
-      primaryCtaLabel: 'Pak €10 korting — boek nu',
-      kicker: 'Slechts 7 dagen · Webboekingen · tot 17 jun',
-      validityText:
-        'Alleen voor online boekingen van 11–17 jun 2026 (23:59, jouw lokale tijd). €10 korting per gast met SUPERPROMO op Salvador Boat Mix (dagtocht of zonsondergang). Deze 7-daagse webaanbieding eindigt 17 juni — mis hem niet.',
-    };
-  }
-  if (inRange(now, EARLYBIRD.start, EARLYBIRD.end)) {
-    return {
-      kind: 'earlybird',
-      code: 'EARLYBIRD5',
-      eur: 5,
-      labelShort: 'Early Bird 5',
-      headline: 'Bedankt — je hoort erbij',
-      primaryCtaLabel: 'Boek nu',
-      kicker: 'Exclusief · Vroege boeker (Early Bird)',
-      validityText:
-        'Geldig voor boekingen van 10 apr – 20 jun 2026. Daarna eindigt deze actie.',
-    };
-  }
-  return null;
-}
-
-function storageKeyFor(promo: ActivePromo['kind']): string {
-  if (promo === 'champion') return 'salvador_champion10_2026_worldcup_dismissed';
-  if (promo === 'super') return 'salvador_superpromo_2026_june_7day_dismissed';
-  return 'salvador_earlybird5_promo_dismissed_2026';
-}
-
-const PROMO_HERO: Record<ActivePromo['kind'], { src: string; alt: string; className: string; overlay: string }> = {
-  champion: {
-    src: '/images/optimized/champion10-salvador-ibiza-world-cup-promo.webp',
-    alt: 'Salvador Ibiza — WK-special: €10 korting per persoon bij boeken op de web, code CHAMPION10, tot 4 juli',
-    className: 'object-cover object-center',
-    overlay: '',
-  },
-  super: {
-    src: '/images/optimized/superpromo-salvador-ibiza-flash-deal.webp',
-    alt: 'Salvador Ibiza — 7-daagse flash: €10 korting per persoon bij boeken op de web, code SUPERPROMO, tot 17 juni',
-    className: 'object-cover object-center',
-    overlay: 'from-black/35 to-transparent',
-  },
-  earlybird: {
-    src: '/images/optimized/salvador-ibiza-boat-aerial-view.webp',
-    alt: 'Salvador Ibiza — luchtfoto boven turquoise water',
-    className: 'object-cover object-center',
-    overlay: 'from-black/50 to-transparent',
-  },
-};
-
-function pushDataLayer(event: string, payload?: Record<string, unknown>) {
-  if (typeof window === 'undefined') return;
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({ event, ...payload });
-}
-
 export default function EarlyBirdPromoModal() {
+  const locale = useMemo(() => getClientSiteLocale(), []);
+  const ui = useMemo(() => getPromoUi(locale), [locale]);
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const [promo, setPromo] = useState<ActivePromo | null>(null);
 
   useEffect(() => {
     const now = new Date();
-    const p = getActivePromo(now);
+    const p = getActivePromo(now, locale);
     if (!p) return;
 
     try {
@@ -156,11 +44,11 @@ export default function EarlyBirdPromoModal() {
 
     const timer = window.setTimeout(() => {
       setOpen(true);
-      pushDataLayer('salvador_promo_shown', { promo_type: p.kind, promo_code: p.code });
+      pushPromoDataLayer('salvador_promo_shown', { promo_type: p.kind, promo_code: p.code });
     }, delayMs);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [locale]);
 
   const dismiss = useCallback(() => {
     if (promo) {
@@ -171,7 +59,7 @@ export default function EarlyBirdPromoModal() {
       }
     }
     setOpen(false);
-    pushDataLayer('salvador_promo_dismissed', { promo_type: promo?.kind });
+    pushPromoDataLayer('salvador_promo_dismissed', { promo_type: promo?.kind });
   }, [promo]);
 
   const copyCode = useCallback(async () => {
@@ -179,15 +67,20 @@ export default function EarlyBirdPromoModal() {
     try {
       await navigator.clipboard.writeText(promo.code);
       setCopied(true);
-      toast.success('Code gekopieerd — plak hem bij het afrekenen.');
-      pushDataLayer('salvador_promo_code_copied', { promo_type: promo.kind, promo_code: promo.code });
+      toast.success(ui.copySuccessModal);
+      pushPromoDataLayer('salvador_promo_code_copied', {
+        promo_type: promo.kind,
+        promo_code: promo.code,
+      });
       window.setTimeout(() => setCopied(false), 2000);
     } catch {
-      toast.error('Kopiëren mislukt. Typ de code handmatig in.');
+      toast.error(ui.copyError);
     }
-  }, [promo]);
+  }, [promo, ui]);
 
   if (!open || !promo) return null;
+
+  const heroAlt = getPromoHeroAlt(promo.kind, locale);
 
   return (
     <>
@@ -200,7 +93,7 @@ export default function EarlyBirdPromoModal() {
         role="presentation"
       >
         <div
-          lang="nl"
+          lang={siteLocaleLang(locale)}
           className="pointer-events-auto w-full max-w-[min(100%,28rem)] max-h-[min(90vh,640px)] overflow-y-auto rounded-2xl border border-gray-200 bg-white shadow-2xl animate-in zoom-in-95 fade-in duration-200"
           role="dialog"
           aria-modal="true"
@@ -216,7 +109,7 @@ export default function EarlyBirdPromoModal() {
           >
             <Image
               src={PROMO_HERO[promo.kind].src}
-              alt={PROMO_HERO[promo.kind].alt}
+              alt={heroAlt}
               fill
               className={PROMO_HERO[promo.kind].className}
               sizes="(max-width: 28rem) 100vw, 28rem"
@@ -232,13 +125,28 @@ export default function EarlyBirdPromoModal() {
                 <div className="flex flex-wrap items-center justify-center gap-2">
                   <span className="inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-gray-900 shadow-md ring-1 ring-black/5 sm:text-xs">
                     <Timer className="size-3.5 shrink-0 text-amber-600" aria-hidden />
-                    Slechts 7 dagen · tot 17 jun
+                    {ui.superBadgeDays}
                   </span>
                   <span className="rounded-full bg-emerald-600 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-white shadow-md sm:text-xs">
-                    €10 / gast
+                    {ui.perGuestBadge(promo.eur)}
                   </span>
                   <span className="rounded-full bg-amber-500/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-gray-950 shadow-md sm:text-xs">
-                    Beperkte tijd
+                    {ui.limitedTime}
+                  </span>
+                </div>
+              </div>
+            ) : promo.kind === 'summer' ? (
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent px-3 pb-3 pt-10 sm:px-4 sm:pb-3.5">
+                <div className="flex flex-wrap items-center justify-center gap-2">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-gray-900 shadow-md ring-1 ring-black/5 sm:text-xs">
+                    <Sun className="size-3.5 shrink-0 text-amber-500" aria-hidden />
+                    {ui.summerBadgeAllJuly}
+                  </span>
+                  <span className="rounded-full bg-emerald-600 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-white shadow-md sm:text-xs">
+                    {ui.perGuestBadge(promo.eur)}
+                  </span>
+                  <span className="rounded-full bg-orange-500/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-white shadow-md sm:text-xs">
+                    {ui.summerDeal}
                   </span>
                 </div>
               </div>
@@ -247,7 +155,7 @@ export default function EarlyBirdPromoModal() {
               type="button"
               onClick={dismiss}
               className="absolute right-3 top-3 rounded-full bg-white/90 p-2 text-gray-800 shadow-md transition hover:bg-white"
-              aria-label="Promotie sluiten"
+              aria-label={ui.closePromo}
             >
               <X className="size-5" />
             </button>
@@ -264,34 +172,7 @@ export default function EarlyBirdPromoModal() {
               {promo.headline}
             </h2>
             <p id="earlybird-promo-desc" className="mt-3 text-sm leading-relaxed text-gray-600">
-              {promo.kind === 'champion' ? (
-                <>
-                  <strong className="text-gray-800">WK-special:</strong>{' '}
-                  <strong className="text-[#1a7f37]">€10 korting per persoon</strong> op{' '}
-                  <strong>Salvador Boat Mix</strong> (dagtocht of zonsondergang) wanneer je je{' '}
-                  <strong>boeking via onze website</strong> voltooit. Voer{' '}
-                  <strong className="font-mono text-gray-800">CHAMPION10</strong> bij het afrekenen in —
-                  deze <strong className="text-gray-800">15-daagse aanbieding</strong> eindigt op{' '}
-                  <strong className="text-gray-800">4 juli</strong>.
-                </>
-              ) : promo.kind === 'super' ? (
-                <>
-                  <strong className="text-gray-800">Super-actie:</strong>{' '}
-                  <strong className="text-[#1a7f37]">€10 korting per persoon</strong> op{' '}
-                  <strong>Salvador Boat Mix</strong> (dagtocht of zonsondergang) wanneer je je{' '}
-                  <strong>boeking via onze website</strong> voltooit. Voer{' '}
-                  <strong className="font-mono text-gray-800">SUPERPROMO</strong> bij het afrekenen in —
-                  deze <strong className="text-gray-800">7-daagse flashdeal</strong> eindigt op{' '}
-                  <strong className="text-gray-800">17 juni</strong>, daarna is hij weg.
-                </>
-              ) : (
-                <>
-                  Pak de <strong className="text-gray-800">vroegeboekersdeal</strong> met code{' '}
-                  <strong className="font-mono text-gray-800">EARLYBIRD5</strong>:{' '}
-                  <strong className="text-[#1a7f37]">€5 korting per persoon</strong> op{' '}
-                  <strong>Salvador Boat Mix</strong> — dagtocht of zonsondergang. Vul bij het boeken je code in.
-                </>
-              )}
+              <PromoModalDescription kind={promo.kind} code={promo.code} />
             </p>
 
             <div
@@ -301,7 +182,7 @@ export default function EarlyBirdPromoModal() {
                   : 'mt-4 rounded-xl border-2 border-[#28a745] bg-[#f6fff8] p-3'
               }
             >
-              <p className="text-xs font-medium text-gray-600">Kortingscode</p>
+              <p className="text-xs font-medium text-gray-600">{ui.promoCode}</p>
               <div className="mt-1 flex flex-wrap items-center gap-2">
                 <span className="font-mono text-lg font-bold tracking-wide text-gray-900">
                   {promo.code}
@@ -311,19 +192,13 @@ export default function EarlyBirdPromoModal() {
                   onClick={copyCode}
                   className="inline-flex items-center gap-1.5 rounded-lg bg-blue-600 px-3 py-1.5 text-xs font-semibold text-white shadow-sm transition hover:bg-blue-700"
                 >
-                  {copied ? (
-                    <Check className="size-3.5" />
-                  ) : (
-                    <Copy className="size-3.5" />
-                  )}
-                  {copied ? 'Gekopieerd' : 'Kopiëren'}
+                  {copied ? <Check className="size-3.5" /> : <Copy className="size-3.5" />}
+                  {copied ? ui.copied : ui.copy}
                 </button>
               </div>
               <p className="mt-2 text-xs text-[#1a7f37]">
-                ✓ €{promo.eur} korting per gast · Salvador Boat Mix (dag of zonsondergang) ·{' '}
-                {isFlashPromo(promo.kind)
-                  ? 'toegepast bij afrekenen op de web'
-                  : 'invoeren bij het boeken'}
+                {ui.codeBoxHint(promo.eur)}{' '}
+                {isFlashPromo(promo.kind) ? ui.appliedAtCheckout : ui.enterWhenBook}
               </p>
             </div>
 
@@ -337,12 +212,12 @@ export default function EarlyBirdPromoModal() {
                 onClick={dismiss}
                 className="order-2 rounded-lg border border-gray-300 px-4 py-2.5 text-sm font-medium text-gray-700 transition hover:bg-gray-50 sm:order-1"
               >
-                Misschien later
+                {ui.maybeLater}
               </button>
               <Link
                 href="/boat-trips"
                 onClick={() => {
-                  pushDataLayer('salvador_promo_book_now_click', {
+                  pushPromoDataLayer('salvador_promo_book_now_click', {
                     promo_type: promo.kind,
                     promo_code: promo.code,
                   });
@@ -358,10 +233,4 @@ export default function EarlyBirdPromoModal() {
       </div>
     </>
   );
-}
-
-declare global {
-  interface Window {
-    dataLayer?: Record<string, unknown>[];
-  }
 }

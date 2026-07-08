@@ -1,12 +1,15 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Script from 'next/script';
 import {
   mergeTurboBookingCustomProperties,
   TURBNB_WIDGET_CSS,
   TURBNB_WIDGET_JS,
 } from '@/lib/turbnb-widget-assets';
+import { getActivePromo, promoAppliesToMixTrips, type ActivePromo } from '@/lib/active-promo';
+import PromoBookingBanner from '@/components/booking/PromoBookingBanner';
+import { getClientSiteLocale } from '@/lib/site-locale';
 
 interface TurbnbWidgetProps {
   id?: string;
@@ -48,6 +51,14 @@ export default function TurbnbWidget({
       'Na je boeking ontvang je een bevestiging met ontmoetingspunt en tijd. Controleer telefoon en e-mail. Aanbetaling €20 per persoon; het restant aan boord.',
   },
 }: TurbnbWidgetProps) {
+  const [activePromo, setActivePromo] = useState<ActivePromo | null>(null);
+
+  useEffect(() => {
+    setActivePromo(getActivePromo(new Date(), getClientSiteLocale()));
+  }, []);
+
+  const showPromoBanner = activePromo !== null && promoAppliesToMixTrips(productId);
+
   useEffect(() => {
     const initializeWidget = () => {
       if (typeof window !== 'undefined' && typeof window.TurboBooking !== 'undefined') {
@@ -80,6 +91,9 @@ export default function TurbnbWidget({
   return (
     <>
       <div className={`turbnb-widget-host w-full min-w-0 ${className}`}>
+        {showPromoBanner ? (
+          <PromoBookingBanner promo={activePromo} widgetId={id} />
+        ) : null}
         <div id={id} className="w-full min-w-0" />
       </div>
 
