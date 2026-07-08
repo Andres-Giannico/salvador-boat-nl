@@ -9,6 +9,8 @@ import { Toaster } from 'sonner';
 import CookieConsentBanner from "@/components/CookieConsentBanner";
 import EarlyBirdPromoModal from "@/components/EarlyBirdPromoModal";
 import { getSiteUrl, pageAlternates } from "@/config/site";
+import { getLayoutSeo, getOpenGraphLocales } from "@/lib/seo-i18n";
+import { getSiteLocale } from "@/lib/site-locale";
 import {
   buildLocalBusinessSchema,
   buildOrganizationSchema,
@@ -29,40 +31,42 @@ const montserrat = Montserrat({
   weight: ["400", "500", "600", "700", "800"],
 });
 
+const siteLocale = getSiteLocale();
+const layoutSeo = getLayoutSeo(siteLocale);
+const ogLocales = getOpenGraphLocales(siteLocale);
+
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
   alternates: pageAlternates('/'),
   title: {
-    default: "Salvador Ibiza - Boottochten & privé charter",
+    default: layoutSeo.title,
     template: "%s | Salvador Ibiza",
   },
-  description:
-    "De beste boottochten en privé-charters op Ibiza met Salvador. All-inclusive excursies, magische zonsondergangen en herinneringen voor het leven.",
-  keywords:
-    "Salvador Ibiza, boottochten Ibiza, privé charter, excursies Ibiza, sunset cruise, Es Vedrà, boot huren Ibiza",
+  description: layoutSeo.description,
+  keywords: layoutSeo.keywords,
   authors: [{ name: "Salvador Ibiza Team" }],
   creator: "Salvador Ibiza",
   openGraph: {
-    title: "Salvador Ibiza - Boottochten & privé charter",
-    description: "All-inclusive boottochten en privé-charters op Ibiza.",
+    title: layoutSeo.title,
+    description: layoutSeo.description,
     url: getSiteUrl(),
     siteName: "Salvador Ibiza",
-    locale: "nl_NL",
-    alternateLocale: ["en_US", "es_ES", "fr_FR"],
+    locale: ogLocales.locale,
+    alternateLocale: ogLocales.alternateLocale,
     type: 'website',
     images: [
       {
         url: '/images/optimized/salvador-ibiza-boat-drone-view.webp',
         width: 1200,
         height: 630,
-        alt: 'Boot Salvador Ibiza',
+        alt: 'Salvador Ibiza Boat',
       }
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Salvador Ibiza - Boottochten & privé charter',
-    description: 'All-inclusive boottochten en privé-charters op Ibiza.',
+    title: layoutSeo.title,
+    description: layoutSeo.description,
     images: ['/images/optimized/salvador-ibiza-boat-drone-view.webp'],
   },
   robots: {
@@ -83,7 +87,7 @@ export default async function RootLayout({
   const organizationSchema = buildOrganizationSchema(siteBase);
 
   return (
-    <html lang="nl" className={`${inter.variable} ${montserrat.variable}`}>
+    <html lang={siteLocale} className={`${inter.variable} ${montserrat.variable}`}>
       <head>
         <script
           type="application/ld+json"
@@ -149,7 +153,7 @@ export default async function RootLayout({
       <body className={`${inter.className} bg-white text-gray-800`}>
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MZR67SFF"
         height="0" width="0" style={{display:'none',visibility:'hidden'}}></iframe></noscript>
-        <div id="top" className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen">
           <Navbar />
           <Toaster position="top-center" richColors />
           <main className="flex-grow pt-20 md:pt-24 sm:pt-16">

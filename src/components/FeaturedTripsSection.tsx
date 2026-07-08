@@ -27,80 +27,103 @@ const fadeIn = (delay = 0) => ({
   }
 });
 
+// Trip Data Types
+interface TripData {
+  imageUrl: string;
+  imageAlt: string;
+  title: string;
+  description: string;
+  isPopular: boolean;
+  badgeText: string;
+  badgeBgColor: string;
+  features: string[];
+  price: string;
+  priceSubtext?: string;
+  priceColor: string;
+  ctaHref: string;
+  ctaBgColor: string;
+  ctaHoverBgColor: string;
+  detailsHref: string;
+  detailsText?: string;
+  bookingHref: string;
+}
+
 const tripData = {
   middayTrip: {
     imageUrl: "/images/optimized/salvador-ibiza-cala-comte-guests-paddleboarding.webp",
-    imageAlt: "Salvador Ibiza dagtocht — premium zee-avontuur",
-    title: "Dagervaring",
-    description: "Zon, zee en avontuur.",
+    imageAlt: "Salvador Ibiza Day Trip - Premium Sea Adventure",
+    title: "Daytime Experience",
+    description: "Sun, sea, and adventure await.",
     isPopular: true,
-    badgeText: "14:00 - 17:00",
+    badgeText: "2:00 PM - 5:00 PM",
     badgeBgColor: "bg-blue-700",
     features: [
-      "15 premium paddleboards & 2 kajaks",
-      "Snorkelset",
-      "Zwemmen in kraakhelder water",
-      "Premium open bar & verse sangria",
-      "Spaanse tapas & vers fruit"
+      "15 Premium Paddle Boards & 2 Kayaks",
+      "Snorkeling Equipment",
+      "Swimming in Crystal Clear Waters",
+      "Premium Open Bar & Fresh Sangria",
+      "Spanish Tapas & Fresh Fruit",
+      "Premium Sound System"
     ],
-    price: "€80 per volwassene",
-    priceSubtext: "Kinderen 6-12: €45 | Onder 6: gratis",
+    price: "€80 per adult",
+    priceSubtext: "Children 6-12: €45 | Under 6: Complimentary",
     priceColor: "text-blue-600",
     ctaHref: "/boat-trips/day-trip#booking-widget",
     ctaBgColor: "bg-blue-600",
     ctaHoverBgColor: "hover:bg-blue-700",
     detailsHref: "/boat-trips/day-trip",
-    detailsText: "Meer over deze trip",
-    ctaText: "Reserveer dagtrip — €80",
+    detailsText: "Explore Details",
+    ctaText: "Reserve Day Trip — €80",
   },
   sunsetTrip: {
     imageUrl: "/images/optimized/ibiza-sunset-heart-gesture-salvador.webp",
-    imageAlt: "Salvador Ibiza zonsondergang op zee",
-    title: "Zonsondergang",
-    description: "De iconische Ibiza-zonsondergang vanaf zee.",
-    badgeText: "18:30 - 21:30",
+    imageAlt: "Salvador Ibiza Sunset Trip - Sunset & Sea Adventure",
+    title: "Sunset Voyage",
+    description: "Experience Ibiza's iconic sunset from the sea.",
+    badgeText: "6:30 PM - 9:30 PM",
     badgeBgColor: "bg-orange-700",
     features: [
-      "Zwemmen bij zonsondergang in verborgen cala’s",
-      "15 paddleboards & 2 kajaks",
-      "Snorkelset",
-      "Premium bar & cava",
-      "Tapas & uitzicht richting Café Mambo"
+      "Sunset Swimming at Hidden Coves",
+      "15 Paddle Boards & 2 Kayaks",
+      "Snorkeling Equipment",
+      "Premium Bar & Unlimited Cava",
+      "Spanish Tapas Selection",
+      "Sunset at Café Mambo"
     ],
-    price: "€80 per volwassene",
-    priceSubtext: "Kinderen 6-12: €45 | Onder 6: gratis",
+    price: "€80 per adult",
+    priceSubtext: "Children 6-12: €45 | Under 6: Complimentary",
     priceColor: "text-orange-700",
     ctaHref: "/boat-trips/sunset-trip#booking-widget",
     ctaBgColor: "bg-orange-700",
     ctaHoverBgColor: "hover:bg-orange-800",
     detailsHref: "/boat-trips/sunset-trip",
-    detailsText: "Meer over deze trip",
-    ctaText: "Reserveer zonsondergang — €80",
+    detailsText: "Explore Details",
+    ctaText: "Reserve Sunset — €80",
   },
   privateCharter: {
     imageUrl: "/images/optimized/salvador-ibiza-cala-comte-wide-aerial-view.webp",
-    imageAlt: "Salvador Ibiza privé charter — exclusieve zee-ervaring",
-    title: "Privé ervaring",
-    description: "Jouw eigen avontuur op maat.",
-    badgeText: "4 uur",
+    imageAlt: "Salvador Ibiza Private Charter - Exclusive Sea Experience",
+    title: "Private Experience",
+    description: "Your personalized maritime adventure.",
+    badgeText: "4 Hours",
     badgeBgColor: "bg-teal-700",
     features: [
-      "Alle watersportuitrusting",
-      "Privé zwemplekken",
-      "Route en activiteiten op maat",
-      "Premium open bar",
-      "Catering naar wens",
-      "Tot 35 gasten"
+      "Full Water Sports Equipment",
+      "Private Swimming Spots",
+      "Customized Route & Activities",
+      "Premium Open Bar",
+      "Personalized Catering Options",
+      "Up to 35 Guests"
     ],
-    price: "Vanaf €1350",
-    priceSubtext: "Extra gast: €30 p.p.",
+    price: "Starting at €1350",
+    priceSubtext: "Additional guests: €30 per person",
     priceColor: "text-teal-700",
     ctaHref: "/private-boat-trips#turbnb-booking-3",
     ctaBgColor: "bg-teal-700",
     ctaHoverBgColor: "hover:bg-teal-800",
     detailsHref: "/private-boat-trips",
-    detailsText: "Meer informatie",
-    ctaText: "Privé charter aanvragen",
+    detailsText: "Request Information",
+    ctaText: "Request Private Charter",
   }
 };
 
@@ -113,9 +136,15 @@ export default function FeaturedTripsSection() {
         animate="visible"
       >
         <div className="text-center mb-10 md:mb-14 max-w-3xl mx-auto">
-          <span className="inline-block py-1 px-3 rounded-full bg-blue-50 text-blue-600 text-sm font-medium mb-4">ONZE ERVARINGEN</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4 text-gray-900">Kies jouw bootervaring op Ibiza</h2>
-          <p className="text-lg text-gray-600">All-inclusive gedeelde trips vanaf €80 per volwassene, of privé charters vanaf €1350.</p>
+          <span className="inline-block py-1 px-3 rounded-full bg-blue-50 text-blue-600 text-sm font-medium mb-4">
+            OUR EXPERIENCES
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4 text-gray-900">
+            Choose Your Ibiza Boat Experience
+          </h2>
+          <p className="text-lg text-gray-600">
+            All-inclusive shared trips from €80 per adult, or exclusive private charters from €1350.
+          </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 max-w-7xl mx-auto">
           <TripCard 

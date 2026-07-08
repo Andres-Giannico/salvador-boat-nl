@@ -26,48 +26,49 @@ export default function SnorkelingBoatTripsClientPage() {
 
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6 text-center">
-            Snorkelboottochten <span className="text-cyan-600">Ibiza</span>
+            Snorkeling Boat Trips <span className="text-cyan-600">Ibiza</span>
           </h1>
 
           <p className="text-xl text-gray-600 text-center mb-12 leading-relaxed">
-            Op zoek naar de <strong>beste snorkelboottocht op Ibiza</strong>? Salvador Ibiza bezoekt
-            kristalheldere cala's op onze 3 uur all-inclusive trips met professionele uitrusting voor elke gast.
+            Looking for the <strong>best snorkelling boat trip in Ibiza</strong>? Salvador Ibiza visits
+            crystal-clear coves on our 3-hour all-inclusive trips with professional equipment for every guest.
           </p>
 
           <section className="bg-white rounded-2xl shadow-lg p-8 mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-              Waarom Salvador Ibiza een top snorkelboottocht op Ibiza is
+              Why Salvador Ibiza Is a Top Snorkelling Boat Trip in Ibiza
             </h2>
             <div className="space-y-4 text-gray-600 leading-relaxed">
               <p>
-                Veel boottochten op Ibiza bieden een snelle zwemstop — maar de beste{" "}
-                <strong>snorkelboottochten</strong> bezoeken meerdere beschutte cala's met uitzonderlijk zicht,
-                omvatten kwaliteitsuitrusting voor alle gasten, en combineren snorkelen met een volledige dag op zee.
+                Many boat trips in Ibiza offer a quick swim stop — but the best{" "}
+                <strong>snorkelling boat trips</strong> visit multiple sheltered coves with exceptional
+                visibility, include quality equipment for all guests, and combine snorkelling with a full
+                day on the water.
               </p>
               <p>
-                Op elke Salvador Ibiza trip krijg je complete snorkelspullen (maskers, snorkels, vinnen),
-                2–3 zwemstops op door de kapitein gekozen cala's langs de westkust (Cala Comte, Cala Salada)
-                of noordkust (Sa Foradada), plus 15 paddleboards, 2 kajaks, open bar en tapas — alles
-                inbegrepen vanaf €80 per volwassene.
+                On every Salvador Ibiza trip you get complete snorkelling gear (masks, snorkels, fins),
+                2–3 swim stops at captain-selected coves along the west coast (Cala Comte, Cala Salada area)
+                or north coast (Sa Foradada), plus 15 paddleboards, 2 kayaks, open bar and tapas — all
+                included from €80 per adult.
               </p>
               <p>
-                Of je nu voor het eerst snorkelt, een gezin met kinderen bent, of een ervaren zwemmer — onze
-                bemanning beveelt de beste plekken aan op basis van omstandigheden en vaardigheid.
+                Whether you are a first-time snorkeller, a family with children, or an experienced swimmer,
+                our crew recommends the best spots based on conditions and ability.
               </p>
             </div>
           </section>
 
           <div className="bg-white rounded-2xl shadow-lg p-8 mb-12">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6">Onderwateravontuur wacht</h2>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">Underwater Adventure Awaits</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               {[
-                { icon: "🤿", title: "Professionele snorkelspullen", desc: "Hoogwaardige maskers, snorkels en vinnen voor alle gasten — schoon en onderhouden." },
-                { icon: "🐠", title: "Zeeleven ontdekken", desc: "Verken mediterrane vissen, posidonia-weiden en rotsige cala's in hun natuurlijke habitat." },
-                { icon: "💎", title: "Kristalhelder water", desc: "Toegang tot verborgen cala's met uitzonderlijk onderwaterzicht." },
-                { icon: "👨‍🏫", title: "Deskundige begeleiding", desc: "Veiligheidsbriefings en snorkeltips voor beginners en ervaren zwemmers." },
-                { icon: "🏝️", title: "Meerdere snorkelplekken", desc: "2–3 verschillende locaties tijdens je 3 uur durende avontuur." },
-                { icon: "🍹", title: "All-inclusive", desc: "Premium drankjes, Spaanse tapas en vers fruit tussen zwemstops." },
+                { icon: "🤿", title: "Professional Snorkelling Gear", desc: "High-quality masks, snorkels and fins for all guests — sanitised and maintained." },
+                { icon: "🐠", title: "Marine Life Discovery", desc: "Explore Mediterranean fish, posidonia meadows and rocky coves in their natural habitat." },
+                { icon: "💎", title: "Crystal Clear Waters", desc: "Access hidden coves with exceptional underwater visibility." },
+                { icon: "👨‍🏫", title: "Expert Guidance", desc: "Safety briefings and snorkelling tips for beginners and experienced swimmers." },
+                { icon: "🏝️", title: "Multiple Snorkel Spots", desc: "2–3 different locations during your 3-hour adventure." },
+                { icon: "🍹", title: "All-Inclusive", desc: "Premium drinks, Spanish tapas and fresh fruit between swim stops." },
               ].map((item) => (
                 <div key={item.title} className="flex items-start space-x-4">
                   <div className="w-8 h-8 bg-cyan-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
@@ -82,23 +83,23 @@ export default function SnorkelingBoatTripsClientPage() {
             </div>
 
             <div className="bg-cyan-50 border border-cyan-200 rounded-lg p-6">
-              <h3 className="text-lg font-bold text-gray-800 mb-3">Geschikt voor alle niveaus</h3>
+              <h3 className="text-lg font-bold text-gray-800 mb-3">Perfect for All Skill Levels</h3>
               <ul className="space-y-2 text-gray-700">
                 <li className="flex items-center">
                   <span className="w-2 h-2 bg-cyan-500 rounded-full mr-3" />
-                  <strong>Beginners welkom</strong> — volledige veiligheidsbriefing en ondiepe plekken
+                  <strong>Beginners welcome</strong> — full safety briefing and shallow areas
                 </li>
                 <li className="flex items-center">
                   <span className="w-2 h-2 bg-cyan-500 rounded-full mr-3" />
-                  <strong>Ervaren snorkelaars</strong> — verken diepere rotsgebieden
+                  <strong>Experienced snorkellers</strong> — explore deeper rocky areas
                 </li>
                 <li className="flex items-center">
                   <span className="w-2 h-2 bg-cyan-500 rounded-full mr-3" />
-                  <strong>Niet-zwemmers</strong> — geniet vanaf de boot of in ondiep water
+                  <strong>Non-swimmers</strong> — enjoy from the boat or shallow water
                 </li>
                 <li className="flex items-center">
                   <span className="w-2 h-2 bg-cyan-500 rounded-full mr-3" />
-                  <strong>Gezinsvriendelijk</strong> — kindermateriaal en toezicht
+                  <strong>Family friendly</strong> — children&apos;s equipment and supervision
                 </li>
               </ul>
             </div>
@@ -106,24 +107,24 @@ export default function SnorkelingBoatTripsClientPage() {
 
           <section className="bg-white rounded-2xl shadow-lg p-8 mb-12">
             <h2 className="text-2xl font-bold text-gray-800 mb-4">
-              Waar snorkelen op Ibiza per boot
+              Where to Snorkel in Ibiza by Boat
             </h2>
             <p className="text-gray-600 leading-relaxed mb-4">
-              Ibiza&apos;s beste snorkelen bereik je per boot. Onze routes vanuit San Antonio bezoeken beschutte
-              cala's waar het water kalm is en het zicht het hoogst — weg van drukke stranden.
+              Ibiza&apos;s best snorkelling is reached by boat. Our routes from San Antonio visit sheltered
+              coves where the water is calm and visibility is highest — away from crowded beaches.
             </p>
             <ul className="space-y-3 text-gray-600">
               <li>
-                <strong>Westkust (Cala Comte / Cala Salada):</strong> turquoise water en rotsachtige zeebodem vol
-                vissen — onze populairste dagtochtroute.
+                <strong>West coast (Cala Comte / Cala Salada area):</strong> turquoise water and rocky
+                seabeds teeming with fish — our most popular day trip route.
               </li>
               <li>
-                <strong>Noordkust (Sa Foradada / Es Vedrà):</strong> dramatische kliffen en helder water, vaak
-                gekozen voor zonsondergangtrips.
+                <strong>North coast (Sa Foradada / Es Vedrà area):</strong> dramatic cliffs and clear
+                water, often chosen for sunset trips.
               </li>
               <li>
-                <strong>Verborgen cala's:</strong> de kapitein kiest dagelijks de beste plekken op basis van wind en
-                zicht — je bereikt plekken die vanaf land onmogelijk te bereiken zijn.
+                <strong>Hidden coves:</strong> the captain picks the best spots daily based on wind and
+                visibility — you reach places impossible to access from land.
               </li>
             </ul>
           </section>
@@ -131,7 +132,7 @@ export default function SnorkelingBoatTripsClientPage() {
           <section className="bg-white rounded-2xl shadow-lg p-8 mb-12">
             <BoatTripComparisonTable
               rows={generalBoatTripComparison}
-              title="Snorkelboottochten: hoe Salvador Ibiza zich verhoudt"
+              title="Snorkelling Boat Trips: How Salvador Ibiza Compares"
             />
           </section>
 
@@ -139,7 +140,7 @@ export default function SnorkelingBoatTripsClientPage() {
             <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden">
               <Image
                 src="/images/boat/parejasnorkeling.webp"
-                alt="Stel geniet van snorkelen tijdens boottocht Ibiza"
+                alt="Couple enjoying snorkelling during Ibiza boat trip"
                 fill
                 className="object-cover"
               />
@@ -147,7 +148,7 @@ export default function SnorkelingBoatTripsClientPage() {
             <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden">
               <Image
                 src="/images/optimized/crystal-clear-waters-ibiza.webp"
-                alt="Kristalhelder water — perfect om te snorkelen op Ibiza"
+                alt="Crystal clear waters perfect for snorkelling in Ibiza"
                 fill
                 className="object-cover"
               />
@@ -155,19 +156,19 @@ export default function SnorkelingBoatTripsClientPage() {
           </div>
 
           <section className="mb-12">
-            <FAQ items={snorkelingFaqItems} title="Veelgestelde vragen snorkelboottochten" />
+            <FAQ items={snorkelingFaqItems} title="Snorkelling Boat Trip FAQs" />
           </section>
 
           <section className="mb-12 py-4">
             <TestimonialSlider
               testimonials={snorkelingReviews}
-              title="Wat snorkelaars zeggen over Salvador Ibiza"
+              title="What Snorkellers Say About Salvador Ibiza"
             />
           </section>
 
           <div className="bg-white rounded-2xl shadow-lg p-8 mb-12" id="booking-widget">
             <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-              Boek je snorkelavontuur
+              Book Your Snorkelling Adventure
             </h2>
             <TurbnbWidget
               companyId={2}
@@ -177,33 +178,33 @@ export default function SnorkelingBoatTripsClientPage() {
               customProperties={{
                 displayBillingTerm: true,
                 showQuantity: true,
-                quantity: "Gasten",
                 titleVariant: "Modern",
-                bookNow: "SNORKELTOCHT BOEKEN",
-                selectExperienceLabel: "Snorkelervaring",
-                addonsLabel: "Extra's",
-                childrenAge: "6 tot 12 jaar",
-                infantAge: "0 tot 5 jaar",
+                bookNow: "BOOK SNORKELING TRIP",
+                confirmReservationAndPay: "CONFIRM & PAY",
+                selectExperienceLabel: "Snorkeling Experience",
+                addonsLabel: "Add-ons",
+                childrenAge: "6 to 12 Years",
+                infantAge: "0 to 5 Years",
               }}
             />
           </div>
 
           <div className="text-center">
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">Meer wateravonturen</h3>
+            <h3 className="text-2xl font-bold text-gray-800 mb-4">More Aquatic Adventures</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <Link
                 href="/boat-trips/paddle"
                 className="block bg-cyan-600 text-white p-6 rounded-lg hover:bg-cyan-700 transition-colors"
               >
-                <h4 className="text-xl font-bold mb-2">SUP-ervaring</h4>
-                <p>Combineer snorkelen met paddleboarden</p>
+                <h4 className="text-xl font-bold mb-2">Paddle Boarding Experience</h4>
+                <p>Combine snorkelling with paddle board adventures</p>
               </Link>
               <Link
                 href="/boat-trips/family"
                 className="block bg-green-600 text-white p-6 rounded-lg hover:bg-green-700 transition-colors"
               >
-                <h4 className="text-xl font-bold mb-2">Gezinsboottochten</h4>
-                <p>Snorkelplezier voor het hele gezin</p>
+                <h4 className="text-xl font-bold mb-2">Family Boat Trips</h4>
+                <p>Snorkelling fun for the whole family</p>
               </Link>
             </div>
           </div>

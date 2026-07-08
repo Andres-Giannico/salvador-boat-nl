@@ -1,34 +1,51 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { pageMetadata } from '@/lib/page-meta'
+import Script from 'next/script'
+import { enPageMetadata } from '@/lib/page-meta'
+import { buildBlogPostingSchema } from '@/lib/blog-schema'
 
-const metaBase = pageMetadata({
-  title: "Midday magic: waarom een dagtrip op Ibiza telt",
+const metaBase = enPageMetadata({
+  title: "Ibiza's Midday Magic: The Unforgettable Day Trip",
   description:
-    "Zon, helder water en energie — ontdek de charme van een dagtrip met Salvador.",
+    "Discover why a midday boat trip in Ibiza offers a unique and magical experience. Sunshine, crystal clear waters, and vibrant energy await you.",
   path: '/blog/ibiza-midday-magic-boat-trip',
   keywords:
-    'dagtrip Ibiza boot, middag boottocht Ibiza, Salvador blog',
-  ogTitle: "Midday magic op Ibiza",
-  ogDescription: 'Dagbootavontuur met Salvador Ibiza.',
+    'Ibiza day boat trip, midday boat tour Ibiza, best daytime excursions Ibiza, Salvador Ibiza blog, Ibiza boat activities',
+  ogTitle: "Ibiza's Midday Magic: The Unforgettable Day Trip",
+  ogDescription: 'Explore the unique charm of a daytime boat adventure in Ibiza with Salvador.',
   ogImage: '/images/blog/midday-magic-placeholder.webp',
-  ogImageAlt: 'Zonnige dagtrip op Ibiza',
+  ogImageAlt: 'Enjoying a sunny midday boat trip in Ibiza',
 })
 
 export const metadata: Metadata = {
   ...metaBase,
   twitter: {
     card: 'summary_large_image',
-    title: "Midday magic: dagtrip Ibiza",
+    title: "Ibiza's Midday Magic: The Unforgettable Day Trip",
     description:
-      'Zon, water en sfeer — waarom een dagtrip onvergetelijk is.',
+      'Discover why a midday boat trip in Ibiza offers a unique and magical experience. Sunshine, crystal clear waters, and vibrant energy await you.',
     images: ['/images/blog/midday-magic-placeholder.webp'],
   },
 }
 
+const blogSchema = buildBlogPostingSchema({
+  title: "Ibiza's Midday Magic: The Unforgettable Day Trip",
+  description:
+    'Discover why a midday boat trip in Ibiza offers a unique and magical experience. Sunshine, crystal clear waters, and vibrant energy await you.',
+  path: '/blog/ibiza-midday-magic-boat-trip',
+  datePublished: '2024-03-01',
+  image: '/images/blog/midday-magic-placeholder.webp',
+})
+
 export default function MiddayMagicBoatTripPage() {
   return (
+    <>
+      <Script
+        id="blog-midday-magic-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
+      />
     <article className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
       <Link
         href="/blog"
@@ -37,119 +54,93 @@ export default function MiddayMagicBoatTripPage() {
         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2 transform group-hover:-translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
         </svg>
-        Terug naar blog
+        Back to Blog
       </Link>
-
+      
       <div className="relative mb-10 h-[55vh] min-h-[450px] w-full overflow-hidden rounded-2xl shadow-lg">
+        {/* Reemplazar con la imagen real del post */}
         <Image
-          src="/images/blog/midday-magic-placeholder.webp"
-          alt="Zonnige middagboottocht op Ibiza met Salvador"
+          src="/images/blog/midday-magic-placeholder.webp" 
+          alt="Sunny midday boat trip in Ibiza with Salvador"
           fill
           className="object-cover"
           priority
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10"></div>
+         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10"></div>
       </div>
 
       <header className="mb-10 text-center">
-        <time dateTime="2024-05-28" className="text-sm text-gray-500 mb-2 block">
-          28 mei 2024
-        </time>
+        <time dateTime="2024-05-28" className="text-sm text-gray-500 mb-2 block">May 28, 2024</time> {/* Fecha actual como ejemplo */}
         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-          Midday magic op Ibiza: <br className="hidden md:block" />
-          waarom een dagtrip onvergetelijk is
+          Ibiza's Midday Magic: <br className="hidden md:block" />Why a Day Trip is an Unforgettable Experience
         </h1>
       </header>
 
       <div className="prose prose-lg lg:prose-xl max-w-none text-gray-700 leading-relaxed">
         <p className="lead text-xl text-gray-600 mb-8">
-          Ibiza's zonsondergangen zijn legendarisch, maar de middagzon geeft een andere betovering —
-          zeker vanaf het dek van een boot. Een dagexcursie met Salvador Ibiza is meer dan een trip:
-          het is een duik in het fonkelende hart van de Middellandse Zee.
+          While Ibiza's sunsets are legendary, the island's vibrant midday sun offers a different kind of enchantment, especially when experienced from the deck of a boat. A daytime excursion with Salvador Ibiza isn't just a trip; it's an immersion into the sparkling soul of the Mediterranean.
         </p>
 
-        <h2 className="text-3xl font-semibold text-gray-800 mt-12 mb-4">De aantrekkingskracht van de middagzon</h2>
+        <h2 className="text-3xl font-semibold text-gray-800 mt-12 mb-4">The Allure of the Midday Sun</h2>
         <p>
-          Stel je voor: de zon hoog aan de hemel, lichtpunten op turquoise water, verborgen cala's en
-          een gouden gloed op de kliffen. Dat is het Ibiza van een middagtrip — energie, ontdekking en
-          puur plezier.
+          Imagine the sun high in the sky, its rays dancing on the turquoise waters, illuminating hidden coves and casting a golden glow on the dramatic cliffs. This is the Ibiza that awaits you on a midday boat trip. It's a time for energy, exploration, and pure, unadulterated fun.
         </p>
 
-        <h3 className="text-2xl font-semibold text-gray-800 mt-8 mb-3">Voordelen van een dagtocht op zee:</h3>
+        <h3 className="text-2xl font-semibold text-gray-800 mt-8 mb-3">Advantages of a Daytime Sea Adventure:</h3>
         <ul className="list-disc pl-5 space-y-2 mb-8">
-          <li>
-            <strong>Beeldperfect:</strong> middaglicht laat water en kust extra scherp uitkomen — ideaal
-            voor foto's.
-          </li>
-          <li>
-            <strong>Watersport op z'n best:</strong> warm water om te zwemmen, snorkelen, suppen of met
-            de kajak cala's in te varen.
-          </li>
-          <li>
-            <strong>Kust in vol daglicht:</strong> zie kleuren van dennenbossen tot witgekalkte finca's.
-          </li>
-          <li>
-            <strong>Levendige sfeer:</strong> vriendengroepen en gezinnen voelen zich thuis in het zonlicht
-            op het water.
-          </li>
-          <li>
-            <strong>Tempo kiezen:</strong> zonder de klok van de zonsondergang kun je rustiger tussen
-            zwemplekken wisselen.
-          </li>
+          <li><strong>Picture-Perfect Scenery:</strong> The midday light is a photographer's dream, making the crystal-clear waters and rugged coastline even more spectacular. Capture those Instagram-worthy shots with ease!</li>
+          <li><strong>Prime Time for Water Activities:</strong> Warm waters invite you for a refreshing swim. It's the perfect time to dive in, explore with our snorkeling gear, glide on a paddleboard, or navigate the coves in a kayak.</li>
+          <li><strong>Vibrant Coastal Views:</strong> See Ibiza's stunning coastline in all its glory. The full daylight reveals the rich colours of the landscape, from lush pine forests to the iconic white-washed fincas.</li>
+          <li><strong>Energetic Atmosphere:</strong> There's a unique, joyful energy to being out on the water under the bright Ibiza sun. It's perfect for groups of friends looking to celebrate or families wanting to create lasting memories.</li>
+          <li><strong>Explore at Your Own Pace:</strong> Without the rush of chasing the sunset, a midday trip allows for a more relaxed exploration of different coves and swim spots.</li>
         </ul>
 
         <figure className="my-10">
-          <figcaption className="text-center text-sm text-gray-500 mt-2">
-            Perfecte omstandigheden om te zwemmen en te peddelen.
-          </figcaption>
+          {/* Placeholder for an inline image, if desired */}
+          {/* <Image src="/images/blog/inline-midday-fun.jpg" alt="Friends enjoying paddleboarding" width={800} height={500} className="rounded-lg shadow-md mx-auto" /> */}
+          <figcaption className="text-center text-sm text-gray-500 mt-2">The perfect conditions for swimming and paddleboarding.</figcaption>
         </figure>
-
-        <h2 className="text-3xl font-semibold text-gray-800 mt-12 mb-4">Jullie dagervaring met Salvador Ibiza</h2>
-        <p>Onze dagtrip is gemaakt om die middagmagie te maximaliseren:</p>
+        
+        <h2 className="text-3xl font-semibold text-gray-800 mt-12 mb-4">Your Salvador Ibiza Daytime Experience</h2>
+        <p>
+          Our "Daytime Experience" is curated to maximize this midday magic. We provide everything you need:
+        </p>
         <ul className="list-disc pl-5 space-y-2 mb-8">
-          <li>Premium open bar met verfrissende drankjes en onze huisgemaakte sangría.</li>
-          <li>Spaanse tapas en vers fruit om je energie op peil te houden.</li>
-          <li>Watersportmateriaal: 15 paddleboards, 2 kajaks en snorkelsets.</li>
-          <li>Geluidsinstallatie voor de juiste sfeer.</li>
-          <li>
-            Een doordachte route langs enkele van Ibiza's mooiste plekken, weg van de grootste drukte.
-          </li>
+          <li>A premium open bar with refreshing drinks and our famous homemade sangria.</li>
+          <li>Delicious Spanish tapas and fresh fruit to keep your energy levels up.</li>
+          <li>Top-quality water sports equipment: 15 paddleboards, 2 kayaks, and snorkeling gear for everyone.</li>
+          <li>A premium sound system to set the perfect vibe.</li>
+          <li>A carefully planned route that showcases some of Ibiza's most beautiful spots, away from the biggest crowds.</li>
         </ul>
 
-        <h2 className="text-3xl font-semibold text-gray-800 mt-12 mb-4">Voor wie is de middagtrip?</h2>
-        <p>Perfect voor:</p>
+        <h2 className="text-3xl font-semibold text-gray-800 mt-12 mb-4">Who is the Midday Trip For?</h2>
+        <p>
+          This trip is a fantastic choice for:
+        </p>
         <ul className="list-disc pl-5 space-y-2 mb-6">
-          <li>
-            <strong>Gezinnen:</strong> vakantieherinneringen met activiteiten voor kinderen.
-          </li>
-          <li>
-            <strong>Vriendengroepen:</strong> zon, muziek, drankjes en quality time.
-          </li>
-          <li>
-            <strong>Watersportliefhebbers:</strong> benut onze uitrusting in ideale omstandigheden.
-          </li>
-          <li>
-            <strong>Iedereen die van zon en uitzicht houdt:</strong> gewoon genieten mag ook.
-          </li>
+          <li><strong>Families:</strong> Create unforgettable holiday memories with activities suitable for children.</li>
+          <li><strong>Groups of Friends:</strong> Enjoy the sun, music, drinks, and good times together.</li>
+          <li><strong>Water Sports Enthusiasts:</strong> Make the most of our extensive equipment in ideal conditions.</li>
+          <li><strong>Anyone Seeking Sunshine & Relaxation:</strong> Simply want to soak up the Mediterranean sun and enjoy the stunning views? This is for you.</li>
         </ul>
-
-        <hr className="my-12 border-gray-300" />
+        
+        <hr className="my-12 border-gray-300"/>
 
         <div className="mt-10 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 p-8 text-white shadow-xl text-center">
-          <h3 className="text-3xl font-bold mb-4">Klaar voor midday magic?</h3>
+          <h3 className="text-3xl font-bold mb-4">Ready to Experience Midday Magic?</h3>
           <p className="text-lg mb-6">
-            Droom niet alleen van de perfecte Ibiza-dag — beleef hem. Vaar mee met Salvador Ibiza en
-            ontdek een andere kant van het Witte Eiland.
+            Don't just dream about the perfect Ibiza day – live it! Join Salvador Ibiza for a daytime boat trip and discover a different side of the White Isle's charm.
           </p>
           <Link
-            href="/book-now"
+            href="/book-now" // Or directly to Day Trip booking if widget supports it
             className="mt-4 inline-block rounded-lg bg-white px-8 py-3.5 text-lg font-semibold text-blue-600 hover:bg-blue-50 transition-colors duration-300 shadow-md hover:shadow-lg transform hover:scale-105"
           >
-            Reserveer je dagtocht
+            Book Your Daytime Adventure
           </Link>
         </div>
       </div>
     </article>
+    </>
   )
-}
+} 

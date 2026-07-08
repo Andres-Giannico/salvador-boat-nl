@@ -6,12 +6,12 @@ import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const EN_SITE_BASE = (
-  process.env.NEXT_PUBLIC_SITE_URL_EN || 'https://www.salvadoribiza.com'
-).replace(/\/+$/, '');
-
 const ES_SITE_BASE = (
   process.env.NEXT_PUBLIC_SITE_URL_ES || 'https://www.salvadoribiza.es'
+).replace(/\/+$/, '');
+
+const NL_SITE_BASE = (
+  process.env.NEXT_PUBLIC_SITE_URL_NL || 'https://www.salvadoribiza.nl'
 ).replace(/\/+$/, '');
 
 const FR_SITE_BASE = (
@@ -19,7 +19,7 @@ const FR_SITE_BASE = (
 ).replace(/\/+$/, '');
 
 function absoluteOnBase(base: string, pathname: string): string {
-  if (!pathname || pathname === '/') return `${base}/`;
+  if (!pathname || pathname === '/') return `${base}`;
   return `${base}${pathname}`;
 }
 
@@ -29,9 +29,9 @@ export default function Navbar() {
 
   const links = [
     { href: '/', label: 'HOME' },
-    { href: '/boat-trips', label: 'BOOTTOCHTEN' },
-    { href: '/private-boat-trips', label: 'PRIVÉ' },
-    { href: '/gallery', label: 'GALERIJ' },
+    { href: '/boat-trips', label: 'BOAT TRIPS' },
+    { href: '/private-boat-trips', label: 'PRIVATE TRIPS' },
+    { href: '/gallery', label: 'GALLERY' },
     { href: '/faq', label: 'FAQ' },
   ];
 
@@ -49,23 +49,23 @@ export default function Navbar() {
     <div className="flex flex-wrap items-center justify-end gap-1 border border-gray-200 rounded-full px-2 py-1 bg-white/80 max-w-[220px] sm:max-w-none">
       <span
         className="text-xs sm:text-sm px-2 py-1 rounded-full bg-gradient-to-r from-blue-50 to-cyan-50 font-medium text-gray-900"
-        title="Nederlandse site"
-      >
-        <span aria-hidden>🇳🇱</span> NL
-      </span>
-      <a
-        href={absoluteOnBase(EN_SITE_BASE, pathname)}
-        className="text-xs sm:text-sm px-2 py-1 rounded-full hover:bg-gray-50 text-gray-700 font-medium transition-colors"
-        title={`Engelse versie — ${new URL(`${EN_SITE_BASE}/`).hostname}`}
-        rel="alternate"
-        hrefLang="en"
+        title="You are on the English site"
       >
         <span aria-hidden>🇬🇧</span> EN
+      </span>
+      <a
+        href={absoluteOnBase(NL_SITE_BASE, pathname)}
+        className="text-xs sm:text-sm px-2 py-1 rounded-full hover:bg-gray-50 text-gray-700 font-medium transition-colors"
+        title={`Dutch version — ${new URL(`${NL_SITE_BASE}/`).hostname}`}
+        rel="alternate"
+        hrefLang="nl"
+      >
+        <span aria-hidden>🇳🇱</span> NL
       </a>
       <a
         href={absoluteOnBase(ES_SITE_BASE, pathname)}
         className="text-xs sm:text-sm px-2 py-1 rounded-full hover:bg-gray-50 text-gray-700 font-medium transition-colors"
-        title={`Spaanse versie — ${new URL(`${ES_SITE_BASE}/`).hostname}`}
+        title={`Spanish version — ${new URL(`${ES_SITE_BASE}/`).hostname}`}
         rel="alternate"
         hrefLang="es"
       >
@@ -74,7 +74,7 @@ export default function Navbar() {
       <a
         href={absoluteOnBase(FR_SITE_BASE, pathname)}
         className="text-xs sm:text-sm px-2 py-1 rounded-full hover:bg-gray-50 text-gray-700 font-medium transition-colors"
-        title={`Franse versie — ${new URL(`${FR_SITE_BASE}/`).hostname}`}
+        title={`French version — ${new URL(`${FR_SITE_BASE}/`).hostname}`}
         rel="alternate"
         hrefLang="fr"
       >
@@ -100,7 +100,7 @@ export default function Navbar() {
             <Link href="/">
               <Image
                 src="/images/optimized/salvador-ibiza-boat-trips-logo.webp"
-                alt="Salvador Ibiza logo"
+                alt="Salvador Ibiza Logo"
                 width={200}
                 height={90}
                 className={`object-contain ${logoHeight} w-auto hover:scale-105 transition-transform duration-300`}
@@ -140,7 +140,7 @@ export default function Navbar() {
               className="ml-2"
             >
               <Link href="/book-now">
-                <span className={ctaClass}>NU BOEKEN</span>
+                <span className={ctaClass}>BOOK NOW</span>
               </Link>
             </motion.div>
           </div>
@@ -154,7 +154,7 @@ export default function Navbar() {
               aria-controls="mobile-menu"
               aria-expanded={isOpen}
             >
-              <span className="sr-only">Menu openen</span>
+              <span className="sr-only">Open main menu</span>
               <motion.div
                 animate={isOpen ? 'open' : 'closed'}
                 variants={{
@@ -188,23 +188,33 @@ export default function Navbar() {
           >
             <div className="px-4 pt-3 pb-4 space-y-2">
               <p className="px-4 text-xs text-gray-600 pb-1">
-                Dezelfde pagina in het{' '}
+                Same page in{' '}
                 <a
-                  href={absoluteOnBase(EN_SITE_BASE, pathname)}
+                  href={absoluteOnBase(NL_SITE_BASE, pathname)}
                   className="text-blue-600 font-medium underline"
-                  hrefLang="en"
+                  hrefLang="nl"
                   rel="alternate"
                 >
-                  Engels
+                  Dutch
                 </a>{' '}
-                of{' '}
+                or{' '}
                 <a
                   href={absoluteOnBase(ES_SITE_BASE, pathname)}
                   className="text-blue-600 font-medium underline"
                   hrefLang="es"
                   rel="alternate"
                 >
-                  Spaans
+                  Spanish
+                </a>
+                {' '}
+                or{' '}
+                <a
+                  href={absoluteOnBase(FR_SITE_BASE, pathname)}
+                  className="text-blue-600 font-medium underline"
+                  hrefLang="fr"
+                  rel="alternate"
+                >
+                  French
                 </a>
                 .
               </p>
@@ -231,7 +241,7 @@ export default function Navbar() {
                     whileHover={{ scale: 1.02 }}
                     className="block text-center py-3 px-4 rounded-xl font-medium bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-lg hover:shadow-xl transition-all duration-300"
                   >
-                    NU BOEKEN
+                    BOOK NOW
                   </motion.span>
                 </Link>
               </div>

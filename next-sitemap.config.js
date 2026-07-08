@@ -4,18 +4,19 @@ function stripTrailingSlash(url) {
   return url.replace(/\/+$/, '');
 }
 
+/** NEXT_PUBLIC_* primero: en Vercel coincide con el HTML; SITE_URL del build a veces queda en apex */
 const siteUrl = stripTrailingSlash(
   process.env.NEXT_PUBLIC_SITE_URL ||
     process.env.SITE_URL ||
-    'https://www.salvadoribiza.nl'
-);
-
-const englishSiteUrl = stripTrailingSlash(
-  process.env.NEXT_PUBLIC_SITE_URL_EN || 'https://www.salvadoribiza.com'
+    'https://www.salvadoribiza.com'
 );
 
 const spanishSiteUrl = stripTrailingSlash(
   process.env.NEXT_PUBLIC_SITE_URL_ES || 'https://www.salvadoribiza.es'
+);
+
+const dutchSiteUrl = stripTrailingSlash(
+  process.env.NEXT_PUBLIC_SITE_URL_NL || 'https://www.salvadoribiza.nl'
 );
 
 const frenchSiteUrl = stripTrailingSlash(
@@ -24,11 +25,12 @@ const frenchSiteUrl = stripTrailingSlash(
 
 const xDefaultBase =
   process.env.NEXT_PUBLIC_HREFLANG_X_DEFAULT === 'nl'
-    ? siteUrl
-    : englishSiteUrl;
+    ? dutchSiteUrl
+    : siteUrl;
 
+/** Sin "/" final en home: coincide con cómo next-sitemap normaliza <loc>. */
 function absoluteForPath(base, pathname) {
-  if (!pathname || pathname === '/') return `${base}/`;
+  if (!pathname || pathname === '/') return `${base}`;
   const p = pathname.startsWith('/') ? pathname : `/${pathname}`;
   return `${base}${p}`;
 }
@@ -69,26 +71,25 @@ module.exports = {
   siteUrl,
   generateRobotsTxt: false,
   /** QR / flyer: noindex — no deben aparecer en sitemap */
-  exclude: ['/book/trips', '/book/flyer'],
+  exclude: ['/book/trips', '/book/flyer', '/api/*'],
   robotsTxtOptions: {
     additionalSitemaps: [
-      `${englishSiteUrl}/sitemap.xml`,
       `${spanishSiteUrl}/sitemap.xml`,
+      `${dutchSiteUrl}/sitemap.xml`,
       `${frenchSiteUrl}/sitemap.xml`,
     ],
   },
   transform: async (config, path) => {
-    const rel =
-      !path || path === '' ? '/' : path.startsWith('/') ? path : `/${path}`;
-    const nl = absoluteForPath(siteUrl, rel);
-    const en = absoluteForPath(englishSiteUrl, rel);
+    const rel = !path || path === '' ? '/' : path.startsWith('/') ? path : `/${path}`;
+    const en = absoluteForPath(siteUrl, rel);
     const es = absoluteForPath(spanishSiteUrl, rel);
+    const nl = absoluteForPath(dutchSiteUrl, rel);
     const fr = absoluteForPath(frenchSiteUrl, rel);
     const xDefault = absoluteForPath(xDefaultBase, rel);
     const { priority, changefreq } = sitemapMetaForPath(rel);
 
     return {
-      loc: nl,
+      loc: en,
       changefreq,
       priority,
       lastmod: config.autoLastmod ? new Date().toISOString() : undefined,

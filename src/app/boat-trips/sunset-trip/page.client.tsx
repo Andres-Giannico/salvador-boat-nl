@@ -2,9 +2,10 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { FiClock, FiUsers, FiMapPin, FiSunset, FiDollarSign, FiAnchor, FiCompass, FiInfo } from 'react-icons/fi';
+import { FiClock, FiUsers, FiMapPin, FiSunset, FiDollarSign, FiAnchor, FiCompass, FiInfo, FiCamera } from 'react-icons/fi';
 import { GiWaterSplash, GiSparklingSabre } from 'react-icons/gi';
 import { motion } from 'framer-motion';
+import { GoogleReview } from '@/services/googlePlaces';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 
 // Import our reusable components
@@ -13,78 +14,51 @@ import TripHighlights from '@/components/trips/TripHighlights';
 import ReviewsSection from '@/components/trips/ReviewsSection';
 import FAQ from '@/components/trips/FAQ';
 import TurbnbWidget from '@/components/booking/TurbnbWidget';
-import { getSiteUrl } from '@/config/site';
-import Script from 'next/script';
+import { getSunsetTripHeroCopy, getSunsetTripFaqs } from '@/lib/seo-i18n';
+import { getClientSiteLocale } from '@/lib/site-locale';
 
 // Trip image gallery - Extended
 const images = [
-  { src: "/images/optimized/ibiza-sunset-boat-trip-salvador.webp", alt: "Iconische Ibiza-zonsondergang vanaf de Salvador" },
-  { src: "/images/boat/doschicassupsunset.webp", alt: "Twee vriendinnen paddleboarden bij zonsondergang" },
-  { src: "/images/boat/parejafeliz.webp", alt: "Gelukkig stel op de zonsondergangcruise" },
-  { src: "/images/optimized/salvador-ibiza-cala-comte-bow-lounge-aerial.webp", alt: "Luchtfoto van de lounge op de voorplecht van Salvador Ibiza in Cala Comte" },
-  { src: "/images/boat/chicasmuyfelices.webp", alt: "Vrienden vieren de zonsondergang op de boot" },
-  { src: "/images/boat/chicassentadasdisfrutando.webp", alt: "Ontspannen op het dek met uitzicht op de zonsondergang" },
-  { src: "/images/boat/luigienproconchcas.webp", alt: "Kapitein Luigi met gasten die genieten van de zonsondergang" },
-  { src: "/images/boat/chicassentadassup.webp", alt: "Op paddleboards genieten van de zonsondergang" },
-  { src: "/images/optimized/salvador-ibiza-cala-comte-aerial-stern-sup.webp", alt: "Top-down luchtfoto van Salvador Ibiza in Cala Comte met gast op paddleboard bij de achterplecht" },
-  { src: "/images/boat/barcointerior.webp", alt: "Gezellig interieur van de Salvador bij zonsondergang" },
-  { src: "/images/boat/consolabarco.webp", alt: "Uitzicht vanaf de stuurconsole bij zonsondergang" },
-  { src: "/images/optimized/drinks-cave-sunset-ibiza.webp", alt: "Drankjes bij een grot bij zonsondergang" },
-  { src: "/images/optimized/friends-ibiza-sunset-boat.webp", alt: "Silhouetten tegen een prachtige avondlucht" },
+  { src: "/images/optimized/ibiza-sunset-boat-trip-salvador.webp", alt: "Iconic Ibiza sunset view from Salvador boat" },
+  { src: "/images/boat/doschicassupsunset.webp", alt: "Two friends paddleboarding during sunset" },
+  { src: "/images/boat/parejafeliz.webp", alt: "Happy couple enjoying the sunset cruise" },
+  { src: "/images/optimized/salvador-ibiza-cala-comte-bow-lounge-aerial.webp", alt: "Aerial view of the Salvador Ibiza bow lounge area in Cala Comte" },
+  { src: "/images/boat/chicasmuyfelices.webp", alt: "Group of friends celebrating sunset on the boat" },
+  { src: "/images/boat/chicassentadasdisfrutando.webp", alt: "Relaxing and watching the sunset from the deck" },
+  { src: "/images/boat/luigienproconchcas.webp", alt: "Captain Luigi with guests enjoying the sunset" },
+  { src: "/images/boat/chicassentadassup.webp", alt: "Sitting on paddleboards watching the sunset" },
+  { src: "/images/optimized/salvador-ibiza-cala-comte-aerial-stern-sup.webp", alt: "Top-down aerial view of Salvador Ibiza in Cala Comte with a guest paddleboarding near the stern" },
+  { src: "/images/boat/barcointerior.webp", alt: "Cozy interior of Salvador boat during sunset" },
+  { src: "/images/boat/consolabarco.webp", alt: "View from the boat's console at sunset" },
+  { src: "/images/optimized/drinks-cave-sunset-ibiza.webp", alt: "Enjoying drinks near a cave at sunset" },
+  { src: "/images/optimized/friends-ibiza-sunset-boat.webp", alt: "Silhouettes against the beautiful sunset sky" },
 ];
+
+// Trip highlights - Removed Optional Photographer
 const tripHighlights = [
   {
     icon: <FiSunset className="w-6 h-6 text-orange-600" />,
-    title: "Iconische zonsondergangcruise",
-    description: "Ibiza's legendarische zonsondergang voor Café Mambo & Café del Mar."
+    title: "Iconic Sunset Cruise",
+    description: "Witness Ibiza's legendary sunset from the prime position - in front of Café Mambo & Café del Mar."
   },
   {
     icon: <FiCompass className="w-6 h-6 text-blue-600" />,
-    title: "Flexibele routes",
-    description: "De kapitein kiest de beste route (noord of west) op basis van weer voor optimaal uitzicht."
+    title: "Flexible Routes",
+    description: "Captain chooses the best route (North or West) based on weather for optimal sunset views."
   },
   {
     icon: <GiSparklingSabre className="w-6 h-6 text-yellow-600" />,
-    title: "Premium service",
-    description: "Onbeperkte drankjes (inclusief cava!), Spaanse tapas, vers fruit en goede muziek."
+    title: "Premium Service",
+    description: "Unlimited drinks (cava included!), Spanish tapas, fresh fruit, and great music."
   },
   {
     icon: <GiWaterSplash className="w-6 h-6 text-cyan-600" />,
-    title: "Optionele zwemstop",
-    description: "Afhankelijk van tijd en omstandigheden: zwemmen, snorkelen of paddleboarden."
+    title: "Optional Swim Stop",
+    description: "Depending on time and conditions, enjoy a swim, snorkel, or paddleboard session."
   },
 ];
 
-// Trip-specific FAQs
-const tripFAQs = [
-  {
-    question: "Hoe laat vertrekt de zonsondergangtocht?",
-    answer: "Vertrek is meestal tussen 17:00 en 18:30 uur, afhankelijk van de maand voor het beste licht. De exacte tijd bevestigen we bij je boeking. Kom 30 minuten van tevoren."
-  },
-  {
-    question: "Hoe is de route?",
-    answer: (
-      <>
-        De kapitein kiest de beste route op basis van het weer — noord (Cala Salada, Punta Galera) of west (Cala Bassa, Cala Conta). We liggen voor de zonsondergang voor Café Mambo en Café del Mar.
-        <Link href="/routes" className="text-blue-600 hover:underline font-medium ml-1">
-          Meer over onze routes.
-        </Link>
-      </>
-    )
-  },
-  {
-    question: "Wat voor eten en drinken zit erbij?",
-    answer: "Onbeperkt drankjes (bier, wijn, cava, sangría, frisdrank, water) en Spaanse tapas met vers fruit."
-  },
-  {
-    question: "Zijn er activiteiten op het water?",
-    answer: "Ja, als zee en tijd het toelaten: zwemmen, snorkelen, paddleboarden en kajakken vóór het zonsondergangsmoment."
-  },
-  {
-    question: "Wat moet ik meenemen?",
-    answer: "Comfortabele kleding, optioneel zwemkleding, handdoek, zonnebril en een lichte jas — na zonsondergang kan het fris zijn. Geen eigen eten of drinken aan boord."
-  }
-];
+// Trip-specific FAQs — locale-aware via seo-i18n
 
 // Animation variants for staggering badges
 const staggerContainer = {
@@ -105,10 +79,15 @@ const fadeInItem = {
 
 // Interface for props received from the server component - REMOVED props
 interface SunsetTripClientPageProps {
+  // initialReviews: GoogleReview[]; // Removed
+  // error: string | null; // Removed
 }
 
 export default function SunsetTripClientPage({}: SunsetTripClientPageProps) {
-  const siteUrl = getSiteUrl();
+  const locale = getClientSiteLocale();
+  const heroCopy = getSunsetTripHeroCopy(locale);
+  const tripFAQs = getSunsetTripFaqs(locale);
+
   return (
     <div className="bg-gray-50">
       {/* Breadcrumbs */}
@@ -123,7 +102,7 @@ export default function SunsetTripClientPage({}: SunsetTripClientPageProps) {
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/optimized/ibiza-sunset-boat-trip-salvador.webp" 
-            alt="Spectaculaire Ibiza-zonsondergang vanaf de Salvador"
+            alt="Spectacular Ibiza sunset from Salvador boat"
             fill
             priority
             className="object-cover object-center"
@@ -142,15 +121,14 @@ export default function SunsetTripClientPage({}: SunsetTripClientPageProps) {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-4 text-shadow-[0_3px_5px_rgba(0,0,0,0.6)]"
           >
-            Mixed <span className="text-orange-400">zonsondergangtocht</span>
+            {heroCopy.h1Main} <span className="text-orange-400">{heroCopy.h1Accent}</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl md:text-2xl lg:text-3xl max-w-3xl mx-auto mb-8 drop-shadow-md"
           >
-            De magie van Ibiza's zonsondergang vanaf zee, aan boord van onze traditionele houten boot.
+            {heroCopy.subtitle}
           </motion.p>
           {/* Feature Badges with Stagger Animation */}
           <motion.div 
@@ -161,15 +139,15 @@ export default function SunsetTripClientPage({}: SunsetTripClientPageProps) {
           >
             <motion.div variants={fadeInItem} className="flex items-center bg-black/40 backdrop-blur-sm px-4 py-2 rounded-full shadow-md">
               <FiSunset className="mr-2 text-orange-400" />
-              <span>Iconische zonsondergang</span>
+              <span>Iconic Sunset Views</span>
             </motion.div>
             <motion.div variants={fadeInItem} className="flex items-center bg-black/40 backdrop-blur-sm px-4 py-2 rounded-full shadow-md">
               <FiMapPin className="mr-2 text-orange-400" />
-              <span>Uitzicht richting Café Mambo</span>
+              <span>Café Mambo Viewpoint</span>
             </motion.div>
             <motion.div variants={fadeInItem} className="flex items-center bg-black/40 backdrop-blur-sm px-4 py-2 rounded-full shadow-md">
               <FiDollarSign className="mr-2 text-orange-400" />
-              <span>Drankjes & tapas inbegrepen</span>
+              <span>Drinks & Tapas Included</span>
             </motion.div>
           </motion.div>
           <Link href="#booking-widget">
@@ -179,7 +157,7 @@ export default function SunsetTripClientPage({}: SunsetTripClientPageProps) {
               // Larger button with icon
               className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-600 hover:via-red-600 hover:to-pink-600 text-white font-bold py-4 px-10 rounded-lg shadow-xl transition duration-300 transform hover:-translate-y-1"
             >
-              Boek je zonsondergang <FiAnchor className="ml-1 w-5 h-5"/>
+              Book Your Sunset Experience <FiAnchor className="ml-1 w-5 h-5"/>
             </motion.span>
           </Link>
         </motion.div>
@@ -197,18 +175,18 @@ export default function SunsetTripClientPage({}: SunsetTripClientPageProps) {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Viert het Ibiza-gevoel</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Celebrate the Ibiza Lifestyle</h2>
               <div className="prose prose-lg text-gray-600 mb-8 max-w-none">
                 <p>
-                  Stap aan boord van Salvador Ibiza voor een <strong>magische avond op zee</strong>. Onze gemengde zonsondergangtocht is dé manier om de iconische Ibizan sunset vanaf het water te zien — relaxed, met adembenemend uitzicht.
+                  Join us aboard Salvador Ibiza for a <strong>magical evening at sea</strong>. Our Mixed Sunset Boat Tour offers the ultimate way to experience the iconic Ibizan sunset from the water, blending chilled-out vibes with stunning scenery.
                 </p>
-                <h3 className="text-2xl font-bold text-gray-800 mt-8 mb-4">Een onvergetelijke zonsondergang</h3>
+                <h3 className="text-2xl font-bold text-gray-800 mt-8 mb-4">Your Unforgettable Sunset Experience</h3>
                 <p>
-                  Afhankelijk van de omstandigheden koersen we langs Ibiza's beroemde kust en liggen we precies goed voor <strong>Café Mambo en Café del Mar</strong> tijdens de climax. Proost met cava terwijl de zon ondergaat.
+                  Depending on the day's conditions, our expert captain will chart the perfect course along Ibiza's famed coastline. We position our boat flawlessly in front of the legendary <strong>Café Mambo and Café del Mar</strong> for the grand finale. Toast with a glass of cava as the sun dips below the horizon, painting the sky in breathtaking colours.
                 </p>
-                <h3 className="text-2xl font-bold text-gray-800 mt-8 mb-4">Meer dan alleen varen</h3>
+                <h3 className="text-2xl font-bold text-gray-800 mt-8 mb-4">More Than a Tour, It's an Experience</h3>
                 <p>
-                  Een <strong>viering van de authentieke Ibiza-lifestyle</strong>: ideaal voor stellen, vrienden en solo-reizigers. Muziek, sfeer en onze bekende <strong>all-inclusive open bar</strong>.
+                  This isn't just a boat trip; it's a <strong>celebration of the authentic Ibiza lifestyle</strong>. Perfect for couples, friends, and solo travelers, our tour is designed for those looking to connect, relax, and witness the true magic of the White Isle. Enjoy great music, a fantastic atmosphere, and our renowned <strong>all-inclusive open bar</strong>.
                 </p>
               </div>
             </motion.div>
@@ -223,7 +201,7 @@ export default function SunsetTripClientPage({}: SunsetTripClientPageProps) {
             >
               <TripGallery 
                 images={images} 
-                title="Momenten van de zonsondergang" 
+                title="Sunset Moments Gallery" 
               />
             </motion.div>
           </div>
@@ -232,54 +210,54 @@ export default function SunsetTripClientPage({}: SunsetTripClientPageProps) {
           <div className="lg:col-span-1">
             <div className="sticky top-28 bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
               <div className="bg-gradient-to-r from-orange-600 to-red-500 text-white p-6">
-                <h3 className="text-2xl font-bold mb-2">Tochtinformatie</h3>
-                <p className="opacity-90">Authentieke zonsondergangervaring</p>
+                <h3 className="text-2xl font-bold mb-2">Trip Details</h3>
+                <p className="opacity-90">Authentic sunset experience</p>
               </div>
               <div className="p-6 space-y-4">
                 <div className="flex items-start">
                   <FiClock className="mt-1 mr-3 text-orange-600 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-800">Schema</h4>
-                    <p className="text-gray-600">Ca. 3 uur (avond)</p>
-                    <p className="text-xs text-gray-500">Vertrek 17:00–18:30 uur (seizoensgebonden)</p>
+                    <h4 className="font-semibold text-gray-800">Schedule</h4>
+                    <p className="text-gray-600">Approx. 3 hours (Evening)</p>
+                    <p className="text-xs text-gray-500">Departs 5:00-6:30 PM (seasonal)</p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <FiMapPin className="mt-1 mr-3 text-orange-600 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-800">Vertrek</h4>
-                    <p className="text-gray-600">Haven San Antonio, Ibiza</p>
+                    <h4 className="font-semibold text-gray-800">Departure</h4>
+                    <p className="text-gray-600">San Antonio Port, Ibiza</p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <FiUsers className="mt-1 mr-3 text-orange-600 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-800">Capaciteit</h4>
-                    <p className="text-gray-600">Tot 35 passagiers</p>
+                    <h4 className="font-semibold text-gray-800">Capacity</h4>
+                    <p className="text-gray-600">Up to 35 passengers</p>
                   </div>
                 </div>
                 <div className="flex items-start">
                   <GiSparklingSabre className="mt-1 mr-3 text-orange-600 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-800">Inbegrepen</h4>
-                    <p className="text-gray-600">Drankjes, tapas, muziek, activiteiten*</p>
-                     <p className="text-xs text-gray-500">*Watersport bij gunstig weer</p>
+                    <h4 className="font-semibold text-gray-800">Included</h4>
+                    <p className="text-gray-600">Drinks, Tapas, Music, Activities*</p>
+                     <p className="text-xs text-gray-500">*Water activities weather permitting</p>
                   </div>
                 </div>
                 <div className="border-t border-gray-100 pt-4 mt-6">
                   <div className="flex justify-between items-end mb-4">
                     <div>
-                      <span className="block text-sm text-gray-500">Prijs per persoon</span>
+                      <span className="block text-sm text-gray-500">Price per person</span>
                       <span className="text-3xl font-bold text-gray-900">€80</span>
                     </div>
                   </div>
                   <Link href="#booking-widget" className="block w-full">
                     <span className="block w-full text-center bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-4 rounded-lg shadow transition duration-300">
-                      Boek deze ervaring
+                      Book This Experience
                     </span>
                   </Link>
                   <p className="text-center text-sm text-gray-500 mt-3">
-                    Voel de echte magie van Ibiza!
+                    Feel the real magic of Ibiza!
                   </p>
                 </div>
               </div>
@@ -289,12 +267,12 @@ export default function SunsetTripClientPage({}: SunsetTripClientPageProps) {
 
         {/* Highlights Section */}
         <div className="mb-20">
-          <TripHighlights items={tripHighlights} title="Wat deze avond bijzonder maakt" />
+          <TripHighlights items={tripHighlights} title="What Makes This Evening Special" />
         </div>
 
         {/* FAQs Section */}
         <div className="mb-20">
-          <FAQ items={tripFAQs} title="Veelgestelde vragen — zonsondergang" />
+          <FAQ items={tripFAQs} title="Sunset Tour FAQs" />
         </div>
 
         {/* Direct Booking Section */}
@@ -307,7 +285,7 @@ export default function SunsetTripClientPage({}: SunsetTripClientPageProps) {
               transition={{ duration: 0.5 }}
               className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-8"
             >
-              Reserveer nu je <span className="text-orange-600">zonsondergangtocht</span>
+              Reserve Your <span className="text-orange-600">Sunset Tour</span> Now
             </motion.h2>
             
             <motion.div 
@@ -326,7 +304,7 @@ export default function SunsetTripClientPage({}: SunsetTripClientPageProps) {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
                       </div>
-                      <span className="ml-3 text-gray-700">Snel en eenvoudig reserveren.</span>
+                      <span className="ml-3 text-gray-700">Quick and easy reservation.</span>
                     </li>
                     <li className="flex items-start">
                       <div className="flex-shrink-0 w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
@@ -334,7 +312,7 @@ export default function SunsetTripClientPage({}: SunsetTripClientPageProps) {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
                       </div>
-                      <span className="ml-3 text-gray-700">Directe bevestiging.</span>
+                      <span className="ml-3 text-gray-700">Instant confirmation.</span>
                     </li>
                     <li className="flex items-start">
                       <div className="flex-shrink-0 w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
@@ -342,7 +320,7 @@ export default function SunsetTripClientPage({}: SunsetTripClientPageProps) {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
                       </div>
-                      <span className="ml-3 text-gray-700">Flexibel annuleringsbeleid.</span>
+                      <span className="ml-3 text-gray-700">Flexible cancellation policy.</span>
                     </li>
                     <li className="flex items-start">
                       <div className="flex-shrink-0 w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
@@ -350,7 +328,7 @@ export default function SunsetTripClientPage({}: SunsetTripClientPageProps) {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
                       </div>
-                      <span className="ml-3 text-gray-700">All-inclusive ervaringen.</span>
+                      <span className="ml-3 text-gray-700">All-inclusive experiences.</span>
                     </li>
                     <li className="flex items-start">
                       <div className="flex-shrink-0 w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
@@ -358,7 +336,7 @@ export default function SunsetTripClientPage({}: SunsetTripClientPageProps) {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
                       </div>
-                      <span className="ml-3 text-gray-700">Ervaren team en persoonlijke aandacht.</span>
+                      <span className="ml-3 text-gray-700">Expert guides and personalized attention.</span>
                     </li>
                     <li className="flex items-start">
                       <div className="flex-shrink-0 w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">
@@ -367,17 +345,17 @@ export default function SunsetTripClientPage({}: SunsetTripClientPageProps) {
                         </svg>
                       </div>
                       <span className="ml-3 text-gray-700">
-                        <strong className="font-semibold">Gedeeltelijke online betaling</strong>
-                        <span className="text-sm text-gray-500 ml-1">(€20 p.p. om te reserveren); het restbedrag contant aan boord op de vaardag.</span>
+                        <strong className="font-semibold">Partial online payment</strong>
+                        <span className="text-sm text-gray-500 ml-1">(20€ per person to reserve), the rest is paid onboard on the day of the trip.</span>
                       </span>
                     </li>
                   </ul>
                 </div>
                 <div className="bg-gray-100 p-4 rounded-lg text-sm text-gray-700 w-full lg:w-1/4">
-                  <p className="font-medium mb-1">Veilig betalen met creditcards, Apple Pay en Google Pay.</p>
-                  <p>Transacties verlopen via Stripe.</p>
+                  <p className="font-medium mb-1">Secure payment through major credit cards, Apple Pay, and Google Pay.</p>
+                  <p>All transactions are securely processed by Stripe.</p>
                   <div className="mt-3 flex justify-center">
-                    <Image src="/images/cards.webp" alt="Geaccepteerde betaalmethoden" width={280} height={40} className="object-contain" />
+                    <Image src="/images/cards.webp" alt="Payment methods accepted" width={280} height={40} className="object-contain" />
                   </div>
                 </div>
               </div>
@@ -392,19 +370,19 @@ export default function SunsetTripClientPage({}: SunsetTripClientPageProps) {
             >
               {/* Age Information */}
               <div className="bg-orange-50 border border-orange-200 rounded-lg p-4 mb-6">
-                <h4 className="font-semibold text-gray-800 mb-2">Leeftijden & prijzen</h4>
+                <h4 className="font-semibold text-gray-800 mb-2">Age Groups & Pricing</h4>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
                   <div className="flex items-center">
                     <span className="w-3 h-3 bg-orange-500 rounded-full mr-2"></span>
-                    <span><strong>Volwassenen:</strong> €80 p.p.</span>
+                    <span><strong>Adults:</strong> €80 per person</span>
                   </div>
                   <div className="flex items-center">
                     <span className="w-3 h-3 bg-green-500 rounded-full mr-2"></span>
-                    <span><strong>Kinderen (6–12 jaar):</strong> €45</span>
+                    <span><strong>Children (6-12 years):</strong> €45</span>
                   </div>
                   <div className="flex items-center">
                     <span className="w-3 h-3 bg-yellow-500 rounded-full mr-2"></span>
-                    <span><strong>Baby’s (0–5 jaar):</strong> gratis</span>
+                    <span><strong>Infants (0-5 years):</strong> Free</span>
                   </div>
                 </div>
               </div>
@@ -419,13 +397,12 @@ export default function SunsetTripClientPage({}: SunsetTripClientPageProps) {
                   displayBillingTerm: true,
                   showQuantity: true,
                   titleVariant: "Modern",
-                  bookNow: "ZONSONDERGANG BOEKEN",
-                  selectExperienceLabel: "Zonsondergangervaring",
-                  addonsLabel: "Extra's",
-                  childrenAge: "6 tot 12 jaar",
-                  infantAge: "0 tot 5 jaar",
-                  depositObservation: "Na je boeking ontvang je een bevestiging met details en ontmoetingspunt. Een aanbetaling van €20 per persoon bevestigt de reservering; het restbedrag contant aan boord.",
-                  quantity: "Gasten",
+                  bookNow: "BOOK SUNSET TRIP",
+                  confirmReservationAndPay: "CONFIRM & PAY",
+                  selectExperienceLabel: "Sunset Experience",
+                  addonsLabel: "Add-ons",
+                  childrenAge: "6 to 12 Years",
+                  infantAge: "0 to 5 Years"
                 }}
               />
             </motion.div>
@@ -443,11 +420,10 @@ export default function SunsetTripClientPage({}: SunsetTripClientPageProps) {
                 </div>
                 <div className="ml-3">
                   <p className="text-sm md:text-base text-blue-800">
-                    <span className="font-medium">Liever overdag op zee?</span> Bekijk onze populaire{" "}
+                    <span className="font-medium">Looking for a daytime adventure?</span> Check out our popular{' '}
                     <Link href="/boat-trips/day-trip" className="font-bold underline text-blue-900 hover:text-blue-600 transition-colors">
-                      gemengde dagtocht
-                    </Link>
-                    {" — "}stranden, watersport en onbeperkte drankjes & tapas!
+                      Mixed Daytime Tour
+                    </Link> — explore beautiful beaches and enjoy water activities with unlimited drinks and tapas!
                   </p>
                 </div>
               </div>
@@ -463,51 +439,19 @@ export default function SunsetTripClientPage({}: SunsetTripClientPageProps) {
         <div className="bg-gradient-to-r from-orange-600 to-pink-500 rounded-2xl overflow-hidden shadow-xl my-12">
           <div className="relative px-6 py-16 md:p-12 text-white text-center md:text-left md:flex items-center justify-between">
             <div className="md:max-w-xl mb-8 md:mb-0">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Klaar voor een magische avond?</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready for a Magical Evening?</h2>
               <p className="text-orange-100 text-lg">
-                Mis Ibiza's mooiste zonsondergang niet — boek nu je plek!
+                Don&apos;t miss Ibiza&apos;s most spectacular sunset. Book your spot now!
               </p>
             </div>
             <Link href="#booking-widget">
               <span className="inline-block bg-white text-orange-600 hover:bg-orange-50 font-bold py-3 px-8 rounded-lg shadow-md transition duration-300 transform hover:scale-105">
-                Boek je zonsondergang
+                Book Your Sunset Experience
               </span>
             </Link>
           </div>
         </div>
       </div>
-
-      <Script
-        id="sunset-trip-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'Product',
-            name: 'Gemengde zonsondergangtocht — Salvador Ibiza',
-            description:
-              'Zonsondergang vanaf zee voor Café Mambo & Café del Mar. Onbeperkte drankjes, cava, Spaanse tapas en optionele zwemstop. Traditionele houten boot.',
-            brand: { '@type': 'Brand', name: 'Salvador Ibiza Boottochten' },
-            offers: {
-              '@type': 'Offer',
-              price: '80',
-              priceCurrency: 'EUR',
-              availability: 'https://schema.org/InStock',
-              validFrom: '2026-05-01T00:00:00+02:00',
-              validThrough: '2026-10-31T23:59:59+02:00',
-              seller: { '@type': 'Organization', name: 'Salvador Ibiza Boottochten' },
-            },
-            category: 'Boottocht',
-            inLanguage: 'nl-NL',
-            url: `${siteUrl}/boat-trips/sunset-trip`,
-            image: `${siteUrl}/images/optimized/ibiza-sunset-boat-trip-salvador.webp`,
-            mainEntityOfPage: {
-              '@type': 'WebPage',
-              '@id': `${siteUrl}/boat-trips/sunset-trip`,
-            },
-          }),
-        }}
-      />
     </div>
   );
 } 

@@ -1,15 +1,28 @@
 import HomePageContent from '@/components/HomePageContent';
 import { pageMetadata } from '@/lib/page-meta';
+import { buildFaqPageSchema } from '@/lib/faq-schema';
+import { getHomeSeo, getHomepageFaqs } from '@/lib/seo-i18n';
+import { getSiteLocale } from '@/lib/site-locale';
+
+const locale = getSiteLocale();
+const homeSeo = getHomeSeo(locale);
 
 export const metadata = pageMetadata({
-  title: 'Salvador Ibiza - Boottochten & privé charter',
-  description:
-    'De beste boottochten en privé-charters op Ibiza met Salvador. All-inclusive excursies, magische zonsondergangen en herinneringen voor het leven.',
+  ...homeSeo,
   path: '/',
-  keywords:
-    'Salvador Ibiza, boottochten Ibiza, privé charter, excursies Ibiza, sunset cruise, Es Vedrà, boot huren Ibiza',
+  locale,
 });
 
+const faqSchema = buildFaqPageSchema(getHomepageFaqs(locale));
+
 export default function HomePage() {
-  return <HomePageContent />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <HomePageContent />
+    </>
+  );
 }

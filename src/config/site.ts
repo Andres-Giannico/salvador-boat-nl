@@ -1,37 +1,36 @@
 /**
- * Sitio NL (.nl) como dominio principal de este repositorio.
- * Alternativas: EN (.com) y ES (.es), mismos paths para hreflang.
+ * Sitio EN (.com) + ES (.es) + NL (.nl): canonical y hreflang coherentes (mismos paths).
+ * La URL de inicio se expresa sin "/" final para alinear canonical, hreflang y next-sitemap (<loc>).
  *
  * Producción:
- * - NEXT_PUBLIC_SITE_URL → https://www.salvadoribiza.nl
- * - NEXT_PUBLIC_SITE_URL_EN → https://www.salvadoribiza.com
+ * - NEXT_PUBLIC_SITE_URL → https://www.salvadoribiza.com
  * - NEXT_PUBLIC_SITE_URL_ES → https://www.salvadoribiza.es
+ * - NEXT_PUBLIC_SITE_URL_NL → https://www.salvadoribiza.nl
  * - NEXT_PUBLIC_SITE_URL_FR → https://www.salvadoribiza.fr
- * Opcional: NEXT_PUBLIC_HREFLANG_X_DEFAULT=nl|en — por defecto en (sitio global .com).
+ *
+ * Opcional: NEXT_PUBLIC_HREFLANG_X_DEFAULT=nl|en — por defecto en (global .com).
  */
 
 function stripTrailingSlash(url: string): string {
   return url.replace(/\/+$/, "");
 }
 
-/** URL canónica del sitio neerlandés (este deploy) */
+/** URL canónica del sitio en inglés (este deploy) */
 export function getSiteUrl(): string {
   return stripTrailingSlash(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://www.salvadoribiza.nl"
+    process.env.NEXT_PUBLIC_SITE_URL || "https://www.salvadoribiza.com"
   );
 }
 
-/** Sitio en inglés */
-export function getEnglishSiteUrl(): string {
-  return stripTrailingSlash(
-    process.env.NEXT_PUBLIC_SITE_URL_EN || "https://www.salvadoribiza.com"
-  );
-}
-
-/** Sitio en español */
 export function getSpanishSiteUrl(): string {
   return stripTrailingSlash(
     process.env.NEXT_PUBLIC_SITE_URL_ES || "https://www.salvadoribiza.es"
+  );
+}
+
+export function getDutchSiteUrl(): string {
+  return stripTrailingSlash(
+    process.env.NEXT_PUBLIC_SITE_URL_NL || "https://www.salvadoribiza.nl"
   );
 }
 
@@ -49,37 +48,37 @@ export function normalizePath(path: string): string {
 export function absoluteUrl(path: string): string {
   const p = normalizePath(path);
   const base = getSiteUrl();
-  if (p === "/") return `${base}/`;
-  return `${base}${p}`;
-}
-
-export function absoluteEnglishUrl(path: string): string {
-  const p = normalizePath(path);
-  const base = getEnglishSiteUrl();
-  if (p === "/") return `${base}/`;
+  if (p === "/") return `${base}`;
   return `${base}${p}`;
 }
 
 export function absoluteSpanishUrl(path: string): string {
   const p = normalizePath(path);
   const base = getSpanishSiteUrl();
-  if (p === "/") return `${base}/`;
+  if (p === "/") return `${base}`;
+  return `${base}${p}`;
+}
+
+export function absoluteDutchUrl(path: string): string {
+  const p = normalizePath(path);
+  const base = getDutchSiteUrl();
+  if (p === "/") return `${base}`;
   return `${base}${p}`;
 }
 
 export function absoluteFrenchUrl(path: string): string {
   const p = normalizePath(path);
   const base = getFrenchSiteUrl();
-  if (p === "/") return `${base}/`;
+  if (p === "/") return `${base}`;
   return `${base}${p}`;
 }
 
-/** URL usada para x-default (acuerdo SEO: global EN salvo NEXT_PUBLIC_HREFLANG_X_DEFAULT=nl) */
+/** x-default: NL si NEXT_PUBLIC_HREFLANG_X_DEFAULT=nl; si no, inglés (.com). */
 export function hreflangXDefaultUrl(path: string): string {
   const p = normalizePath(path);
   const useNl = process.env.NEXT_PUBLIC_HREFLANG_X_DEFAULT === "nl";
-  const base = useNl ? getSiteUrl() : getEnglishSiteUrl();
-  if (p === "/") return `${base}/`;
+  const base = useNl ? getDutchSiteUrl() : getSiteUrl();
+  if (p === "/") return `${base}`;
   return `${base}${p}`;
 }
 
@@ -93,11 +92,12 @@ export function pageAlternates(path: string): {
   languages: Record<string, string>;
 } {
   const canonicalPath = normalizePath(path);
+  const canonicalAbsolute = absoluteUrl(canonicalPath);
   return {
-    canonical: absoluteUrl(canonicalPath),
+    canonical: canonicalAbsolute,
     languages: {
-      nl: absoluteUrl(canonicalPath),
-      en: absoluteEnglishUrl(canonicalPath),
+      nl: absoluteDutchUrl(canonicalPath),
+      en: canonicalAbsolute,
       es: absoluteSpanishUrl(canonicalPath),
       fr: absoluteFrenchUrl(canonicalPath),
       "x-default": hreflangXDefaultUrl(canonicalPath),
@@ -113,6 +113,7 @@ export interface PostalAddress {
   addressCountry: string;
 }
 
+/** Single source of truth for contact, addresses, and social links */
 export const businessContact = {
   name: "Salvador Ibiza",
   alternateName: "Salvador Boat Trips Ibiza",

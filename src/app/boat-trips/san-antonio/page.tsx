@@ -1,23 +1,23 @@
 import SanAntonioBoatTripsClientPage from './page.client';
-import { pageMetadata } from '@/lib/page-meta';
+import { enPageMetadata } from '@/lib/page-meta';
 import { buildProductSchema } from '@/lib/product-schema';
 
-export const metadata = pageMetadata({
-  title: 'Boottochten San Antonio Ibiza',
-  description: 'Vertrek vanuit de baai van San Antonio: premium dag- en zonsondergangtrips langs de westkust van Ibiza.',
+export const metadata = enPageMetadata({
+  title: 'Boat Trips San Antonio Ibiza | Departing from San Antonio Bay',
+  description: 'Join our boat trips departing from San Antonio Ibiza. Explore the best of Ibiza\'s west coast with our premium boat tours from San Antonio Bay. Day and sunset trips available.',
   path: '/boat-trips/san-antonio',
-  keywords: 'boottocht san antonio ibiza, sunset san antonio, haven san antonio boot',
-  ogTitle: 'Boottochten vanuit San Antonio',
-  ogDescription: 'Dag- en avondtrips vanuit San Antonio met Salvador.',
+  keywords: 'boat trips san antonio ibiza, boat trips in ibiza san antonio, ibiza boat trips from san antonio, boat trips from san antonio ibiza, san antonio boat trips ibiza, boat tour san antonio ibiza, sunset boat trip ibiza san antonio',
+  ogTitle: 'Boat Trips San Antonio Ibiza | Premium Departures from San Antonio Bay',
+  ogDescription: 'Discover the best boat trips departing from San Antonio Ibiza. Premium day and sunset cruises exploring Ibiza\'s stunning west coast.',
   ogImage: '/images/optimized/salvador-ibiza-boat-drone-view.webp',
-  ogImageAlt: 'Boot Salvador vertrekkend in San Antonio',
+  ogImageAlt: 'Salvador boat trip departing from San Antonio Ibiza',
 });
 
 export default async function SanAntonioBoatTripsPage() {
   const productSchema = await buildProductSchema({
-    name: "Boottochten vanuit San Antonio — Salvador",
+    name: "Boat Trips from San Antonio Ibiza by Salvador",
     description:
-      "Premium boottochten vanuit San Antonio Ibiza. Verken de westkust met onze dag- en zonsondergangcruises inclusief drankjes, tapas en watersport.",
+      "Premium boat trips departing from San Antonio Ibiza. Explore the west coast with our day and sunset cruises including drinks, tapas, and water sports.",
     path: "/boat-trips/san-antonio",
     price: "80",
     image: "/images/barcodesdedron.jpg",

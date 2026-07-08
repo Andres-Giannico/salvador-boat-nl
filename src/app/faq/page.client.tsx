@@ -1,178 +1,25 @@
 "use client";
 
-import type { ReactNode } from "react";
 import Link from "next/link";
 import { FiHelpCircle, FiAnchor, FiDollarSign, FiCompass } from 'react-icons/fi';
 import { GiWaveSurfer, GiSailboat } from 'react-icons/gi';
 import { motion } from 'framer-motion';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
-import { discoverabilityFaqs } from '@/lib/discoverability-faqs';
-import { familyBoatTripFaqs, sunsetBoatTripFaqs, snorkelingBoatTripFaqs } from '@/lib/topic-faqs';
-
 import FAQ from "@/components/trips/FAQ";
-
-const topicGuideFaqs = [
-  ...familyBoatTripFaqs.slice(0, 4),
-  ...sunsetBoatTripFaqs.slice(0, 3),
-  ...snorkelingBoatTripFaqs.slice(0, 3),
-];
-
-const planningFaqs = discoverabilityFaqs.map((faq) => ({
-  question: faq.question,
-  answer: faq.answer,
-}));
-
-const generalFaqs = [
-  {
-    question: "Welke boottochten bieden jullie aan?",
-    answer: (
-      <>
-        We bieden levendige gedeelde trips zoals onze <Link href='/boat-trips/day-trip' className='text-cyan-600 hover:underline font-medium'>gemengde dagtocht</Link> en de magische <Link href='/boat-trips/sunset-trip' className='text-orange-600 hover:underline font-medium'>zonsondergangtrip</Link>. Daarnaast volledig aanpasbare <Link href='/private-boat-trips' className='text-purple-600 hover:underline font-medium'>privétochten</Link>.
-      </>
-    ),
-  },
-  {
-    question: "Hoe lang duren de trips?",
-    answer:
-      "Dag- en zonsondergangtrips duren ongeveer 3 uur. Privécharters zijn op maat (minimaal 3 uur).",
-  },
-  {
-    question: "Welke routes varen jullie?",
-    answer: (
-      <>
-        Onze gedeelde tours gaan naar de westkust (richting Cala Conta) of noordkust (richting Sa Foradada), langs cala’s zoals Cala Gració en Cala Salada. De kapitein kiest dagelijks de beste route. Zie onze <Link href='/routes' className='text-blue-600 hover:underline font-medium'>routepagina</Link>. Bij <Link href='/private-boat-trips' className='text-purple-600 hover:underline font-medium'>privé</Link> is de route bespreekbaar.
-      </>
-    ),
-  },
-  {
-    question: "Waar is het meetingpoint?",
-    answer: (
-      <>
-        De haven van San Antonio. Exacte locatie op onze <Link href='/contact' className='text-blue-600 hover:underline font-medium'>contactpagina met kaart</Link>. Instaptijd bevestigen we na boeking.
-      </>
-    ),
-  },
-];
-
-const pricingFaqs = [
-  {
-    question: "Wat zit er in de prijs?",
-    answer: (
-      <>
-        Gedeelde trips: kapitein, bemanning, brandstof, unlimited open bar, Spaanse tapas & fruit, paddleboards, kajaks & snorkelen. <Link href='/private-boat-trips' className='text-purple-600 hover:underline font-medium'>Privé</Link> heeft vergelijkbare basis met upgrades. Check altijd de specifieke trip-pagina.
-      </>
-    ),
-  },
-  {
-    question: "Mag eigen eten en drinken?",
-    answer: (
-      <>
-        Eigen eten mag, vooral bij <Link href='/private-boat-trips' className='text-purple-600 hover:underline font-medium'>privé</Link>. <strong>Eigen drank is niet toegestaan</strong> — wij voorzien een ruime open bar. Verzoeken zoals taart voor charter in overleg.
-      </>
-    ),
-  },
-  {
-    question: "Hoe boek ik?",
-    answer: (
-      <>
-        <Link href='/book-now' className='text-blue-600 hover:underline font-medium'>Online boeken</Link> via de widgets met live beschikbaarheid op <Link href='/boat-trips/day-trip' className='text-cyan-600 hover:underline font-medium'>dagtrip</Link>, <Link href='/boat-trips/sunset-trip' className='text-orange-600 hover:underline font-medium'>zonsondergang</Link> en <Link href='/private-boat-trips' className='text-purple-600 hover:underline font-medium'>privé</Link>. Je ontvangt een voucher met details.
-      </>
-    ),
-  },
-  {
-    question: "Wat is het annuleringsbeleid?",
-    answer:
-      "Het beleid verschilt per trip en termijn. Meestal restitutie bij tijdige annulering. Zie algemene voorwaarden of neem contact op.",
-  },
-];
-
-const onboardFaqs = [
-  {
-    question: "Wat is de maximale capaciteit?",
-    answer: (
-      <>
-        Zie onze <Link href='/boat-trips' className='text-blue-600 hover:underline font-medium'>trips</Link> of <Link href='/private-boat-trips' className='text-purple-600 hover:underline font-medium'>privé</Link>-pagina voor het maximaal aantal passagiers.
-      </>
-    ),
-  },
-  {
-    question: "Is er een toilet aan boord?",
-    answer:
-      "Ja, er zijn scheepstoiletten (WC).",
-  },
-  {
-    question: "Is er schaduw op de boot?",
-    answer:
-      "Ja, alle boten hebben een bimini voor schaduw.",
-  },
-  {
-    question: "Is er muziek?",
-    answer:
-      "Ja, bluetooth-geluidssysteem om je eigen muziek af te spelen.",
-  },
-];
-
-const safetyFaqs = [
-  {
-    question: "Heb ik vaarervaring nodig?",
-    answer:
-      "Nee. Onze kapitein vaart; jij ontspant.",
-  },
-  {
-    question: "Is het veilig voor kinderen?",
-    answer:
-      "Ja. Verschillende maten reddingsvesten; geef leeftijden door bij boeking.",
-  },
-  {
-    question: "Wat moet ik meenemen?",
-    answer:
-      "Zwemkleding, handdoek, zonnebrand, pet, zonnebril, camera. Bij zeeziekte: voorbereiden.",
-  },
-  {
-    question: "Wat bij slecht weer?",
-    answer:
-      "Veiligheid eerst. Bij onveilige omstandigheden (kapitein) proberen we te verzetten; anders volledige terugbetaling.",
-  },
-];
-
-const activityFaqs = [
-  {
-    question: "Zijn watersporten inbegrepen?",
-    answer: (
-      <>
-        Ja: paddleboards, 2 kajaks en snorkelset tijdens zwemstops.
-      </>
-    ),
-  },
-  {
-    question: "Zijn huisdieren toegestaan?",
-    answer: (
-      <>
-        Niet op gedeelde dag-/zonsondergangtrips. Bij <Link href='/private-boat-trips' className='text-purple-600 hover:underline font-medium'>privé</Link> soms na overleg.
-      </>
-    ),
-  },
-  {
-    question: "Welke talen spreekt de bemanning?",
-    answer:
-      "O.a. Nederlands, Engels en Spaans; vaak ook Italiaans of Frans.",
-  },
-  {
-    question: "Wat maakt Salvador bijzonder?",
-    answer: (
-      <>
-        Traditionele houten boot, prachtige routes, royale inclusions en een vriendelijke bemanning. Lees meer <Link href='/about' className='text-blue-600 hover:underline font-medium'>over ons</Link>.
-      </>
-    ),
-  },
-];
+import {
+  getDiscoverabilityFaqs,
+  getFaqCategories,
+  getFaqPageUi,
+  getTopicGuideFaqs,
+} from '@/lib/faq-i18n';
+import { getClientSiteLocale } from '@/lib/site-locale';
 
 function CategoryIcon({
   icon,
   title,
-  className = ""
+  className = "",
 }: {
-  icon: ReactNode;
+  icon: React.ReactNode;
   title: string;
   className?: string;
 }) {
@@ -187,6 +34,12 @@ function CategoryIcon({
 }
 
 export default function FAQClientPage() {
+  const locale = getClientSiteLocale();
+  const ui = getFaqPageUi(locale);
+  const categories = getFaqCategories(locale);
+  const topicGuideFaqs = getTopicGuideFaqs(locale);
+  const planningFaqs = getDiscoverabilityFaqs(locale);
+
   const heroAnimation = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" as const } }
@@ -229,11 +82,11 @@ export default function FAQClientPage() {
             className="max-w-3xl mx-auto"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-5">
-              <span className="text-gray-900">Veelgestelde</span>{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">vragen</span>
+              <span className="text-gray-900">{ui.heroH1Main}</span>{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">{ui.heroH1Accent}</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-              Antwoorden over boottochten, boekingen en service.
+              {ui.heroSubtitle}
             </p>
           </motion.div>
         </div>
@@ -248,34 +101,19 @@ export default function FAQClientPage() {
             className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:gap-6 mb-16 md:mb-20 max-w-5xl mx-auto"
           >
             <motion.div variants={iconAnimation}>
-              <CategoryIcon
-                icon={<GiSailboat className="w-8 h-8 text-blue-600" />}
-                title="Algemeen"
-              />
+              <CategoryIcon icon={<GiSailboat className="w-8 h-8 text-blue-600" />} title={ui.categories.general} />
             </motion.div>
             <motion.div variants={iconAnimation}>
-              <CategoryIcon
-                icon={<FiDollarSign className="w-7 h-7 text-green-600" />}
-                title="Prijzen"
-              />
+              <CategoryIcon icon={<FiDollarSign className="w-7 h-7 text-green-600" />} title={ui.categories.pricing} />
             </motion.div>
             <motion.div variants={iconAnimation}>
-              <CategoryIcon
-                icon={<FiAnchor className="w-7 h-7 text-cyan-600" />}
-                title="Aan boord"
-              />
+              <CategoryIcon icon={<FiAnchor className="w-7 h-7 text-cyan-600" />} title={ui.categories.onboard} />
             </motion.div>
             <motion.div variants={iconAnimation}>
-              <CategoryIcon
-                icon={<FiHelpCircle className="w-7 h-7 text-orange-600" />}
-                title="Veiligheid"
-              />
+              <CategoryIcon icon={<FiHelpCircle className="w-7 h-7 text-orange-600" />} title={ui.categories.safety} />
             </motion.div>
             <motion.div variants={iconAnimation}>
-              <CategoryIcon
-                icon={<GiWaveSurfer className="w-8 h-8 text-purple-600" />}
-                title="Activiteiten"
-              />
+              <CategoryIcon icon={<GiWaveSurfer className="w-8 h-8 text-purple-600" />} title={ui.categories.activities} />
             </motion.div>
           </motion.div>
 
@@ -283,13 +121,10 @@ export default function FAQClientPage() {
             <motion.section variants={sectionAnimation} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.2 }}>
               <div className="flex items-center mb-6 pb-2 border-b border-gray-200">
                 <FiCompass className="w-6 h-6 text-indigo-600 mr-3 flex-shrink-0" />
-                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Beste boottochten per onderwerp</h2>
+                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">{ui.sections.topicGuide}</h2>
               </div>
               <p className="text-gray-600 mb-6">
-                Snelle antwoorden — volledige gidsen op onze{' '}
-                <Link href="/boat-trips/family" className="text-green-600 hover:underline">gezins</Link>,{' '}
-                <Link href="/boat-trips/sunset-trip" className="text-orange-600 hover:underline">zonsondergang</Link> en{' '}
-                <Link href="/boat-trips/snorkeling" className="text-cyan-600 hover:underline">snorkel</Link> pagina&apos;s.
+                {ui.sections.topicGuideIntro}
               </p>
               <FAQ items={topicGuideFaqs} title="" />
             </motion.section>
@@ -297,7 +132,7 @@ export default function FAQClientPage() {
             <motion.section variants={sectionAnimation} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.2 }}>
               <div className="flex items-center mb-6 pb-2 border-b border-gray-200">
                 <FiCompass className="w-6 h-6 text-violet-600 mr-3 flex-shrink-0" />
-                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Een boottocht kiezen op Ibiza</h2>
+                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">{ui.sections.planning}</h2>
               </div>
               <FAQ items={planningFaqs} title="" />
             </motion.section>
@@ -305,41 +140,41 @@ export default function FAQClientPage() {
             <motion.section variants={sectionAnimation} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.2 }}>
               <div className="flex items-center mb-6 pb-2 border-b border-gray-200">
                 <GiSailboat className="w-6 h-6 text-blue-600 mr-3 flex-shrink-0" />
-                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Algemeen</h2>
+                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">{ui.sections.general}</h2>
               </div>
-              <FAQ items={generalFaqs} />
+              <FAQ items={categories.general} />
             </motion.section>
 
             <motion.section variants={sectionAnimation} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.2 }}>
               <div className="flex items-center mb-6 pb-2 border-b border-gray-200">
                 <FiDollarSign className="w-5 h-5 text-green-600 mr-3 flex-shrink-0" />
-                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Prijzen & boeken</h2>
+                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">{ui.sections.pricing}</h2>
               </div>
-              <FAQ items={pricingFaqs} />
+              <FAQ items={categories.pricing} />
             </motion.section>
 
             <motion.section variants={sectionAnimation} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.2 }}>
               <div className="flex items-center mb-6 pb-2 border-b border-gray-200">
                 <FiAnchor className="w-5 h-5 text-cyan-600 mr-3 flex-shrink-0" />
-                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Aan boord</h2>
+                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">{ui.sections.onboard}</h2>
               </div>
-              <FAQ items={onboardFaqs} />
+              <FAQ items={categories.onboard} />
             </motion.section>
 
             <motion.section variants={sectionAnimation} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.2 }}>
               <div className="flex items-center mb-6 pb-2 border-b border-gray-200">
                 <FiHelpCircle className="w-5 h-5 text-orange-600 mr-3 flex-shrink-0" />
-                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Veiligheid & voorbereiding</h2>
+                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">{ui.sections.safety}</h2>
               </div>
-              <FAQ items={safetyFaqs} />
+              <FAQ items={categories.safety} />
             </motion.section>
 
             <motion.section variants={sectionAnimation} initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.2 }}>
               <div className="flex items-center mb-6 pb-2 border-b border-gray-200">
                 <GiWaveSurfer className="w-6 h-6 text-purple-600 mr-3 flex-shrink-0" />
-                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">Activiteiten & meer</h2>
+                <h2 className="text-2xl md:text-3xl font-semibold text-gray-800">{ui.sections.activities}</h2>
               </div>
-              <FAQ items={activityFaqs} />
+              <FAQ items={categories.activity} />
             </motion.section>
           </div>
 
@@ -359,14 +194,14 @@ export default function FAQClientPage() {
               ></div>
               <div className="relative z-10 text-center md:flex items-center justify-between">
                 <div className="md:max-w-lg mb-6 md:mb-0 md:text-left">
-                  <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">Nog vragen?</h2>
+                  <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">{ui.ctaTitle}</h2>
                   <p className="text-blue-100 text-base md:text-lg leading-relaxed">
-                    Neem gerust contact op voor persoonlijk advies.
+                    {ui.ctaText}
                   </p>
                 </div>
                 <Link href="/contact">
                   <span className="inline-flex items-center justify-center bg-white text-blue-700 hover:bg-blue-50 font-semibold py-3 px-6 rounded-lg shadow hover:shadow-md transition-all duration-300 transform hover:-translate-y-0.5">
-                    Contact
+                    {ui.ctaButton}
                     <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                   </span>
                 </Link>

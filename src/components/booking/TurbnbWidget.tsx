@@ -24,6 +24,7 @@ interface TurbnbWidgetProps {
     quantity?: string;
     titleVariant?: string;
     bookNow?: string;
+    confirmReservationAndPay?: string;
     selectExperienceLabel?: string;
     addonsLabel?: string;
     childrenAge?: string;
@@ -42,14 +43,14 @@ export default function TurbnbWidget({
   customProperties = {
     displayBillingTerm: true,
     showQuantity: true,
-    quantity: 'Aantal gasten',
-    titleVariant: 'Modern',
-    bookNow: 'NU RESERVEREN',
-    selectExperienceLabel: 'Soort ervaring',
-    addonsLabel: "Extra's",
-    depositObservation:
-      'Na je boeking ontvang je een bevestiging met ontmoetingspunt en tijd. Controleer telefoon en e-mail. Aanbetaling €20 per persoon; het restant aan boord.',
-  },
+    quantity: "Quantity",
+    titleVariant: "Modern",
+    bookNow: "RESERVE NOW",
+    confirmReservationAndPay: "CLICK TO PAY",
+    selectExperienceLabel: "Experience Type",
+    addonsLabel: "Add-ons",
+    depositObservation: "After completing your booking, you will receive a confirmation voucher with all the details including meeting point and time. Please ensure your contact information (phone and email) is correct as we may need to reach you regarding your booking. A deposit of €20 per person is required to secure your reservation, with the remaining balance paid onboard."
+  }
 }: TurbnbWidgetProps) {
   const [activePromo, setActivePromo] = useState<ActivePromo | null>(null);
 
@@ -74,15 +75,17 @@ export default function TurbnbWidget({
               customProperties: mergeTurboBookingCustomProperties(customProperties),
             });
           } catch (error) {
-            console.error('Error initializing booking widget:', error);
+            console.error("Error initializing booking widget:", error);
           }
         }
       }
     };
 
+    // If TurboBooking is loaded, initialize widget
     if (typeof window !== 'undefined' && typeof window.TurboBooking !== 'undefined') {
       initializeWidget();
     } else if (typeof window !== 'undefined') {
+      // If not loaded yet, wait for script to load
       window.addEventListener('turbnbLoaded', initializeWidget);
       return () => window.removeEventListener('turbnbLoaded', initializeWidget);
     }
@@ -96,7 +99,7 @@ export default function TurbnbWidget({
         ) : null}
         <div id={id} className="w-full min-w-0" />
       </div>
-
+      
       <Script
         src={TURBNB_WIDGET_JS}
         strategy="afterInteractive"
@@ -111,4 +114,4 @@ export default function TurbnbWidget({
       ) : null}
     </>
   );
-}
+} 

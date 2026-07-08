@@ -1,10 +1,10 @@
 import BookNowClientPage from './page.client';
-import { pageMetadata } from '@/lib/page-meta';
+import { enPageMetadata } from '@/lib/page-meta';
 
-export const metadata = pageMetadata({
-  title: 'Boek je boottocht op Ibiza',
+export const metadata = enPageMetadata({
+  title: 'Book Your Ibiza Boat Trip',
   description:
-    'Boek eenvoudig online een gedeelde dag- of zonsondergangtrip of een privé charter bij Salvador Ibiza.',
+    'Book your private charter or shared boat trip (Day or Sunset) easily online. Choose your perfect Ibiza experience with Salvador Ibiza.',
   path: '/book-now',
 });
 

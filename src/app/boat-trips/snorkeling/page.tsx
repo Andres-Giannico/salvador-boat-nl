@@ -1,30 +1,30 @@
-import { pageMetadata } from "@/lib/page-meta";
+import { enPageMetadata } from "@/lib/page-meta";
 import { buildFaqPageSchema } from "@/lib/faq-schema";
 import { snorkelingBoatTripFaqs } from "@/lib/topic-faqs";
 import { buildProductSchema } from "@/lib/product-schema";
 import SnorkelingBoatTripsClientPage from "./page.client";
 
-export const metadata = pageMetadata({
-  title: "Beste snorkelboottochten Ibiza (3 uur) | Uitrusting inbegrepen",
+export const metadata = enPageMetadata({
+  title: "Best Snorkeling Boat Trips Ibiza (3 hours) | Equipment Included",
   description:
-    "Ontdek de beste snorkelboottocht op Ibiza met Salvador. Professionele uitrusting, kristalheldere cala's, 2–3 zwemstops en all-inclusive dagtochten vanuit San Antonio.",
+    "Discover the best snorkelling boat trip in Ibiza with Salvador. Professional equipment, crystal-clear coves, 2–3 swim stops and all-inclusive day trips from San Antonio.",
   path: "/boat-trips/snorkeling",
   keywords:
-    "beste snorkelboottocht ibiza, snorkelen boot Ibiza, waar snorkelen ibiza, snorkeltour Ibiza, ibiza zee grotten snorkelen",
-  ogTitle: "Beste snorkelboottochten Ibiza | Uitrusting inbegrepen",
+    "best snorkeling boat trip ibiza, snorkeling boat trips Ibiza, where to snorkel ibiza, snorkel tour Ibiza, ibiza sea caves snorkeling",
+  ogTitle: "Best Snorkeling Boat Trips Ibiza | Equipment Included",
   ogDescription:
-    "Verken Ibiza's beste snorkelplekken per boot met Salvador. Volledige uitrusting, ervaren bemanning en all-inclusive trips vanuit San Antonio.",
+    "Explore Ibiza's best snorkelling spots by boat with Salvador. Full equipment, expert crew and all-inclusive trips from San Antonio.",
   ogImage: "/images/boat/parejasnorkeling.webp",
-  ogImageAlt: "Stel snorkelt in kristalhelder water tijdens boottocht Ibiza",
+  ogImageAlt: "Couple snorkeling in crystal clear waters during Ibiza boat trip",
 });
 
 const faqSchema = buildFaqPageSchema(snorkelingBoatTripFaqs);
 
 export default async function SnorkelingBoatTripsPage() {
   const productSchema = await buildProductSchema({
-    name: "Snorkelboottochten Ibiza — Salvador",
+    name: "Snorkeling Boat Trips Ibiza by Salvador",
     description:
-      "Ontdek Ibiza's onderwaterwereld met professionele snorkeluitrusting en begeleiding. Geschikt voor alle niveaus in kristalhelder mediterrane water.",
+      "Discover Ibiza's underwater world with professional snorkeling equipment and expert guidance. Perfect for all skill levels in crystal-clear Mediterranean waters.",
     path: "/boat-trips/snorkeling",
     price: "80",
     image: "/images/boat/parejasnorkeling.webp",

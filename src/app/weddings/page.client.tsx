@@ -18,30 +18,22 @@ import {
 
 // Placeholder for wedding features
 const weddingFeatures = [
-  { icon: FiHeart, text: 'Intieme & romantische sfeer' },
-  { icon: FiCamera, text: 'Unieke fotomomenten' },
-  { icon: FiAnchor, text: 'Bijzondere setting op zee' },
-  { icon: FiUsers, text: 'Persoonlijke service & planning' },
+  { icon: FiHeart, text: 'Intimate & Romantic Atmosphere' },
+  { icon: FiCamera, text: 'Spectacular Photo Opportunities' },
+  { icon: FiAnchor, text: 'Unique Ceremony Backdrop' },
+  { icon: FiUsers, text: 'Personalized Service & Planning' },
 ];
-
-const weddingWidgetStrings = {
-  bookNow: 'NU RESERVEREN',
-  quantity: 'Deelnemers',
-  selectExperienceLabel: 'Bruiloftscharter',
-  addonsLabel: "Extra's bruiloft",
-  depositObservation: 'Bevestiging van je bruiloftsboeking',
-} as const;
 
 // Imágenes para la galería de Bodas
 const galleryImages = [
   // Nuevas imágenes de la carpeta /images/boat/private-new/ (enfocadas en ambiente y detalles)
-  { src: "/images/boat/private-new/tapasycavapopabarco_1.webp", alt: "Elegante tapas en cava voor een bruiloft op zee" },
-  { src: "/images/boat/private-new/sushiycavapopa_1.webp", alt: "Sushi en cava — luxe bruiloft aan boord" },
-  { src: "/images/boat/private-new/Frutasenbarra_1.webp", alt: "Fruitschaal aan de bar voor bruiloftsgasten" },
-  { src: "/images/boat/private-new/cavaenbarco_1.webp", alt: "Gekoelde cava voor de trouwtoost op Salvador Ibiza" },
-  { src: "/images/boat/private-new/interiorbarcosalvador_1.webp", alt: "Elegant interieur — intieme bruiloftsbijeenkomst" },
-  { src: "/images/boat/private-new/interiorbarcocubierta_1.webp", alt: "Overdekt dek — sfeervol voor ceremonie of receptie" },
-  { src: "/images/boat/private-new/popabarcosalvador_1.webp", alt: "Achterplecht Salvador als trouwdecoor" },
+  { src: "/images/boat/private-new/tapasycavapopabarco_1.webp", alt: "Elegant tapas and cava setting for a wedding celebration" },
+  { src: "/images/boat/private-new/sushiycavapopa_1.webp", alt: "Premium sushi and cava, perfect for a luxury wedding at sea" },
+  { src: "/images/boat/private-new/Frutasenbarra_1.webp", alt: "Beautiful fruit platter at the bar, ideal for wedding guests" },
+  { src: "/images/boat/private-new/cavaenbarco_1.webp", alt: "Chilled cava ready for a wedding toast on Salvador Ibiza" },
+  { src: "/images/boat/private-new/interiorbarcosalvador_1.webp", alt: "Elegant interior of Salvador boat, suitable for intimate wedding gatherings" },
+  { src: "/images/boat/private-new/interiorbarcocubierta_1.webp", alt: "Covered deck area, offering a charming space for wedding ceremonies or receptions" },
+  { src: "/images/boat/private-new/popabarcosalvador_1.webp", alt: "Stern of Salvador Ibiza, a picturesque backdrop for wedding photos" },
   // Puedes añadir más imágenes relevantes para bodas de otras carpetas si es necesario
   // Ejemplo de imagen de ambiente general (si aplica)
   // { src: "/images/optimized/ibiza-sunset-boat-trip-salvador.webp", alt: "Romantic sunset view, perfect for a wedding cruise" }
@@ -104,10 +96,15 @@ export default function WeddingsClientPage() {
             productId: 3, // Same as private charter
             channelId: 11,
             customProperties: mergeTurboBookingCustomProperties({
-              displayBillingTerm: true,
-              showQuantity: false,
-              titleVariant: 'Modern',
-              ...weddingWidgetStrings,
+              "displayBillingTerm": true, 
+              "showQuantity": false,
+              "quantity": "Participants",
+              "titleVariant": "Modern",
+              "bookNow": "INQUIRE NOW",
+              "confirmReservationAndPay": "PAY CONFIRMATION DEPOSIT OF ",
+              "selectExperienceLabel": "Select Wedding Charter",
+              "addonsLabel": "Optional Wedding Upgrades",
+              "depositObservation": "Make sure you selected the amount of guests for your wedding. After the reservation you will get the voucher with all the info as location and booking details"
             }),
           });
           console.log('Wedding Widget Initialized');
@@ -141,10 +138,15 @@ export default function WeddingsClientPage() {
                   productId: 3,
                   channelId: 11,
                   customProperties: mergeTurboBookingCustomProperties({
-                    displayBillingTerm: true,
-                    showQuantity: false,
-                    titleVariant: 'Modern',
-                    ...weddingWidgetStrings,
+                    "displayBillingTerm": true,
+                    "showQuantity": false,
+                    "quantity": "Participants",
+                    "titleVariant": "Modern",
+                    "bookNow": "RESERVE NOW",
+                    "confirmReservationAndPay": "CONFIRM & PAY",
+                    "selectExperienceLabel": "Select Wedding Charter",
+                    "addonsLabel": "Wedding Add-ons",
+                    "depositObservation": "Wedding booking confirmation"
                   }),
                 });
                 console.log('Wedding widget initialized on script load');
@@ -172,7 +174,7 @@ export default function WeddingsClientPage() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/optimized/ibiza-sunset-boat-trip-salvador.webp" // Placeholder image - change to a romantic/wedding themed one later
-            alt="Romantische zonsondergang — trouwsetting op Salvador Ibiza"
+            alt="Romantic sunset wedding setting on Salvador Ibiza"
             fill
             priority
             className="object-cover object-center filter brightness-75"
@@ -186,7 +188,7 @@ export default function WeddingsClientPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, type: 'spring' }}
           >
-            Bruiloften op zee
+            Weddings at Sea
           </motion.h1>
           <motion.p 
             className="text-xl md:text-2xl text-gray-100 max-w-3xl mx-auto"
@@ -194,7 +196,7 @@ export default function WeddingsClientPage() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.5 }}
           >
-            Vier jullie grote dag met een onvergetelijke bruiloft aan boord van Salvador Ibiza.
+            Celebrate your special day with an unforgettable wedding experience aboard Salvador Ibiza.
           </motion.p>
         </div>
       </section>
@@ -209,7 +211,7 @@ export default function WeddingsClientPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
             >
-              Jouw droom<span className="text-pink-600">bruiloft op zee</span> in Ibiza
+              Your Dream <span className="text-pink-600">Wedding at Sea</span> in Ibiza
             </motion.h2>
             <motion.p 
               className="text-xl text-gray-600 leading-relaxed mb-8"
@@ -218,8 +220,9 @@ export default function WeddingsClientPage() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: 0.2 }}
             >
-              Creëer de meest <strong>romantische bruiloft in Ibiza</strong> aan boord van onze traditionele houten boot Salvador — 
-              trouwgeloften met helder Mediterraan water, dramatische kliffen en zonsondergangen die je dag onvergetelijk maken.
+              Create the most <strong>romantic wedding experience in Ibiza</strong> aboard our traditional wooden boat Salvador. 
+              Exchange vows surrounded by crystal-clear Mediterranean waters, dramatic cliffs, and breathtaking sunsets 
+              that will make your special day truly unforgettable.
             </motion.p>
             <motion.p 
               className="text-lg text-gray-600 leading-relaxed mb-8"
@@ -228,8 +231,9 @@ export default function WeddingsClientPage() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: 0.4 }}
             >
-              Onze <strong>intieme ceremonies op de boot</strong> bieden privacy weg van de drukte, met persoonlijke service 
-              en natuur als decor. Van <strong>elopements tot intieme vieringen</strong> tot 36 gasten — momenten om voor altijd te koesteren.
+              Our <strong>intimate boat wedding ceremonies</strong> offer complete privacy away from crowds, with personalized service 
+              and stunning natural backdrops. From <strong>elopements to intimate celebrations</strong> for up to 36 guests, 
+              we create magical moments that you and your loved ones will treasure forever.
             </motion.p>
           </div>
           
@@ -263,7 +267,7 @@ export default function WeddingsClientPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
             >
-              Ibiza trouwpakketten
+              Ibiza Wedding Packages
             </motion.h2>
             <motion.p 
               className="text-lg text-gray-600 leading-relaxed"
@@ -272,7 +276,7 @@ export default function WeddingsClientPage() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: 0.2 }}
             >
-              Kies een van onze pakketten of laat een volledig op maat gemaakte ervaring samenstellen voor jullie grote dag.
+              Choose from our carefully crafted wedding packages or let us create a completely customized experience for your special day.
             </motion.p>
           </div>
 
@@ -289,46 +293,46 @@ export default function WeddingsClientPage() {
               </div>
               <div className="text-center mb-6 mt-4">
                 <FiHeart className="w-12 h-12 text-pink-500 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-gray-800 mb-2">Bruiloft op zee</h3>
-                <p className="text-gray-600">Jullie droombruiloft aan boord van de Salvador</p>
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">Wedding at Sea</h3>
+                <p className="text-gray-600">Your dream wedding aboard Salvador</p>
               </div>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-center text-gray-700">
                   <span className="w-2 h-2 bg-pink-500 rounded-full mr-3"></span>
-                  Tot 36 gasten
+                  Up to 36 guests
                 </li>
                 <li className="flex items-center text-gray-700">
                   <span className="w-2 h-2 bg-pink-500 rounded-full mr-3"></span>
-                  4 uur privécharter
+                  4-hour private charter
                 </li>
                 <li className="flex items-center text-gray-700">
                   <span className="w-2 h-2 bg-pink-500 rounded-full mr-3"></span>
-                  Open bar (cava, sangría, wijn, bier, rosé, prosecco) & hapjes
+                  Open bar (cava, sangria, wine, beer, rosé, prosecco) & snacks
                 </li>
                 <li className="flex items-center text-gray-700">
                   <span className="w-2 h-2 bg-pink-500 rounded-full mr-3"></span>
-                  Ceremonie-opstelling op het dek
+                  Ceremony setup on deck
                 </li>
                 <li className="flex items-center text-gray-700">
                   <span className="w-2 h-2 bg-pink-500 rounded-full mr-3"></span>
-                  Zwem- & snorkeluitrusting
+                  Swimming & snorkeling gear
                 </li>
                 <li className="flex items-center text-gray-700">
                   <span className="w-2 h-2 bg-pink-500 rounded-full mr-3"></span>
-                  Professionele kapitein & bemanning
+                  Professional captain & crew
                 </li>
               </ul>
               <div className="text-center">
                 <div className="mb-4">
-                  <div className="text-lg font-bold text-pink-600">Laagseizoen: €1.350</div>
-                  <div className="text-lg font-bold text-pink-600">Hoogseizoen: €1.650</div>
-                  <p className="text-sm text-gray-600 mt-1">+ €30/persoon (inbegrepen) + btw</p>
+                  <div className="text-lg font-bold text-pink-600">Low Season: €1,350</div>
+                  <div className="text-lg font-bold text-pink-600">High Season: €1,650</div>
+                  <p className="text-sm text-gray-600 mt-1">+ €30/person (included) + IVA</p>
                 </div>
                 <button 
                   onClick={handleBookButtonClick}
                   className="bg-pink-600 hover:bg-pink-700 text-white px-6 py-3 rounded-lg transition-colors"
                 >
-                  Boek jullie bruiloft
+                  Book Your Wedding
                 </button>
               </div>
             </motion.div>
@@ -342,18 +346,18 @@ export default function WeddingsClientPage() {
             >
               <div className="text-center mb-6">
                 <FiAnchor className="w-12 h-12 text-pink-500 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-gray-800 mb-2">Bar inbegrepen</h3>
-                <p className="text-gray-600 text-sm mb-2">Standaardservice inbegrepen + optionele upgrades</p>
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">Bar Service Included</h3>
+                <p className="text-gray-600 text-sm mb-2">Standard service included + optional upgrades</p>
               </div>
               
               {/* Bar Service Options */}
               <div className="space-y-4 mb-6">
                 <div className="bg-green-50 rounded-lg p-4 border-2 border-green-200">
                   <div className="flex justify-between items-start mb-2">
-                    <h4 className="font-semibold text-gray-800">Standaard bar</h4>
-                    <span className="text-green-600 font-bold text-lg">✓ Inbegrepen</span>
+                    <h4 className="font-semibold text-gray-800">Standard Bar Service</h4>
+                    <span className="text-green-600 font-bold text-lg">✓ Included</span>
                   </div>
-                  <p className="text-sm text-gray-600">Cava, sangría, wijn, bier, rosé, prosecco & frisdrank (€30/persoon automatisch toegevoegd)</p>
+                  <p className="text-sm text-gray-600">Cava, sangria, wine, beer, rosé, prosecco & soft drinks (€30/person automatically added)</p>
                 </div>
                 
                 <div className="bg-white rounded-lg p-4 border-2 border-pink-300 relative">
@@ -361,35 +365,35 @@ export default function WeddingsClientPage() {
                     <span className="bg-pink-600 text-white px-2 py-1 rounded text-xs font-semibold">Upgrade</span>
                   </div>
                                       <div className="flex justify-between items-start mb-2">
-                      <h4 className="font-semibold text-gray-800">Premium bar</h4>
-                      <span className="text-pink-600 font-bold text-lg">€55/fles</span>
+                      <h4 className="font-semibold text-gray-800">Premium Bar Service</h4>
+                      <span className="text-pink-600 font-bold text-lg">€55/bottle</span>
                     </div>
-                    <p className="text-sm text-gray-600">Sterke drank per fles (wodka, whisky, rum, gin) met mixers voor cocktails</p>
+                    <p className="text-sm text-gray-600">Add spirits bottle (vodka, whisky, rum, gin) with mixers for cocktails</p>
                 </div>
               </div>
 
               {/* Additional Services */}
               <div className="border-t border-gray-200 pt-4">
-                <h4 className="font-semibold text-gray-800 mb-3 text-center">Optionele extra's</h4>
+                <h4 className="font-semibold text-gray-800 mb-3 text-center">Optional Extras</h4>
                 <ul className="space-y-2">
                   <li className="flex items-center justify-between text-gray-700 bg-white rounded-lg p-2">
-                    <span className="text-sm">Extra uur</span>
+                    <span className="text-sm">Extra Hour</span>
                     <span className="text-pink-600 font-bold">€500</span>
                   </li>
                   <li className="flex items-center justify-between text-gray-700 bg-white rounded-lg p-2">
-                    <span className="text-sm">Deluxe tapas (per persoon)</span>
+                    <span className="text-sm">Deluxe Tapas (per person)</span>
                     <span className="text-pink-600 font-bold">€40</span>
                   </li>
                 </ul>
               </div>
 
               <div className="text-center mt-6">
-                <p className="text-sm text-gray-600 mb-4">Alle prijzen excl. btw</p>
+                <p className="text-sm text-gray-600 mb-4">All prices exclude IVA (VAT)</p>
                 <button 
                   onClick={handleBookButtonClick}
                   className="bg-pink-600 hover:bg-pink-700 text-white px-6 py-3 rounded-lg transition-colors"
                 >
-                  Boek jullie bruiloft
+                  Book Your Wedding
                 </button>
               </div>
             </motion.div>
@@ -397,15 +401,15 @@ export default function WeddingsClientPage() {
 
           {/* Season Information */}
           <div className="bg-white rounded-xl p-6 mt-8 border border-gray-200 max-w-4xl mx-auto">
-            <h3 className="text-lg font-semibold text-gray-800 mb-4 text-center">Seizoensinformatie</h3>
+            <h3 className="text-lg font-semibold text-gray-800 mb-4 text-center">Season Information</h3>
             <div className="grid md:grid-cols-2 gap-4 text-sm text-gray-600">
               <div className="text-center">
-                <div className="font-semibold text-pink-600">Laagseizoen (€1.350)</div>
-                <p>Mei & oktober</p>
+                <div className="font-semibold text-pink-600">Low Season (€1,350)</div>
+                <p>May & October</p>
               </div>
               <div className="text-center">
-                <div className="font-semibold text-pink-600">Hoogseizoen (€1.650)</div>
-                <p>Juni t/m september</p>
+                <div className="font-semibold text-pink-600">High Season (€1,650)</div>
+                <p>June, July, August & September</p>
               </div>
             </div>
           </div>
@@ -424,7 +428,7 @@ export default function WeddingsClientPage() {
                 transition={{ duration: 0.6 }}
               >
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
-                  Waarom <span className="text-pink-600">Ibiza</span> voor jullie bruiloft?
+                  Why Choose <span className="text-pink-600">Ibiza</span> for Your Wedding?
                 </h2>
                 <div className="space-y-6">
                   <div className="flex items-start space-x-4">
@@ -432,8 +436,8 @@ export default function WeddingsClientPage() {
                       <FiCamera className="w-4 h-4 text-pink-600" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-800 mb-2">Natuurschoon</h3>
-                      <p className="text-gray-600">Ibiza's kustlijn, helder water en zonsondergangen — het perfecte decor voor foto's en herinneringen.</p>
+                      <h3 className="text-lg font-semibold text-gray-800 mb-2">Stunning Natural Beauty</h3>
+                      <p className="text-gray-600">Ibiza's dramatic coastline, crystal-clear waters, and legendary sunsets provide the most romantic backdrop for your wedding photos and memories.</p>
                     </div>
                   </div>
                   
@@ -442,8 +446,8 @@ export default function WeddingsClientPage() {
                       <FiMap className="w-4 h-4 text-pink-600" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-800 mb-2">Unieke locatie</h3>
-                      <p className="text-gray-600">Onze traditionele houten boot is een intieme, exclusieve setting — ver verwijderd van standaard trouwlocaties.</p>
+                      <h3 className="text-lg font-semibold text-gray-800 mb-2">Unique Venue Experience</h3>
+                      <p className="text-gray-600">Our traditional wooden boat offers an intimate, exclusive venue that's completely different from conventional wedding locations.</p>
                     </div>
                   </div>
                   
@@ -452,8 +456,8 @@ export default function WeddingsClientPage() {
                       <FiMusic className="w-4 h-4 text-pink-600" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-800 mb-2">Klimaat & sfeer</h3>
-                      <p className="text-gray-600">Mediteraans klimaat en magische eilandsfeer — ideaal voor vieringen in de open lucht.</p>
+                      <h3 className="text-lg font-semibold text-gray-800 mb-2">Perfect Weather & Atmosphere</h3>
+                      <p className="text-gray-600">Ibiza's Mediterranean climate and magical island atmosphere create the perfect conditions for outdoor wedding celebrations.</p>
                     </div>
                   </div>
                   
@@ -462,8 +466,8 @@ export default function WeddingsClientPage() {
                       <GiWineBottle className="w-4 h-4 text-pink-600" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-800 mb-2">All-inclusive comfort</h3>
-                      <p className="text-gray-600">Van catering tot drankjes en service — wij regelen details zodat jullie kunnen genieten.</p>
+                      <h3 className="text-lg font-semibold text-gray-800 mb-2">All-Inclusive Luxury</h3>
+                      <p className="text-gray-600">From gourmet catering to premium drinks and professional service, we handle every detail so you can focus on celebrating your love.</p>
                     </div>
                   </div>
                 </div>
@@ -479,7 +483,7 @@ export default function WeddingsClientPage() {
                 <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
                   <Image
                     src="/images/boat/private-new/tapasycavapopabarco_1.webp"
-                    alt="Tapas en bubbels — trouwsetting op Salvador Ibiza"
+                    alt="Elegant wedding setup with tapas and champagne on Salvador Ibiza boat"
                     fill
                     className="object-cover"
                   />
@@ -500,7 +504,7 @@ export default function WeddingsClientPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
             >
-              Op maat van jullie droom
+              Tailored to Your Dream
             </motion.h2>
             <motion.p 
               className="text-lg text-gray-600 leading-relaxed"
@@ -509,29 +513,29 @@ export default function WeddingsClientPage() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: 0.2 }}
             >
-              Elke bruiloft is uniek. Samen personaliseren we route, planning, muziek en catering zodat alles bij jullie past.
+              Every wedding is unique. We work closely with you to personalize your celebration, ensuring it perfectly reflects your style and vision. From the route and schedule to music and catering, let us help you craft your perfect day.
             </motion.p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <motion.div className="flex items-start space-x-4" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
               <FiMap className="w-8 h-8 text-blue-600 flex-shrink-0 mt-1" />
               <div>
-                <h4 className="text-lg font-semibold mb-1">Routes op maat</h4>
-                <p className="text-gray-500">Van verborgen baaien tot iconische plekken — jullie kiezen het decor.</p>
+                <h4 className="text-lg font-semibold mb-1">Custom Routes</h4>
+                <p className="text-gray-500">Choose your ideal backdrop, from hidden coves to iconic landmarks.</p>
               </div>
             </motion.div>
             <motion.div className="flex items-start space-x-4" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.4 }}>
               <GiWineBottle className="w-8 h-8 text-blue-600 flex-shrink-0 mt-1" />
               <div>
-                <h4 className="text-lg font-semibold mb-1">Catering & drank</h4>
-                <p className="text-gray-500">Premium bar-opties en persoonlijke menu's.</p>
+                <h4 className="text-lg font-semibold mb-1">Catering & Drinks</h4>
+                <p className="text-gray-500">Select from premium bar options and personalized catering menus.</p>
               </div>
             </motion.div>
             <motion.div className="flex items-start space-x-4" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5 }}>
               <FiMusic className="w-8 h-8 text-blue-600 flex-shrink-0 mt-1" />
               <div>
-                <h4 className="text-lg font-semibold mb-1">Muziek & sfeer</h4>
-                <p className="text-gray-500">Afstemmen op jullie thema en stijl.</p>
+                <h4 className="text-lg font-semibold mb-1">Music & Decor</h4>
+                <p className="text-gray-500">Customize the ambiance to match your wedding theme.</p>
               </div>
             </motion.div>
           </div>
@@ -547,12 +551,12 @@ export default function WeddingsClientPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
             >
-              Onvergetelijke momenten op zee
+              Cherished Wedding Moments at Sea
             </motion.h2>
             {/* Integrar TripGallery aquí */}
             <TripGallery images={galleryImages} title="" /> 
             <p className="text-gray-600 max-w-2xl mx-auto mt-8">
-              Jullie grote dag tegen de achtergrond van de Ibizaanse kust — intiem en bijzonder met Salvador Ibiza.
+              Imagine your special day set against the stunning backdrop of Ibiza's coastline. These moments showcase the unique and intimate atmosphere Salvador Ibiza offers for your wedding celebration.
             </p>
         </div>
       </section>
@@ -565,9 +569,9 @@ export default function WeddingsClientPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Jullie onvergetelijke bruiloft wacht</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Your Unforgettable Wedding Awaits</h2>
             <p className="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto mb-10">
-              Salvador Ibiza is de ideale setting voor een intiem bruiloftscharter. Plan jullie dag — bekijk beschikbaarheid en details bij onze privécharters.
+              Salvador Ibiza offers the perfect setting for an intimate wedding charter. Let's start planning your special day. Check availability and details for our private charters.
             </p>
             <motion.button
               onClick={handleBookButtonClick}
@@ -575,7 +579,7 @@ export default function WeddingsClientPage() {
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center gap-2 bg-white text-blue-600 font-bold py-4 px-10 rounded-lg shadow-lg transition duration-300 transform hover:-translate-y-0.5"
             >
-              Bruiloftscharter boeken <FiArrowRight className="ml-1 w-5 h-5"/>
+              Book Your Wedding Charter <FiArrowRight className="ml-1 w-5 h-5"/>
             </motion.button>
           </motion.div>
         </div>
@@ -594,11 +598,11 @@ export default function WeddingsClientPage() {
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-800">Bruiloftscharter boeken</h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-800">Book Your Wedding Charter</h2>
                 <button 
                   onClick={() => setShowDirectWidget(false)}
                   className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
-                  aria-label="Boekingswidget sluiten"
+                  aria-label="Close Booking Widget"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -616,8 +620,8 @@ export default function WeddingsClientPage() {
                   </div>
                   <div className="ml-3">
                     <p className="text-sm text-pink-800">
-                      <span className="font-medium">Bruiloftscharter:</span> Hiermee reserveer je <strong>de hele Salvador voor jullie ceremonie</strong>. 
-                      Geschikt voor intieme vieringen tot 36 gasten. Vermeld bijzondere wensen in het opmerkingenveld.
+                      <span className="font-medium">Wedding Charter:</span> This is for booking the <strong>entire Salvador boat for your wedding ceremony</strong>. 
+                      Perfect for intimate celebrations with up to 36 guests. Include any special requests or wedding details in the comments section.
                     </p>
                   </div>
                 </div>
@@ -634,7 +638,7 @@ export default function WeddingsClientPage() {
                 transition={{ delay: 0.3 }}
               >
                                   <p className="text-sm text-pink-800">
-                    <strong>Bruiloftservice:</strong> Standaard bar (€30 p.p.) automatisch inbegrepen. Optioneel: premium sterke drank (€55/fles), deluxe tapas (€40 p.p.), extra uur (€500). Alle prijzen + btw.
+                    <strong>Wedding Services:</strong> Standard bar service (€30pp) automatically included. Optional upgrades: Premium spirits (€55/bottle), Deluxe tapas (€40pp), extra hours (€500). All prices + VAT.
                   </p>
               </motion.div>
 
@@ -651,12 +655,17 @@ export default function WeddingsClientPage() {
           isOpen={isBookingModalOpen}
           onClose={closeBookingModal}
           productId={3} // Same as private charter
-          customProperties={mergeTurboBookingCustomProperties({
-            displayBillingTerm: true,
-            showQuantity: false,
-            titleVariant: 'Modern',
-            ...weddingWidgetStrings,
-          })}
+          customProperties={{
+            "displayBillingTerm": true,
+            "showQuantity": false,
+            "quantity": "Participants",
+            "titleVariant": "Modern",
+            "bookNow": "RESERVE NOW",
+            "confirmReservationAndPay": "CONFIRM & PAY",
+            "selectExperienceLabel": "Select Wedding Charter",
+            "addonsLabel": "Wedding Add-ons",
+            "depositObservation": "Wedding booking confirmation"
+          }}
         />
       )}
     </AnimatePresence>

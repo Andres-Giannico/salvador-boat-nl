@@ -1,18 +1,22 @@
 import BoatTripsClientPage from './page.client';
 import { pageMetadata } from '@/lib/page-meta';
 import { buildFaqPageSchema } from '@/lib/faq-schema';
-import { generalBoatTripFaqs } from '@/lib/topic-faqs';
+import { getBoatTripsHubSeo } from '@/lib/seo-i18n';
+import { getGeneralBoatTripFaqs } from '@/lib/faq-i18n';
+import { getSiteLocale } from '@/lib/site-locale';
+
+const locale = getSiteLocale();
+const hubSeo = getBoatTripsHubSeo(locale);
 
 export const metadata = pageMetadata({
-  title: 'Beste boottochten Ibiza — dag- & zonsondergangtrips',
-  description:
-    'Ontdek de beste boottochten op Ibiza met Salvador. All-inclusive dag- en zonsondergangtochten met paddleboards, snorkelen, open bar en tapas. Vergelijk opties en boek vanuit San Antonio.',
+  ...hubSeo,
   path: '/boat-trips',
+  locale,
 });
 
-const faqSchema = buildFaqPageSchema(generalBoatTripFaqs);
-
 export default function BoatTripsPage() {
+  const faqSchema = buildFaqPageSchema(getGeneralBoatTripFaqs(locale));
+
   return (
     <>
       <script

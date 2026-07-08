@@ -3,50 +3,8 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import FAQ from '@/components/trips/FAQ';
-import type { FAQItem } from '@/components/trips/FAQ';
-
-const homepageFaqs: FAQItem[] = [
-  {
-    question: "Welke boottochten bieden jullie aan?",
-    answer: (
-      <>
-        We bieden levendige gedeelde trips zoals onze <Link href='/boat-trips/day-trip' className='text-cyan-600 hover:underline font-medium'>gemengde dagtocht</Link> en de magische <Link href='/boat-trips/sunset-trip' className='text-orange-600 hover:underline font-medium'>zonsondergangtrip</Link>. Daarnaast zijn volledig aanpasbare <Link href='/private-boat-trips' className='text-purple-600 hover:underline font-medium'>privétochten</Link> mogelijk.
-      </>
-    ),
-  },
-  {
-    question: "Wat zit er in de prijs?",
-    answer: (
-      <>
-        Inbegrepen: schipper & bemanning, brandstof, unlimited open bar (frisdrank, bier, wijn, cava, sangria, water), Spaanse tapas & fruit, en gebruik van paddleboards, kajaks & snorkelspullen. <Link href='/private-boat-trips' className='text-purple-600 hover:underline font-medium'>Privétochten</Link> hebben opties voor extra’s.
-      </>
-    ),
-  },
-  {
-    question: "Hoe lang duren de trips?",
-    answer: "Dag- en zonsondergangtrips duren ongeveer 3 uur. Privécharters kunnen op maat, minimaal 3 uur.",
-  },
-  {
-    question: "Waar is het meetingpoint?",
-    answer: (
-      <>
-        We vertrekken in de haven van San Antonio. Adres en kaart staan op onze <Link href='/contact' className='text-blue-600 hover:underline font-medium'>contactpagina</Link>. Na je boeking bevestigen we de instaptijd.
-      </>
-    ),
-  },
-  {
-    question: "Hoe boek ik?",
-    answer: (
-      <>
-        <Link href='/book-now' className='text-blue-600 hover:underline font-medium'>Online boeken via de website</Link> is het makkelijkst, met live beschikbaarheid. Je ontvangt een bevestiging met alle details.
-      </>
-    ),
-  },
-  {
-    question: "Wat moet ik meenemen?",
-    answer: "Zwemkleding, handdoek, zonnebrand, pet, zonnebril en je camera. Bij gevoeligheid voor zeeziekte: neem vooraf een middeltje.",
-  },
-];
+import { getHomepageFaqs, getHomepageFaqSectionCopy } from '@/lib/seo-i18n';
+import { getClientSiteLocale } from '@/lib/site-locale';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -61,6 +19,10 @@ const fadeInUp = {
 };
 
 export default function HomepageFAQSection() {
+  const locale = getClientSiteLocale();
+  const sectionCopy = getHomepageFaqSectionCopy(locale);
+  const homepageFaqs = getHomepageFaqs(locale);
+
   return (
     <section className="py-12 md:py-16 lg:py-24 bg-gradient-to-b from-blue-50 to-white relative overflow-hidden">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -77,10 +39,10 @@ export default function HomepageFAQSection() {
           className="text-center mb-8 md:mb-12 lg:mb-16"
         >
           <h2 className="text-2xl md:text-4xl lg:text-5xl font-display font-bold text-gray-900 mb-3 md:mb-4">
-            Veelgestelde vragen
+            {sectionCopy.title}
           </h2>
           <p className="text-base md:text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-4">
-            Alles wat je moet weten over onze boottochten op Ibiza
+            {sectionCopy.subtitle}
           </p>
         </motion.div>
 
@@ -109,7 +71,7 @@ export default function HomepageFAQSection() {
             href="/faq"
             className="inline-flex items-center px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold text-sm md:text-base rounded-full hover:from-blue-700 hover:to-cyan-700 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl min-h-[48px] touch-manipulation"
           >
-            <span>Alle FAQ’s</span>
+            <span>{sectionCopy.viewAll}</span>
             <svg className="w-4 h-4 md:w-5 md:h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>

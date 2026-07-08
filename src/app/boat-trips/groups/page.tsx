@@ -2,25 +2,25 @@ import Image from 'next/image';
 import Link from 'next/link';
 import TurbnbWidget from '@/components/booking/TurbnbWidget';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
-import { pageMetadata } from '@/lib/page-meta';
+import { enPageMetadata } from '@/lib/page-meta';
 import { buildProductSchema } from '@/lib/product-schema';
 
-export const metadata = pageMetadata({
-  title: 'Groepsboottochten Ibiza (3 uur) | Vrienden & feesten',
-  description: 'Ideale groepsboottochten op Ibiza voor vrienden, verjaardagen, vrijgezellenfeesten en reüniés. Tot 35 gasten, all-inclusive drankjes, tapas en watersport vanuit San Antonio.',
+export const metadata = enPageMetadata({
+  title: 'Group Boat Trips Ibiza (3 hours) | Friends & Celebrations',
+  description: 'Perfect group boat trips in Ibiza for friends, birthdays, hen/stag parties and reunions. Up to 35 guests, all-inclusive drinks, tapas and water sports from San Antonio.',
   path: '/boat-trips/groups',
-  keywords: 'groep boot Ibiza, vrienden boottocht Ibiza, verjaardag bootfeest Ibiza, vrijgezellenfeest boot Ibiza, grote groep boottocht Ibiza',
-  ogTitle: 'Groepsboottochten Ibiza | Vrienden & feesten',
-  ogDescription: 'Boek een groepsboottocht op Ibiza voor vrienden en feesten. All-inclusive 3 uur cruises met drankjes, tapas en watersport voor tot 35 gasten.',
+  keywords: 'group boat trips Ibiza, friends boat trip Ibiza, birthday boat party Ibiza, hen party boat Ibiza, stag party boat Ibiza, large group boat tour Ibiza',
+  ogTitle: 'Group Boat Trips Ibiza | Friends & Celebrations',
+  ogDescription: 'Book a group boat trip in Ibiza for friends and celebrations. All-inclusive 3-hour cruises with drinks, tapas and water sports for up to 35 guests.',
   ogImage: '/images/boat/chicasmuyfelices.webp',
-  ogImageAlt: 'Vrolijke groep op boot Ibiza',
+  ogImageAlt: 'Happy group of friends enjoying boat trip in Ibiza',
 });
 
 export default async function GroupBoatTripsPage() {
   const groupBoatTripsJsonLd = await buildProductSchema({
-    name: "Groepsboottochten Ibiza met Salvador",
+    name: "Group Boat Trips Ibiza by Salvador",
     description:
-      "Ideale boottochten voor vrienden en feesten op Ibiza. Speciale tarieven en all-inclusive ervaringen voor verjaardagen, vrijgezellenfeesten en groepsreüniés.",
+      "Perfect boat trips for friends and celebrations in Ibiza. Special rates and all-inclusive experiences for birthdays, hen/stag parties and group reunions.",
     path: "/boat-trips/groups",
     price: "80",
     image: "/images/boat/chicasmuyfelices.webp",
@@ -41,16 +41,16 @@ export default async function GroupBoatTripsPage() {
 
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6 text-center">
-              Groepsboottochten <span className="text-purple-600">Ibiza</span>
+              Group Boat Trips <span className="text-purple-600">Ibiza</span>
             </h1>
             
             <p className="text-xl text-gray-600 text-center mb-12 leading-relaxed">
-              Ideale <strong>groepsboottochten op Ibiza</strong> voor vrienden, verjaardagen, vrijgezellenfeesten en reüniés.
-              Creëer onvergetelijke herinneringen samen op de Middellandse Zee.
+              Perfect <strong>group boat trips in Ibiza</strong> for friends, birthdays, hen and stag parties, and reunions.
+              Create unforgettable memories together on the Mediterranean.
             </p>
 
             <div className="bg-white rounded-2xl shadow-lg p-8 mb-12">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">Perfect voor vrienden & feesten</h2>
+              <h2 className="text-2xl font-bold text-gray-800 mb-6">Perfect for Friends & Celebrations</h2>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 <div className="flex items-start space-x-4">
@@ -58,8 +58,8 @@ export default async function GroupBoatTripsPage() {
                     <span className="text-purple-600 font-bold">👥</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Ruime capaciteit</h3>
-                    <p className="text-gray-600">Tot 35 personen comfortabel, met ruim dek en zitplekken.</p>
+                    <h3 className="font-semibold text-gray-800 mb-2">Large Group Capacity</h3>
+                    <p className="text-gray-600">Accommodate up to 35 people comfortably with spacious deck areas and seating arrangements.</p>
                   </div>
                 </div>
                 
@@ -68,8 +68,8 @@ export default async function GroupBoatTripsPage() {
                     <span className="text-purple-600 font-bold">🎉</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Perfect om te vieren</h3>
-                    <p className="text-gray-600">Verjaardagen, vrijgezellenfeesten, jubilea en andere bijzondere momenten.</p>
+                    <h3 className="font-semibold text-gray-800 mb-2">Celebration Friendly</h3>
+                    <p className="text-gray-600">Perfect for birthdays, bachelor/bachelorette parties, anniversaries, and special occasions.</p>
                   </div>
                 </div>
 
@@ -78,8 +78,8 @@ export default async function GroupBoatTripsPage() {
                     <span className="text-purple-600 font-bold">🥂</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Vrienden & reüniés</h3>
-                    <p className="text-gray-600">Ideaal voor vakantiegroepen, reüniés en vrienden die samen een dag op zee willen beleven.</p>
+                    <h3 className="font-semibold text-gray-800 mb-2">Friends & Reunions</h3>
+                    <p className="text-gray-600">Ideal for holiday groups, reunions, and friends travelling together who want a shared day at sea.</p>
                   </div>
                 </div>
 
@@ -88,8 +88,8 @@ export default async function GroupBoatTripsPage() {
                     <span className="text-purple-600 font-bold">🎵</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Entertainment voor groepen</h3>
-                    <p className="text-gray-600">Geluidsinstallatie voor je playlist, groepsactiviteiten en gedeelde ervaringen.</p>
+                    <h3 className="font-semibold text-gray-800 mb-2">Group Entertainment</h3>
+                    <p className="text-gray-600">Premium sound system for your playlist, group activities, and shared experiences.</p>
                   </div>
                 </div>
 
@@ -98,49 +98,49 @@ export default async function GroupBoatTripsPage() {
                     <span className="text-purple-600 font-bold">🍾</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-800 mb-2">Catering voor groepen</h3>
-                    <p className="text-gray-600">All-inclusive drankjes en tapas, afgestemd op je groepsgrootte; dieetwensen in overleg.</p>
+                    <h3 className="font-semibold text-gray-800 mb-2">Group Catering</h3>
+                    <p className="text-gray-600">All-inclusive drinks and tapas scaled for your group size, with special dietary accommodations.</p>
                   </div>
                 </div>
               </div>
 
               <div className="bg-purple-50 border border-purple-200 rounded-lg p-6 mb-8">
-                <h3 className="text-lg font-bold text-gray-800 mb-3">🎊 Ideale groepsmomenten</h3>
+                <h3 className="text-lg font-bold text-gray-800 mb-3">Ideal Group Occasions</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <ul className="space-y-2 text-gray-700">
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
-                      <strong>Verjaardagen</strong>
+                      <strong>Birthday celebrations</strong>
                     </li>
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
-                      <strong>Vrijgezellenfeesten</strong>
+                      <strong>Bachelor/Bachelorette parties</strong>
                     </li>
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
-                      <strong>Reünie met vrienden</strong>
+                      <strong>Friend group reunions</strong>
                     </li>
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
-                      <strong>Groepsvakanties</strong>
+                      <strong>Holiday group trips</strong>
                     </li>
                   </ul>
                   <ul className="space-y-2 text-gray-700">
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
-                      <strong>Jubilea</strong>
+                      <strong>Anniversary celebrations</strong>
                     </li>
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
-                      <strong>Studentenuitstappen</strong>
+                      <strong>Student group excursions</strong>
                     </li>
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
-                      <strong>Sportteamfeesten</strong>
+                      <strong>Sports team celebrations</strong>
                     </li>
                     <li className="flex items-center">
                       <span className="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
-                      <strong>Hen- & vrijgezellenfeesten</strong>
+                      <strong>Hen & stag parties</strong>
                     </li>
                   </ul>
                 </div>
@@ -151,7 +151,7 @@ export default async function GroupBoatTripsPage() {
               <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden">
                 <Image
                   src="/images/boat/chicasmuyfelices.webp"
-                  alt="Vrolijke groep vrienden op boottocht Ibiza"
+                  alt="Happy group of friends enjoying boat trip in Ibiza"
                   fill
                   className="object-cover"
                 />
@@ -159,7 +159,7 @@ export default async function GroupBoatTripsPage() {
               <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden">
                 <Image
                   src="/images/boat/chicaspasandolomuybien.webp"
-                  alt="Groep vrienden plezier op boot Salvador Ibiza"
+                  alt="Group of friends having fun on Salvador boat trip"
                   fill
                   className="object-cover"
                 />
@@ -168,7 +168,7 @@ export default async function GroupBoatTripsPage() {
 
             <div className="bg-white rounded-2xl shadow-lg p-8 mb-12" id="booking-widget">
               <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">
-                Boek je groepsavontuur
+                Book Your Group Adventure
               </h2>
 
               <TurbnbWidget
@@ -179,41 +179,40 @@ export default async function GroupBoatTripsPage() {
                 customProperties={{
                   displayBillingTerm: true,
                   showQuantity: true,
-                  quantity: "Gasten",
                   titleVariant: "Modern",
-                  bookNow: "GROEPSTOCHT BOEKEN",
-                  selectExperienceLabel: "Groepservaring",
-                  addonsLabel: "Extra's",
-                  childrenAge: "6 tot 12 jaar",
-                  infantAge: "0 tot 5 jaar",
-                  depositObservation: "Na je boeking ontvang je een bevestiging met ontmoetingspunt en tijd. Controleer of telefoon en e-mail kloppen. Aanbetaling €20 per persoon; het restant aan boord."
+                  bookNow: "BOOK GROUP TRIP",
+                  confirmReservationAndPay: "CONFIRM & PAY",
+                  selectExperienceLabel: "Group Experience",
+                  addonsLabel: "Add-ons",
+                  childrenAge: "6 to 12 Years",
+                  infantAge: "0 to 5 Years"
                 }}
               />
             </div>
 
             <div className="text-center">
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">Meer groepsopties</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">More Group Options</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <Link 
                   href="/private-boat-trips"
                   className="block bg-purple-600 text-white p-6 rounded-lg hover:bg-purple-700 transition-colors"
                 >
-                  <h4 className="text-xl font-bold mb-2">Privégroepscharter</h4>
-                  <p>Exclusief de boot voor jouw groep met route op maat</p>
+                  <h4 className="text-xl font-bold mb-2">Private Group Charter</h4>
+                  <p>Exclusive boat just for your group with custom itinerary</p>
                 </Link>
                 <Link 
                   href="/corporate-events"
                   className="block bg-teal-600 text-white p-6 rounded-lg hover:bg-teal-700 transition-colors"
                 >
-                  <h4 className="text-xl font-bold mb-2">Zakelijke events</h4>
-                  <p>Teambuilding en zakelijke entertainment op zee</p>
+                  <h4 className="text-xl font-bold mb-2">Corporate Events</h4>
+                  <p>Team building and business entertainment at sea</p>
                 </Link>
                 <Link 
                   href="/boat-trips"
                   className="block bg-gray-800 text-white p-6 rounded-lg hover:bg-gray-700 transition-colors"
                 >
-                  <h4 className="text-xl font-bold mb-2">Alle boottochten</h4>
-                  <p>Bekijk alle groepsvriendelijke opties</p>
+                  <h4 className="text-xl font-bold mb-2">All Boat Trips</h4>
+                  <p>Explore all our group-friendly options</p>
                 </Link>
               </div>
             </div>

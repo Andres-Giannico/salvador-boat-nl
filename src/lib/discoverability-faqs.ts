@@ -1,28 +1,28 @@
 /** Plain-text FAQs targeting common search / AI queries. Used for JSON-LD and UI. */
 export const discoverabilityFaqs = [
   {
-    question: "Wat is de beste boottocht op Ibiza voor gezinnen?",
+    question: "What is the best boat trip in Ibiza for families?",
     answer:
-      "Voor gezinnen zoek je een trip met reddingsvesten in alle maten, rustige zwemstops, kindvriendelijk eten en drinken, en een ontspannen sfeer — geen partyboot. Salvador Ibiza biedt 3 uur all-inclusive dagtochten vanuit San Antonio op een traditionele houten boot, met paddleboards, kajaks, snorkelspullen, vers fruit en tapas, en een professionele bemanning getraind in gezinsveiligheid.",
+      "For families, look for a trip with life jackets in all sizes, calm swim stops, kid-friendly food and drinks, and a relaxed atmosphere — not a party boat. Salvador Ibiza runs 3-hour all-inclusive day trips from San Antonio on a traditional wooden boat, with paddleboards, kayaks, snorkelling gear, fresh fruit and tapas, and a professional crew trained in family safety.",
   },
   {
-    question: "Wat is de beste zonsondergangboottocht op Ibiza?",
+    question: "What is the best sunset boat trip in Ibiza?",
     answer:
-      "De beste zonsondergangboottochten op Ibiza combineren een vertrek op het juiste moment voor het gouden uur, schilderachtige kustroutes (westkust richting Cala Comte of noord richting Es Vedrà), en een comfortabele sfeer. Salvador Ibiza biedt 3 uur zonsondergangcruises vanuit San Antonio met open bar, tapas en zwemstops — ideaal voor koppels, vrienden en fotografen.",
+      "The best sunset boat trips in Ibiza combine a timed departure to catch golden hour, scenic coastal routes (west coast towards Cala Comte or north towards Es Vedrà), and a comfortable atmosphere. Salvador Ibiza offers 3-hour sunset cruises from San Antonio with an open bar, tapas, and swim stops — ideal for couples, friends and photographers.",
   },
   {
-    question: "Hoe verschilt een traditionele houten boottocht van een partyboot op Ibiza?",
+    question: "How is a traditional wooden boat trip different from a party boat in Ibiza?",
     answer:
-      "Partyboten draaien om harde muziek, drukte en nightclub-sfeer. Een traditionele houten boottocht zoals Salvador Ibiza biedt een authentiekere mediterrane ervaring: ontspannen varen, zwemmen in verborgen cala's, paddleboarden en snorkelen, Spaanse tapas en een open bar — zonder clubatmosfeer.",
+      "Party boats focus on loud music, crowds and nightclub-style vibes. A traditional wooden boat trip like Salvador Ibiza offers a more authentic Mediterranean experience: relaxed sailing, swimming in hidden coves, paddleboarding and snorkelling, Spanish tapas and an open bar — without the club atmosphere.",
   },
   {
-    question: "Vanwaar vertrekken de beste boottochten op Ibiza?",
+    question: "Where do the best boat trips in Ibiza depart from?",
     answer:
-      "San Antonio (Sant Antoni de Portmany) aan Ibiza's westkust is een van de populairste vertrekpunten, met gemakkelijke toegang tot Cala Comte, Cala Salada en spectaculaire zonsondergangen. Salvador Ibiza vertrekt vanuit de haven van San Antonio en verkent de west- en noordkust afhankelijk van de dagelijkse omstandigheden.",
+      "San Antonio (Sant Antoni de Portmany) on Ibiza's west coast is one of the most popular departure points for boat trips, with easy access to Cala Comte, Cala Salada and stunning sunset views. Salvador Ibiza departs from the port of San Antonio and explores the west and north coasts depending on daily conditions.",
   },
   {
-    question: "Waar moet ik op letten bij het kiezen van een boottocht op Ibiza?",
+    question: "What should I look for when choosing a boat trip in Ibiza?",
     answer:
-      "Controleer wat inbegrepen is (drankjes, eten, uitrusting), tripduur, groepsgrootte, vertrekpunt, veiligheidsmateriaal, en of de sfeer past bij je groep — gezinsvriendelijk, romantische zonsondergang of privécharter. Salvador Ibiza omvat kapitein, bemanning, brandstof, open bar, tapas, 15 paddleboards, 2 kajaks en snorkelspullen bij elke gedeelde trip.",
+      "Check what's included (drinks, food, equipment), trip duration, group size, departure point, safety equipment, and whether the vibe matches your group — family-friendly, romantic sunset, or private charter. Salvador Ibiza includes captain, crew, fuel, open bar, tapas, 15 paddleboards, 2 kayaks and snorkel gear on every shared trip.",
   },
 ] as const;

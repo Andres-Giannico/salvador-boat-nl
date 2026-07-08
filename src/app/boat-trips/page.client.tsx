@@ -12,101 +12,73 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import FAQ from '@/components/trips/FAQ';
 import BoatTripComparisonTable from '@/components/trips/BoatTripComparisonTable';
 import { generalBoatTripComparison } from '@/lib/boat-trip-comparison';
-import { generalBoatTripFaqs } from '@/lib/topic-faqs';
+import { getBoatTripsHubCopy } from '@/lib/seo-i18n';
+import { getGeneralBoatTripFaqs } from '@/lib/faq-i18n';
+import { getClientSiteLocale } from '@/lib/site-locale';
 
-const generalFaqItems = generalBoatTripFaqs.map((faq) => ({
-  question: faq.question,
-  answer: faq.answer,
-}));
-
-// Updated trip data to match FeaturedTripsSection
-const middayTrip = {
-  imageUrl: "/images/optimized/salvador-ibiza-cala-comte-guests-paddleboarding.webp",
-  imageAlt: "Salvador Ibiza dagboottocht — premium zee-avontuur",
-  title: "Dagelijkse ervaring",
-  description: "Zon, zee en avontuur wachten op je.",
-  isPopular: true,
-  badgeText: "14:00 – 17:00",
-  badgeBgColor: "bg-blue-500",
-  features: [
-    "15 premium paddleboards & 2 kajaks",
-    "Snorkeluitrusting",
-    "Zwemmen in kraakhelder water",
-    "Premium open bar & verse sangría",
-    "Spaanse tapas & vers fruit",
-    "Premium geluidssysteem"
-  ],
-  price: "€80 per volwassene",
-  priceSubtext: "Kinderen 6–12: €45 | Jonger dan 6: gratis",
-  priceColor: "text-blue-600",
-  ctaHref: "/boat-trips/day-trip#booking-widget",
-  ctaBgColor: "bg-blue-600",
-  ctaHoverBgColor: "hover:bg-blue-700",
-  detailsHref: "/boat-trips/day-trip",
-  detailsText: "Meer info"
-};
-
-const sunsetTrip = {
-  imageUrl: "/images/optimized/ibiza-sunset-boat-trip-salvador.webp",
-  imageAlt: "Salvador Ibiza zonsondergangboottocht",
-  title: "Zonsondergangtocht",
-  description: "Ervaar Ibiza's iconische zonsondergang vanaf zee.",
-  badgeText: "18:30 – 21:30",
-  badgeBgColor: "bg-orange-500",
-  features: [
-    "Zonsondergangzwemmen bij verborgen baaien",
-    "15 paddleboards & 2 kajaks",
-    "Snorkeluitrusting",
-    "Premium bar & onbeperkt cava",
-    "Selectie Spaanse tapas",
-    "Zonsondergang bij Café Mambo"
-  ],
-  price: "€80 per volwassene",
-  priceSubtext: "Kinderen 6–12: €45 | Jonger dan 6: gratis",
-  priceColor: "text-orange-600",
-  ctaHref: "/boat-trips/sunset-trip#booking-widget",
-  ctaBgColor: "bg-orange-500",
-  ctaHoverBgColor: "hover:bg-orange-600",
-  detailsHref: "/boat-trips/sunset-trip",
-  detailsText: "Meer info"
-};
-
-// Define included features data with Lucide icons
-const includedFeatures = [
-  {
-    icon: Anchor,
-    title: "Ervaren kapitein & bemanning",
-    description: "Professionele service met veiligheid en lokale tips"
-  },
-  {
-    icon: Coffee, // Represents drinks/snacks
-    title: "All-inclusive service",
-    description: "Onbeperkte premium drankjes, hapjes en vers fruit"
-  },
-  {
-    icon: Music,
-    title: "Premium geluidssysteem",
-    description: "Hoge kwaliteit audio met Bluetooth"
-  },
-  {
-    icon: Camera, // Represents photo opportunities
-    title: "Onvergetelijke uitzichten",
-    description: "Leg spectaculaire momenten vast bij Ibiza's iconische kust"
-  }
-];
+const INCLUDED_ICONS = [Anchor, Coffee, Music, Camera] as const;
 
 const galleryImages = [
-  { src: "/images/boat/chicaspasandolomuybien.webp", alt: "Vrienden genieten van drankjes tijdens een boottocht met Salvador Ibiza" },
-  { src: "/images/boat/chicosdisfrutandoenproa.webp", alt: "Groep vrienden aan de voorplecht van de Salvador in Ibiza" },
-  { src: "/images/boat/chicasensupencueva.webp", alt: "Paddleboarden bij grotten tijdens een boottocht in Ibiza" },
-  { src: "/images/boat/doschicasfelicesenproa.webp", alt: "Twee vriendinnen genieten van de zon op zee bij Ibiza" },
-  { src: "/images/boat/parejasnorkeling.webp", alt: "Stel snorkelt in kristalhelder water tijdens een boottocht" },
-  { src: "/images/optimized/toasting-drinks-ibiza-boat.webp", alt: "Vrienden proosten aan de bar tijdens een excursie in Ibiza" },
-  { src: "/images/optimized/salvador-ibiza-cala-comte-red-deck-aerial.webp", alt: "Luchtdrone-opname van de Salvador charterboot in het turquoise water van Cala Comte, Ibiza" },
-  { src: "/images/boat/4chicasparadasentablaxxl.webp", alt: "Groep op een grote paddleboard tijdens een Salvador-boottocht" }
+  { src: "/images/boat/chicaspasandolomuybien.webp", alt: "Friends enjoying drinks and laughing on a Salvador Ibiza boat trip" },
+  { src: "/images/boat/chicosdisfrutandoenproa.webp", alt: "Group of friends having fun at the bow of the Salvador boat in Ibiza" },
+  { src: "/images/boat/chicasensupencueva.webp", alt: "Girls exploring Ibiza caves on paddleboards during a boat tour" },
+  { src: "/images/boat/doschicasfelicesenproa.webp", alt: "Two friends enjoying the sun on a boat trip in Ibiza" },
+  { src: "/images/boat/parejasnorkeling.webp", alt: "Couple snorkeling in crystal clear Ibiza waters on a boat tour" },
+  { src: "/images/optimized/toasting-drinks-ibiza-boat.webp", alt: "Friends toasting at the boat's bar during an Ibiza excursion" },
+  { src: "/images/optimized/salvador-ibiza-cala-comte-red-deck-aerial.webp", alt: "Aerial drone view of the Salvador charter boat in the turquoise waters of Cala Comte, Ibiza" },
+  { src: "/images/boat/4chicasparadasentablaxxl.webp", alt: "Group of friends on a large paddleboard during a Salvador Ibiza boat excursion" }
 ];
 
 export default function BoatTripsClientPage() {
+  const locale = getClientSiteLocale();
+  const copy = getBoatTripsHubCopy(locale);
+  const generalFaqItems = getGeneralBoatTripFaqs(locale);
+
+  const middayTrip = {
+    imageUrl: "/images/optimized/salvador-ibiza-cala-comte-guests-paddleboarding.webp",
+    imageAlt: copy.middayTrip.imageAlt,
+    title: copy.middayTrip.title,
+    description: copy.middayTrip.description,
+    isPopular: true,
+    badgeText: copy.middayTrip.badgeText,
+    badgeBgColor: "bg-blue-500",
+    features: copy.middayTrip.features,
+    price: copy.middayTrip.price,
+    priceSubtext: copy.middayTrip.priceSubtext,
+    priceColor: "text-blue-600",
+    ctaHref: "/boat-trips/day-trip#booking-widget",
+    ctaBgColor: "bg-blue-600",
+    ctaHoverBgColor: "hover:bg-blue-700",
+    detailsHref: "/boat-trips/day-trip",
+    detailsText: copy.middayTrip.detailsText,
+  };
+
+  const sunsetTrip = {
+    imageUrl: "/images/optimized/ibiza-sunset-boat-trip-salvador.webp",
+    imageAlt: copy.sunsetTrip.imageAlt,
+    title: copy.sunsetTrip.title,
+    description: copy.sunsetTrip.description,
+    badgeText: copy.sunsetTrip.badgeText,
+    badgeBgColor: "bg-orange-500",
+    features: copy.sunsetTrip.features,
+    price: copy.sunsetTrip.price,
+    priceSubtext: copy.sunsetTrip.priceSubtext,
+    priceColor: "text-orange-600",
+    ctaHref: "/boat-trips/sunset-trip#booking-widget",
+    ctaBgColor: "bg-orange-500",
+    ctaHoverBgColor: "hover:bg-orange-600",
+    detailsHref: "/boat-trips/sunset-trip",
+    detailsText: copy.sunsetTrip.detailsText,
+  };
+
+  const includedFeatures = copy.includedFeatures.map((feature, index) => ({
+    icon: INCLUDED_ICONS[index],
+    title: feature.title,
+    description: feature.description,
+  }));
+
+  const specializedIcons = [FiSun, FiMapPin, FiSun, FiUsers, FiGift, FiAnchor];
+
   const scrollToTrip = (tripId: string) => {
     const element = document.getElementById(tripId);
     if (element) {
@@ -155,7 +127,7 @@ export default function BoatTripsClientPage() {
         >
           <Image
             src="/images/optimized/salvador-ibiza-boat-drone-view.webp"
-            alt="Dronebeeld van de Salvador charterboot in Ibiza, klaar voor een boottocht"
+            alt={copy.heroImageAlt}
             fill
             priority
             className="object-cover object-center brightness-75"
@@ -171,10 +143,10 @@ export default function BoatTripsClientPage() {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 drop-shadow-xl leading-tight">
-            Jouw perfecte Ibiza <span className="text-cyan-400">boottocht</span>
+            {copy.heroH1Main} <span className="text-cyan-400">{copy.heroH1Accent}</span>
           </h1>
           <p className="text-lg md:text-xl max-w-3xl mx-auto opacity-95 mb-8 drop-shadow-md">
-            Kies uit onze all-inclusive <span className="font-semibold text-cyan-300">3 uur durende</span> dagervaring of de magische zonsondergangtocht.
+            {copy.heroSubtitle}
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <motion.button
@@ -184,7 +156,7 @@ export default function BoatTripsClientPage() {
               className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 hover:bg-black/50 transition"
             >
               <FiSun className="text-orange-300" />
-              <span>Dagelijkse ervaring</span>
+              <span>{copy.dayBtn}</span>
             </motion.button>
             <motion.button
               onClick={() => scrollToTrip('sunset-trip-card')}
@@ -193,7 +165,7 @@ export default function BoatTripsClientPage() {
               className="flex items-center gap-2 bg-black/40 backdrop-blur-sm px-6 py-3 rounded-full border border-white/20 hover:bg-black/50 transition"
             >
               <FiMoon className="text-indigo-300" />
-              <span>Zonsondergangtocht</span>
+              <span>{copy.sunsetBtn}</span>
             </motion.button>
           </div>
         </motion.div>
@@ -222,13 +194,13 @@ export default function BoatTripsClientPage() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Onze boottochten: overdag of bij zonsondergang
+              {copy.signatureH2}
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              Ga mee op de ultieme <strong>boottocht in Ibiza</strong> met Salvador. We bieden twee onvergetelijke <strong>bootrondvaarten</strong> zodat je jouw perfecte zee-avondreis kiest. Of je nu geniet van de middagzon of van een magische zonsondergang — elke tocht is premium en all-inclusive.
+              {copy.signatureP1}
             </p>
             <p className="text-md text-gray-600">
-              Onze <strong>boottochten</strong> laten de mooiste kanten van de Ibizaanse kust zien. Ontdek verborgen baaien, zwem in turquoise water en geniet van paddleboarden, kajakken en snorkelen — onder begeleiding van goede muziek, een premium open bar en vers bereide Spaanse tapas.
+              {copy.signatureP2}
             </p>
           </motion.div>
 
@@ -266,13 +238,10 @@ export default function BoatTripsClientPage() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Wat is de beste boottocht op Ibiza?
+              {copy.bestTripH2}
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Dat hangt af van je groep. Salvador Ibiza is ideaal als je een <strong>all-inclusive</strong>,
-              ontspannen ervaring wilt op een <strong>traditionele houten boot</strong> met snorkelen, paddleboards,
-              kajaks, tapas en open bar — zonder partyboot-sfeer. Kies onze dagtocht voor gezinnen en avontuur, of onze
-              zonsondergangtrip voor magie tijdens het gouden uur.
+              {copy.bestTripP}
             </p>
           </motion.div>
           <motion.div
@@ -284,7 +253,7 @@ export default function BoatTripsClientPage() {
           >
             <BoatTripComparisonTable
               rows={generalBoatTripComparison}
-              title="Salvador Ibiza vs partyboten vs catamarans"
+              title={copy.comparisonTitle}
             />
           </motion.div>
           <motion.div
@@ -293,7 +262,7 @@ export default function BoatTripsClientPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <FAQ items={generalFaqItems} title="Je Ibiza boottocht kiezen" />
+            <FAQ items={generalFaqItems} title={copy.faqTitle} />
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -303,13 +272,13 @@ export default function BoatTripsClientPage() {
             className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center"
           >
             <Link href="/boat-trips/family" className="p-4 rounded-xl bg-green-50 border border-green-100 hover:bg-green-100 transition-colors">
-              <span className="font-semibold text-green-800">Gezinstochten →</span>
+              <span className="font-semibold text-green-800">{copy.linkFamily}</span>
             </Link>
             <Link href="/boat-trips/sunset-trip" className="p-4 rounded-xl bg-orange-50 border border-orange-100 hover:bg-orange-100 transition-colors">
-              <span className="font-semibold text-orange-800">Zonsondergang →</span>
+              <span className="font-semibold text-orange-800">{copy.linkSunset}</span>
             </Link>
             <Link href="/boat-trips/snorkeling" className="p-4 rounded-xl bg-cyan-50 border border-cyan-100 hover:bg-cyan-100 transition-colors">
-              <span className="font-semibold text-cyan-800">Snorkelen →</span>
+              <span className="font-semibold text-cyan-800">{copy.linkSnorkel}</span>
             </Link>
           </motion.div>
         </div>
@@ -325,10 +294,10 @@ export default function BoatTripsClientPage() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-              Momenten aan boord van de Salvador
+              {copy.galleryH2}
             </h2>
             <p className="text-lg text-gray-700">
-              Sfeerbeelden van onze onvergetelijke dag- en zonsondergangtochten.
+              {copy.galleryP}
             </p>
           </motion.div>
           <ImageGallery images={galleryImages} className="max-w-6xl mx-auto" />
@@ -345,10 +314,10 @@ export default function BoatTripsClientPage() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-              Inbegrepen bij elke tocht
+              {copy.includedH2}
             </h2>
             <p className="text-lg text-gray-600">
-              Ontspan en geniet — wij hebben aan alles gedacht.
+              {copy.includedP}
             </p>
           </motion.div>
 
@@ -384,127 +353,47 @@ export default function BoatTripsClientPage() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Ontdek onze <span className="text-blue-600">boottochten</span>
+              {copy.specializedH2} <span className="text-blue-600">{copy.specializedH2Accent}</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Van romantische zonsondergangen tot gezinsavonturen — voor ieder wat wils.
+              {copy.specializedP}
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              <Link
-                href="/boat-trips/sunset-trip"
-                className="block bg-gradient-to-br from-orange-500 to-pink-600 text-white p-6 rounded-xl hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-              >
-                <div className="flex items-center mb-4">
-                  <FiSun className="w-6 h-6 mr-3" />
-                  <h3 className="text-xl font-bold">Zonsondergangtochten</h3>
-                </div>
-                <p className="mb-4 opacity-90">Ibiza's legendarische zonsondergang vanaf zee — gouden uur op het water.</p>
-                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">620 zoekopdr./mnd</span>
-              </Link>
-            </motion.div>
+            {copy.specializedCards.map((card, index) => {
+              const gradients = [
+                "from-orange-500 to-pink-600",
+                "from-blue-500 to-cyan-600",
+                "from-green-500 to-teal-600",
+                "from-purple-500 to-indigo-600",
+                "from-yellow-500 to-orange-600",
+                "from-gray-700 to-gray-900",
+              ];
+              const Icon = specializedIcons[index];
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <Link
-                href="/boat-trips/san-antonio"
-                className="block bg-gradient-to-br from-blue-500 to-cyan-600 text-white p-6 rounded-xl hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-              >
-                <div className="flex items-center mb-4">
-                  <FiMapPin className="w-6 h-6 mr-3" />
-                  <h3 className="text-xl font-bold">Vertrek San Antonio</h3>
-                </div>
-                <p className="mb-4 opacity-90">Handige vertrekken vanuit de baai van San Antonio — verken de westkust.</p>
-                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">240 zoekopdr./mnd</span>
-              </Link>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
-              <Link
-                href="/boat-trips/day-trip"
-                className="block bg-gradient-to-br from-green-500 to-teal-600 text-white p-6 rounded-xl hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-              >
-                <div className="flex items-center mb-4">
-                  <FiSun className="w-6 h-6 mr-3" />
-                  <h3 className="text-xl font-bold">Dagtochten</h3>
-                </div>
-                <p className="mb-4 opacity-90">Ideaal voor overdag: zwemmen, snorkelen en watersport.</p>
-                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">50 zoekopdr./mnd</span>
-              </Link>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              <Link
-                href="/boat-trips/family"
-                className="block bg-gradient-to-br from-purple-500 to-indigo-600 text-white p-6 rounded-xl hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-              >
-                <div className="flex items-center mb-4">
-                  <FiUsers className="w-6 h-6 mr-3" />
-                  <h3 className="text-xl font-bold">Gezinstochten</h3>
-                </div>
-                <p className="mb-4 opacity-90">Veilig, leuk en geschikt voor gezinnen met kinderen.</p>
-                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">40 zoekopdr./mnd</span>
-              </Link>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-            >
-              <Link
-                href="/boat-trips/day-trip"
-                className="block bg-gradient-to-br from-yellow-500 to-orange-600 text-white p-6 rounded-xl hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-              >
-                <div className="flex items-center mb-4">
-                  <FiGift className="w-6 h-6 mr-3" />
-                  <h3 className="text-xl font-bold">All-inclusive</h3>
-                </div>
-                <p className="mb-4 opacity-90">Alles inbegrepen: drankjes, eten, uitrusting en entertainment.</p>
-                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">10 zoekopdr./mnd</span>
-              </Link>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-            >
-              <Link
-                href="/private-boat-trips"
-                className="block bg-gradient-to-br from-gray-700 to-gray-900 text-white p-6 rounded-xl hover:shadow-xl transition-all duration-300 transform hover:scale-105"
-              >
-                <div className="flex items-center mb-4">
-                  <FiAnchor className="w-6 h-6 mr-3" />
-                  <h3 className="text-xl font-bold">Privécharters</h3>
-                </div>
-                <p className="mb-4 opacity-90">Exclusief voor jouw groep — maximaal privacy en comfort.</p>
-                <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">100 zoekopdr./mnd</span>
-              </Link>
-            </motion.div>
+              return (
+                <motion.div
+                  key={card.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.1 * (index + 1) }}
+                >
+                  <Link
+                    href={card.href}
+                    className={`block bg-gradient-to-br ${gradients[index]} text-white p-6 rounded-xl hover:shadow-xl transition-all duration-300 transform hover:scale-105`}
+                  >
+                    <div className="flex items-center mb-4">
+                      <Icon className="w-6 h-6 mr-3" />
+                      <h3 className="text-xl font-bold">{card.title}</h3>
+                    </div>
+                    <p className="mb-4 opacity-90">{card.description}</p>
+                    <span className="text-sm font-semibold bg-white/20 px-3 py-1 rounded-full">{card.badge}</span>
+                  </Link>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>

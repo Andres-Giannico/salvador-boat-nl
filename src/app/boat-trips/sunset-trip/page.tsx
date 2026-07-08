@@ -2,26 +2,31 @@ import SunsetTripClientPage from './page.client';
 import Script from 'next/script';
 import { pageMetadata } from '@/lib/page-meta';
 import { buildProductSchema } from '@/lib/product-schema';
+import { buildFaqPageSchema } from '@/lib/faq-schema';
+import { getSunsetTripSeo, getSunsetTripFaqs } from '@/lib/seo-i18n';
+import { getSiteLocale } from '@/lib/site-locale';
+
+const locale = getSiteLocale();
+const sunsetTripSeo = getSunsetTripSeo(locale);
 
 export const metadata = pageMetadata({
-  title: 'Zonsondergang boottrip (all-inclusive) | Salvador',
-  description: '🌅 Ibiza’s legende zonsondergang vanaf zee — 3 uur all-inclusive met drankjes, tapas en paddleboards. Vanaf €80.',
+  ...sunsetTripSeo,
   path: '/boat-trips/sunset-trip',
-  ogTitle: 'Zonsondergang boottrip Ibiza',
-  ogDescription: '🌅 All-inclusive avondtrip met open bar en tapas.',
   ogImage: '/images/optimized/sunset-sailing-cruise-ibiza.webp',
+  locale,
 });
 
 export default async function SunsetTripPage() {
   const sunsetTripJsonLd = await buildProductSchema({
-    name: "Zonsondergang boottrip Ibiza — Salvador Ibiza",
+    name: "Sunset Boat Trip in Ibiza - Salvador Ibiza",
     description:
-      "All-inclusive zonsondergang-trip van 3 uur met kapitein, catering, drankjes, paddleboards en snorkelen.",
+      "All-inclusive sunset boat trip in Ibiza with captain. Enjoy 3 hours of navigation with catering, drinks, paddle surf and snorkel included.",
     path: "/boat-trips/sunset-trip",
     price: "80.00",
     image: "/images/boat/sunset.png",
     includeRating: true,
   });
+  const faqSchema = buildFaqPageSchema(getSunsetTripFaqs(locale));
 
   return (
     <>
@@ -29,6 +34,11 @@ export default async function SunsetTripPage() {
         id="sunset-trip-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(sunsetTripJsonLd) }}
+      />
+      <Script
+        id="sunset-trip-faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <SunsetTripClientPage />
     </>

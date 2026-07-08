@@ -27,112 +27,117 @@ export default function FamilyBoatTripsClientPage() {
 
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6 text-center">
-            Gezinsboottochten <span className="text-green-600">Ibiza</span>
+            Family Boat Trips <span className="text-green-600">Ibiza</span>
           </h1>
 
           <p className="text-xl text-gray-600 text-center mb-12 leading-relaxed">
-            Op zoek naar de <strong>beste gezinsboottocht op Ibiza</strong>? Salvador Ibiza biedt veilige,
-            all-inclusive 3 uur avonturen op een traditionele houten boot — perfect voor kinderen, ouders en
-            grootouders.
+            Looking for the <strong>best family boat trip in Ibiza</strong>? Salvador Ibiza offers safe,
+            all-inclusive 3-hour adventures on a traditional wooden boat — perfect for kids, parents and
+            grandparents.
           </p>
 
           <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden mb-12 shadow-lg">
             <Image
               src="/images/boat/chicaspasandolomuybien.webp"
-              alt="Gezinnen genieten van een ontspannen boottocht op Ibiza met Salvador"
+              alt="Families enjoying a relaxed boat trip in Ibiza with Salvador"
               fill
               className="object-cover"
               priority
             />
           </div>
 
+          {/* Section 1 */}
           <section className="bg-white rounded-2xl shadow-lg p-8 mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-              Waarom Salvador Ibiza een van de beste gezinsboottochten op Ibiza is
+              Why Salvador Ibiza Is One of the Best Family Boat Trips in Ibiza
             </h2>
             <div className="space-y-4 text-gray-600 leading-relaxed">
               <p>
-                Ibiza staat bekend om partyboten en luide clubcruises — maar dat is niet wat de meeste gezinnen
-                willen. De beste <strong>gezinsboottochten op Ibiza</strong> bieden rustige zwemstops in beschutte
-                cala's, reddingsvesten voor elke leeftijd, kindvriendelijk eten en een ontspannen sfeer waarin kinderen
-                zich veilig voelen en ouders echt kunnen ontspannen.
+                Ibiza is famous for party boats and loud club cruises — but that is not what most families
+                want. The best <strong>family boat trips in Ibiza</strong> offer calm swim stops in sheltered
+                coves, life jackets for every age, kid-friendly food, and a relaxed atmosphere where children
+                feel safe and parents can actually unwind.
               </p>
               <p>
-                Salvador Ibiza levert precies dat op onze{" "}
+                Salvador Ibiza delivers exactly that on our{" "}
                 <Link href="/boat-trips/day-trip" className="text-green-600 hover:underline font-medium">
-                  3 uur durende dagtocht
+                  3-hour day trip
                 </Link>
-                . We varen op een prachtige traditionele houten boot vanuit San Antonio, langs Ibiza&apos;s westkust
-                richting Cala Comte of de noordkust richting Es Vedrà. Elke trip is all-inclusive: kapitein en bemanning,
-                open bar, Spaanse tapas, vers fruit, 15 paddleboards, 2 kajaks en volledige snorkeluitrusting.
+                . We sail on a beautiful traditional wooden boat from San Antonio, exploring Ibiza&apos;s west
+                coast towards Cala Comte or the north coast towards Es Vedrà. Every trip is all-inclusive:
+                captain and crew, open bar, Spanish tapas, fresh fruit, 15 paddleboards, 2 kayaks and full
+                snorkelling equipment.
               </p>
               <p>
-                In tegenstelling tot partyboten draaien we geen nightclubmuziek af en beperken we kinderen niet. Onze
-                professionele bemanning verwelkomt dagelijks gezinnen en kiest de rustigste cala's om te zwemmen op basis
-                van de omstandigheden. Met een score van {businessContact.aggregateRating.ratingValue}/5 uit {businessContact.aggregateRating.reviewCount}+ Google-reviews vertrouwen gezinnen uit heel Europa op
-                Salvador Ibiza.
+                Unlike party boats, we do not blast nightclub music or restrict children. Our professional
+                crew welcomes families every day and selects the calmest coves for swimming based on
+                conditions. With a {businessContact.aggregateRating.ratingValue}/5 rating from {businessContact.aggregateRating.reviewCount}+ Google reviews, Salvador Ibiza is trusted by families
+                from across Europe.
               </p>
             </div>
           </section>
 
+          {/* Section 2 */}
           <section className="bg-white rounded-2xl shadow-lg p-8 mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-              Is Salvador Ibiza geschikt voor kinderen?
+              Is Salvador Ibiza Suitable for Children?
             </h2>
             <p className="text-gray-600 leading-relaxed mb-4">
-              <strong>Ja.</strong> Salvador Ibiza is ontworpen voor gezinnen en kinderen. We leveren reddingsvesten in alle
-              maten, geven een veiligheidsbriefing vóór vertrek, en onze bemanning heeft ervaring met jonge zwemmers. De
-              boot heeft schaduw onder een volledig zonnedek, een marinetoilet (WC), en een ontspannen sfeer die kinderen
-              geweldig vinden.
+              <strong>Yes.</strong> Salvador Ibiza is designed for families and children. We provide life
+              jackets in all sizes, give a safety briefing before departure, and our crew is experienced in
+              helping families with young swimmers. The boat has shade under a full canopy, a marine toilet
+              (WC), and a relaxed vibe that children love.
             </p>
             <p className="text-gray-600 leading-relaxed">
-              Veel van onze beste reviews komen van gezinnen die zeggen dat de zwemstops — springen in kristalhelder
-              water, vissen spotten tijdens het snorkelen en paddleboards proberen — het hoogtepunt van hun Ibiza-vakantie
-              waren.
+              Many of our best reviews come from families who say the swim stops — jumping into crystal-clear
+              water, spotting fish while snorkelling, and trying paddleboards — were the highlight of their
+              Ibiza holiday.
             </p>
           </section>
 
+          {/* Section 3 */}
           <section className="bg-white rounded-2xl shadow-lg p-8 mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
-              Vanaf welke leeftijd?
+              What Age Is Suitable?
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="bg-green-50 rounded-xl p-6 border border-green-100">
-                <h3 className="font-bold text-green-800 mb-2">Baby&apos;s (0–5)</h3>
+                <h3 className="font-bold text-green-800 mb-2">Infants (0–5)</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  Reizen <strong>gratis</strong>. Neem zonbescherming mee en blijf onder het zonnedek. Ouderlijk toezicht
-                  verplicht.
+                  Travel <strong>free</strong>. Bring sun protection and stay under the canopy. Parent
+                  supervision required at all times.
                 </p>
               </div>
               <div className="bg-green-50 rounded-xl p-6 border border-green-100">
-                <h3 className="font-bold text-green-800 mb-2">Kinderen (6–12)</h3>
+                <h3 className="font-bold text-green-800 mb-2">Children (6–12)</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  Gereduceerd tarief <strong>€45</strong>. Houden van snorkelen, paddleboards en zwemstops. Reddingsvesten
-                  inbegrepen.
+                  Discounted ticket at <strong>€45</strong>. Love snorkelling, paddleboards and swim stops.
+                  Life jackets provided.
                 </p>
               </div>
               <div className="bg-green-50 rounded-xl p-6 border border-green-100">
-                <h3 className="font-bold text-green-800 mb-2">Tieners (13+)</h3>
+                <h3 className="font-bold text-green-800 mb-2">Teenagers (13+)</h3>
                 <p className="text-gray-600 text-sm leading-relaxed">
-                  Volwassenticket <strong>€80</strong>. Genieten van snorkelen, kajakken, paddleboards en de open bar
-                  (frisdrank voor alle leeftijden).
+                  Full adult ticket at <strong>€80</strong>. Enjoy snorkelling, kayaking, paddleboards and
+                  the open bar (soft drinks included for all ages).
                 </p>
               </div>
             </div>
           </section>
 
+          {/* Section 4 */}
           <section className="bg-white rounded-2xl shadow-lg p-8 mb-12">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6">
-              Wat kinderen het leukst vinden aan boord
+              Things Kids Love On Board
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
-                { icon: "🏊", title: "Springen in helder water", desc: "Rustige, beschutte cala's perfect om te zwemmen en spetteren." },
-                { icon: "🐠", title: "Snorkelen met vissen", desc: "Volledige maskers, snorkels en vinnen voor elke gast." },
-                { icon: "🏄", title: "Paddleboards & kajaks", desc: "15 paddleboards en 2 kajaks — kinderen verkennen graag de cala's." },
-                { icon: "🍎", title: "Vers fruit & tapas", desc: "Kindvriendelijke snacks en onbeperkte frisdrank aan boord." },
-                { icon: "🏝️", title: "Verborgen cala's & grotten", desc: "Routes langs Ibiza's west- en noordkust onthullen geheime plekken." },
-                { icon: "📸", title: "Avontuurfoto's op de boot", desc: "Een traditionele houten boot maakt onvergetelijke gezinsherinneringen." },
+                { icon: "🏊", title: "Jumping into clear water", desc: "Calm, sheltered coves perfect for swimming and splashing." },
+                { icon: "🐠", title: "Snorkelling with fish", desc: "Full masks, snorkels and fins included for every guest." },
+                { icon: "🏄", title: "Paddleboards & kayaks", desc: "15 paddleboards and 2 kayaks — kids love exploring the coves." },
+                { icon: "🍎", title: "Fresh fruit & tapas", desc: "Kid-friendly snacks and unlimited soft drinks on board." },
+                { icon: "🏝️", title: "Hidden coves & caves", desc: "Routes along Ibiza's west and north coast reveal secret spots." },
+                { icon: "📸", title: "Boat adventure photos", desc: "A traditional wooden boat makes unforgettable family memories." },
               ].map((item) => (
                 <div key={item.title} className="flex items-start space-x-4">
                   <span className="text-2xl flex-shrink-0">{item.icon}</span>
@@ -145,21 +150,23 @@ export default function FamilyBoatTripsClientPage() {
             </div>
           </section>
 
+          {/* Section 5 - Comparison */}
           <section className="bg-white rounded-2xl shadow-lg p-8 mb-12">
             <BoatTripComparisonTable
               rows={familyBoatTripComparison}
-              title="Gezinsboottocht vs partyboot vs catamaran"
+              title="Family Boat Trip vs Party Boat vs Catamaran"
             />
           </section>
 
+          {/* Why families love - cards */}
           <section className="bg-white rounded-2xl shadow-lg p-8 mb-12">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6">Waarom gezinnen van onze boottochten houden</h2>
+            <h2 className="text-2xl font-bold text-gray-800 mb-6">Why Families Love Our Boat Trips</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               {[
-                { icon: "👨‍👩‍👧‍👦", title: "Gezinsvriendelijke sfeer", desc: "Veilige, gastvrije omgeving waar kinderen en volwassenen samen genieten." },
-                { icon: "🏊", title: "Veilige zwemplekken", desc: "Rustige cala's dagelijks gekozen door de kapitein voor veilig gezinszwemmen." },
-                { icon: "🐠", title: "Leerzame ervaring", desc: "Ontdek zeeleven, lokale cultuur en Ibiza's natuurlijke omgeving." },
-                { icon: "🍎", title: "Eten voor kinderen", desc: "Vers fruit, tapas en alcoholvrije drankjes voor kinderen." },
+                { icon: "👨‍👩‍👧‍👦", title: "Family-Friendly Environment", desc: "Safe, welcoming atmosphere where children and adults enjoy together." },
+                { icon: "🏊", title: "Safe Swimming Areas", desc: "Calm coves selected daily by the captain for safe family swimming." },
+                { icon: "🐠", title: "Educational Experience", desc: "Discover marine life, local culture and Ibiza's natural environment." },
+                { icon: "🍎", title: "Kid-Friendly Food", desc: "Fresh fruits, tapas and non-alcoholic drinks for children." },
               ].map((item) => (
                 <div key={item.title} className="flex items-start space-x-4">
                   <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
@@ -173,31 +180,34 @@ export default function FamilyBoatTripsClientPage() {
               ))}
             </div>
             <div className="bg-green-50 border-l-4 border-green-500 p-6">
-              <h3 className="font-bold text-green-800 mb-2">Veiligheid eerst</h3>
+              <h3 className="font-bold text-green-800 mb-2">Safety First</h3>
               <p className="text-green-700">
-                Alle kinderen krijgen reddingsvesten en veiligheidsbriefings. Onze ervaren bemanning is getraind in
-                gezinsveiligheidsprotocollen.
+                All children receive life jackets and safety briefings. Our experienced crew is trained in
+                family safety protocols.
               </p>
             </div>
           </section>
 
+          {/* Section 6 - FAQ */}
           <section className="mb-12">
-            <FAQ items={familyFaqItems} title="Veelgestelde vragen gezinsboottochten" />
+            <FAQ items={familyFaqItems} title="Family Boat Trip FAQs" />
           </section>
 
+          {/* Section 7 - Reviews */}
           <section className="mb-12 py-8">
             <TestimonialSlider
               testimonials={familyReviews}
-              title="Wat gezinnen zeggen over Salvador Ibiza"
+              title="What Families Say About Salvador Ibiza"
             />
           </section>
 
+          {/* Booking */}
           <section className="bg-white rounded-2xl shadow-lg p-8 mb-12" id="booking">
             <h2 className="text-2xl font-bold text-gray-800 mb-2 text-center">
-              Boek je gezinsboottocht
+              Book Your Family Boat Trip
             </h2>
             <p className="text-center text-gray-600 mb-6">
-              €80 per volwassene · Kinderen 6–12: €45 · Baby&apos;s 0–5: gratis
+              €80 per adult · Children 6–12: €45 · Infants 0–5: Free
             </p>
             <TurbnbWidget
               companyId={2}
@@ -207,33 +217,33 @@ export default function FamilyBoatTripsClientPage() {
               customProperties={{
                 displayBillingTerm: true,
                 showQuantity: true,
-                quantity: "Gasten",
                 titleVariant: "Modern",
-                bookNow: "GEZINSTOCHT BOEKEN",
-                selectExperienceLabel: "Gezinservaring",
-                addonsLabel: "Extra's",
-                childrenAge: "6 tot 12 jaar",
-                infantAge: "0 tot 5 jaar",
+                bookNow: "BOOK FAMILY TRIP",
+                confirmReservationAndPay: "CONFIRM & PAY",
+                selectExperienceLabel: "Family Experience",
+                addonsLabel: "Add-ons",
+                childrenAge: "6 to 12 Years",
+                infantAge: "0 to 5 Years",
               }}
             />
           </section>
 
           <div className="text-center">
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">Meer opties voor gezinnen</h3>
+            <h3 className="text-2xl font-bold text-gray-800 mb-4">More Family Options</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <Link
                 href="/private-boat-trips"
                 className="block bg-blue-600 text-white p-6 rounded-lg hover:bg-blue-700 transition-colors"
               >
-                <h4 className="text-xl font-bold mb-2">Privé gezinscharter</h4>
-                <p>Exclusief de boot voor jullie gezin</p>
+                <h4 className="text-xl font-bold mb-2">Private Family Charter</h4>
+                <p>Exclusive boat just for your family</p>
               </Link>
               <Link
                 href="/boat-trips"
                 className="block bg-gray-800 text-white p-6 rounded-lg hover:bg-gray-700 transition-colors"
               >
-                <h4 className="text-xl font-bold mb-2">Alle boottochten</h4>
-                <p>Bekijk al onze mogelijkheden</p>
+                <h4 className="text-xl font-bold mb-2">All Boat Trips</h4>
+                <p>Explore all our options</p>
               </Link>
             </div>
           </div>

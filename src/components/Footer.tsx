@@ -3,9 +3,16 @@ import Image from 'next/image';
 import { FaInstagram, FaFacebookF, FaWhatsapp, FaTripadvisor, FaYoutube, FaTiktok } from 'react-icons/fa';
 import { FiMail, FiMapPin, FiPhone, FiArrowRight } from 'react-icons/fi';
 import { businessContact, formatRegisteredAddress } from '@/config/site';
+import { getThingsToDoCopy } from '@/lib/seo-i18n';
+import { getClientSiteLocale } from '@/lib/site-locale';
+
+const KAYAK_IBIZA_GUIDE_URL = 'https://www.kayak.es/Ibiza.8085.guide';
 
 const Footer = () => {
   const year = new Date().getFullYear();
+  const currentLocale = 'en';
+  const thingsToDoLabel = getThingsToDoCopy(getClientSiteLocale()).footerLink;
+
   const [phone1, phone2] = businessContact.phones;
   const whatsappNumber = businessContact.whatsappNumber;
 
@@ -34,10 +41,10 @@ const Footer = () => {
         <div className="container mx-auto px-6 lg:px-8">
           {/* Top section with logo and socials */}
           <div className="flex flex-col md:flex-row justify-between items-center mb-12 pb-8 border-b border-gray-200">
-            <Link href="/" className="mb-6 md:mb-0">
+            <Link href={currentLocale === 'en' ? '/' : `/${currentLocale}`} className="mb-6 md:mb-0">
               <Image
                 src="/images/optimized/salvador-ibiza-footer-logo-alt.webp"
-                alt="Salvador Ibiza footerlogo"
+                alt="Salvador Ibiza Footer Logo"
                 width={60}
                 height={18}
                 loading="lazy"
@@ -63,42 +70,47 @@ const Footer = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-8">
             {/* About column */}
             <div className="lg:pr-8">
-              <h3 className="text-lg font-bold mb-4 text-gray-800">Over ons</h3>
+              <h3 className="text-lg font-bold mb-4 text-gray-800">About Us</h3>
               <p className="text-gray-600 leading-relaxed mb-6">
-                Beleef Ibiza vanaf het water met onze premium boottochten. Onvergetelijke momenten, helder water en de magie van de Middellandse Zee.
+                Experience Ibiza from a different perspective with our premium boat trips. Unforgettable moments, crystal-clear waters, and the magic of the Mediterranean.
               </p>
               <Link href="/about" className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium group">
-                Over Salvador Ibiza <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                About Salvador Ibiza <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
 
             {/* Explore column */}
             <div>
-              <h3 className="text-lg font-bold mb-4 text-gray-800">Ontdek</h3>
+              <h3 className="text-lg font-bold mb-4 text-gray-800">Explore</h3>
               <ul className="space-y-3">
                 <li>
                   <Link href="/boat-trips" className="text-gray-600 hover:text-blue-600 transition duration-300">
-                    ⟡ Boottochten
+                    ⟡ Boat Trips
                   </Link>
                 </li>
                 <li>
                   <Link href="/private-boat-trips" className="text-gray-600 hover:text-blue-600 transition duration-300">
-                    ⟡ Privétochten
+                    ⟡ Private Trips
                   </Link>
                 </li>
                 <li>
                   <Link href="/corporate-events" className="text-gray-600 hover:text-blue-600 transition duration-300">
-                    ⟡ Zakelijke events
+                    ⟡ Corporate Events
                   </Link>
                 </li>
                 <li>
                   <Link href="/weddings" className="text-gray-600 hover:text-blue-600 transition duration-300">
-                    ⟡ Bruiloften
+                    ⟡ Weddings
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/things-to-do-ibiza" className="text-gray-600 hover:text-blue-600 transition duration-300">
+                    ⟡ {thingsToDoLabel}
                   </Link>
                 </li>
                 <li>
                   <Link href="/gallery" className="text-gray-600 hover:text-blue-600 transition duration-300">
-                    ⟡ Galerij
+                    ⟡ Gallery
                   </Link>
                 </li>
                 <li>
@@ -116,11 +128,11 @@ const Footer = () => {
 
             {/* Legal/Company column - ADD Contact Link Here */}
             <div>
-              <h3 className="text-lg font-bold mb-4 text-gray-800">Bedrijf</h3>
+              <h3 className="text-lg font-bold mb-4 text-gray-800">Company</h3>
               <ul className="space-y-3">
                 <li>
                   <Link href="/about" className="text-gray-600 hover:text-blue-600 transition duration-300">
-                    ⟡ Over ons
+                    ⟡ About Us
                   </Link>
                 </li>
                 <li>
@@ -128,19 +140,20 @@ const Footer = () => {
                     ⟡ Partners
                   </Link>
                 </li>
+                {/* Add Contact Us Link */}
                 <li>
                   <Link href="/contact" className="text-gray-600 hover:text-blue-600 transition duration-300">
-                    ⟡ Contact
+                    ⟡ Contact Us
                   </Link>
                 </li>
                 <li>
                   <Link href="/privacy-policy" className="text-gray-600 hover:text-blue-600 transition duration-300">
-                    ⟡ Privacybeleid
+                    ⟡ Privacy Policy
                   </Link>
                 </li>
                 <li>
                   <Link href="/terms-of-service" className="text-gray-600 hover:text-blue-600 transition duration-300">
-                    ⟡ Algemene voorwaarden
+                    ⟡ Terms of Service
                   </Link>
                 </li>
               </ul>
@@ -176,8 +189,8 @@ const Footer = () => {
                   <div className="bg-blue-50 p-2 rounded-full mr-3">
                     <FiMail className="w-4 h-4 text-blue-600" />
                   </div>
-                  <a href="mailto:info@salvadoribiza.com" className="hover:text-blue-600 transition duration-300">
-                    info@salvadoribiza.com
+                  <a href={`mailto:${businessContact.email}`} className="hover:text-blue-600 transition duration-300">
+                    {businessContact.email}
                   </a>
                 </li>
                 <li className="flex items-center text-gray-600">
@@ -190,7 +203,7 @@ const Footer = () => {
                     rel="noopener noreferrer"
                     className="hover:text-green-600 transition duration-300"
                   >
-                    WhatsApp
+                    WhatsApp Us
                   </a>
                 </li>
               </ul>
@@ -199,19 +212,33 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom bar - REMOVE Contact Link from Here */}
+      {/* Bottom bar */}
       <div className="py-4 bg-white border-t border-gray-100">
-        <div className="container mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-gray-500 mb-4 md:mb-0">
-            &copy; {year} <span className="font-medium">Salvador Ibiza</span>. Alle rechten voorbehouden.
-          </p>
-          <div className="flex space-x-8">
-            <a href="#top" className="text-sm text-gray-500 hover:text-blue-600 transition duration-300">
-              Naar boven
+        <div className="container mx-auto px-6 lg:px-8">
+          <p className="text-sm text-gray-500 text-center mb-3">
+            Discover more things to do in{' '}
+            <a
+              href={KAYAK_IBIZA_GUIDE_URL}
+              target="_blank"
+              rel="noopener noreferrer nofollow sponsored"
+              className="text-gray-600 hover:text-blue-600 underline underline-offset-2 transition duration-300"
+            >
+              Ibiza on KAYAK
             </a>
-            <span className="text-sm text-gray-500">
-              Made with ❤️ from MDQ & IBZ 
-            </span>
+            .
+          </p>
+          <div className="flex flex-col md:flex-row justify-between items-center gap-3">
+            <p className="text-sm text-gray-500 text-center md:text-left">
+              &copy; {year} <span className="font-medium">Salvador Ibiza</span>. All rights reserved.
+            </p>
+            <div className="flex space-x-8">
+              <a href="#top" className="text-sm text-gray-500 hover:text-blue-600 transition duration-300">
+                Back to top
+              </a>
+              <span className="text-sm text-gray-500">
+                Made with ❤️ from MDQ & IBZ
+              </span>
+            </div>
           </div>
         </div>
       </div>

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { absoluteUrl, pageAlternates } from "@/config/site";
+import { getOpenGraphLocales } from "@/lib/seo-i18n";
+import { getSiteLocale, type SiteLocale } from "@/lib/site-locale";
 
 export function pageMetadata(opts: {
   title: string;
@@ -13,6 +15,7 @@ export function pageMetadata(opts: {
   ogHeight?: number;
   ogImageAlt?: string;
   robots?: Metadata["robots"];
+  locale?: SiteLocale;
 }): Metadata {
   const {
     title,
@@ -26,7 +29,10 @@ export function pageMetadata(opts: {
     ogHeight = 630,
     ogImageAlt,
     robots: robotsOverride,
+    locale = getSiteLocale(),
   } = opts;
+
+  const { locale: ogLocale, alternateLocale } = getOpenGraphLocales(locale);
 
   return {
     title,
@@ -38,8 +44,8 @@ export function pageMetadata(opts: {
       title: ogTitle ?? title,
       description: ogDescription ?? description,
       url: absoluteUrl(path),
-      locale: "nl_NL",
-      alternateLocale: ["en_US", "es_ES", "fr_FR"],
+      locale: ogLocale,
+      alternateLocale,
       images: [
         {
           url: ogImage,
@@ -50,4 +56,11 @@ export function pageMetadata(opts: {
       ],
     },
   };
+}
+
+/** @deprecated Use pageMetadata — kept for pages not yet migrated */
+export function enPageMetadata(
+  opts: Omit<Parameters<typeof pageMetadata>[0], "locale">
+): Metadata {
+  return pageMetadata(opts);
 }
