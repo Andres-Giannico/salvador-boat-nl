@@ -1264,6 +1264,101 @@ export function getBreadcrumbLabels(locale: SiteLocale): Record<string, string> 
   return pick(BREADCRUMB_LABELS, locale);
 }
 
+// ─── Navbar ──────────────────────────────────────────────────────────────────
+
+export type NavbarCopy = {
+  home: string;
+  boatTrips: string;
+  privateTrips: string;
+  gallery: string;
+  faq: string;
+  bookNow: string;
+  openMenu: string;
+  mobileLangPrefix: string;
+  conjunction: string;
+  langNames: Record<SiteLocale, string>;
+  langSiteTitle: Record<SiteLocale, string>;
+};
+
+const NAVBAR_COPY: Record<SiteLocale, NavbarCopy> = {
+  en: {
+    home: "HOME",
+    boatTrips: "BOAT TRIPS",
+    privateTrips: "PRIVATE TRIPS",
+    gallery: "GALLERY",
+    faq: "FAQ",
+    bookNow: "BOOK NOW",
+    openMenu: "Open main menu",
+    mobileLangPrefix: "Same page in",
+    conjunction: "or",
+    langNames: { en: "English", es: "Spanish", nl: "Dutch", fr: "French" },
+    langSiteTitle: {
+      en: "You are on the English site",
+      es: "Spanish version",
+      nl: "Dutch version",
+      fr: "French version",
+    },
+  },
+  es: {
+    home: "INICIO",
+    boatTrips: "EXCURSIONES",
+    privateTrips: "CHARTER",
+    gallery: "GALERÍA",
+    faq: "FAQ",
+    bookNow: "RESERVAR",
+    openMenu: "Abrir menú principal",
+    mobileLangPrefix: "Misma página en",
+    conjunction: "o",
+    langNames: { en: "inglés", es: "español", nl: "holandés", fr: "francés" },
+    langSiteTitle: {
+      en: "Versión en inglés",
+      es: "Estás en el sitio en español",
+      nl: "Versión en holandés",
+      fr: "Versión en francés",
+    },
+  },
+  nl: {
+    home: "HOME",
+    boatTrips: "BOOTTOCHTEN",
+    privateTrips: "PRIVÉ",
+    gallery: "GALERIJ",
+    faq: "FAQ",
+    bookNow: "BOEKEN",
+    openMenu: "Hoofdmenu openen",
+    mobileLangPrefix: "Dezelfde pagina in",
+    conjunction: "of",
+    langNames: { en: "Engels", es: "Spaans", nl: "Nederlands", fr: "Frans" },
+    langSiteTitle: {
+      en: "Engelse versie",
+      es: "Spaanse versie",
+      nl: "Je bent op de Nederlandse site",
+      fr: "Franse versie",
+    },
+  },
+  fr: {
+    home: "ACCUEIL",
+    boatTrips: "EXCURSIONS",
+    privateTrips: "PRIVÉ",
+    gallery: "GALERIE",
+    faq: "FAQ",
+    bookNow: "RÉSERVER",
+    openMenu: "Ouvrir le menu principal",
+    mobileLangPrefix: "Même page en",
+    conjunction: "ou",
+    langNames: { en: "anglais", es: "espagnol", nl: "néerlandais", fr: "français" },
+    langSiteTitle: {
+      en: "Version anglaise",
+      es: "Version espagnole",
+      nl: "Version néerlandaise",
+      fr: "Vous êtes sur le site en français",
+    },
+  },
+};
+
+export function getNavbarCopy(locale: SiteLocale): NavbarCopy {
+  return pick(NAVBAR_COPY, locale);
+}
+
 // ─── Boat trips hub (/boat-trips) ────────────────────────────────────────────
 
 const BOAT_TRIPS_HUB_SEO: Record<SiteLocale, PageSeoFields> = {

@@ -6,6 +6,7 @@ import { Sunset, Users, Waves, Anchor, Compass, Star, Sun, Heart } from 'lucide-
 
 const activities = [
   {
+    id: 'sunset-trip',
     title: 'Sunset Trip',
     description: 'Enjoy the best sunsets in Ibiza from the sea',
     href: '/boat-trips/sunset-trip',
@@ -13,6 +14,7 @@ const activities = [
     color: 'from-orange-500 to-pink-500'
   },
   {
+    id: 'san-antonio',
     title: 'San Antonio Trip',
     description: 'Explore San Antonio bay with all the comforts',
     href: '/boat-trips/san-antonio',
@@ -20,6 +22,7 @@ const activities = [
     color: 'from-blue-500 to-teal-500'
   },
   {
+    id: 'snorkeling',
     title: 'Snorkeling',
     description: 'Discover marine life in Ibiza\'s crystal clear waters',
     href: '/boat-trips/snorkeling',
@@ -27,6 +30,7 @@ const activities = [
     color: 'from-teal-500 to-cyan-500'
   },
   {
+    id: 'groups',
     title: 'Groups',
     description: 'Perfect experiences for large groups and celebrations',
     href: '/boat-trips/groups',
@@ -34,6 +38,7 @@ const activities = [
     color: 'from-purple-500 to-pink-500'
   },
   {
+    id: 'paddle',
     title: 'Paddle Surf',
     description: 'Paddle surf adventure in Ibiza\'s best coves',
     href: '/boat-trips/paddle',
@@ -41,6 +46,7 @@ const activities = [
     color: 'from-green-500 to-emerald-500'
   },
   {
+    id: 'all-inclusive',
     title: 'All Inclusive',
     description: 'Everything included for a worry-free experience',
     href: '/boat-trips/day-trip',
@@ -48,6 +54,7 @@ const activities = [
     color: 'from-yellow-500 to-orange-500'
   },
   {
+    id: 'day-trip',
     title: 'Day Trip',
     description: 'Full day excursions to the best spots',
     href: '/boat-trips/day-trip',
@@ -55,6 +62,7 @@ const activities = [
     color: 'from-amber-500 to-yellow-500'
   },
   {
+    id: 'family',
     title: 'Family',
     description: 'Perfect activities to enjoy with the family',
     href: '/boat-trips/family',
@@ -118,11 +126,11 @@ export default function ActivitiesSection() {
           variants={staggerContainer}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8"
         >
-          {activities.map((activity, index) => {
+          {activities.map((activity) => {
             const IconComponent = activity.icon;
             return (
               <motion.div
-                key={activity.href}
+                key={activity.id}
                 variants={fadeInUp}
                 className="group"
               >
