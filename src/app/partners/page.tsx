@@ -1,11 +1,15 @@
 import PartnersClientPage from './page.client';
-import { enPageMetadata } from '@/lib/page-meta';
+import { pageMetadata } from '@/lib/page-meta';
+import { getPartnersSeo } from '@/lib/partners-i18n';
+import { getSiteLocale } from '@/lib/site-locale';
 
-export const metadata = enPageMetadata({
-  title: 'Partners & Turvok | Salvador Boat Ibiza',
-  description:
-    "Join Salvador Boat Ibiza's partner network. Integrate our booking system with Turvok and offer premium maritime experiences to your clients. Perfect for hotels, concierges, and travel websites.",
+const locale = getSiteLocale();
+const seo = getPartnersSeo(locale);
+
+export const metadata = pageMetadata({
+  ...seo,
   path: '/partners',
+  locale,
 });
 
 export default function PartnersPage() {

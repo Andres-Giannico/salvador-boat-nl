@@ -1215,6 +1215,7 @@ const BREADCRUMB_LABELS: Record<SiteLocale, Record<string, string>> = {
     gallery: "Gallery",
     about: "About Us",
     contact: "Contact",
+    partners: "Partners",
   },
   es: {
     "boat-trips": "Excursiones en Barco",
@@ -1229,6 +1230,7 @@ const BREADCRUMB_LABELS: Record<SiteLocale, Record<string, string>> = {
     gallery: "Galería",
     about: "Sobre Nosotros",
     contact: "Contacto",
+    partners: "Partners",
   },
   nl: {
     "boat-trips": "Boottochten",
@@ -1243,6 +1245,7 @@ const BREADCRUMB_LABELS: Record<SiteLocale, Record<string, string>> = {
     gallery: "Galerij",
     about: "Over Ons",
     contact: "Contact",
+    partners: "Partners",
   },
   fr: {
     "boat-trips": "Excursions en Bateau",
@@ -1257,6 +1260,7 @@ const BREADCRUMB_LABELS: Record<SiteLocale, Record<string, string>> = {
     gallery: "Galerie",
     about: "À Propos",
     contact: "Contact",
+    partners: "Partenaires",
   },
 };
 
