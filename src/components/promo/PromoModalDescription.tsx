@@ -94,7 +94,7 @@ export function PromoModalDescription({
       <strong className="text-gray-800">{d.codeField}</strong> {checkoutPhrase} — {thisOfferPhrase}{' '}
       <strong className="text-gray-800">{d.offerLabel}</strong> {endsPhrase}{' '}
       <strong className="text-gray-800">{d.deadline}</strong>
-      {kind === 'super' ? d.superGone : '.'}
+      {kind === 'super' || kind === 'endseason' ? d.superGone : '.'}
     </>
   );
 }

@@ -6,7 +6,7 @@
 import { getPromoCopy } from '@/lib/promo-i18n';
 import { getSiteLocale, type SiteLocale } from '@/lib/site-locale';
 
-export type ActivePromoKind = 'champion' | 'super' | 'earlybird' | 'summer';
+export type ActivePromoKind = 'champion' | 'super' | 'earlybird' | 'summer' | 'endseason';
 
 export type ActivePromo = {
   kind: ActivePromoKind;
@@ -32,13 +32,18 @@ const EARLYBIRD: { start: Date; end: Date } = {
 };
 
 const SUPER_PROMO: { start: Date; end: Date } = {
-  start: new Date(2026, 5, 11, 0, 0, 0, 0),
-  end: new Date(2026, 5, 17, 23, 59, 59, 999),
+  start: new Date(2026, 7, 18, 0, 0, 0, 0),
+  end: new Date(2026, 7, 31, 23, 59, 59, 999),
 };
 
 const SUMMER10: { start: Date; end: Date } = {
   start: new Date(2026, 6, 1, 0, 0, 0, 0),
   end: new Date(2026, 6, 31, 23, 59, 59, 999),
+};
+
+const ENDSEASON10: { start: Date; end: Date } = {
+  start: new Date(2026, 8, 1, 0, 0, 0, 0),
+  end: new Date(2026, 8, 30, 23, 59, 59, 999),
 };
 
 /** Salvador Boat Mix product in Turbookings */
@@ -49,7 +54,7 @@ function inRange(now: Date, start: Date, end: Date): boolean {
 }
 
 export function isFlashPromo(kind: ActivePromoKind): boolean {
-  return kind === 'champion' || kind === 'super' || kind === 'summer';
+  return kind === 'champion' || kind === 'super' || kind === 'summer' || kind === 'endseason';
 }
 
 function buildPromo(
@@ -75,6 +80,9 @@ export function getActivePromo(
   if (inRange(now, SUPER_PROMO.start, SUPER_PROMO.end)) {
     return buildPromo('super', 'SUPERPROMO', 10, locale);
   }
+  if (inRange(now, ENDSEASON10.start, ENDSEASON10.end)) {
+    return buildPromo('endseason', 'ENDSEASON10', 10, locale);
+  }
   if (inRange(now, EARLYBIRD.start, EARLYBIRD.end)) {
     return buildPromo('earlybird', 'EARLYBIRD5', 5, locale);
   }
@@ -87,8 +95,9 @@ export function promoAppliesToMixTrips(productId: number): boolean {
 
 export function storageKeyFor(promo: ActivePromoKind): string {
   if (promo === 'champion') return 'salvador_champion10_2026_worldcup_dismissed';
-  if (promo === 'super') return 'salvador_superpromo_2026_june_7day_dismissed';
+  if (promo === 'super') return 'salvador_superpromo_2026_august_dismissed';
   if (promo === 'summer') return 'salvador_summer10_2026_july_dismissed';
+  if (promo === 'endseason') return 'salvador_endseason10_2026_september_dismissed';
   return 'salvador_earlybird5_promo_dismissed_2026';
 }
 
@@ -104,7 +113,7 @@ export const PROMO_HERO: Record<
   super: {
     src: '/images/optimized/superpromo-salvador-ibiza-flash-deal.webp',
     className: 'object-cover object-center',
-    overlay: 'from-black/35 to-transparent',
+    overlay: '',
   },
   earlybird: {
     src: '/images/optimized/salvador-ibiza-boat-aerial-view.webp',
@@ -115,6 +124,11 @@ export const PROMO_HERO: Record<
     src: '/images/optimized/summer10-salvador-ibiza-summer-promo.webp',
     className: 'object-cover object-center',
     overlay: 'from-black/30 to-transparent',
+  },
+  endseason: {
+    src: '/images/optimized/endseason-salvador-ibiza-sept2026.webp',
+    className: 'object-cover object-[center_38%]',
+    overlay: 'from-black/20 to-transparent',
   },
 };
 

@@ -147,14 +147,14 @@ const PROMO_COPY: Record<ActivePromoKind, Record<SiteLocale, PromoCopy>> = {
   super: {
     en: {
       labelShort: 'Super promo',
-      headline: '7-day flash — €10 off each guest',
+      headline: 'August flash — €10 off each guest',
       primaryCtaLabel: 'Grab €10 off — book now',
-      kicker: '7 days only · Web bookings · ends 17 Jun',
-      validityShort: '11–17 Jun 2026',
+      kicker: '18–31 Aug · Web bookings · ends 31 Aug',
+      validityShort: '18–31 Aug 2026',
       validityText:
-        'Valid for online bookings made 11–17 Jun 2026 (23:59, your local time). €10 off per guest with SUPERPROMO on Salvador Boat Mix (Day or Sunset). This 7-day web-only offer ends 17 June — don’t miss it.',
+        'Valid for online bookings made 18–31 Aug 2026 (23:59, your local time). €10 off per guest with SUPERPROMO on Salvador Boat Mix (Day or Sunset). This web-only offer ends 31 August — don’t miss it.',
       heroAlt:
-        'Salvador Ibiza — 7-day flash: €10 off per person on web bookings, code SUPERPROMO, ends 17 June',
+        'Salvador Ibiza — August flash: €10 off per person on web bookings, code SUPERPROMO, ends 31 August',
     },
     es: {
       labelShort: 'Super promo',
@@ -188,6 +188,52 @@ const PROMO_COPY: Record<ActivePromoKind, Record<SiteLocale, PromoCopy>> = {
         "Valable pour les réservations en ligne du 11 au 17 juin 2026 (23:59, heure locale). 10 € de réduction par personne avec SUPERPROMO sur Salvador Boat Mix (excursion journée ou coucher de soleil). Cette offre web de 7 jours se termine le 17 juin — ne la manquez pas.",
       heroAlt:
         "Salvador Ibiza — flash 7 jours : 10 € de réduction en réservant sur le web, code SUPERPROMO, fin le 17 juin",
+    },
+  },
+  endseason: {
+    en: {
+      labelShort: 'End of Season',
+      headline: 'End of season — €10 off each guest',
+      primaryCtaLabel: 'Grab €10 off — book now',
+      kicker: 'End of Season · All September · Web bookings',
+      validityShort: '1–30 Sep 2026',
+      validityText:
+        'Valid for online bookings made 1–30 Sep 2026 (23:59, your local time). €10 off per guest with ENDSEASON10 on Salvador Boat Mix (Day or Sunset). Last chance before the season ends — don’t miss it.',
+      heroAlt:
+        'Salvador Ibiza — End of season: €10 off per person on web bookings, code ENDSEASON10, all September',
+    },
+    es: {
+      labelShort: 'Fin de temporada',
+      headline: 'Fin de temporada — 10 € menos por persona',
+      primaryCtaLabel: 'Aprovecha 10 € — reserva ya',
+      kicker: 'Fin de temporada · Todo septiembre · Reservas web',
+      validityShort: '1–30 sep 2026',
+      validityText:
+        'Válido para reservas online del 1 al 30 de septiembre de 2026 (23:59, hora local). 10 € de descuento por persona con ENDSEASON10 en Salvador Boat Mix (excursión de día o atardecer). Última oportunidad antes de que acabe la temporada — no te la pierdas.',
+      heroAlt:
+        'Salvador Ibiza — fin de temporada: 10 € de descuento por persona reservando en la web, código ENDSEASON10, todo septiembre',
+    },
+    nl: {
+      labelShort: 'Einde seizoen',
+      headline: 'Einde seizoen — €10 korting per gast',
+      primaryCtaLabel: 'Pak €10 korting — boek nu',
+      kicker: 'Einde seizoen · Hele september · Webboekingen',
+      validityShort: '1–30 sep 2026',
+      validityText:
+        'Geldig voor online boekingen van 1–30 sep 2026 (23:59, jouw lokale tijd). €10 korting per gast met ENDSEASON10 op Salvador Boat Mix (dagtocht of zonsondergang). Laatste kans vóór het seizoen eindigt — mis hem niet.',
+      heroAlt:
+        'Salvador Ibiza — einde seizoen: €10 korting per persoon bij boeken op de web, code ENDSEASON10, hele september',
+    },
+    fr: {
+      labelShort: 'Fin de saison',
+      headline: 'Fin de saison — 10 € de réduction par personne',
+      primaryCtaLabel: 'Profitez de 10 € — réserver',
+      kicker: 'Fin de saison · Tout septembre · Réservations web',
+      validityShort: '1–30 sept. 2026',
+      validityText:
+        'Valable pour les réservations en ligne du 1er au 30 septembre 2026 (23:59, heure locale). 10 € de réduction par personne avec ENDSEASON10 sur Salvador Boat Mix (excursion journée ou coucher de soleil). Dernière chance avant la fin de saison — ne la manquez pas.',
+      heroAlt:
+        'Salvador Ibiza — fin de saison : 10 € de réduction par personne en réservant sur le web, code ENDSEASON10, tout septembre',
     },
   },
   earlybird: {
@@ -345,8 +391,8 @@ const PROMO_MODAL_DESC: Record<ActivePromoKind, Record<SiteLocale, PromoModalDes
       webBooking: 'booking on our website',
       codeAction: 'Paste',
       codeField: 'Promo code',
-      offerLabel: '7-day flash deal',
-      deadline: '17 June',
+      offerLabel: 'August flash deal',
+      deadline: '31 August',
       superGone: ", then it's gone.",
     },
     es: {
@@ -386,6 +432,60 @@ const PROMO_MODAL_DESC: Record<ActivePromoKind, Record<SiteLocale, PromoModalDes
       codeField: 'Code promo',
       offerLabel: 'offre flash de 7 jours',
       deadline: '17 juin',
+      superGone: ', puis elle disparaît.',
+    },
+  },
+  endseason: {
+    en: {
+      lead: 'End of season:',
+      perPerson: '€10 per person',
+      product: 'Salvador Boat Mix',
+      tripTypes: '(Day Trip or Sunset)',
+      webBookingLead: 'when you complete your',
+      webBooking: 'booking on our website',
+      codeAction: 'Paste',
+      codeField: 'Promo code',
+      offerLabel: 'September end-of-season offer',
+      deadline: '30 September',
+      superGone: ", then it's gone.",
+    },
+    es: {
+      lead: 'Fin de temporada:',
+      perPerson: '10 € menos por persona',
+      product: 'Salvador Boat Mix',
+      tripTypes: '(excursión de día o atardecer)',
+      webBookingLead: 'al completar tu',
+      webBooking: 'reserva en nuestra web',
+      codeAction: 'Introduce',
+      codeField: 'Código promocional',
+      offerLabel: 'oferta de fin de temporada',
+      deadline: '30 de septiembre',
+      superGone: ' y se acaba.',
+    },
+    nl: {
+      lead: 'Einde seizoen:',
+      perPerson: '€10 per persoon',
+      product: 'Salvador Boat Mix',
+      tripTypes: '(dagtocht of zonsondergang)',
+      webBookingLead: 'wanneer je je',
+      webBooking: 'boeking op onze website afrondt',
+      codeAction: 'Plak',
+      codeField: 'Promocode',
+      offerLabel: 'eind-van-seizoen aanbieding',
+      deadline: '30 september',
+      superGone: ', daarna is hij weg.',
+    },
+    fr: {
+      lead: 'Fin de saison :',
+      perPerson: '10 € de réduction par personne',
+      product: 'Salvador Boat Mix',
+      tripTypes: '(excursion journée ou coucher de soleil)',
+      webBookingLead: 'lorsque vous effectuez votre',
+      webBooking: 'réservation sur notre site',
+      codeAction: 'Collez',
+      codeField: 'Code promo',
+      offerLabel: 'offre de fin de saison',
+      deadline: '30 septembre',
       superGone: ', puis elle disparaît.',
     },
   },
@@ -472,7 +572,7 @@ const PROMO_UI: Record<SiteLocale, PromoUi> = {
       `Paste the code in the Promo code field in the booking form below and tap Apply — the €${eur}/guest discount is applied at checkout.`,
     summerBadgeAllJuly: 'All July · ends 31 Jul',
     summerDeal: 'Summer deal',
-    superBadgeDays: '7 days only · ends 17 Jun',
+    superBadgeDays: '18–31 Aug · ends 31 Aug',
     limitedTime: 'Limited time',
     activePromoAria: (label) => `Active promotion: ${label}`,
     codeBoxHint: (eur) => `✓ €${eur} off each guest · Salvador Boat Mix (Day or Sunset) ·`,

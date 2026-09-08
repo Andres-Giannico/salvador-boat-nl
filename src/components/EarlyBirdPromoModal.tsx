@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback, useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { toast } from 'sonner';
-import { X, Copy, Check, Timer, Sun } from 'lucide-react';
+import { X, Copy, Check, Sun } from 'lucide-react';
 import {
   getActivePromo,
   getPromoHeroAlt,
@@ -102,9 +102,11 @@ export default function EarlyBirdPromoModal() {
         >
           <div
             className={
-              isFlashPromo(promo.kind)
-                ? 'relative h-48 w-full shrink-0 sm:h-52'
-                : 'relative h-44 w-full shrink-0 sm:h-48'
+              promo.kind === 'endseason'
+                ? 'relative h-52 w-full shrink-0 sm:h-56'
+                : isFlashPromo(promo.kind)
+                  ? 'relative h-48 w-full shrink-0 sm:h-52'
+                  : 'relative h-44 w-full shrink-0 sm:h-48'
             }
           >
             <Image
@@ -120,22 +122,7 @@ export default function EarlyBirdPromoModal() {
                 className={`absolute inset-0 bg-gradient-to-t ${PROMO_HERO[promo.kind].overlay}`}
               />
             ) : null}
-            {promo.kind === 'super' ? (
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent px-3 pb-3 pt-10 sm:px-4 sm:pb-3.5">
-                <div className="flex flex-wrap items-center justify-center gap-2">
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-gray-900 shadow-md ring-1 ring-black/5 sm:text-xs">
-                    <Timer className="size-3.5 shrink-0 text-amber-600" aria-hidden />
-                    {ui.superBadgeDays}
-                  </span>
-                  <span className="rounded-full bg-emerald-600 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-white shadow-md sm:text-xs">
-                    {ui.perGuestBadge(promo.eur)}
-                  </span>
-                  <span className="rounded-full bg-amber-500/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-gray-950 shadow-md sm:text-xs">
-                    {ui.limitedTime}
-                  </span>
-                </div>
-              </div>
-            ) : promo.kind === 'summer' ? (
+            {promo.kind === 'summer' ? (
               <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent px-3 pb-3 pt-10 sm:px-4 sm:pb-3.5">
                 <div className="flex flex-wrap items-center justify-center gap-2">
                   <span className="inline-flex items-center gap-1.5 rounded-full bg-white/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-gray-900 shadow-md ring-1 ring-black/5 sm:text-xs">
