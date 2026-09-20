@@ -3,9 +3,9 @@ import { getSiteLocale } from '@/lib/site-locale';
 /**
  * Turbookings / Turbnb — assets estáticos del widget de reservas.
  *
- * v2 (activo): `public/widget-turvok/turbookings-booking-widget.js` — solo JS (CSS embebido).
- * El bundle v2 vive **solo en el repo/deploy .com**. Los sitios .es / .nl / .fr lo cargan
- * desde `TURBNB_WIDGET_V2_CDN_URL` (salvadoribiza.com); no hace falta duplicar el archivo.
+ * v2 (activo): bundle en `public/widget-turvok/turbookings-booking-widget.js` del repo .com.
+ * **Todos** los sitios (.com / .es / .nl / .fr) cargan el JS desde `TURBNB_WIDGET_V2_CDN_URL`
+ * (un solo archivo que actualizar en el deploy .com).
  * v1 (rollback): `public/widget-turvok/turbnb.booking.1.0.31.min.{js,css}`
  *
  * ---------------------------------------------------------------------------
@@ -51,22 +51,11 @@ const V1_LOCAL_CSS = `/widget-turvok/${V1_BUNDLE}.css`;
 const V1_PROD_JS = `${PROD_WIDGET_BASE}/${V1_BUNDLE}.js`;
 const V1_PROD_CSS = `${PROD_WIDGET_BASE}/${V1_BUNDLE}.css`;
 
-const V2_JS = '/widget-turvok/turbookings-booking-widget.js';
-
 const v1Js = USE_LOCAL_TURBNB_WIDGET_ASSETS ? V1_LOCAL_JS : V1_PROD_JS;
 const v1Css = USE_LOCAL_TURBNB_WIDGET_ASSETS ? V1_LOCAL_CSS : V1_PROD_CSS;
 
-/** `.es` / `.nl` / `.fr` no tienen el bundle en `public/` — cargan desde `.com`. */
-function isSalvadorComDeploy(): boolean {
-  const url = process.env.NEXT_PUBLIC_SITE_URL || '';
-  if (url.includes('salvadoribiza.com')) return true;
-  if (url.includes('.es') || url.includes('.nl') || url.includes('.fr')) return false;
-  return true;
-}
-
 function resolveTurboWidgetJs(): string {
   if (!USE_TURBNB_WIDGET_V2) return v1Js;
-  if (isSalvadorComDeploy() && USE_LOCAL_TURBNB_WIDGET_ASSETS) return V2_JS;
   return TURBNB_WIDGET_V2_CDN_URL;
 }
 
