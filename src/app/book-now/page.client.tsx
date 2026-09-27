@@ -43,7 +43,7 @@ export default function BookNowClientPage() {
               </div>
               <div className="prose prose-sm sm:prose-base text-gray-600 mb-4">
                 <p>
-                  Join our popular day trip! Experience the beautiful waters of Ibiza from <strong>14:00-17:00</strong>. Includes drinks, snacks, swim stops, and good vibes.
+                  Join our popular 3-hour day trip on the waters of Ibiza. Departure time depends on your date — you&apos;ll see the exact time when you book and on your voucher. Includes drinks, snacks, swim stops, and good vibes.
                 </p>
               </div>
               <Link 
@@ -96,7 +96,7 @@ export default function BookNowClientPage() {
               </div>
               <div className="prose prose-sm sm:prose-base text-gray-600 mb-4">
                 <p>
-                  Experience the magical sunset! Join us from <strong>18:30-21:30</strong> (times vary by season) for an unforgettable evening on the Mediterranean.
+                  Experience the magical sunset on a ~3-hour evening cruise. Departure follows the sunset on your date — exact time when you book and on your voucher.
                 </p>
               </div>
               <Link 

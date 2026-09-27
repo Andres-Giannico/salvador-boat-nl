@@ -15,6 +15,7 @@ import ReviewsSection from '@/components/trips/ReviewsSection';
 import FAQ from '@/components/trips/FAQ';
 import TurbnbWidget from '@/components/booking/TurbnbWidget';
 import { getSunsetTripHeroCopy, getSunsetTripFaqs } from '@/lib/seo-i18n';
+import { getSunsetTripSidebarSchedule } from '@/lib/trip-schedule-copy';
 import { getClientSiteLocale } from '@/lib/site-locale';
 
 // Trip image gallery - Extended
@@ -87,6 +88,7 @@ export default function SunsetTripClientPage({}: SunsetTripClientPageProps) {
   const locale = getClientSiteLocale();
   const heroCopy = getSunsetTripHeroCopy(locale);
   const tripFAQs = getSunsetTripFaqs(locale);
+  const scheduleCopy = getSunsetTripSidebarSchedule(locale);
 
   return (
     <div className="bg-gray-50">
@@ -218,8 +220,9 @@ export default function SunsetTripClientPage({}: SunsetTripClientPageProps) {
                   <FiClock className="mt-1 mr-3 text-orange-600 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-800">Schedule</h4>
-                    <p className="text-gray-600">Approx. 3 hours (Evening)</p>
-                    <p className="text-xs text-gray-500">Departs 5:00-6:30 PM (seasonal)</p>
+                    <p className="text-gray-600">{scheduleCopy.durationMain}</p>
+                    <p className="text-sm text-gray-600 mt-1">{scheduleCopy.durationEstimate}</p>
+                    <p className="text-xs text-gray-500 mt-1.5">{scheduleCopy.durationNote}</p>
                   </div>
                 </div>
                 <div className="flex items-start">

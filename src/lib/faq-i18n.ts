@@ -236,7 +236,7 @@ const TOPIC_GUIDE_I18N: Record<SiteLocale, PlainFaq[]> = {
     {
       question: "¿A qué hora sale la excursión al atardecer?",
       answer:
-        "En temporada alta suele salir sobre las 18:30 y regresar sobre las 21:30, programada para el mejor atardecer.",
+        "La hora no es fija: se programa según el atardecer de tu fecha y adelanta a final de temporada. Llega 30 minutos antes. La hora exacta aparece al reservar y en el voucher.",
     },
     {
       question: "¿Por dónde navega la excursión al atardecer?",
@@ -288,7 +288,7 @@ const TOPIC_GUIDE_I18N: Record<SiteLocale, PlainFaq[]> = {
     {
       question: "Hoe laat vertrekt de zonsondergangtocht?",
       answer:
-        "In het hoogseizoen meestal rond 18:30, terug rond 21:30 — afgestemd op de zonsondergang.",
+        "Vertrektijd is niet vast — afgestemd op de zonsondergang op jouw datum. Kom 30 minuten voor boarding. Exacte tijd bij boeken en op je voucher.",
     },
     {
       question: "Welke route vaart de zonsondergangtocht?",

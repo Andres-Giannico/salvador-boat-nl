@@ -1,5 +1,11 @@
 import type { PlainFaq } from "@/lib/faq-schema";
 import type { SiteLocale } from "@/lib/site-locale";
+import {
+  DAY_TRIP_BADGE,
+  SUNSET_TRIP_BADGE,
+  getDayTripDepartureFaqAnswer,
+  getSunsetTripDepartureFaqAnswer,
+} from "@/lib/trip-schedule-copy";
 
 export type PageSeoFields = {
   title: string;
@@ -288,8 +294,7 @@ const DAY_TRIP_FAQS: Record<SiteLocale, PlainFaq[]> = {
   en: [
     {
       question: "What time does the day boat trip depart?",
-      answer:
-        "The all-inclusive day boat trip departs at 14:00 (2:00 PM) from San Antonio Port. Please arrive at least 30 minutes before departure. Times may vary slightly by month.",
+      answer: getDayTripDepartureFaqAnswer("en"),
     },
     {
       question: "What's included in the day boat trip price?",
@@ -315,8 +320,7 @@ const DAY_TRIP_FAQS: Record<SiteLocale, PlainFaq[]> = {
   es: [
     {
       question: "¿A qué hora sale la excursión en barco de día?",
-      answer:
-        "La excursión en barco de día todo incluido sale a las 14:00 desde el puerto de San Antonio. Llega al menos 30 minutos antes. El horario puede variar ligeramente según el mes.",
+      answer: getDayTripDepartureFaqAnswer("es"),
     },
     {
       question: "¿Qué incluye el precio de la excursión de día?",
@@ -342,8 +346,7 @@ const DAY_TRIP_FAQS: Record<SiteLocale, PlainFaq[]> = {
   nl: [
     {
       question: "Hoe laat vertrekt de dagboottocht?",
-      answer:
-        "De all-inclusive dagboottocht vertrekt om 14:00 uur vanuit de haven van San Antonio. Kom minstens 30 minuten van tevoren. Tijden kunnen per maand iets variëren.",
+      answer: getDayTripDepartureFaqAnswer("nl"),
     },
     {
       question: "Wat is inbegrepen in de prijs?",
@@ -369,8 +372,7 @@ const DAY_TRIP_FAQS: Record<SiteLocale, PlainFaq[]> = {
   fr: [
     {
       question: "À quelle heure part l'excursion de jour ?",
-      answer:
-        "L'excursion en bateau tout inclus part à 14h00 du port de San Antonio. Arrivez au moins 30 minutes avant. L'horaire peut varier légèrement selon le mois.",
+      answer: getDayTripDepartureFaqAnswer("fr"),
     },
     {
       question: "Qu'est-ce qui est inclus dans le prix ?",
@@ -475,8 +477,7 @@ const SUNSET_TRIP_FAQS: Record<SiteLocale, PlainFaq[]> = {
   en: [
     {
       question: "What time does the sunset boat trip depart?",
-      answer:
-        "Departure is typically between 5:00 PM and 6:30 PM depending on the month, timed to catch Ibiza's golden hour. Please arrive 30 minutes before boarding.",
+      answer: getSunsetTripDepartureFaqAnswer("en"),
     },
     {
       question: "Where does the Ibiza sunset boat trip go?",
@@ -502,8 +503,7 @@ const SUNSET_TRIP_FAQS: Record<SiteLocale, PlainFaq[]> = {
   es: [
     {
       question: "¿A qué hora sale la excursión al atardecer?",
-      answer:
-        "La salida suele ser entre las 17:00 y las 18:30 según el mes, programada para el mejor atardecer. Llega 30 minutos antes del embarque.",
+      answer: getSunsetTripDepartureFaqAnswer("es"),
     },
     {
       question: "¿Por dónde navega la excursión al atardecer?",
@@ -529,8 +529,7 @@ const SUNSET_TRIP_FAQS: Record<SiteLocale, PlainFaq[]> = {
   nl: [
     {
       question: "Hoe laat vertrekt de zonsondergangboottocht?",
-      answer:
-        "Vertrek is meestal tussen 17:00 en 18:30 uur, afgestemd op het gouden uur. Kom 30 minuten voor boarding.",
+      answer: getSunsetTripDepartureFaqAnswer("nl"),
     },
     {
       question: "Welke route vaart de zonsondergangtocht?",
@@ -556,8 +555,7 @@ const SUNSET_TRIP_FAQS: Record<SiteLocale, PlainFaq[]> = {
   fr: [
     {
       question: "À quelle heure part l'excursion coucher de soleil ?",
-      answer:
-        "Le départ est généralement entre 17h00 et 18h30 selon le mois, pour l'heure dorée. Arrivez 30 minutes avant l'embarquement.",
+      answer: getSunsetTripDepartureFaqAnswer("fr"),
     },
     {
       question: "Quel itinéraire pour le coucher de soleil ?",
@@ -1490,7 +1488,7 @@ const BOAT_TRIPS_HUB_COPY: Record<SiteLocale, BoatTripsHubCopy> = {
     middayTrip: {
       title: "Daytime Experience",
       description: "Sun, sea, and adventure await.",
-      badgeText: "2:00 PM - 5:00 PM",
+      badgeText: DAY_TRIP_BADGE.en,
       features: ["15 Premium Paddle Boards & 2 Kayaks", "Snorkeling Equipment", "Swimming in Crystal Clear Waters", "Premium Open Bar & Fresh Sangria", "Spanish Tapas & Fresh Fruit", "Premium Sound System"],
       price: "€80 per adult",
       priceSubtext: "Children 6-12: €45 | Under 6: Complimentary",
@@ -1500,7 +1498,7 @@ const BOAT_TRIPS_HUB_COPY: Record<SiteLocale, BoatTripsHubCopy> = {
     sunsetTrip: {
       title: "Sunset Voyage",
       description: "Experience Ibiza's iconic sunset from the sea.",
-      badgeText: "6:30 PM - 9:30 PM",
+      badgeText: SUNSET_TRIP_BADGE.en,
       features: ["Sunset Swimming at Hidden Coves", "15 Paddle Boards & 2 Kayaks", "Snorkeling Equipment", "Premium Bar & Unlimited Cava", "Spanish Tapas Selection", "Sunset at Café Mambo"],
       price: "€80 per adult",
       priceSubtext: "Children 6-12: €45 | Under 6: Complimentary",
@@ -1549,7 +1547,7 @@ const BOAT_TRIPS_HUB_COPY: Record<SiteLocale, BoatTripsHubCopy> = {
     middayTrip: {
       title: "Excursión de Día",
       description: "Sol, mar y aventura te esperan.",
-      badgeText: "14:00 - 17:00",
+      badgeText: DAY_TRIP_BADGE.es,
       features: ["15 Paddle Surf y 2 Kayaks", "Equipo de Snorkel", "Baño en Aguas Cristalinas", "Barra Libre y Sangría", "Tapas Españolas y Fruta", "Sistema de Sonido Premium"],
       price: "80 € por adulto",
       priceSubtext: "Niños 6-12: 45 € | Menores de 6: Gratis",
@@ -1559,7 +1557,7 @@ const BOAT_TRIPS_HUB_COPY: Record<SiteLocale, BoatTripsHubCopy> = {
     sunsetTrip: {
       title: "Crucero al Atardecer",
       description: "Vive el icónico atardecer de Ibiza desde el mar.",
-      badgeText: "18:30 - 21:30",
+      badgeText: SUNSET_TRIP_BADGE.es,
       features: ["Baño al Atardecer en Calas", "15 Paddle Surf y 2 Kayaks", "Equipo de Snorkel", "Barra Libre y Cava", "Tapas Españolas", "Atardecer en Café Mambo"],
       price: "80 € por adulto",
       priceSubtext: "Niños 6-12: 45 € | Menores de 6: Gratis",
@@ -1608,7 +1606,7 @@ const BOAT_TRIPS_HUB_COPY: Record<SiteLocale, BoatTripsHubCopy> = {
     middayTrip: {
       title: "Dagervaring",
       description: "Zon, zee en avontuur wachten.",
-      badgeText: "14:00 - 17:00",
+      badgeText: DAY_TRIP_BADGE.nl,
       features: ["15 Paddleboards & 2 Kajaks", "Snorkeluitrusting", "Zwemmen in Helder Water", "Premium Open Bar & Sangria", "Spaanse Tapas & Fruit", "Premium Geluidssysteem"],
       price: "€80 per volwassene",
       priceSubtext: "Kinderen 6-12: €45 | Onder 6: Gratis",
@@ -1618,7 +1616,7 @@ const BOAT_TRIPS_HUB_COPY: Record<SiteLocale, BoatTripsHubCopy> = {
     sunsetTrip: {
       title: "Zonsondergang Cruise",
       description: "Beleef Ibiza's iconische zonsondergang vanaf zee.",
-      badgeText: "18:30 - 21:30",
+      badgeText: SUNSET_TRIP_BADGE.nl,
       features: ["Zwemmen bij Zonsondergang", "15 Paddleboards & 2 Kajaks", "Snorkeluitrusting", "Premium Bar & Cava", "Spaanse Tapas", "Zonsondergang bij Café Mambo"],
       price: "€80 per volwassene",
       priceSubtext: "Kinderen 6-12: €45 | Onder 6: Gratis",
@@ -1667,7 +1665,7 @@ const BOAT_TRIPS_HUB_COPY: Record<SiteLocale, BoatTripsHubCopy> = {
     middayTrip: {
       title: "Excursion de Jour",
       description: "Soleil, mer et aventure vous attendent.",
-      badgeText: "14h00 - 17h00",
+      badgeText: DAY_TRIP_BADGE.fr,
       features: ["15 Paddleboards & 2 Kayaks", "Équipement Snorkel", "Baignade en Eaux Claires", "Open Bar & Sangria", "Tapas Espagnoles & Fruits", "Son Premium"],
       price: "80 € par adulte",
       priceSubtext: "Enfants 6-12 : 45 € | Moins de 6 : Gratuit",
@@ -1677,7 +1675,7 @@ const BOAT_TRIPS_HUB_COPY: Record<SiteLocale, BoatTripsHubCopy> = {
     sunsetTrip: {
       title: "Croisière Coucher de Soleil",
       description: "Vivez le coucher de soleil iconique d'Ibiza depuis la mer.",
-      badgeText: "18h30 - 21h30",
+      badgeText: SUNSET_TRIP_BADGE.fr,
       features: ["Baignade au Coucher", "15 Paddleboards & 2 Kayaks", "Équipement Snorkel", "Bar Premium & Cava", "Tapas Espagnoles", "Coucher au Café Mambo"],
       price: "80 € par adulte",
       priceSubtext: "Enfants 6-12 : 45 € | Moins de 6 : Gratuit",

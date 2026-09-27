@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import TripCard from './ui/TripCard';
+import { DAY_TRIP_BADGE, SUNSET_TRIP_BADGE } from '@/lib/trip-schedule-copy';
 
 // Animation variants
 const staggerContainer = {
@@ -55,7 +56,7 @@ const tripData = {
     title: "Daytime Experience",
     description: "Sun, sea, and adventure await.",
     isPopular: true,
-    badgeText: "2:00 PM - 5:00 PM",
+    badgeText: DAY_TRIP_BADGE.en,
     badgeBgColor: "bg-blue-700",
     features: [
       "15 Premium Paddle Boards & 2 Kayaks",
@@ -80,7 +81,7 @@ const tripData = {
     imageAlt: "Salvador Ibiza Sunset Trip - Sunset & Sea Adventure",
     title: "Sunset Voyage",
     description: "Experience Ibiza's iconic sunset from the sea.",
-    badgeText: "6:30 PM - 9:30 PM",
+    badgeText: SUNSET_TRIP_BADGE.en,
     badgeBgColor: "bg-orange-700",
     features: [
       "Sunset Swimming at Hidden Coves",

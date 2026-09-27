@@ -41,7 +41,7 @@ export default function BookTripsQrClient() {
                 Daytime Trip
               </h2>
               <div className="space-y-1.5 text-sm">
-                <p className="flex items-center"><FiClock className="w-4 h-4 mr-1.5 text-blue-600 flex-shrink-0"/> 2:00 PM - 5:00 PM (3h)</p>
+                <p className="flex items-start"><FiClock className="w-4 h-4 mr-1.5 text-blue-600 flex-shrink-0"/> <span>3 hours · time varies by date<br/><span className="text-xs text-blue-800/80">Exact time when you book & on voucher</span></span></p>
                 <p className="flex items-center"><FiMapPin className="w-4 h-4 mr-1.5 text-blue-600 flex-shrink-0"/> San Antonio Port</p>
                 <p className="flex items-center"><FiDollarSign className="w-4 h-4 mr-1.5 text-blue-600 flex-shrink-0"/> €80 Adult / €45 Child</p>
                 <p className="flex items-center text-xs text-gray-600 mt-1"><FiCheckCircle className="w-3 h-3 text-green-500 mr-1"/> Drinks, Tapas, Paddle, Kayak, Snorkel</p>
@@ -55,7 +55,7 @@ export default function BookTripsQrClient() {
                  Sunset Voyage
               </h2>
               <div className="space-y-1.5 text-sm">
-                <p className="flex items-start"><FiClock className="w-4 h-4 mr-1.5 text-orange-600 mt-0.5 flex-shrink-0"/> <span>Approx. 6:30 PM - 9:30 PM (3h)<br/><span className="text-xs text-orange-800/80">(Times vary slightly by month for sunset)</span></span></p>
+                <p className="flex items-start"><FiClock className="w-4 h-4 mr-1.5 text-orange-600 mt-0.5 flex-shrink-0"/> <span>~3 h evening · follows sunset<br/><span className="text-xs text-orange-800/80">Exact time when you book & on voucher</span></span></p>
                 <p className="flex items-center"><FiMapPin className="w-4 h-4 mr-1.5 text-orange-600 flex-shrink-0"/> San Antonio Port</p>
                 <p className="flex items-center"><FiDollarSign className="w-4 h-4 mr-1.5 text-orange-600 flex-shrink-0"/> €80 Adult / €45 Child</p>
                 <p className="flex items-center text-xs text-gray-600 mt-1"><FiCheckCircle className="w-3 h-3 text-green-500 mr-1"/> Drinks (Cava!), Tapas, Paddle, Kayak, Sunset</p>

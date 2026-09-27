@@ -99,7 +99,7 @@ export const familyBoatTripFaqs: PlainFaq[] = [
   {
     question: "How long is the family boat trip?",
     answer:
-      "Our shared day trip lasts approximately 3 hours (typically 2:00 PM – 5:00 PM in peak season). The sunset trip is also 3 hours (around 6:30 PM – 9:30 PM). Both are suitable for families.",
+      "Our shared day trip lasts approximately 3 hours. Departure time varies by date (peak season often 2:00 PM–5:00 PM; earlier in September). The exact time for your date is shown when you book and on your voucher. The sunset trip is also ~3 hours, scheduled for the sunset on your date. Both are suitable for families.",
   },
 ];
 
@@ -112,7 +112,7 @@ export const sunsetBoatTripFaqs: PlainFaq[] = [
   {
     question: "What time does the Salvador Ibiza sunset trip depart?",
     answer:
-      "During peak season the sunset trip typically departs around 6:30 PM and returns around 9:30 PM — timed to catch Ibiza's legendary golden hour and sunset over the Mediterranean.",
+      "Departure time is not fixed — it is scheduled for the sunset on your date and shifts earlier as the season progresses. Please arrive 30 minutes before boarding. The exact time is shown when you book and on your voucher.",
   },
   {
     question: "Where does the sunset boat trip go?",

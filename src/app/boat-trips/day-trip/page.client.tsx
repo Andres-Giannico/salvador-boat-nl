@@ -13,6 +13,7 @@ import TripHighlights from '@/components/trips/TripHighlights';
 import ReviewsSection from '@/components/trips/ReviewsSection';
 import FAQ from '@/components/trips/FAQ';
 import TurbnbWidget from '@/components/booking/TurbnbWidget';
+import { getDayTripSidebarSchedule } from '@/lib/trip-schedule-copy';
 import { getDayTripHeroCopy, getDayTripFaqs } from '@/lib/seo-i18n';
 import { getClientSiteLocale } from '@/lib/site-locale';
 
@@ -77,6 +78,7 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
   const locale = getClientSiteLocale();
   const heroCopy = getDayTripHeroCopy(locale);
   const tripFAQs = getDayTripFaqs(locale);
+  const scheduleCopy = getDayTripSidebarSchedule(locale);
 
   return (
     <div className="bg-gray-50">
@@ -193,7 +195,9 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
                   <FiClock className="mt-1 mr-3 text-blue-600 flex-shrink-0" />
                   <div>
                     <h4 className="font-semibold text-gray-800">Duration</h4>
-                    <p className="text-gray-600">3 hours (14:00 - 17:00)</p>
+                    <p className="text-gray-600">{scheduleCopy.durationMain}</p>
+                    <p className="text-sm text-gray-600 mt-1">{scheduleCopy.durationEstimate}</p>
+                    <p className="text-xs text-gray-500 mt-1.5">{scheduleCopy.durationNote}</p>
                   </div>
                 </div>
                 <div className="flex items-start">
