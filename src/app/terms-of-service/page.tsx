@@ -1,6 +1,20 @@
 import type { Metadata } from 'next';
 import { getSiteUrl, getSpanishSiteUrl } from '@/config/site';
 import { enPageMetadata } from '@/lib/page-meta';
+import { getSiteLocale, type SiteLocale } from '@/lib/site-locale';
+
+function termsLastUpdatedLabel(locale: SiteLocale): string {
+  switch (locale) {
+    case 'es':
+      return 'Última actualización: 30 de septiembre de 2026';
+    case 'nl':
+      return 'Laatst bijgewerkt: 30 september 2026';
+    case 'fr':
+      return 'Dernière mise à jour : 30 septembre 2026';
+    default:
+      return 'Last updated: 30 September 2026';
+  }
+}
 
 const title = "Terms of Service";
 const description = "Read the terms and conditions for using the Salvador Ibiza website and services, including information on intellectual property, liability, and user conduct.";
@@ -19,6 +33,7 @@ export const metadata: Metadata = {
 };
 
 export default function TermsOfServicePage() {
+  const locale = getSiteLocale();
   const enHost = new URL(getSiteUrl()).hostname;
   const esHost = new URL(getSpanishSiteUrl()).hostname;
   return (
@@ -132,7 +147,7 @@ export default function TermsOfServicePage() {
           </section>
           
           <p className="text-sm text-gray-500 mt-6">
-             Last updated: 30/09/2026
+            {termsLastUpdatedLabel(locale)}
           </p>
         </div>
       </div>
