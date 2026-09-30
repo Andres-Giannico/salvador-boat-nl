@@ -1,4 +1,8 @@
 import type { PlainFaq } from "@/lib/faq-schema";
+import {
+  CANCELLATION_POLICY_FAQ_EN,
+  CANCELLATION_POLICY_FAQ_ES,
+} from "@/lib/booking-deposit-policy";
 import { discoverabilityFaqs } from "@/lib/discoverability-faqs";
 import {
   familyBoatTripFaqs,
@@ -531,7 +535,7 @@ const FAQ_CATEGORIES_I18N: Record<SiteLocale, FaqCategories> = {
       { question: "What's included in the price?", answer: "Captain, crew, fuel, unlimited open bar, Spanish tapas, fresh fruit, paddleboards, kayaks and snorkel gear. Private trips offer premium upgrade options." },
       { question: "Can we bring our own food and drinks?", answer: "You may bring your own food, especially on private trips. Outside drinks are not permitted as we provide a full open bar." },
       { question: "How can I book a trip?", answer: "Book online through salvadoribiza.com/book-now with live availability. You receive a confirmation voucher with all details." },
-      { question: "What's the cancellation policy?", answer: "Cancellation terms vary by trip type and notice period. We generally offer full or partial refunds with sufficient advance notice. Contact us for details." },
+      { question: "What's the cancellation policy?", answer: CANCELLATION_POLICY_FAQ_EN },
     ],
     onboard: [
       { question: "What's the maximum capacity of the boat?", answer: "Our boats accommodate up to 35 passengers on shared trips. Check individual trip pages or contact us for details." },
@@ -563,7 +567,7 @@ const FAQ_CATEGORIES_I18N: Record<SiteLocale, FaqCategories> = {
       { question: "¿Qué incluye el precio?", answer: "Patrón, tripulación, combustible, barra libre, tapas, fruta, paddle surf, kayaks y snorkel. Los privados tienen opciones premium." },
       { question: "¿Podemos traer comida y bebida?", answer: "Puedes traer comida, especialmente en charters privados. Bebida externa no permitida — incluimos barra libre completa." },
       { question: "¿Cómo reservo?", answer: "Reserva online en salvadoribiza.com/book-now con disponibilidad en tiempo real. Recibirás voucher de confirmación." },
-      { question: "¿Cuál es la política de cancelación?", answer: "Varía según tipo de excursión y antelación. Generalmente ofrecemos reembolso total o parcial con suficiente aviso. Contáctanos." },
+      { question: "¿Cuál es la política de cancelación?", answer: CANCELLATION_POLICY_FAQ_ES },
     ],
     onboard: [
       { question: "¿Cuál es la capacidad máxima?", answer: "Hasta 35 pasajeros en excursiones compartidas. Consulta páginas individuales o contáctanos." },

@@ -17,6 +17,7 @@ import WhatsIncluded from '@/components/trips/WhatsIncluded';
 import PerfectForCard from '@/components/trips/PerfectForCard';
 import WhyChooseUsCard from '@/components/trips/WhyChooseUsCard';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
+import { PRIVATE_CHARTER_DEPOSIT_OBSERVATION } from '@/lib/booking-deposit-policy';
 import {
   mergeTurboBookingCustomProperties,
   TURBNB_WIDGET_CSS,
@@ -258,7 +259,7 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
               "confirmReservationAndPay": "PAY CONFIRMATION DEPOSIT OF ",
               "selectExperienceLabel": "Select Charter Option",
               "addonsLabel": "Optional Upgrades (e.g., Extra Hours)", // Updated label, ensure 'Extra Hour' is an add-on in Turbnb backend
-              "depositObservation": "Make sure you selected the amount of guests you will have on the boat as the price is calculated per person. After the reservation you will get the voucher with all the info as location and booking details"
+              "depositObservation": PRIVATE_CHARTER_DEPOSIT_OBSERVATION
 
             }),
           });
@@ -304,7 +305,7 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
                       "confirmReservationAndPay": "CONFIRM & PAY",
                       "selectExperienceLabel": "Select Experience",
                       "addonsLabel": "Add-ons",
-                      "depositObservation": "Deposit and payment instructions\n\n\n"
+                      "depositObservation": PRIVATE_CHARTER_DEPOSIT_OBSERVATION
                     }),
                    });
                    console.log('TurboBooking widget initialized directly in page on script load');
@@ -807,7 +808,7 @@ export default function PrivateBoatTripsClientPage({ perfectFor }: PrivateBoatTr
               "confirmReservationAndPay": "CONFIRM & PAY",
               "selectExperienceLabel": "Select Experience",
               "addonsLabel": "Add-ons",
-              "depositObservation": "Deposit and payment instructions\n\n\n"
+              "depositObservation": PRIVATE_CHARTER_DEPOSIT_OBSERVATION
             }} // Propiedades customizadas según usuario
           />
         )}

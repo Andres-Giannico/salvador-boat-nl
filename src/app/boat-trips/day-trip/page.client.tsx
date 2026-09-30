@@ -15,6 +15,10 @@ import FAQ from '@/components/trips/FAQ';
 import TurbnbWidget from '@/components/booking/TurbnbWidget';
 import { getDayTripSidebarSchedule } from '@/lib/trip-schedule-copy';
 import { getDayTripHeroCopy, getDayTripFaqs } from '@/lib/seo-i18n';
+import {
+  BOOKING_GUARANTEE_SHARED_CANCELLATION,
+  SHARED_MIXED_DEPOSIT_OBSERVATION,
+} from '@/lib/booking-deposit-policy';
 import { getClientSiteLocale } from '@/lib/site-locale';
 
 // Galería de imágenes para el viaje - Ampliada con fotos aéreas
@@ -285,7 +289,7 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
                     {[
                       "Quick and easy reservation",
                       "Instant confirmation",
-                      "Flexible cancellation policy",
+                      BOOKING_GUARANTEE_SHARED_CANCELLATION,
                       "All-inclusive experiences",
                       "Expert guides and personalized attention",
                       "Partial online payment (20€ per person to reserve), the rest is paid onboard on the day of the trip."
@@ -368,7 +372,7 @@ export default function DayTripClientPage({}: DayTripClientPageProps) {
                   addonsLabel: "Add-ons",
                   childrenAge: "6 to 12 Years",
                   infantAge: "0 to 6 Years",
-                  depositObservation: "After completing your booking, you will receive a confirmation voucher with all the details including meeting point and time. Please ensure your contact information (phone and email) is correct as we may need to reach you regarding your booking. A deposit of €20 per person is required to secure your reservation, with the remaining balance paid in cash onboard."
+                  depositObservation: SHARED_MIXED_DEPOSIT_OBSERVATION,
                 }}
               />
             </motion.div>

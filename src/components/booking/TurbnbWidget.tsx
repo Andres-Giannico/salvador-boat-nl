@@ -9,6 +9,7 @@ import {
 } from '@/lib/turbnb-widget-assets';
 import { getActivePromo, promoAppliesToMixTrips, type ActivePromo } from '@/lib/active-promo';
 import PromoBookingBanner from '@/components/booking/PromoBookingBanner';
+import { SHARED_MIXED_DEPOSIT_OBSERVATION } from '@/lib/booking-deposit-policy';
 import { getClientSiteLocale } from '@/lib/site-locale';
 
 interface TurbnbWidgetProps {
@@ -49,7 +50,7 @@ export default function TurbnbWidget({
     confirmReservationAndPay: "CLICK TO PAY",
     selectExperienceLabel: "Experience Type",
     addonsLabel: "Add-ons",
-    depositObservation: "After completing your booking, you will receive a confirmation voucher with all the details including meeting point and time. Please ensure your contact information (phone and email) is correct as we may need to reach you regarding your booking. A deposit of €20 per person is required to secure your reservation, with the remaining balance paid onboard."
+    depositObservation: SHARED_MIXED_DEPOSIT_OBSERVATION,
   }
 }: TurbnbWidgetProps) {
   const [activePromo, setActivePromo] = useState<ActivePromo | null>(null);

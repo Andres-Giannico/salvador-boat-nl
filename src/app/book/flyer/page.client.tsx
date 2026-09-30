@@ -5,6 +5,10 @@ import TurbnbWidget from '@/components/booking/TurbnbWidget';
 import { FiClock, FiDollarSign, FiMapPin, FiCheckCircle, FiSun, FiMoon } from 'react-icons/fi';
 import { GiWaterSplash, GiPartyPopper } from 'react-icons/gi';
 import Link from 'next/link';
+import {
+  BOOKING_HIGHLIGHT_CANCELLATION,
+  SHARED_MIXED_DEPOSIT_OBSERVATION,
+} from '@/lib/booking-deposit-policy';
 
 export default function BookTripsQrFlyerClient() {
   return (
@@ -82,7 +86,7 @@ export default function BookTripsQrFlyerClient() {
               </div>
               <div className="flex items-center text-sm text-gray-700">
                 <FiCheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0"/>
-                <span>Flexible cancellation policy</span>
+                <span>{BOOKING_HIGHLIGHT_CANCELLATION}</span>
               </div>
               <div className="flex items-center text-sm text-gray-700">
                 <FiCheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0"/>
@@ -113,7 +117,7 @@ export default function BookTripsQrFlyerClient() {
                 confirmReservationAndPay: "CONFIRM & PAY",
                 childrenAge: "6 to 12 Years",
                 infantAge: "0 to 5 Years",
-                depositObservation: "After completing your booking, you will receive a confirmation voucher with all the details including meeting point and time. Please ensure your contact information (phone and email) is correct as we may need to reach you regarding your booking. A deposit of €20 per person is required to secure your reservation, with the remaining balance paid onboard."
+                depositObservation: SHARED_MIXED_DEPOSIT_OBSERVATION,
               }}
             />
           </div>

@@ -16,6 +16,7 @@ import FAQ from '@/components/trips/FAQ';
 import TurbnbWidget from '@/components/booking/TurbnbWidget';
 import { getSunsetTripHeroCopy, getSunsetTripFaqs } from '@/lib/seo-i18n';
 import { getSunsetTripSidebarSchedule } from '@/lib/trip-schedule-copy';
+import { BOOKING_GUARANTEE_SHARED_CANCELLATION } from '@/lib/booking-deposit-policy';
 import { getClientSiteLocale } from '@/lib/site-locale';
 
 // Trip image gallery - Extended
@@ -323,7 +324,7 @@ export default function SunsetTripClientPage({}: SunsetTripClientPageProps) {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                         </svg>
                       </div>
-                      <span className="ml-3 text-gray-700">Flexible cancellation policy.</span>
+                      <span className="ml-3 text-gray-700">{BOOKING_GUARANTEE_SHARED_CANCELLATION}.</span>
                     </li>
                     <li className="flex items-start">
                       <div className="flex-shrink-0 w-6 h-6 bg-green-100 rounded-full flex items-center justify-center">

@@ -5,6 +5,7 @@ import Head from 'next/head';
 import Script from 'next/script';
 import Link from 'next/link';
 import { Dialog, DialogContent, DialogOverlay } from "@/components/ui/dialog";
+import { SHARED_MIXED_DEPOSIT_OBSERVATION } from '@/lib/booking-deposit-policy';
 import {
   mergeTurboBookingCustomProperties,
   TURBNB_WIDGET_CSS,
@@ -35,7 +36,7 @@ const BookingModal: React.FC<BookingModalProps> = ({
     "confirmReservationAndPay": "Confirm & Pay",
     "selectExperienceLabel": "Select Experience",
     "addonsLabel": "Add-ons",
-    "depositObservation": "Deposit and payment instructions\n\n\n"
+    "depositObservation": SHARED_MIXED_DEPOSIT_OBSERVATION
   },
   widgetContainerId = `turbnb-booking-widget-container-${productId}` // Unique ID per product
 }) => {

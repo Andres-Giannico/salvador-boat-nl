@@ -10,6 +10,7 @@ import { GiWineBottle } from 'react-icons/gi';
 import TripGallery from '@/components/trips/TripGallery';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import BookingModal from '@/components/booking/BookingModal';
+import { WEDDING_CHARTER_DEPOSIT_OBSERVATION } from '@/lib/booking-deposit-policy';
 import {
   mergeTurboBookingCustomProperties,
   TURBNB_WIDGET_CSS,
@@ -104,7 +105,7 @@ export default function WeddingsClientPage() {
               "confirmReservationAndPay": "PAY CONFIRMATION DEPOSIT OF ",
               "selectExperienceLabel": "Select Wedding Charter",
               "addonsLabel": "Optional Wedding Upgrades",
-              "depositObservation": "Make sure you selected the amount of guests for your wedding. After the reservation you will get the voucher with all the info as location and booking details"
+              "depositObservation": WEDDING_CHARTER_DEPOSIT_OBSERVATION
             }),
           });
           console.log('Wedding Widget Initialized');
@@ -146,7 +147,7 @@ export default function WeddingsClientPage() {
                     "confirmReservationAndPay": "CONFIRM & PAY",
                     "selectExperienceLabel": "Select Wedding Charter",
                     "addonsLabel": "Wedding Add-ons",
-                    "depositObservation": "Wedding booking confirmation"
+                    "depositObservation": WEDDING_CHARTER_DEPOSIT_OBSERVATION
                   }),
                 });
                 console.log('Wedding widget initialized on script load');
@@ -664,7 +665,7 @@ export default function WeddingsClientPage() {
             "confirmReservationAndPay": "CONFIRM & PAY",
             "selectExperienceLabel": "Select Wedding Charter",
             "addonsLabel": "Wedding Add-ons",
-            "depositObservation": "Wedding booking confirmation"
+            "depositObservation": WEDDING_CHARTER_DEPOSIT_OBSERVATION
           }}
         />
       )}

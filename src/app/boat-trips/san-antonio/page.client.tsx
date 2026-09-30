@@ -14,6 +14,7 @@ import WhatsAppButton from '@/components/WhatsAppButton';
 import type { GalleryImage } from '@/components/trips/TripGallery';
 import type { HighlightItem } from '@/components/trips/TripHighlights';
 import type { FAQItem } from '@/components/trips/FAQ';
+import { SHARED_MIXED_DEPOSIT_OBSERVATION } from '@/lib/booking-deposit-policy';
 
 const sanAntonioImages: GalleryImage[] = [
   { src: '/images/optimized/ibiza-sunset-boat-trip-salvador.webp', alt: 'San Antonio sunset boat trip' },
@@ -185,7 +186,7 @@ export default function SanAntonioBoatTripsClient() {
               addonsLabel: "Add-ons",
               childrenAge: "6 to 12 Years",
               infantAge: "0 to 5 Years",
-              depositObservation: "After completing your booking, you will receive a confirmation voucher with all the details including meeting point and time. Please ensure your contact information (phone and email) is correct as we may need to reach you regarding your booking. A deposit of €20 per person is required to secure your reservation, with the remaining balance paid onboard."
+              depositObservation: SHARED_MIXED_DEPOSIT_OBSERVATION,
             }}
           />
         </div>

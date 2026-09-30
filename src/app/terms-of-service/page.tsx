@@ -111,12 +111,28 @@ export default function TermsOfServicePage() {
           </section>
           
           <section>
-            <h2 className="font-bold text-gray-800 mt-6 mb-3">15. Acceptance of Conditions</h2>
+            <h2 className="font-bold text-gray-800 mt-6 mb-3">15. Bookings, Deposits and Cancellations</h2>
+            <p>
+              Online bookings require a deposit to confirm your reservation. For shared and mixed boat trips (day and sunset), a deposit of €20 per person applies; the remaining balance is paid onboard on the day of the trip. For private charters, a confirmation deposit is required as shown at checkout.
+            </p>
+            <p className="mt-3">
+              <strong>Guest cancellations — shared and mixed trips:</strong> The deposit is refunded only if you cancel more than 48 hours before the scheduled departure time, so we can offer your places to other guests. Cancellations made within 48 hours of departure are non-refundable and the deposit is retained.
+            </p>
+            <p className="mt-3">
+              <strong>Guest cancellations — private charters:</strong> The confirmation deposit is refunded only if you cancel more than 72 hours before departure, allowing us time to re-offer the charter date. Cancellations within 72 hours of departure are non-refundable and the deposit is retained.
+            </p>
+            <p className="mt-3">
+              Please contact us as early as possible to cancel. Cancellations due to unsafe weather or operational decisions by the captain are handled separately (reschedule or refund as applicable) and are not governed by the guest cancellation windows above.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="font-bold text-gray-800 mt-6 mb-3">16. Acceptance of Conditions</h2>
             <p>Access to SALVADOR IBIZA implies acceptance by the user of the terms and conditions contained in this website. SALVADOR IBIZA reserves the right to modify the terms, conditions, and communications based on which this Website is offered.</p>
           </section>
           
           <p className="text-sm text-gray-500 mt-6">
-             Last updated: 25/05/2025
+             Last updated: 30/09/2026
           </p>
         </div>
       </div>
