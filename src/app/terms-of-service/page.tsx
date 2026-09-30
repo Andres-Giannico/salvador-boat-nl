@@ -6,13 +6,13 @@ import { getSiteLocale, type SiteLocale } from '@/lib/site-locale';
 function termsLastUpdatedLabel(locale: SiteLocale): string {
   switch (locale) {
     case 'es':
-      return 'Última actualización: 30 de septiembre de 2026';
+      return 'Última actualización: 30 de julio de 2026';
     case 'nl':
-      return 'Laatst bijgewerkt: 30 september 2026';
+      return 'Laatst bijgewerkt: 30 juli 2026';
     case 'fr':
-      return 'Dernière mise à jour : 30 septembre 2026';
+      return 'Dernière mise à jour : 30 juillet 2026';
     default:
-      return 'Last updated: 30 September 2026';
+      return 'Last updated: 30 July 2026';
   }
 }
 
