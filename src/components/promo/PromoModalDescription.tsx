@@ -84,6 +84,20 @@ export function PromoModalDescription({
           ? 'dans le champ'
           : 'in the';
 
+  if (kind === 'lastcall') {
+    return (
+      <>
+        <strong className="text-gray-800">{d.lead}</strong>{' '}
+        <strong className="text-[#1a7f37]">{d.perPerson}</strong> {onPhrase}{' '}
+        <strong>{d.product}</strong> {d.tripTypes} {d.webBookingLead}{' '}
+        <strong>{d.webBooking}</strong>. {thisOfferPhrase}{' '}
+        <strong className="text-gray-800">{d.offerLabel}</strong> {endsPhrase}{' '}
+        <strong className="text-gray-800">{d.deadline}</strong>
+        {d.superGone}
+      </>
+    );
+  }
+
   return (
     <>
       <strong className="text-gray-800">{d.lead}</strong>{' '}

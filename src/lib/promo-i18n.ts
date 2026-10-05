@@ -49,6 +49,9 @@ export type PromoUi = {
   limitedTime: string;
   activePromoAria: (label: string) => string;
   codeBoxHint: (eur: number) => string;
+  autoApplyBannerInstructions: (eur: number) => string;
+  autoApplyModalBox: (eur: number) => string;
+  autoApplyPriceLine: string;
 };
 
 const PROMO_COPY: Record<ActivePromoKind, Record<SiteLocale, PromoCopy>> = {
@@ -234,6 +237,52 @@ const PROMO_COPY: Record<ActivePromoKind, Record<SiteLocale, PromoCopy>> = {
         'Valable pour les réservations en ligne du 1er au 30 septembre 2026 (23:59, heure locale). 10 € de réduction par personne avec ENDSEASON10 sur Salvador Boat Mix (excursion journée ou coucher de soleil). Dernière chance avant la fin de saison — ne la manquez pas.',
       heroAlt:
         'Salvador Ibiza — fin de saison : 10 € de réduction par personne en réservant sur le web, code ENDSEASON10, tout septembre',
+    },
+  },
+  lastcall: {
+    en: {
+      labelShort: 'Last Call',
+      headline: 'Last call — €10 off, applied automatically',
+      primaryCtaLabel: 'Book at €70 — reserve now',
+      kicker: 'Last Call · Until 25 Oct · Auto discount',
+      validityShort: 'Until 25 Oct 2026',
+      validityText:
+        'Valid for online bookings made 1–25 Oct 2026 (23:59, your local time). €10 off per adult on Salvador Boat Mix (Day or Sunset) — price shows as €70 in the booking widget. No promo code needed; the discount is applied automatically. Last chance before the season ends.',
+      heroAlt:
+        'Salvador Ibiza — Last Call October offer: €10 off per adult, book at €70, discount applied automatically until 25 October',
+    },
+    es: {
+      labelShort: 'Última llamada',
+      headline: 'Última llamada — 10 € menos, automático',
+      primaryCtaLabel: 'Reserva a 70 € — reserva ya',
+      kicker: 'Última llamada · Hasta 25 oct · Descuento automático',
+      validityShort: 'Hasta 25 oct 2026',
+      validityText:
+        'Válido para reservas online del 1 al 25 de octubre de 2026 (23:59, hora local). 10 € de descuento por adulto en Salvador Boat Mix (excursión de día o atardecer): verás 70 € en el widget de reserva. Sin código promocional — el descuento se aplica solo. Última oportunidad de la temporada.',
+      heroAlt:
+        'Salvador Ibiza — Última llamada octubre: 10 € menos por adulto, reserva a 70 €, descuento automático hasta el 25 de octubre',
+    },
+    nl: {
+      labelShort: 'Last Call',
+      headline: 'Last call — €10 korting, automatisch',
+      primaryCtaLabel: 'Boek voor €70 — nu reserveren',
+      kicker: 'Last Call · Tot 25 okt · Automatische korting',
+      validityShort: 'Tot 25 okt 2026',
+      validityText:
+        'Geldig voor online boekingen van 1–25 okt 2026 (23:59, jouw lokale tijd). €10 korting per volwassene op Salvador Boat Mix (dagtocht of zonsondergang) — €70 in het boekingswidget. Geen promocode nodig; de korting wordt automatisch toegepast. Laatste kans van het seizoen.',
+      heroAlt:
+        'Salvador Ibiza — Last Call oktober: €10 korting per volwassene, boek voor €70, automatische korting tot 25 oktober',
+    },
+    fr: {
+      labelShort: 'Dernière chance',
+      headline: 'Dernière chance — 10 € offerts, automatique',
+      primaryCtaLabel: 'Réserver à 70 € — réserver',
+      kicker: 'Dernière chance · Jusqu’au 25 oct. · Remise auto',
+      validityShort: 'Jusqu’au 25 oct. 2026',
+      validityText:
+        'Valable pour les réservations en ligne du 1er au 25 octobre 2026 (23:59, heure locale). 10 € de réduction par adulte sur Salvador Boat Mix (excursion journée ou coucher de soleil) — 70 € affichés dans le widget. Aucun code promo : la remise s’applique automatiquement. Dernière chance de la saison.',
+      heroAlt:
+        'Salvador Ibiza — Dernière chance octobre : 10 € de réduction par adulte, réserver à 70 €, remise automatique jusqu’au 25 octobre',
     },
   },
   earlybird: {
@@ -489,6 +538,60 @@ const PROMO_MODAL_DESC: Record<ActivePromoKind, Record<SiteLocale, PromoModalDes
       superGone: ', puis elle disparaît.',
     },
   },
+  lastcall: {
+    en: {
+      lead: 'Last call:',
+      perPerson: '€10 off per adult',
+      product: 'Salvador Boat Mix',
+      tripTypes: '(Day Trip or Sunset)',
+      webBookingLead: 'when you book on our website —',
+      webBooking: '€70 per adult, no code needed',
+      codeAction: '',
+      codeField: '',
+      offerLabel: 'October Last Call offer',
+      deadline: '25 October',
+      superGone: ", then it's gone.",
+    },
+    es: {
+      lead: 'Última llamada:',
+      perPerson: '10 € menos por adulto',
+      product: 'Salvador Boat Mix',
+      tripTypes: '(excursión de día o atardecer)',
+      webBookingLead: 'al reservar en nuestra web —',
+      webBooking: '70 € por adulto, sin código',
+      codeAction: '',
+      codeField: '',
+      offerLabel: 'oferta de última llamada',
+      deadline: '25 de octubre',
+      superGone: ' y se acaba.',
+    },
+    nl: {
+      lead: 'Last call:',
+      perPerson: '€10 korting per volwassene',
+      product: 'Salvador Boat Mix',
+      tripTypes: '(dagtocht of zonsondergang)',
+      webBookingLead: 'wanneer je op onze website boekt —',
+      webBooking: '€70 per volwassene, geen code',
+      codeAction: '',
+      codeField: '',
+      offerLabel: 'oktober Last Call-aanbieding',
+      deadline: '25 oktober',
+      superGone: ', daarna is hij weg.',
+    },
+    fr: {
+      lead: 'Dernière chance :',
+      perPerson: '10 € de réduction par adulte',
+      product: 'Salvador Boat Mix',
+      tripTypes: '(excursion journée ou coucher de soleil)',
+      webBookingLead: 'en réservant sur notre site —',
+      webBooking: '70 € par adulte, sans code',
+      codeAction: '',
+      codeField: '',
+      offerLabel: 'offre Dernière chance',
+      deadline: '25 octobre',
+      superGone: ', puis elle disparaît.',
+    },
+  },
   earlybird: {
     en: {
       lead: 'early booking deal',
@@ -576,6 +679,11 @@ const PROMO_UI: Record<SiteLocale, PromoUi> = {
     limitedTime: 'Limited time',
     activePromoAria: (label) => `Active promotion: ${label}`,
     codeBoxHint: (eur) => `✓ €${eur} off each guest · Salvador Boat Mix (Day or Sunset) ·`,
+    autoApplyBannerInstructions: (eur) =>
+      `The booking form below already shows €70 per adult (€${eur} off vs €80) — no promo code to enter. Discount applied automatically until 25 October.`,
+    autoApplyModalBox: (eur) =>
+      `✓ €70 per adult · €${eur} off applied automatically · Salvador Boat Mix (Day or Sunset) ·`,
+    autoApplyPriceLine: '€80 → €70 per adult',
   },
   es: {
     promoActive: 'Promo activa',
@@ -599,6 +707,11 @@ const PROMO_UI: Record<SiteLocale, PromoUi> = {
     limitedTime: 'Tiempo limitado',
     activePromoAria: (label) => `Promoción activa: ${label}`,
     codeBoxHint: (eur) => `✓ ${eur} € menos por persona · Salvador Boat Mix (día o atardecer) ·`,
+    autoApplyBannerInstructions: (eur) =>
+      `El formulario de abajo ya muestra 70 € por adulto (${eur} € menos que 80 €) — no hace falta ningún código. Descuento automático hasta el 25 de octubre.`,
+    autoApplyModalBox: (eur) =>
+      `✓ 70 € por adulto · ${eur} € de descuento automático · Salvador Boat Mix (día o atardecer) ·`,
+    autoApplyPriceLine: '80 € → 70 € por adulto',
   },
   nl: {
     promoActive: 'Actie actief',
@@ -622,6 +735,11 @@ const PROMO_UI: Record<SiteLocale, PromoUi> = {
     limitedTime: 'Beperkte tijd',
     activePromoAria: (label) => `Actieve actie: ${label}`,
     codeBoxHint: (eur) => `✓ €${eur} korting per gast · Salvador Boat Mix (dag of zonsondergang) ·`,
+    autoApplyBannerInstructions: (eur) =>
+      `Het boekingsformulier hieronder toont al €70 per volwassene (€${eur} korting t.o.v. €80) — geen promocode nodig. Automatische korting tot 25 oktober.`,
+    autoApplyModalBox: (eur) =>
+      `✓ €70 per volwassene · €${eur} korting automatisch · Salvador Boat Mix (dag of zonsondergang) ·`,
+    autoApplyPriceLine: '€80 → €70 per volwassene',
   },
   fr: {
     promoActive: 'Promo active',
@@ -645,6 +763,11 @@ const PROMO_UI: Record<SiteLocale, PromoUi> = {
     limitedTime: 'Durée limitée',
     activePromoAria: (label) => `Promotion active : ${label}`,
     codeBoxHint: (eur) => `✓ ${eur} € de réduction par personne · Salvador Boat Mix (jour ou coucher de soleil) ·`,
+    autoApplyBannerInstructions: (eur) =>
+      `Le formulaire ci-dessous affiche déjà 70 € par adulte (${eur} € de moins que 80 €) — aucun code promo. Remise automatique jusqu’au 25 octobre.`,
+    autoApplyModalBox: (eur) =>
+      `✓ 70 € par adulte · ${eur} € de remise automatique · Salvador Boat Mix (jour ou coucher de soleil) ·`,
+    autoApplyPriceLine: '80 € → 70 € par adulte',
   },
 };
 

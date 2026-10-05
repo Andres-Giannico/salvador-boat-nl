@@ -8,6 +8,7 @@ import { X, Copy, Check, Sun } from 'lucide-react';
 import {
   getActivePromo,
   getPromoHeroAlt,
+  isAutoAppliedPromo,
   isFlashPromo,
   PROMO_HERO,
   storageKeyFor,
@@ -102,7 +103,7 @@ export default function EarlyBirdPromoModal() {
         >
           <div
             className={
-              promo.kind === 'endseason'
+              promo.kind === 'endseason' || promo.kind === 'lastcall'
                 ? 'relative h-52 w-full shrink-0 sm:h-56'
                 : isFlashPromo(promo.kind)
                   ? 'relative h-48 w-full shrink-0 sm:h-52'
@@ -162,32 +163,41 @@ export default function EarlyBirdPromoModal() {
               <PromoModalDescription kind={promo.kind} code={promo.code} />
             </p>
 
-            <div
-              className={
-                isFlashPromo(promo.kind)
-                  ? 'mt-4 rounded-xl border-2 border-emerald-500/80 bg-gradient-to-br from-emerald-50/90 to-[#f6fff8] p-3.5 shadow-sm ring-1 ring-emerald-500/10'
-                  : 'mt-4 rounded-xl border-2 border-[#28a745] bg-[#f6fff8] p-3'
-              }
-            >
-              <p className="text-xs font-medium text-gray-600">{ui.promoCode}</p>
-              <div className="mt-1 flex flex-wrap items-center gap-2">
-                <span className="font-mono text-lg font-bold tracking-wide text-gray-900">
-                  {promo.code}
-                </span>
-                <button
-                  type="button"
-                  onClick={copyCode}
-                  className="inline-flex items-center gap-1.5 rounded-lg bg-blue-600 px-3 py-1.5 text-xs font-semibold text-white shadow-sm transition hover:bg-blue-700"
-                >
-                  {copied ? <Check className="size-3.5" /> : <Copy className="size-3.5" />}
-                  {copied ? ui.copied : ui.copy}
-                </button>
+            {isAutoAppliedPromo(promo.kind) ? (
+              <div className="mt-4 rounded-xl border-2 border-emerald-500/80 bg-gradient-to-br from-emerald-50/90 to-[#f6fff8] p-3.5 shadow-sm ring-1 ring-emerald-500/10">
+                <p className="text-sm font-bold text-gray-900">{ui.autoApplyPriceLine}</p>
+                <p className="mt-2 text-xs leading-relaxed text-[#1a7f37]">
+                  {ui.autoApplyModalBox(promo.eur)} {ui.appliedAtCheckout}
+                </p>
               </div>
-              <p className="mt-2 text-xs text-[#1a7f37]">
-                {ui.codeBoxHint(promo.eur)}{' '}
-                {isFlashPromo(promo.kind) ? ui.appliedAtCheckout : ui.enterWhenBook}
-              </p>
-            </div>
+            ) : (
+              <div
+                className={
+                  isFlashPromo(promo.kind)
+                    ? 'mt-4 rounded-xl border-2 border-emerald-500/80 bg-gradient-to-br from-emerald-50/90 to-[#f6fff8] p-3.5 shadow-sm ring-1 ring-emerald-500/10'
+                    : 'mt-4 rounded-xl border-2 border-[#28a745] bg-[#f6fff8] p-3'
+                }
+              >
+                <p className="text-xs font-medium text-gray-600">{ui.promoCode}</p>
+                <div className="mt-1 flex flex-wrap items-center gap-2">
+                  <span className="font-mono text-lg font-bold tracking-wide text-gray-900">
+                    {promo.code}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={copyCode}
+                    className="inline-flex items-center gap-1.5 rounded-lg bg-blue-600 px-3 py-1.5 text-xs font-semibold text-white shadow-sm transition hover:bg-blue-700"
+                  >
+                    {copied ? <Check className="size-3.5" /> : <Copy className="size-3.5" />}
+                    {copied ? ui.copied : ui.copy}
+                  </button>
+                </div>
+                <p className="mt-2 text-xs text-[#1a7f37]">
+                  {ui.codeBoxHint(promo.eur)}{' '}
+                  {isFlashPromo(promo.kind) ? ui.appliedAtCheckout : ui.enterWhenBook}
+                </p>
+              </div>
+            )}
 
             <p className="mt-4 rounded-lg border border-gray-100 bg-gray-50/80 px-3 py-2 text-xs leading-snug text-gray-600">
               {promo.validityText}

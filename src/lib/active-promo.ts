@@ -6,7 +6,13 @@
 import { getPromoCopy } from '@/lib/promo-i18n';
 import { getSiteLocale, type SiteLocale } from '@/lib/site-locale';
 
-export type ActivePromoKind = 'champion' | 'super' | 'earlybird' | 'summer' | 'endseason';
+export type ActivePromoKind =
+  | 'champion'
+  | 'super'
+  | 'earlybird'
+  | 'summer'
+  | 'endseason'
+  | 'lastcall';
 
 export type ActivePromo = {
   kind: ActivePromoKind;
@@ -46,6 +52,12 @@ const ENDSEASON10: { start: Date; end: Date } = {
   end: new Date(2026, 8, 30, 23, 59, 59, 999),
 };
 
+/** Last Call — €10 off auto-applied in widget (70 € adults), no promo code */
+const LASTCALL10: { start: Date; end: Date } = {
+  start: new Date(2026, 9, 1, 0, 0, 0, 0),
+  end: new Date(2026, 9, 25, 23, 59, 59, 999),
+};
+
 /** Salvador Boat Mix product in Turbookings */
 export const SALVADOR_MIX_PRODUCT_ID = 2;
 
@@ -54,7 +66,18 @@ function inRange(now: Date, start: Date, end: Date): boolean {
 }
 
 export function isFlashPromo(kind: ActivePromoKind): boolean {
-  return kind === 'champion' || kind === 'super' || kind === 'summer' || kind === 'endseason';
+  return (
+    kind === 'champion' ||
+    kind === 'super' ||
+    kind === 'summer' ||
+    kind === 'endseason' ||
+    kind === 'lastcall'
+  );
+}
+
+/** Discount is applied automatically in Turbookings — no code to enter */
+export function isAutoAppliedPromo(kind: ActivePromoKind): boolean {
+  return kind === 'lastcall';
 }
 
 function buildPromo(
@@ -71,6 +94,9 @@ export function getActivePromo(
   now: Date = new Date(),
   locale: SiteLocale = getSiteLocale()
 ): ActivePromo | null {
+  if (inRange(now, LASTCALL10.start, LASTCALL10.end)) {
+    return buildPromo('lastcall', '', 10, locale);
+  }
   if (inRange(now, CHAMPION10.start, CHAMPION10.end)) {
     return buildPromo('champion', 'CHAMPION10', 10, locale);
   }
@@ -98,6 +124,7 @@ export function storageKeyFor(promo: ActivePromoKind): string {
   if (promo === 'super') return 'salvador_superpromo_2026_august_dismissed';
   if (promo === 'summer') return 'salvador_summer10_2026_july_dismissed';
   if (promo === 'endseason') return 'salvador_endseason10_2026_september_dismissed';
+  if (promo === 'lastcall') return 'salvador_lastcall10_2026_october_dismissed';
   return 'salvador_earlybird5_promo_dismissed_2026';
 }
 
@@ -127,6 +154,11 @@ export const PROMO_HERO: Record<
   },
   endseason: {
     src: '/images/optimized/endseason-salvador-ibiza-sept2026.webp',
+    className: 'object-cover object-[center_38%]',
+    overlay: 'from-black/20 to-transparent',
+  },
+  lastcall: {
+    src: '/images/optimized/lastcall-salvador-ibiza-oct2026.webp',
     className: 'object-cover object-[center_38%]',
     overlay: 'from-black/20 to-transparent',
   },

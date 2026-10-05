@@ -4,7 +4,7 @@ import { useState, useCallback, useEffect, useMemo } from 'react';
 import { toast } from 'sonner';
 import { Copy, Check, Tag, ArrowDown } from 'lucide-react';
 import type { ActivePromo } from '@/lib/active-promo';
-import { isFlashPromo } from '@/lib/active-promo';
+import { isAutoAppliedPromo, isFlashPromo } from '@/lib/active-promo';
 import { getPromoUi } from '@/lib/promo-i18n';
 import { pushPromoDataLayer } from '@/lib/promo-analytics';
 import { getClientSiteLocale, siteLocaleLang } from '@/lib/site-locale';
@@ -44,8 +44,10 @@ export default function PromoBookingBanner({ promo, widgetId }: PromoBookingBann
   }, [promo, widgetId, ui]);
 
   const instructions = ui.bannerInstructions(promo.eur);
+  const autoInstructions = ui.autoApplyBannerInstructions(promo.eur);
   const applyLabel =
     locale === 'es' ? 'Aplicar' : locale === 'nl' ? 'Toepassen' : locale === 'fr' ? 'Appliquer' : 'Apply';
+  const autoApply = isAutoAppliedPromo(promo.kind);
 
   return (
     <div
@@ -91,37 +93,43 @@ export default function PromoBookingBanner({ promo, widgetId }: PromoBookingBann
             )}
           </p>
 
-          <div className="mt-2.5 flex flex-wrap items-center gap-2">
-            <span className="text-xs font-medium text-gray-600">{ui.promoCode}</span>
-            <span className="rounded-md bg-white/80 px-2.5 py-1 font-mono text-sm font-bold tracking-wide text-gray-900 ring-1 ring-orange-200/80">
-              {promo.code}
-            </span>
-            <button
-              type="button"
-              onClick={copyCode}
-              className={
-                isFlashPromo(promo.kind)
-                  ? 'inline-flex items-center gap-1.5 rounded-lg bg-orange-600 px-3 py-1.5 text-xs font-semibold text-white shadow-sm transition hover:bg-orange-700'
-                  : 'inline-flex items-center gap-1.5 rounded-lg bg-emerald-600 px-3 py-1.5 text-xs font-semibold text-white shadow-sm transition hover:bg-emerald-700'
-              }
-            >
-              {copied ? <Check className="size-3.5" /> : <Copy className="size-3.5" />}
-              {copied ? ui.copied : ui.copy}
-            </button>
-          </div>
+          {autoApply ? (
+            <p className="mt-1 text-xs font-semibold text-orange-800">{ui.autoApplyPriceLine}</p>
+          ) : (
+            <div className="mt-2.5 flex flex-wrap items-center gap-2">
+              <span className="text-xs font-medium text-gray-600">{ui.promoCode}</span>
+              <span className="rounded-md bg-white/80 px-2.5 py-1 font-mono text-sm font-bold tracking-wide text-gray-900 ring-1 ring-orange-200/80">
+                {promo.code}
+              </span>
+              <button
+                type="button"
+                onClick={copyCode}
+                className={
+                  isFlashPromo(promo.kind)
+                    ? 'inline-flex items-center gap-1.5 rounded-lg bg-orange-600 px-3 py-1.5 text-xs font-semibold text-white shadow-sm transition hover:bg-orange-700'
+                    : 'inline-flex items-center gap-1.5 rounded-lg bg-emerald-600 px-3 py-1.5 text-xs font-semibold text-white shadow-sm transition hover:bg-emerald-700'
+                }
+              >
+                {copied ? <Check className="size-3.5" /> : <Copy className="size-3.5" />}
+                {copied ? ui.copied : ui.copy}
+              </button>
+            </div>
+          )}
 
           <p className="mt-2.5 flex items-start gap-1.5 text-xs leading-relaxed text-gray-700">
             <ArrowDown className="mt-0.5 size-3.5 shrink-0 text-orange-500" aria-hidden />
             <span>
-              {locale === 'en' ? (
-                <>
-                  Paste the code in the <strong className="text-gray-900">{ui.promoCode}</strong> field in
-                  the booking form below and tap <strong className="text-gray-900">{applyLabel}</strong> — the
-                  €{promo.eur}/guest discount is applied at checkout.
-                </>
-              ) : (
-                instructions
-              )}
+              {autoApply
+                ? autoInstructions
+                : locale === 'en'
+                  ? (
+                    <>
+                      Paste the code in the <strong className="text-gray-900">{ui.promoCode}</strong> field in
+                      the booking form below and tap <strong className="text-gray-900">{applyLabel}</strong> — the
+                      €{promo.eur}/guest discount is applied at checkout.
+                    </>
+                  )
+                  : instructions}
             </span>
           </p>
         </div>
