@@ -159,8 +159,8 @@ export const PROMO_HERO: Record<
   },
   lastcall: {
     src: '/images/optimized/lastcall-salvador-ibiza-oct2026.webp',
-    className: 'object-cover object-[center_38%]',
-    overlay: 'from-black/20 to-transparent',
+    className: 'object-cover object-center',
+    overlay: 'from-black/35 to-transparent',
   },
 };
 

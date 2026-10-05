@@ -139,6 +139,21 @@ export default function EarlyBirdPromoModal() {
                 </div>
               </div>
             ) : null}
+            {promo.kind === 'lastcall' ? (
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent px-3 pb-3 pt-10 sm:px-4 sm:pb-3.5">
+                <div className="flex flex-wrap items-center justify-center gap-2">
+                  <span className="rounded-full bg-amber-400 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-gray-900 shadow-md sm:text-xs">
+                    {promo.labelShort}
+                  </span>
+                  <span className="rounded-full bg-emerald-600 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-white shadow-md sm:text-xs">
+                    {ui.perGuestBadge(promo.eur)}
+                  </span>
+                  <span className="rounded-full bg-white/95 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wide text-gray-900 shadow-md sm:text-xs">
+                    {promo.validityShort}
+                  </span>
+                </div>
+              </div>
+            ) : null}
             <button
               type="button"
               onClick={dismiss}
