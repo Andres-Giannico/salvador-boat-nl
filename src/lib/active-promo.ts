@@ -52,7 +52,7 @@ const ENDSEASON10: { start: Date; end: Date } = {
   end: new Date(2026, 8, 30, 23, 59, 59, 999),
 };
 
-/** Last Call — €10 off auto-applied in widget (70 € adults), no promo code */
+/** Last Call — €10 off with promo code OCTFEST10 in widget checkout step */
 const LASTCALL10: { start: Date; end: Date } = {
   start: new Date(2026, 9, 1, 0, 0, 0, 0),
   end: new Date(2026, 9, 25, 23, 59, 59, 999),
@@ -75,9 +75,10 @@ export function isFlashPromo(kind: ActivePromoKind): boolean {
   );
 }
 
-/** Discount is applied automatically in Turbookings — no code to enter */
+/** Reserved — promos require entering a code in the Turbookings widget */
 export function isAutoAppliedPromo(kind: ActivePromoKind): boolean {
-  return kind === 'lastcall';
+  void kind;
+  return false;
 }
 
 function buildPromo(
@@ -95,7 +96,7 @@ export function getActivePromo(
   locale: SiteLocale = getSiteLocale()
 ): ActivePromo | null {
   if (inRange(now, LASTCALL10.start, LASTCALL10.end)) {
-    return buildPromo('lastcall', '', 10, locale);
+    return buildPromo('lastcall', 'OCTFEST10', 10, locale);
   }
   if (inRange(now, CHAMPION10.start, CHAMPION10.end)) {
     return buildPromo('champion', 'CHAMPION10', 10, locale);
